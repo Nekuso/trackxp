@@ -1,12 +1,14 @@
 import React from 'react';
-import { StyledApp } from './styles/app.styled';
+import { Router } from 'react-router-dom';
 
 
 function App() {
+
+
   return (
-    <StyledApp className="App">
-      <h1 className="hh1">TrackXp</h1>
-    </StyledApp>
+    <Router>
+      <GlobalStyle/>
+    </Router>
   );
 }
 
