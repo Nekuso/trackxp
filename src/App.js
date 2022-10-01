@@ -1,16 +1,22 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Homepage from './components/pages/Homepage/Homepage';
 import {GlobalStyle} from './styles/Global';
 
 
 function App() {
 
   return (
-    <Router>
+    <BrowserRouter>
       <GlobalStyle/>
       <Navbar/>
-    </Router>
+
+      <Routes>
+        <Route path="/" element={<Homepage/>}/>
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
