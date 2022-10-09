@@ -143,7 +143,7 @@ export const StyledHomepage = styled.div`
     @media screen and (min-width: 1024px) {
         .homepage__section {
             .hero__container {
-                width: 80vw;
+                width: 85vw;
                 .hero__text {
                     .hero__badge {
                         font-size: 1.2vw;

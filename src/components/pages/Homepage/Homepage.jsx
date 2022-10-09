@@ -1,11 +1,14 @@
 import React from 'react'
 import {StyledHomepage} from '../../../styles/Homepage.styled'
 import HeroImg from '../../../img/HeroImg.png'
+import Navbar from '../../Navbar';
 
 function Homepage() {
 
   return (
+    
     <StyledHomepage>
+        <Navbar/>
         <div className="homepage__section">
           <div className="hero__container">
             <div className="hero__text">
