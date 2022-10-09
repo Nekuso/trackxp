@@ -25,7 +25,7 @@ function Homepage() {
               <form className="tracking__input__container">
                 <input className="tracking__input" type="text" placeholder="Tracking Number"/>
                 <button className="tracking__input__button">
-                  <i class='bx bx-search-alt'/>
+                  <i className='bx bx-search-alt'/>
                 </button>
               </form>
             </div>

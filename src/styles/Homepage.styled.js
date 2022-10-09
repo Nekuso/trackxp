@@ -76,12 +76,18 @@ export const StyledHomepage = styled.div`
                         width: 15%;
                         height: 100%;
                         overflow: hidden;
+                        border-radius: 1.3rem;
+                        transition: all .2s ease-in-out;
+                        
+                        :hover {
+                            cursor: pointer;
+                            background: #FFFFFF59;
+                        }
 
                         i {
                             font-size: 1.8rem;
                         }
                     }
-
                 }
             }
 
@@ -91,7 +97,7 @@ export const StyledHomepage = styled.div`
                 align-items: center;
                 grid-area: image;
                 img {
-                    width: 80%;
+                    width: 30vh;
                 }
             }
         }
@@ -100,7 +106,92 @@ export const StyledHomepage = styled.div`
     
 
     @media screen and (min-width: 768px) {
-        // Need to fix media queries
+        .homepage__section {
+            .hero__container {
+                grid-template-areas:
+                    "text image"
+                    "text image"
+                ;
+
+                .hero__text {
+                    .hero__badge {
+                        font-size: 2vw;
+                    }
+
+                    .hero__title {
+                        font-size: 4vw;
+                    }
+
+                    .hero__description {
+                        font-size: 2vw;
+                    }
+                    .hero__input__coontainer {
+
+                    }
+                }
+
+                .hero__img {
+                    img {
+                        width: 80%;
+                        height: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .homepage__section {
+            .hero__container {
+                width: 80vw;
+                .hero__text {
+                    .hero__badge {
+                        font-size: 1.2vw;
+                    }
+
+                    .hero__title {
+                        font-size: 3.5vw;
+                    }
+
+                    .hero__description {
+                        font-size: 1.8vw;
+                    }
+                }
+
+                .hero__img {
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .homepage__section {
+            .hero__container {
+                width: 80vw;
+                .hero__text {
+                    .hero__badge {
+                        font-size: 1vw;
+                    }
+
+                    .hero__title {
+                        font-size: 3vw;
+                    }
+
+                    .hero__description {
+                        font-size: 1.6vw;
+                    }
+                }
+
+                .hero__img {
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
+        }
     }
 `;
 
