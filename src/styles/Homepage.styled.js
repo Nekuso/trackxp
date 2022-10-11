@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const StyledHomepage = styled.div`
+export const StyledHomePage = styled.div`
 
     .homepage__section {
         display: flex;
@@ -29,13 +29,15 @@ export const StyledHomepage = styled.div`
                     display: inline;
                     padding: .2rem 1.3rem;
                     border-radius: 2rem;
-                    font-size: 1rem;
+                    font-size: .8rem;
                     background: #FFFFFF59;
                 }
                 
                 .hero__title {
+                    font-weight: 900;
                     padding: .4rem 0;
                     font-size: 8vw;
+                    line-height: 1.2;
                 }
 
                 .hero__description {
@@ -115,7 +117,7 @@ export const StyledHomepage = styled.div`
 
                 .hero__text {
                     .hero__badge {
-                        font-size: 2vw;
+                        font-size: 1.8vw;
                     }
 
                     .hero__title {

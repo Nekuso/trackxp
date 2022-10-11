@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 import { StyledNavbar } from '../styles/Navbar.styled'
 
 function Navbar() {
@@ -25,8 +26,8 @@ function Navbar() {
         <ul
         className={navActive}
         >
-          <li><a href="/" className='Link' onClick={navToggle }>Login</a></li>
-          <li><a href="/" className='Link' onClick={navToggle }>Signup</a></li>
+          <li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
+          <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li>
         </ul>
 
         <button style={{

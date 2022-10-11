@@ -47,9 +47,6 @@ export const StyledNavbar = styled.nav`
                     font-weight: 500;
                     padding: 1rem;
                     color: #FFFF;
-                    &:hover {
-                        border-bottom: 3px solid #00000;
-                    }
                 }
             }
         }
@@ -136,9 +133,13 @@ export const StyledNavbar = styled.nav`
                 .Link {
                     font-size: 1rem;
                     font-weight: 500;
-                    &:hover {
-                        border-bottom: 3px solid #FFFF;
-                    }
+                }
+
+                .Signup{
+                    background: #FFFF;
+                    color: #000000;
+                    padding: .6rem 1.3rem;
+                    border-radius: 1rem;
                 }
             }
         }

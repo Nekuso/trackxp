@@ -1,13 +1,13 @@
 import React from 'react'
-import {StyledHomepage} from '../../../styles/Homepage.styled'
+import {StyledHomePage} from '../../../styles/HomePage.styled'
 import HeroImg from '../../../img/HeroImg.png'
 import Navbar from '../../Navbar';
 
-function Homepage() {
+function HomePage() {
 
   return (
     
-    <StyledHomepage>
+    <StyledHomePage>
         <Navbar/>
         <div className="homepage__section">
           <div className="hero__container">
@@ -38,8 +38,8 @@ function Homepage() {
             </div>
           </div>
         </div>
-    </StyledHomepage>
+    </StyledHomePage>
   )
 }
 
-export default Homepage;
+export default HomePage;
