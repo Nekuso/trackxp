@@ -57,6 +57,7 @@ export const StyledHomePage = styled.div`
                     border-radius: 1.3rem;
                     overflow: hidden;
                     
+                    
                     .tracking__input {
                         width: 85%;
                         height: 100%;

@@ -14,17 +14,19 @@ function Loginpage() {
                     <img src={LoginHero} alt="LoginHero" />
                 </div>
                 <div className="login__form__container">
-                    <h2>Welcome Back!</h2>
-                    <p>Welcome to TrackWash, please put your login credentials to start using the app
-                    </p>
-                    <form className="login__form">
-                        <h4>Email</h4>
-                        <input type="email" name="email" id="email" placeholder="Enter your email" />
-                        <h4>Password</h4>
-                        <input type="password" name="password" id="password" placeholder="Enter your password" />
-                    </form>
-                    <button type="submit">Login</button>
-                    <h3>Don't have an account? <Link to="/Signup">Signup</Link></h3>
+                    <div className="login__form__content">
+                        <h2>Welcome Back!</h2>
+                        <p>Welcome to TrackWash, please put your login credentials to start using the app
+                        </p>
+                        <form className="login__form">
+                            <h4>Email</h4>
+                            <input type="email" name="email" id="email" placeholder="Enter your email" />
+                            <h4>Password</h4>
+                            <input type="password" name="password" id="password" placeholder="Enter your password" />
+                        </form>
+                        <button type="submit">Login</button>
+                        <h3>Don't have an account? <Link to="/Signup">Signup</Link></h3>
+                    </div>
                 </div>
             </div>
         </div>
