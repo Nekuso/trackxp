@@ -1,7 +1,7 @@
 import React from 'react'
-import {StyledHomePage} from '../../../styles/HomePage.styled'
-import HeroImg from '../../../img/HeroImg.png'
-import Navbar from '../../Navbar';
+import {StyledHomePage} from '../../styles/HomePage.styled'
+import HeroImg from '../../img/HeroImg.png'
+import Navbar from '../Navbar';
 
 function HomePage() {
 

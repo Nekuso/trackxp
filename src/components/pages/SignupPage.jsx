@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledSignupPage } from '../../../styles/SignupPage.stlyed'
+import { StyledSignupPage } from '../../styles/SignupPage.stlyed'
 
 function SignupPage() {
   return (

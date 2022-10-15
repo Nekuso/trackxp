@@ -152,9 +152,35 @@ export const StyledLoginPage = styled.div`
     @media screen and (min-width: 1024px) {
         .login__section {
             .login__container {
+                grid-template-columns: 55% 40%;
                 .login__form__container {
                     .login__form__content {
-                        
+                        h2 {
+                            font-size: 2.8vw;
+                        }
+
+                        p {
+                            margin: 0 auto;
+                            width: 75%;
+                            font-size: 1vw;
+                        }
+
+                        .login__form {
+                            h4 {
+                                font-size: 1.3vw;
+                            }
+
+                            input {
+                                font-size: 1vw;
+                                padding: 1rem;
+                            }
+                        }
+
+                        button {
+                            margin: 2rem 0 1rem 0;
+                            font-size: 1.3vw;
+                            padding: .8rem;
+                        }
                     }
                 }
             }
