@@ -1,8 +1,8 @@
-import React from 'react'
-import {StyledLoginPage} from '../../styles/LoginPage.styled'
-import LoginHero from '../../img/LoginHero.png'
-import Navbar from '../Navbar'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import {StyledLoginPage} from '../../styles/LoginPage.styled';
+import LoginHero from '../../img/LoginHero.png';
+import Navbar from '../Navbar';
+import { Link } from 'react-router-dom';
 
 function Loginpage() {
     return (
