@@ -76,6 +76,12 @@ export const StyledLoginPage = styled.div`
                         font-size: 5vw;
                         font-weight: 700;
                         margin: 1rem 0;
+                        transition: all .3s ease-in-out;
+
+                        &:hover {
+                            cursor: pointer;
+                            background: #5c79e2;
+                        }
                     }
                     
                     h3 {
@@ -152,7 +158,8 @@ export const StyledLoginPage = styled.div`
     @media screen and (min-width: 1024px) {
         .login__section {
             .login__container {
-                grid-template-columns: 55% 40%;
+                width: 70vw;
+                grid-template-columns: 50% 40%;
                 .login__form__container {
                     .login__form__content {
                         h2 {
