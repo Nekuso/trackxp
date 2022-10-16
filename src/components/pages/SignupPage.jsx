@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { StyledSignupPage } from '../../styles/SignupPage.stlyed';
+import { StyledSignupPage } from '../../styles/SignupPage.styled';
 import LoginHero from '../../img/LoginHero.png';
 import Navbar from '../Navbar';
 

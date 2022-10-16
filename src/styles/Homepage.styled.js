@@ -146,7 +146,9 @@ export const StyledHomePage = styled.div`
     @media screen and (min-width: 1024px) {
         .homepage__section {
             .hero__container {
+                justify-content: space-between;
                 width: 85vw;
+                grid-template-columns: 50% 45%;
                 .hero__text {
                     .hero__badge {
                         font-size: 1.2vw;
@@ -157,7 +159,7 @@ export const StyledHomePage = styled.div`
                     }
 
                     .hero__description {
-                        font-size: 1.8vw;
+                        font-size: 1.4vw;
                     }
                 }
 
@@ -175,6 +177,7 @@ export const StyledHomePage = styled.div`
             .hero__container {
                 width: 80vw;
                 .hero__text {
+                    width: 90%;
                     .hero__badge {
                         font-size: 1vw;
                     }
@@ -182,9 +185,9 @@ export const StyledHomePage = styled.div`
                     .hero__title {
                         font-size: 3vw;
                     }
-
+                    
                     .hero__description {
-                        font-size: 1.6vw;
+                        font-size: 1.3vw;
                     }
                 }
 
