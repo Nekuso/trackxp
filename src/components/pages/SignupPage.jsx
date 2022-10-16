@@ -5,6 +5,7 @@ import LoginHero from '../../img/LoginHero.png';
 import Navbar from '../Navbar';
 
 function SignupPage() {
+    
   return (
     <StyledSignupPage>
         <Navbar/>
