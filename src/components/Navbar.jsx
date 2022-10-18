@@ -33,7 +33,9 @@ function Navbar() {
         <button style={{
             position: btnHam ? "fixed" : "relative",
             top: btnHam ? 25 : 0,
-            right: btnHam ? 25 : 0}} onClick={navToggle} className={btnActive}
+            right: btnHam ? 25 : 0}} 
+            onClick={navToggle} 
+            className={btnActive}
             >
             <span></span>
             <span></span>

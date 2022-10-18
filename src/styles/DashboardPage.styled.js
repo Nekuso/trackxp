@@ -6,16 +6,71 @@ export const StyledDashboardPage = styled.div`
         height: 100vh;
 
         .dashboard__wrapper {
-            display: flex;
+            display: grid;
             justify-content: center;
-            width: 100%;
-
+            
             .dashboard__nav {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                width: 100%;
                 padding: 1rem;
+                width: 100vw;
+
+                .is-Active {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    z-index: 999;
+                }
+
+                .nav__hamburger{
+                    cursor: pointer;  
+                    display: grid;
+                    position: relative;
+                    z-index: 101;
+                    
+                    user-select: none;
+                
+                    appearance: none;
+                    border: none;
+                    outline: none;
+                    background: none;
+                
+                    span{
+                        display: block;
+                        position: relative;
+                        background: #000000;
+                        width: 33px;
+                        height: 4px;
+                        margin-bottom: 5px;
+                        border-radius: 2px;
+                        transform-origin: 0,0;
+                        transition: .4s;
+                    }
+                }
+
+                .is-active span:nth-child(1){
+                    transform: translate(0px, 10px) rotate(45deg);
+                    background: #000000;
+                }
+                .is-active span:nth-child(2){
+                    opacity: 0;
+                    transform: translateX(10px);
+                }
+                .is-active span:nth-child(3){
+                    transform: translate(0px, -8px) rotate(-45deg);
+                    background: #000000;
+                    width: 33px;
+                }
+                
+                span:nth-child(2){
+                    justify-self: start;
+                    width: 23px;
+                }
+                span:nth-child(3){
+                    justify-self: start;
+                    width: 13px;
+                }
 
                 a {
                     h2 {
@@ -38,6 +93,11 @@ export const StyledDashboardPage = styled.div`
                 }
             }
         }
+    }
+
+
+    @media screen and (min-width: 768px) {
+        
     }
 
 `
