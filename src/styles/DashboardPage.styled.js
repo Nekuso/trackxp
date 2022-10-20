@@ -81,6 +81,7 @@ export const StyledDashboardPage = styled.div`
 
                 .hamburger__wrapper {
                     display: none;
+                    transition: all .4s ease-in-out;
                 }
 
                 .wrapper__active {
@@ -94,12 +95,12 @@ export const StyledDashboardPage = styled.div`
                     height: 100vh;
                     z-index: 30;
                     background #3030301f;
+                    transition: all .4s ease-in-out;
                 }
 
                 .hamburger__content {
                     display: flex;
                     justify-content: center;
-                    align-items: center;
                     width: 60vw;
                     height: 100vh;
                     background: #303030e7;
@@ -112,7 +113,20 @@ export const StyledDashboardPage = styled.div`
                     z-index: 50;
                     transition: .4s ease-in-out;
                     .hamburger__links {
-                        
+                        margin-top: 10vh;
+                        li {
+                            display: flex;
+                            align-items: center;
+
+                            i {
+                                margin-right: 1rem;
+                                font-size: 1.5rem;
+                            }
+                            .link {
+                                margin: 1rem 0;
+                                font-size: 1.3rem;
+                            }
+                        }
                     }
                 }
 

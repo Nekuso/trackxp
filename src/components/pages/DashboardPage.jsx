@@ -42,11 +42,26 @@ function DashboardPage() {
                     <div className={wrapperActive} onClick={navToggle}/>
                     <div className={navActive}>
                         <ul className="hamburger__links">
-                            <li><Link onClick={navToggle} to="/Dashboard">Dashboard</Link></li>
-                            <li><Link onClick={navToggle} to="/Dashboard">Orders</Link></li>
-                            <li><Link onClick={navToggle} to="/Dashboard">Completed</Link></li>
-                            <li><Link onClick={navToggle} to="/Dashboard">Paid</Link></li>
-                            <li><Link onClick={navToggle} to="/Dashboard">Unpaid</Link></li>
+                            <li>
+                                <i className='bx bxs-dashboard'></i>
+                                <Link className="link" onClick={navToggle} to="/Dashboard">Dashboard</Link>
+                            </li>
+                            <li>
+                                <i className='bx bxs-receipt' ></i>
+                                <Link className="link" onClick={navToggle} to="/Dashboard">Orders</Link>
+                            </li>
+                            <li>
+                                <i className='bx bxs-badge-check' ></i>
+                                <Link className="link" onClick={navToggle} to="/Dashboard">Completed</Link>
+                            </li>
+                            <li>
+                                <i className='bx bx-money'></i>
+                                <Link className="link" onClick={navToggle} to="/Dashboard">Paid</Link>
+                            </li>
+                            <li>
+                                <i className='bx bx-money-withdraw' ></i>
+                                <Link className="link" onClick={navToggle} to="/Dashboard">Unpaid</Link>
+                            </li>
                         </ul>
                     </div>
 
