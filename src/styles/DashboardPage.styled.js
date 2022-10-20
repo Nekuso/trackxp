@@ -146,6 +146,21 @@ export const StyledDashboardPage = styled.div`
                     .nav__hamburger {
                         display: none;
                     }
+                    .hamburger__wrapper{
+                        display: none;
+                    }
+    
+                    .wrapper__active {
+                        display: none;
+                    }
+    
+                    .hamburger__content{
+                        display: none;
+                    }
+    
+                    .nav__active {
+                        display: none;
+                    }
                 }
             }
         }

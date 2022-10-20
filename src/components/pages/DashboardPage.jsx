@@ -42,11 +42,11 @@ function DashboardPage() {
                     <div className={wrapperActive} onClick={navToggle}/>
                     <div className={navActive}>
                         <ul className="hamburger__links">
-                            <li><Link to="Dashboard">Dashboard</Link></li>
-                            <li><Link to="Dashboard">Orders</Link></li>
-                            <li><Link to="Dashboard">Completed</Link></li>
-                            <li><Link to="Dashboard">Paid</Link></li>
-                            <li><Link to="Dashboard">Unpaid</Link></li>
+                            <li><Link onClick={navToggle} to="/Dashboard">Dashboard</Link></li>
+                            <li><Link onClick={navToggle} to="/Dashboard">Orders</Link></li>
+                            <li><Link onClick={navToggle} to="/Dashboard">Completed</Link></li>
+                            <li><Link onClick={navToggle} to="/Dashboard">Paid</Link></li>
+                            <li><Link onClick={navToggle} to="/Dashboard">Unpaid</Link></li>
                         </ul>
                     </div>
 
