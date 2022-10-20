@@ -131,7 +131,7 @@ export const StyledNavbar = styled.nav`
             li {
                 margin: 0.5rem 1.5rem;
                 .Link {
-                    font-size: 1rem;
+                    font-size: .7rem;
                     font-weight: 500;
                 }
 
@@ -160,7 +160,7 @@ export const StyledNavbar = styled.nav`
         .nav__links {
             li{
                 .Link {
-                    font-size: 1.2vw;
+                    font-size: 1vw;
                 }
             }
         }

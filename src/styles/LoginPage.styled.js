@@ -64,25 +64,27 @@ export const StyledLoginPage = styled.div`
                             padding: .8rem 1.4rem;
                             color: #000000;
                         }
-                    }
-                    
-                    button {
-                        background: #4b65c2;
-                        width: 100%;
-                        padding: 1rem 2rem;
-                        color: #FFFFFFF;
-                        border: none;
-                        border-radius: 1.8rem;
-                        font-size: 5vw;
-                        font-weight: 700;
-                        margin: 1rem 0;
-                        transition: all .3s ease-in-out;
 
-                        &:hover {
-                            cursor: pointer;
-                            background: #5c79e2;
+                        button {
+                            background: #4b65c2;
+                            width: 100%;
+                            padding: 1rem 2rem;
+                            color: #FFFFFFF;
+                            border: none;
+                            border-radius: 1.8rem;
+                            font-size: 5vw;
+                            font-weight: 700;
+                            margin: 1rem 0;
+                            transition: all .3s ease-in-out;
+    
+                            &:hover {
+                                cursor: pointer;
+                                background: #5c79e2;
+                            }
+                        
                         }
                     }
+                    
                     
                     h3 {
                         text-align: center;
@@ -138,12 +140,11 @@ export const StyledLoginPage = styled.div`
                                 font-size: 1.3vw;
                                 padding: .7rem 1rem;
                             }
-                        }
-                        
-                        button {
-                            margin: .6rem 0;
-                            font-size: 1.6vw;
-                            padding: .6rem 0;
+                            button {
+                                margin: .6rem 0;
+                                font-size: 1.6vw;
+                                padding: .6rem 0;
+                            }
                         }
                         
                         h3 {
@@ -181,12 +182,11 @@ export const StyledLoginPage = styled.div`
                                 font-size: 1vw;
                                 padding: 1rem;
                             }
-                        }
-
-                        button {
-                            margin: 2rem 0 1rem 0;
-                            font-size: 1.3vw;
-                            padding: .8rem;
+                            button {
+                                margin: 2rem 0 1rem 0;
+                                font-size: 1.3vw;
+                                padding: .8rem;
+                            }
                         }
                     }
                 }

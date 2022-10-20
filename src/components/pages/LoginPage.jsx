@@ -23,8 +23,8 @@ function Loginpage() {
                             <input type="email" name="email" id="email" placeholder="Enter your email" />
                             <h4>Password</h4>
                             <input type="password" name="password" id="password" placeholder="Enter your password" />
+                            <button type="submit">Login</button>
                         </form>
-                        <button type="submit">Login</button>
                         <h3>Don't have an account? <Link to="/Signup">Signup</Link></h3>
                     </div>
                 </div>

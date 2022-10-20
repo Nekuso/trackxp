@@ -15,6 +15,7 @@ export const StyledDashboardPage = styled.div`
                 align-items: center;
                 padding: 1rem;
                 width: 100vw;
+                position: relative;
 
                 .is-Active {
                     position: fixed;
@@ -51,7 +52,7 @@ export const StyledDashboardPage = styled.div`
 
                 .is-active span:nth-child(1){
                     transform: translate(0px, 10px) rotate(45deg);
-                    background: #000000;
+                    background: #FFFFFF;
                 }
                 .is-active span:nth-child(2){
                     opacity: 0;
@@ -59,7 +60,7 @@ export const StyledDashboardPage = styled.div`
                 }
                 .is-active span:nth-child(3){
                     transform: translate(0px, -8px) rotate(-45deg);
-                    background: #000000;
+                    background: #FFFFFF;
                     width: 33px;
                 }
                 
@@ -72,10 +73,50 @@ export const StyledDashboardPage = styled.div`
                     width: 13px;
                 }
 
-                a {
+                .home__logo {
                     h2 {
                         color: #000000;
                     }
+                }
+
+                .hamburger__wrapper {
+                    display: none;
+                }
+
+                .wrapper__active {
+                    display: flex;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: 30;
+                    background #3030301f;
+                }
+
+                .hamburger__content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 60vw;
+                    height: 100vh;
+                    background: #303030e7;
+                    display: flex;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: -100%;
+                    bottom: 0;
+                    z-index: 50;
+                    transition: .4s ease-in-out;
+                    .hamburger__links {
+                    }
+                }
+
+                .nav__active {
+                    left: 0;
                 }
 
                 button {
@@ -85,6 +126,7 @@ export const StyledDashboardPage = styled.div`
                     padding: .5rem;
                     border: none;
                     background: none;
+                    cursor: pointer;
                     i {
                         font-weight: 600;
                         font-size: 2rem;
@@ -97,7 +139,15 @@ export const StyledDashboardPage = styled.div`
 
 
     @media screen and (min-width: 768px) {
-        
+        .dashboard__section {
+            .dashboard__wrapper {
+                .dashboard__nav {
+                    .nav__hamburger {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 
 `
