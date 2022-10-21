@@ -54,15 +54,15 @@ function DashboardPage() {
                             </li>
                             <li>
                                 <i className='bx bxs-badge-check' ></i>
-                                <Link className="link" onClick={navToggle} to="/Home">Completed</Link>
+                                <Link className="link" onClick={navToggle} to="/Home/Completed">Completed</Link>
                             </li>
                             <li>
                                 <i className='bx bx-money'></i>
-                                <Link className="link" onClick={navToggle} to="/Home">Paid</Link>
+                                <Link className="link" onClick={navToggle} to="/Home/Paid">Paid</Link>
                             </li>
                             <li>
                                 <i className='bx bx-money-withdraw' ></i>
-                                <Link className="link" onClick={navToggle} to="/Home">Unpaid</Link>
+                                <Link className="link" onClick={navToggle} to="/Home/Unpaid">Unpaid</Link>
                             </li>
                         </ul>
                     </div>

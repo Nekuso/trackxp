@@ -20,19 +20,19 @@ function Sidebar() {
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Home">
+            <Link className="link" to="/Home/Completed">
               <i className='bx bxs-badge-check' ></i>
               Completed
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Home">
+            <Link className="link" to="/Home/Paid">
               <i className='bx bx-money'></i>
               Paid
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Home">
+            <Link className="link" to="/Home/Unpaid">
               <i className='bx bx-money-withdraw' ></i>
               Unpaid
             </Link>
