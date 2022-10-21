@@ -1,8 +1,11 @@
 import React from 'react'
+import { StyledMain } from '../styles/Main.styled'
 
 function Main() {
   return (
-    <div>Main</div>
+   <StyledMain className='main__container'>
+      Main
+   </StyledMain>
   )
 }
 

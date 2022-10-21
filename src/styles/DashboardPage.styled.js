@@ -6,8 +6,11 @@ export const StyledDashboardPage = styled.div`
         height: 100vh;
 
         .dashboard__wrapper {
-            display: grid;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
+            height: 100%;
+            width: 100%;
             
             .dashboard__nav {
                 display: flex;
@@ -113,7 +116,8 @@ export const StyledDashboardPage = styled.div`
                     z-index: 50;
                     transition: .4s ease-in-out;
                     .hamburger__links {
-                        margin-top: 10vh;
+                        margin: 10vh 1rem 0 1rem;
+                        padding: .5rem;
                         li {
                             display: flex;
                             align-items: center;
@@ -149,6 +153,23 @@ export const StyledDashboardPage = styled.div`
                     }
                 }
             }
+
+            .dashboard__main {
+                display: grid;
+                width: 100%;
+                height: 100%;
+                background: red;
+                .sidebar__container {
+                    display: none;
+                }
+                .main__container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 
@@ -157,6 +178,7 @@ export const StyledDashboardPage = styled.div`
         .dashboard__section {
             .dashboard__wrapper {
                 .dashboard__nav {
+                    padding: .2rem 2rem;
                     .nav__hamburger {
                         display: none;
                     }
@@ -175,6 +197,27 @@ export const StyledDashboardPage = styled.div`
                     .nav__active {
                         display: none;
                     }
+                }
+
+                .dashboard__main {
+                    display: grid;
+                    justify-content: space-between;
+                    align-items: center;
+                    grid-template-columns: 15% 85%;
+                    background: white;
+                    .sidebar__container {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        // background: purple;
+                    }
+                    .main__container {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        background: green;
                 }
             }
         }

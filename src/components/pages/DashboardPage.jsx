@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import {StyledDashboardPage} from '../../styles/DashboardPage.styled';
+import Sidebar from '../Sidebar';
+import Main from '../Main';
 
 function DashboardPage() {
     const [navActive, setNavActive] = useState("hamburger__content");
@@ -72,7 +74,8 @@ function DashboardPage() {
                 </div>
 
                 <div className="dashboard__main">
-
+                    <Sidebar/>
+                    <Main/>
                 </div>
             </div>
         </div>
