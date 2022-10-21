@@ -7,6 +7,14 @@ export const StyledSidebar = styled.div`
         width: 100%;
         height: 100%;
         overflow: hidden;
+
+        h4 {
+            color: #000000;
+            width: 80%;
+            margin: 0 auto;
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
         li {
             display: flex;
             flex-direction: column;

@@ -6,6 +6,7 @@ function Sidebar() {
   return (
     <StyledSidebar className="sidebar__container">
       <ul className="sidebar__links">
+        <h4>Menu</h4>
         <li>
             <Link className="link" to="/Dashboard">
               <i className='bx bxs-dashboard'></i>
