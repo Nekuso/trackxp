@@ -178,7 +178,7 @@ export const StyledDashboardPage = styled.div`
         .dashboard__section {
             .dashboard__wrapper {
                 .dashboard__nav {
-                    padding: .2rem 2rem;
+                    padding: .5rem 2rem;
                     .nav__hamburger {
                         display: none;
                     }
@@ -203,12 +203,16 @@ export const StyledDashboardPage = styled.div`
                     display: grid;
                     justify-content: space-between;
                     align-items: center;
-                    grid-template-columns: 15% 85%;
+                    grid-template-columns: 22% 78%;
                     background: white;
                     .sidebar__container {
                         display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
                         width: 100%;
                         height: 100%;
+                        border-right: .5px solid #00000023;
+                        border-top: .5px solid #00000023;
                         // background: purple;
                     }
                     .main__container {
@@ -217,7 +221,18 @@ export const StyledDashboardPage = styled.div`
                         align-items: center;
                         width: 100%;
                         height: 100%;
-                        background: green;
+                        border-top: .5px solid #00000023;
+                        // background: green;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .dashboard__section {
+            .dashboard__wrapper {
+                .dashboard__main {
+                    grid-template-columns: 15% 85%;
                 }
             }
         }

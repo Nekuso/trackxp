@@ -37,6 +37,17 @@ function Sidebar() {
             </Link>
         </li>
     </ul>
+
+    <div className="other__container">
+      <a className="other__link" href="/">
+        <i className='bx bx-question-mark'></i>
+        FAQ
+      </a>
+      <a className="other__link" href="/">
+        <i className='bx bx-log-out'></i>
+        Logout
+      </a>
+    </div>
     </StyledSidebar>
   )
 }
