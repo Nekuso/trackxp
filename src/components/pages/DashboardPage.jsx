@@ -46,28 +46,28 @@ function DashboardPage() {
                         <ul className="hamburger__links">
                             <li>
                                 <i className='bx bxs-dashboard'></i>
-                                <Link className="link" onClick={navToggle} to="/Dashboard">Dashboard</Link>
+                                <Link className="link" onClick={navToggle} to="/Home">Dashboard</Link>
                             </li>
                             <li>
                                 <i className='bx bxs-receipt' ></i>
-                                <Link className="link" onClick={navToggle} to="/Dashboard">Orders</Link>
+                                <Link className="link" onClick={navToggle} to="/Home/Orders">Orders</Link>
                             </li>
                             <li>
                                 <i className='bx bxs-badge-check' ></i>
-                                <Link className="link" onClick={navToggle} to="/Dashboard">Completed</Link>
+                                <Link className="link" onClick={navToggle} to="/Home">Completed</Link>
                             </li>
                             <li>
                                 <i className='bx bx-money'></i>
-                                <Link className="link" onClick={navToggle} to="/Dashboard">Paid</Link>
+                                <Link className="link" onClick={navToggle} to="/Home">Paid</Link>
                             </li>
                             <li>
                                 <i className='bx bx-money-withdraw' ></i>
-                                <Link className="link" onClick={navToggle} to="/Dashboard">Unpaid</Link>
+                                <Link className="link" onClick={navToggle} to="/Home">Unpaid</Link>
                             </li>
                         </ul>
                     </div>
 
-                    <a href="/" className="home__logo"><h2>TrackXP</h2></a>
+                    <a href="/" className="home__logo"><h2>Track<mark>XP</mark></h2></a>
                     <button onClick={darkToggle}>
                         <i className={darkActive}></i>
                     </button>

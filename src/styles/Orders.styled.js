@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const StyledMain = styled.div`
-    * {
+export const StyledOrders = styled.div`
+    h1 {
         color: black;
     }
-
-`;
+`

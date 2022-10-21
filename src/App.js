@@ -19,7 +19,7 @@ function App() {
             <Route index element={<HomePage/>}/>
             <Route path="Login" element={<LoginPage/>}/>
             <Route path="Signup" element={<SignupPage/>}/>
-            <Route path="Dashboard" element={<DashboardPage/>}/>
+            <Route path="Home/*" element={<DashboardPage/>}/>
           </Route>
         </Routes>
       </div>

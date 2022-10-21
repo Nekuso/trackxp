@@ -79,6 +79,11 @@ export const StyledDashboardPage = styled.div`
                 .home__logo {
                     h2 {
                         color: #000000;
+
+                        mark {
+                            background: none;
+                            color: #5773db;
+                        }
                     }
                 }
 

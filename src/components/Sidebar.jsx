@@ -8,31 +8,31 @@ function Sidebar() {
       <ul className="sidebar__links">
         <h4>Menu</h4>
         <li>
-            <Link className="link" to="/Dashboard">
+            <Link className="link" to="/Home">
               <i className='bx bxs-dashboard'></i>
                 Dashboard
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Dashboard">
+            <Link className="link" to="/Home/Orders">
               <i className='bx bxs-receipt' ></i>
               Orders
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Dashboard">
+            <Link className="link" to="/Home">
               <i className='bx bxs-badge-check' ></i>
               Completed
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Dashboard">
+            <Link className="link" to="/Home">
               <i className='bx bx-money'></i>
               Paid
             </Link>
         </li>
         <li>
-            <Link className="link" to="/Dashboard">
+            <Link className="link" to="/Home">
               <i className='bx bx-money-withdraw' ></i>
               Unpaid
             </Link>
