@@ -153,8 +153,9 @@ export const StyledDashboardPage = styled.div`
                     cursor: pointer;
                     i {
                         font-weight: 600;
-                        font-size: 2rem;
+                        font-size: 1.8rem;
                         color: #000000;
+                        transition: all .4s ease-in-out;
                     }
                 }
             }
@@ -182,7 +183,7 @@ export const StyledDashboardPage = styled.div`
         .dashboard__section {
             .dashboard__wrapper {
                 .dashboard__nav {
-                    padding: .5rem 2rem;
+                    padding: .3rem 2rem;
                     .nav__hamburger {
                         display: none;
                     }

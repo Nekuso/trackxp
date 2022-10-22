@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey: "AIzaSyBhyxaw9_F-2kI5Ua16_M5F4He5NfN9vPM",
   authDomain: "trackxp-3318a.firebaseapp.com",
   projectId: "trackxp-3318a",
   storageBucket: "trackxp-3318a.appspot.com",
@@ -10,3 +12,4 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth();

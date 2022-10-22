@@ -84,8 +84,13 @@ export const StyledLoginPage = styled.div`
                         
                         }
                     }
-                    
-                    
+                    span {
+                        p {
+                            text-align: center;
+                            color: red;
+                        }
+                    }
+
                     h3 {
                         text-align: center;
                         font-size: 4.5vw;
@@ -183,7 +188,7 @@ export const StyledLoginPage = styled.div`
                                 padding: 1rem;
                             }
                             button {
-                                margin: 2rem 0 1rem 0;
+                                margin: 1rem 0 1rem 0;
                                 font-size: 1.3vw;
                                 padding: .8rem;
                             }

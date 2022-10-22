@@ -1,10 +1,33 @@
-import React from 'react';
+import { React, useState }from 'react';
 import {StyledLoginPage} from '../../styles/LoginPage.styled';
 import LoginHero from '../../img/LoginHero.png';
 import Navbar from '../Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 function Loginpage() {
+    const [error, setError] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user);
+            navigate("/Home");
+        })
+        .catch((error) => {
+            setError(true)
+        });
+    };
+
     return (
     <StyledLoginPage>
         <Navbar/>
@@ -18,13 +41,25 @@ function Loginpage() {
                         <h2>Welcome Back!</h2>
                         <p>Welcome to TrackWash, please put your login credentials to start using the app
                         </p>
-                        <form className="login__form">
+                        <form className="login__form" onSubmit={handleLogin}>
                             <h4>Email</h4>
-                            <input type="email" name="email" id="email" placeholder="Enter your email" />
+                            <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Enter your email" 
+                            onChange={e=>setEmail(e.target.value)} />
                             <h4>Password</h4>
-                            <input type="password" name="password" id="password" placeholder="Enter your password" />
+                            <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Enter your password" 
+                            onChange={e=>setPassword(e.target.value)} />
+
                             <button type="submit">Login</button>
                         </form>
+                        {error && <span className="error"><p>Invalid Credentials!</p></span>}
                         <h3>Don't have an account? <Link to="/Signup">Signup</Link></h3>
                     </div>
                 </div>
