@@ -1,10 +1,11 @@
-import { React, useState }from 'react';
+import { React, useState,useContext }from 'react';
 import {StyledLoginPage} from '../../styles/LoginPage.styled';
 import LoginHero from '../../img/LoginHero.png';
 import Navbar from '../Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { AuthContext } from '../../context/AuthContext';
 
 function Loginpage() {
     const [error, setError] = useState(false);
@@ -13,6 +14,8 @@ function Loginpage() {
 
     const navigate = useNavigate();
 
+    const {dispatch} = useContext(AuthContext)
+
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -20,8 +23,9 @@ function Loginpage() {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+            dispatch({type: "LOGIN", payload: user})
             console.log(user);
-            navigate("/Home");
+            navigate("/home");
         })
         .catch((error) => {
             setError(true)
@@ -42,6 +46,7 @@ function Loginpage() {
                         <p>Welcome to TrackWash, please put your login credentials to start using the app
                         </p>
                         <form className="login__form" onSubmit={handleLogin}>
+
                             <h4>Email</h4>
                             <input 
                             type="email" 
@@ -49,6 +54,7 @@ function Loginpage() {
                             id="email" 
                             placeholder="Enter your email" 
                             onChange={e=>setEmail(e.target.value)} />
+
                             <h4>Password</h4>
                             <input 
                             type="password" 
