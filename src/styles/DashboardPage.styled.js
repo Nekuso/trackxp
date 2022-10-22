@@ -163,7 +163,6 @@ export const StyledDashboardPage = styled.div`
                 display: grid;
                 width: 100%;
                 height: 100%;
-                background: red;
                 .sidebar__container {
                     display: none;
                 }
