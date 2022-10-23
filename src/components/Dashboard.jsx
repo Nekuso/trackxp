@@ -5,7 +5,9 @@ import {StyledDashboard} from "../styles/Dashboard.styled";
 function Dashbooard() {
   return (
     <StyledDashboard>
-      <h2>Dashboard</h2>
+      <div className="dashboard__section">
+        
+      </div>
     </StyledDashboard>
   )
 }

@@ -190,8 +190,8 @@ export const StyledNavbar = styled.nav`
         }
         .nav__links {
             .nav__dash__button {
-                font-size: 1rem;
-                padding: .8rem 1.2rem;
+                font-size: .8rem;
+                padding: .8rem 1rem;
             }
             li{
                 .Link {
