@@ -14,6 +14,17 @@ export const StyledNavbar = styled.nav`
     padding: 2rem 1rem;
 
     .nav__links {
+        .dash__nav__containe {
+            .nav__dash__button {
+                background: #FFFF;
+                color: #000000;
+                padding: .6rem 1.3rem;
+                border: none;
+                border-radius: 1rem;
+                text-align: center;
+            }
+        }
+
         li {
             .Link {
                 padding: .3rem 0;
@@ -37,6 +48,18 @@ export const StyledNavbar = styled.nav`
             bottom: 0;
             padding: 5rem 0;
             z-index: 100;
+
+            .dash__nav__container {
+                margin: 3rem;
+                text-align: center;
+                .nav__dash__button {
+                    cursor: pointer;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    padding: 1rem;
+                    color: #FFFF;
+                }
+            }
             
             li {
                 margin: 3rem;
@@ -127,6 +150,14 @@ export const StyledNavbar = styled.nav`
             justify-content: flex-end;
             width: 70%;
             position: relative;
+
+            .nav__dash__button {
+                background: #FFFF;
+                color: #000000;
+                border: none;
+                padding: .8rem 1rem;
+                border-radius: 1rem;
+            }
     
             li {
                 margin: 0.5rem 1.5rem;
@@ -158,6 +189,10 @@ export const StyledNavbar = styled.nav`
             width: 10vw;
         }
         .nav__links {
+            .nav__dash__button {
+                font-size: 1rem;
+                padding: .8rem 1.2rem;
+            }
             li{
                 .Link {
                     font-size: 1vw;

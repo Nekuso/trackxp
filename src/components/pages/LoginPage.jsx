@@ -30,6 +30,9 @@ function Loginpage() {
         .catch((error) => {
             setError(true)
         });
+
+        setEmail("");
+        setPassword("");
     };
 
     return (

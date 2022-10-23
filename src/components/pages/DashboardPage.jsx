@@ -67,7 +67,7 @@ function DashboardPage() {
                         </ul>
                     </div>
 
-                    <a href="/" className="home__logo"><h2>Track<mark>XP</mark></h2></a>
+                    <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
                     <button onClick={darkToggle}>
                         <i className={darkActive}></i>
                     </button>
@@ -83,4 +83,4 @@ function DashboardPage() {
   )
 }
 
-export default DashboardPage
+export default DashboardPage;

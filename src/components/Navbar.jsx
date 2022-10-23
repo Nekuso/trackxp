@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import { StyledNavbar } from '../styles/Navbar.styled'
 
 function Navbar() {
@@ -18,6 +19,8 @@ function Navbar() {
     btnHam === false ? setBtnHam(true) : setBtnHam(false);
   }
 
+  const { currentUser } = useContext(AuthContext);
+
   return (
 
     <StyledNavbar>
@@ -26,8 +29,12 @@ function Navbar() {
         <ul
         className={navActive}
         >
-          <li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
-          <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li>
+          {
+            currentUser ? <div className="dash__nav__container"><Link to="/Home" className="nav__dash__button">Dashboard</Link></div>
+            : <><li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
+            <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li></>
+          }
+          
         </ul>
 
         <button style={{
