@@ -1,13 +1,17 @@
 import React from 'react'
 import {StyledDashboard} from "../styles/Dashboard.styled";
+import Widget from './Widget';
 
 
 function Dashbooard() {
   return (
     <StyledDashboard>
-      <div className="dashboard__section">
-        
-      </div>
+      <h1>Dashboard</h1>
+        <div className="widgets">
+          <Widget/>
+          <Widget/>
+          <Widget/>
+        </div>
     </StyledDashboard>
   )
 }

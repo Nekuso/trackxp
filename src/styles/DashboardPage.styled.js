@@ -170,7 +170,7 @@ export const StyledDashboardPage = styled.div`
                 .main__container {
                     display: flex;
                     justify-content: center;
-                    align-items: center;
+                    // align-items: center;
                     width: 100%;
                     height: 100%;
                 }
@@ -223,7 +223,7 @@ export const StyledDashboardPage = styled.div`
                     .main__container {
                         display: flex;
                         justify-content: center;
-                        align-items: center;
+                        // align-items: center;
                         width: 100%;
                         height: 100%;
                         border-top: .5px solid #00000023;
