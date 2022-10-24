@@ -9,7 +9,7 @@ function Widget() {
           <h3 className="top__title">Orders</h3>
           <div className="percentage">
             <i className='bx bxs-up-arrow'></i>
-            <p>20%</p>
+            <p>+20%</p>
           </div>
         </div>
         <div className="middle"><h1>100</h1></div>
