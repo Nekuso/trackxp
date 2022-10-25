@@ -4,9 +4,9 @@ export const StyledWidget = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: .6rem 1.8rem;
+  padding: 1rem 1.8rem;
   width: 100%;
-  height: 30%;
+  height: auto;
   background: #f5f6f8;
   border: none;
   border-radius: 1rem;
@@ -19,7 +19,8 @@ export const StyledWidget = styled.div`
 
     .top__title {
       font-size: 1.3rem;
-      color: #000000;
+      color: #00000091;
+      font-weight: 700;
     }
 
     .percentage {
@@ -38,12 +39,30 @@ export const StyledWidget = styled.div`
         font-size: 1.3rem;
       }
     }
+
+    .positive {
+      i {
+        color: #40bd47;
+      }
+      p {
+        color: #40bd47;
+      }
+    }
+
+    .negative {
+      i {
+        color: #be4141;
+      }
+      p {
+        color: #be4141;
+      }
+    }
   }
 
   .middle {
     h1 {
       color: #000000;
-      font-size: 2.5rem;
+      font-size: 2.rem;
       font-weight: 900;
     }
   }
@@ -70,9 +89,59 @@ export const StyledWidget = styled.div`
       border-radius: 25%;
 
       i {
-        font-size: 2.5rem;
+        font-size: 2rem;
         color: #ffffff;
       }
     }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 32%;
+    padding: 1rem 1rem;
+
+
+    .top {
+      .top__title {
+        font-size: .8rem;
+        font-weight: 700;
+      }
+  
+      .percentage {
+        i {
+          color: #40bd47;
+          font-size: 0.4rem;
+          font-weight: 700;
+          margin-right: 0.3rem;
+        }
+        p {
+          font-weight: 700;
+          color: #40bd47;
+          font-size: .7rem;
+        }
+      }
+    }
+  
+    .middle {
+      h1 {
+        color: #000000;
+        font-size: 1.4rem;
+        font-weight: 900;
+      }
+    }
+  
+    .bottom {
+      .widget__link {
+        font-size: .8rem;
+        color: #000000;
+      }
+  
+      .icon {
+        padding: 0.5rem;
+  
+        i {
+          font-size: 1rem;
+          color: #ffffff;
+        }
+      }
   }
 `;

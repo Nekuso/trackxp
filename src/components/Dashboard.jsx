@@ -8,9 +8,9 @@ function Dashbooard() {
     <StyledDashboard>
       <h1>Dashboard</h1>
         <div className="widgets">
-          <Widget/>
-          <Widget/>
-          <Widget/>
+          <Widget type="orders"/>
+          <Widget type="earnings"/>
+          <Widget type="balance"/>
         </div>
     </StyledDashboard>
   )
