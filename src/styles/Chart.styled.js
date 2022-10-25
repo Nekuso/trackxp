@@ -12,4 +12,9 @@ export const StyledChart = styled.div`
         width: 69%;
         border-radius: .5rem;
     }
+
+    @media screen and (min-width: 1024px) {
+        width: 72%;
+        border-radius: .5rem;
+    }
 `;

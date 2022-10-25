@@ -200,4 +200,92 @@ export const StyledFeatured = styled.div`
       }
     }
   }
+
+  @media screen and (min-width: 1024px) {
+    width: 26%;
+    height: 100%;
+    border-radius: .5rem;
+    padding: 1rem;
+
+    .top {
+      .title {
+        font-size: 1rem;
+        color: #00000091;
+        font-weight: 700;
+      }
+
+      i {
+        color: #000000;
+        font-size: 1.5rem;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      gap: .2rem;
+      padding: 0;
+
+      .featured__chart {
+        width: 50%;
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #00000091;
+      }
+
+      .amount {
+        font-weight: 900;
+        font-size: 1.6rem;
+      }
+
+      .desc {
+        font-size: .8rem;
+      }
+
+      .summary {
+        padding: .5rem 0 0 0;
+        gap: 1rem;
+        align-items: center;
+
+        .item {
+          .item__title {
+            color: #00000091;
+            text-align: center;
+            font-size: .8rem;
+          }
+          .item__result {
+            i {
+              font-size: 0.6rem;
+              margin-right: 0.2rem;
+            }
+
+            .result__amount {
+              font-size: 1rem;
+              font-weight: 600;
+            }
+          }
+
+          .positive {
+            i {
+              color: #40bd47;
+            }
+            .result__amount {
+              color: #40bd47;
+            }
+          }
+
+          .negative {
+            i {
+              color: #be4141;
+            }
+            .result__amount {
+              color: #be4141;
+            }
+          }
+        }
+      }
+    }
+  }
 `;

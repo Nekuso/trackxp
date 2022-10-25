@@ -4,7 +4,7 @@ export const StyledDashboardPage = styled.div`
     .dashboard__section {
         width: 100vw;
         height: 100vh;
-        background: transparent;
+        background: transparent; 
 
         .dashboard__wrapper {       
             display: flex;
@@ -244,4 +244,4 @@ export const StyledDashboardPage = styled.div`
         }
     }
 
-`
+`;

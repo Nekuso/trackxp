@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyledFeatured} from '../styles/Featured.styled';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 function featured() {
@@ -12,7 +12,11 @@ function featured() {
         </div>
         <div className="bottom">
             <div className="featured__chart">
-                <CircularProgressbar value={66} text={`${66}%`} strokeWidth={5} />
+                <CircularProgressbar value={66} text={`${66}%`} strokeWidth={10}
+                styles={buildStyles({
+                    textColor: "#000000",
+                    pathColor: "#5773db",
+                  })}/>
             </div>
             <p className="title">Total sales made today</p>
             <p className="amount">PHP 4,000</p>
