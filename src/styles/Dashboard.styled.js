@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledDashboard = styled.div`
   width: 95%;
-  height: 95%;
+  height: 100%;
   // background: darkblue;
   background: transparent;
   h1 {
@@ -21,9 +21,10 @@ export const StyledDashboard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    height: 95%;
     h1 {
-      font-size: 2rem;
-      margin: .3rem 0 .5rem 0;
+      font-size: 1.2rem;
+      margin: .2rem 0 .3rem 0;
     }
     .widgets {
       justify-content: space-between;

@@ -55,7 +55,7 @@ const Widget = ({type}) => {
             <p>+20%</p>
           </div>
         </div>
-        <div className="middle"><h1>{diff}</h1></div>
+        <div className="middle"><h1>PHP {diff}</h1></div>
         <div className="bottom" >
           <Link to="/home" className="widget__link">{data.linkDescription}</Link>
           <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div>

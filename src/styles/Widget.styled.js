@@ -97,26 +97,21 @@ export const StyledWidget = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 32%;
-    padding: 1rem 1rem;
-
+    padding: .8rem .8rem;
 
     .top {
       .top__title {
-        font-size: .8rem;
+        font-size: .5rem;
         font-weight: 700;
       }
   
       .percentage {
         i {
-          color: #40bd47;
-          font-size: 0.4rem;
+          font-size: 0.3rem;
           font-weight: 700;
-          margin-right: 0.3rem;
         }
         p {
-          font-weight: 700;
-          color: #40bd47;
-          font-size: .7rem;
+          font-size: .6rem;
         }
       }
     }
@@ -124,22 +119,21 @@ export const StyledWidget = styled.div`
     .middle {
       h1 {
         color: #000000;
-        font-size: 1.4rem;
-        font-weight: 900;
+        font-size: 1.2rem;
+        font-weight: 700;
       }
     }
   
     .bottom {
       .widget__link {
-        font-size: .8rem;
-        color: #000000;
+        font-size: .5rem;
       }
   
       .icon {
-        padding: 0.5rem;
+        padding: 0.3rem;
   
         i {
-          font-size: 1rem;
+          font-size: .5rem;
           color: #ffffff;
         }
       }
