@@ -10,7 +10,7 @@ export const StyledDashboardPage = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            height: 100%;
+            // height: 100%;
             width: 100%;
             
             .dashboard__nav {
@@ -183,6 +183,7 @@ export const StyledDashboardPage = styled.div`
     @media screen and (min-width: 768px) {
         .dashboard__section {
             .dashboard__wrapper {
+                height: 100%;
                 .dashboard__nav {
                     padding: .3rem 2rem;
                     .nav__hamburger {

@@ -36,7 +36,7 @@ export const StyledWidget = styled.div`
       p {
         font-weight: 700;
         color: #40bd47;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
       }
     }
 

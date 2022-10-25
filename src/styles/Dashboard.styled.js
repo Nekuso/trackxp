@@ -5,7 +5,6 @@ export const StyledDashboard = styled.div`
   flex-direction: column;
   width: 95%;
   height: 100%;
-  max-height: 100%;
   // background: darkblue;
   background: transparent;
   h1 {

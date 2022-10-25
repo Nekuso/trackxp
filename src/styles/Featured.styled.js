@@ -82,10 +82,11 @@ export const StyledFeatured = styled.div`
           i {
             font-size: 0.8rem;
             margin-right: 0.4rem;
+            font-weight: 700;
           }
           .result__amount {
             font-size: 1.4rem;
-            font-weight: 600;
+            font-weight: 700;
           }
         }
 
@@ -169,13 +170,12 @@ export const StyledFeatured = styled.div`
           }
           .item__result {
             i {
-              font-size: 0.4rem;
+              font-size: 0.3rem;
               margin-right: 0.2rem;
             }
 
             .result__amount {
               font-size: 0.8rem;
-              font-weight: 600;
             }
           }
 
@@ -263,7 +263,6 @@ export const StyledFeatured = styled.div`
 
             .result__amount {
               font-size: 1rem;
-              font-weight: 600;
             }
           }
 
