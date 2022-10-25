@@ -9,7 +9,7 @@ export const StyledChart = styled.div`
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
     
     @media screen and (min-width: 768px) {
-        width: 65%;
+        width: 69%;
         border-radius: .5rem;
     }
 `;

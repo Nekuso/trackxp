@@ -26,7 +26,7 @@ function featured() {
                     <div className="item__result positive">
                         <i className='bx bxs-up-arrow'></i>
                         <div className="result__amount">
-                            PHP 24.5k
+                            P 24.5k
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ function featured() {
                     <div className="item__result positive">
                         <i className='bx bxs-up-arrow'></i>
                         <div className="result__amount">
-                            PHP 24.5k
+                            P 24.5k
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@ function featured() {
                     <div className="item__result positive">
                         <i className='bx bxs-up-arrow '></i>
                         <div className="result__amount">
-                            PHP 24.5k
+                            P 24.5k
                         </div>
                     </div>
                 </div>
