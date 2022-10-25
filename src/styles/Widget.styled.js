@@ -74,10 +74,17 @@ export const StyledWidget = styled.div`
     align-items: center;
 
     .widget__link {
-      font-size: 1.1rem;
+      background: black;
+      font-size: .8rem;
       cursor: pointer;
-      text-decoration: underline;
-      color: #000000;
+      color: #FFFFFF;
+      padding: .3rem .8rem;
+      border-radius: 2rem;
+      transition: all .3s ease-in-out;
+
+        :hover {
+          transform: scale(105%);
+        }
     }
 
     .icon {
@@ -98,6 +105,7 @@ export const StyledWidget = styled.div`
   @media screen and (min-width: 768px) {
     width: 32%;
     padding: .8rem .8rem;
+    border-radius: .5rem;
 
     .top {
       .top__title {
@@ -134,6 +142,51 @@ export const StyledWidget = styled.div`
   
         i {
           font-size: .5rem;
+          color: #ffffff;
+        }
+      }
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 32%;
+    padding: 1rem 1.2rem;
+    border-radius: .5rem;
+
+    .top {
+      .top__title {
+        font-size: .8rem;
+        font-weight: 700;
+      }
+  
+      .percentage {
+        i {
+          font-size: 0.8rem;
+          font-weight: 700;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  
+    .middle {
+      h1 {
+        color: #000000;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  
+    .bottom {
+      .widget__link {
+        font-size: .8rem;
+      }
+  
+      .icon {
+        padding: 0.3rem;
+  
+        i {
+          font-size: 1.8rem;
           color: #ffffff;
         }
       }

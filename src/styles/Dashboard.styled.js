@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const StyledDashboard = styled.div`
-  width: 95%;
-  height: 100%;
-  // background: darkblue;
-  background: transparent;
-  h1 {
-    color: #000000;
+display: flex;
+flex-direction: column;
+width: 95%;
+height: 100%;
+// background: darkblue;
+background: transparent;
+h1 {
+  color: #000000;
+  margin: .5rem 0 .4rem 0;
   }
   .widgets {
     display: flex;
@@ -18,6 +21,16 @@ export const StyledDashboard = styled.div`
     height: auto;
     background: yellow;
     background: transparent;
+  }
+
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0 0 0;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
   }
 
   @media screen and (min-width: 768px) {

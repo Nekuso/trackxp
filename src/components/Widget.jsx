@@ -14,7 +14,7 @@ const Widget = ({type}) => {
       data = {
         title: "ORDERS",
         isMoney: false,
-        linkDescription: "View all orders",
+        linkDescription: "View all orders →",
         link: "orders",
         icon: "bx bxs-package",
         backgroundColor: "#415ebe", 
@@ -25,18 +25,20 @@ const Widget = ({type}) => {
       data = {
         title: "EARNINGS",
         isMoney: false,
-        linkDescription: "View all earnings",
+        currency: "PHP",
+        linkDescription: "View all earnings →",
         link: "orders",
         icon: "bx bx-money",
         backgroundColor: "#41be7f", 
       };
       break;
-        
-    case 'balance':
-      data = {
-        title: "BALANCE",
-        isMoney: false,
-        linkDescription: "View balance",
+      
+      case 'balance':
+        data = {
+          title: "BALANCE",
+          isMoney: false,
+          currency: "PHP",
+        linkDescription: "View balance →",
         link: "orders",
         icon: "bx bxs-wallet-alt",
         backgroundColor: "#be4141", 
@@ -55,7 +57,7 @@ const Widget = ({type}) => {
             <p>+20%</p>
           </div>
         </div>
-        <div className="middle"><h1>PHP {diff}</h1></div>
+        <div className="middle"><h1>{data.currency} {diff}</h1></div>
         <div className="bottom" >
           <Link to="/home" className="widget__link">{data.linkDescription}</Link>
           <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div>

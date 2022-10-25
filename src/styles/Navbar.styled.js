@@ -14,10 +14,8 @@ export const StyledNavbar = styled.nav`
     padding: 2rem 1rem;
 
     .nav__links {
-        .dash__nav__containe {
+        .dash__nav__container {
             .nav__dash__button {
-                background: #FFFF;
-                color: #000000;
                 padding: .6rem 1.3rem;
                 border: none;
                 border-radius: 1rem;
