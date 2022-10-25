@@ -7,11 +7,11 @@ function Dashbooard() {
   return (
     <StyledDashboard>
       <h1>Dashboard</h1>
-        <div className="widgets">
-          <Widget type="orders"/>
-          <Widget type="earnings"/>
-          <Widget type="balance"/>
-        </div>
+      <div className="widgets">
+        <Widget type="orders"/>
+        <Widget type="earnings"/>
+        <Widget type="balance"/>
+      </div>
     </StyledDashboard>
   )
 }

@@ -21,6 +21,10 @@ export const StyledDashboard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      margin: .3rem 0 .5rem 0;
+    }
     .widgets {
       justify-content: space-between;
       gap: 0;
