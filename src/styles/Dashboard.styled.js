@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const StyledDashboard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 93%;
   height: 100%;
-  // background: darkblue;
+  background: darkblue;
   background: transparent;
   h1 {
     color: #000000;
@@ -34,7 +34,7 @@ export const StyledDashboard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    height: 95%;
+    height: 90%;
     h1 {
       font-size: 1.2rem;
       margin: 0.2rem 0 0.3rem 0;

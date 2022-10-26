@@ -12,7 +12,7 @@ function featured() {
         </div>
         <div className="bottom">
             <div className="featured__chart">
-                <CircularProgressbar value={6} text={`${66}%`} strokeWidth={10}
+                <CircularProgressbar value={66} text={`${66}%`} strokeWidth={10}
                 styles={buildStyles({
                     textColor: "#000000",
                     pathColor: "#5773db",

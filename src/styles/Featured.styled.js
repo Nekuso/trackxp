@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledFeatured = styled.div`
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 1rem;
   background: #f5f6f8;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
@@ -63,7 +63,8 @@ export const StyledFeatured = styled.div`
 
     .summary {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
+      gap: 1rem;
       align-items: center;
       padding: 1rem 0;
       width: 100%;
@@ -81,11 +82,11 @@ export const StyledFeatured = styled.div`
           text-align: center;
           i {
             font-size: 0.8rem;
-            margin-right: 0.4rem;
+            margin-right: 0.5rem;
             font-weight: 700;
           }
           .result__amount {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
           }
         }
@@ -132,7 +133,7 @@ export const StyledFeatured = styled.div`
 
     .bottom {
       display: flex;
-      gap: 0.2rem;
+      gap: 0.4rem;
       padding: 0;
 
       .featured__chart {
@@ -216,7 +217,7 @@ export const StyledFeatured = styled.div`
 
       i {
         color: #000000;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
     }
 
@@ -241,7 +242,7 @@ export const StyledFeatured = styled.div`
       }
 
       .desc {
-        font-size: .8rem;
+        font-size: 1rem;
       }
 
       .summary {
@@ -257,12 +258,12 @@ export const StyledFeatured = styled.div`
           }
           .item__result {
             i {
-              font-size: 0.6rem;
+              font-size: 0.5rem;
               margin-right: 0.2rem;
             }
 
             .result__amount {
-              font-size: 1rem;
+              font-size: .9rem;
             }
           }
 
@@ -281,6 +282,69 @@ export const StyledFeatured = styled.div`
             }
             .result__amount {
               color: #be4141;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) and (min-height: 600px) {
+
+  .bottom {
+    .title {
+      font-weight: 700;
+      font-size: .8rem;
+      color: #00000091;
+    }
+
+    .amount {
+      font-weight: 900;
+      font-size: 1.4rem;
+    }
+
+    .desc {
+      font-size: .8rem;
+    }
+  }
+
+  @media screen and (min-width: 1280px) and (min-height: 800px) {
+    height: auto;
+    .bottom {
+      .title {
+        font-weight: 700;
+        font-size: 1rem;
+        color: #00000091;
+      }
+  
+      .amount {
+        font-weight: 900;
+        font-size: 2rem;
+      }
+  
+      .desc {
+        font-size: 1rem;
+      }
+
+      .summary {
+        padding: .5rem 0 0 0;
+        gap: 1rem;
+        align-items: center;
+
+        .item {
+          .item__title {
+            color: #00000091;
+            text-align: center;
+            font-size: 1.2rem;
+          }
+          .item__result {
+            i {
+              font-size: 0.8rem;
+              margin-right: 0.2rem;
+            }
+
+            .result__amount {
+              font-size: 1.3rem;
             }
           }
         }

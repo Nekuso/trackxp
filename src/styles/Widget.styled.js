@@ -74,12 +74,13 @@ export const StyledWidget = styled.div`
     align-items: center;
 
     .widget__link {
-      background: black;
+      background: transparent;
       font-size: .8rem;
       cursor: pointer;
-      color: #FFFFFF;
+      color: black;
       padding: .3rem .8rem;
       border-radius: 2rem;
+      border: 1px solid #000000;
       transition: all .3s ease-in-out;
 
         :hover {
@@ -154,17 +155,17 @@ export const StyledWidget = styled.div`
 
     .top {
       .top__title {
-        font-size: .8rem;
+        font-size: .7rem;
         font-weight: 700;
       }
   
       .percentage {
         i {
-          font-size: 0.8rem;
+          font-size: 0.4rem;
           font-weight: 700;
         }
         p {
-          font-size: 1rem;
+          font-size: .7rem;
         }
       }
     }
@@ -172,21 +173,21 @@ export const StyledWidget = styled.div`
     .middle {
       h1 {
         color: #000000;
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-weight: 700;
       }
     }
   
     .bottom {
       .widget__link {
-        font-size: .8rem;
+        font-size: .7rem;
       }
   
       .icon {
         padding: 0.3rem;
   
         i {
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           color: #ffffff;
         }
       }

@@ -9,9 +9,9 @@ function Dashbooard() {
     <StyledDashboard>
       {/* <h1>Dashboard</h1> */}
       <div className="widgets">
-        <Widget type="orders"/>
-        <Widget type="earnings"/>
-        <Widget type="balance"/>
+        <Widget type="orders" className="widget1"/>
+        <Widget type="earnings" className="widget2"/>
+        <Widget type="balance" className="widget3"/>
       </div>
       <div className="charts">
         <Featured/>
