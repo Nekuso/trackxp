@@ -9,6 +9,7 @@ export const StyledHomePage = styled.div`
         background: #243160;
         width: 100vw;
         height: 100vh;
+        color: white;
 
         .hero__container {
             display: grid;
@@ -88,6 +89,7 @@ export const StyledHomePage = styled.div`
                         }
 
                         i {
+                            color: white;
                             font-size: 1.8rem;
                         }
                     }

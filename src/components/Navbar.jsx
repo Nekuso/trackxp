@@ -24,7 +24,7 @@ function Navbar() {
   return (
 
     <StyledNavbar>
-        <Link to="/"><h2>TrackXP</h2></Link>
+        <Link to="/" className="home__link"><h2>TrackXP</h2></Link>
         
         <ul
         className={navActive}

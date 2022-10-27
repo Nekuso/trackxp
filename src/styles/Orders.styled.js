@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledOrders = styled.div`
   // background: red;
-  width: 95%;
+  width: 90%;
   height: 95%;
   h1 {
     color: black;

@@ -11,6 +11,10 @@ export const StyledNavbar = styled.nav`
   margin: 0 auto;
   padding: 2rem 1rem;
 
+  .home__link {
+    color: white;
+  }
+
   .nav__links {
     .dash__nav__container {
       .nav__dash__button {
