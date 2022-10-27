@@ -4,8 +4,7 @@ export const StyledChart = styled.div`
   width: 100%;
   border-radius: 1rem;
   padding: 1rem;
-  background: green;
-  background: #f5f6f8;
+  // background: #f5f6f8;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
   height: auto;
   * {

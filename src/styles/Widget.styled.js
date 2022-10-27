@@ -7,7 +7,7 @@ export const StyledWidget = styled.div`
   padding: 1rem 1.8rem;
   width: 100%;
   height: auto;
-  background: #f5f6f8;
+  // background: #f5f6f8;
   border: none;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

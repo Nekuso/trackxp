@@ -5,7 +5,7 @@ export const StyledFeatured = styled.div`
   height: auto;
   padding: 1.5rem;
   border-radius: 1rem;
-  background: #f5f6f8;
+  // background: #f5f6f8;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 
   .top {

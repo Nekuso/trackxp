@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
         -webkit-tap-highlight-color: transparent;
         font-family: 'Poppins';
-        color: #FFFFFFFF;
 
         :focus {
             outline: none;
