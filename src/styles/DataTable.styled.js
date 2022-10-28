@@ -6,6 +6,10 @@ export const StyledDataTable = styled.div`
 
     .dataTable {
         height: 70vh;
+
+        .dataGrid {
+            font-size: 0.8rem;
+        }
     }
 
     @media screen and (min-width: 768px) {

@@ -15,6 +15,14 @@ const Datatable = () => {
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
+                sx={{
+                    boxShadow: 2,
+                    border: 2,
+                    borderColor: 'primary.light',
+                    '& .MuiDataGrid-cell:hover': {
+                        color: 'primary.main',
+                    },
+                }}
             />
             </div>
         </StyledDataTable>
