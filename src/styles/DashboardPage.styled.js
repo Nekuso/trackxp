@@ -10,7 +10,7 @@ export const StyledDashboardPage = styled.div`
             display: flex;
             flex-direction: column;
             justify-content: center;
-            // height: 100%;
+            height: auto;
             width: 100%;
             
             .dashboard__nav {
@@ -131,10 +131,12 @@ export const StyledDashboardPage = styled.div`
                             i {
                                 margin-right: 1rem;
                                 font-size: 1.5rem;
+                                color: white;
                             }
                             .link {
                                 margin: 1rem 0;
                                 font-size: 1.3rem;
+                                color: white;
                             }
                         }
                     }

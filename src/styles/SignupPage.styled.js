@@ -45,17 +45,20 @@ export const StyledSignupPage = styled.div`
                     h2 {
                         text-align: center;
                         font-size: 7vw;
+                        color: white;
                     }
                     
                     p {
                         font-size: 3.8vw;
                         text-align: center;
+                        color: white;
                     }
                     
                     .signup__form {
                         h4 {
                             margin: .8rem 0 0;
                             font-size: 4.5vw;
+                            color: white;
                         }
                         input {
                             width: 100%;
@@ -70,14 +73,14 @@ export const StyledSignupPage = styled.div`
                         background: #4b65c2;
                         width: 100%;
                         padding: 1rem 2rem;
-                        color: #FFFFFFF;
                         border: none;
                         border-radius: 1.8rem;
                         font-size: 5vw;
                         font-weight: 700;
                         margin: 1rem 0;
                         transition: all .3s ease-in-out;
-
+                        color: white;
+                        
                         &:hover {
                             cursor: pointer;
                             background: #5c79e2;
@@ -87,6 +90,7 @@ export const StyledSignupPage = styled.div`
                     h3 {
                         text-align: center;
                         font-size: 4.5vw;
+                        color: white;
                         
                         a {
                             color: #5c79e2;

@@ -37,7 +37,7 @@ export const StyledFeatured = styled.div`
     gap: 0.5rem;
 
     .featured__chart {
-      width: 60%;
+      width: 45%;
       margin: 0 auto;
     }
 

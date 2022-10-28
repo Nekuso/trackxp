@@ -45,15 +45,18 @@ export const StyledLoginPage = styled.div`
                     h2 {
                         text-align: center;
                         font-size: 9vw;
+                        color: white;
                     }
                     
                     p {
                         font-size: 3.5vw;
                         text-align: center;
+                        color: white;
                     }
                     
                     .login__form {
                         h4 {
+                            color: white;
                             margin: 1rem 0 0;
                             font-size: 5.5vw;
                         }
@@ -69,7 +72,7 @@ export const StyledLoginPage = styled.div`
                             background: #4b65c2;
                             width: 100%;
                             padding: 1rem 2rem;
-                            color: #FFFFFFF;
+                            color: white;
                             border: none;
                             border-radius: 1.8rem;
                             font-size: 5vw;
@@ -94,6 +97,7 @@ export const StyledLoginPage = styled.div`
                     h3 {
                         text-align: center;
                         font-size: 4.5vw;
+                        color: white;
                         
                         a {
                             color: #4b65c2;
