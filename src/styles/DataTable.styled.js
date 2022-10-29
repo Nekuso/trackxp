@@ -12,8 +12,8 @@ export const StyledDataTable = styled.div`
         height: 70vh;
         
         .cellWithStatus {
-            font-size: .5rem;
-            padding: 2.5px 5px;
+            font-size: .8rem;
+            padding: 4px 8px;
             border-radius: 2rem;
         }
         .Completed {
@@ -34,16 +34,16 @@ export const StyledDataTable = styled.div`
             width: 100%;
 
             .view__button {
-                font-size: .5rem;
-                padding: 2.5px 5px;
+                font-size: .8rem;
+                padding: 5px 8px;
                 border-radius: 2rem;
                 background: #4788ff;
                 color: white;
                 cursor: pointer;
             }
             .delete__button {
-                font-size: .5rem;
-                padding: 2.5px 5px;
+                font-size: .8rem;
+                padding: 5px 8px;
                 border-radius: 2rem;
                 background: #E8464E;
                 color: white;
@@ -70,12 +70,12 @@ export const StyledDataTable = styled.div`
             .cell__action {
                 .view__button {
                     font-size: .7rem;
-                    padding: 2.5px 5px;
+                    padding: 4px 8px;
                     color: white;
                 }
                 .delete__button {
                     font-size: .7rem;
-                    padding: 2.5px 5px;
+                    padding: 4px 8px;
                     border-radius: 2rem;
                 }
             }

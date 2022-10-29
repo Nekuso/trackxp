@@ -1,9 +1,9 @@
 export const dataColumns = [
-  { field: "id", headerName: "ID", width: 50 },
+  { field: "id", headerName: "ORDER ID", flex: 1 },
 
-  { field: "Name", 
-    headerName: "Name", 
-    flex: 1,
+  { field: "name", 
+    headerName: "Name",
+    width: 150,
     valueGetter: (params) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
@@ -26,7 +26,7 @@ export const dataColumns = [
 
   {
     field: "isPaid",
-    headerName: "Paid",
+    headerName: "Payment",
     headerAlign: "center",
     align: "center",
     flex: 1,
@@ -38,7 +38,7 @@ export const dataColumns = [
     headerName: "Status",
     headerAlign: "right",
     align: "right",
-    flex: 1,
+    width: 120,
     renderCell: (params) => {
       return (
         <div className={`cellWithStatus ${params.row.status}`}>
@@ -56,7 +56,7 @@ export const dataRows = [
     lastName: "Pinili",
     date: "2022-10-27",
     amount: 120,
-    isPaid: true,
+    isPaid: "Paid",
     status: "Pending",
     cycleStaus: "Ready for pick-up",
   },
@@ -66,7 +66,7 @@ export const dataRows = [
     lastName: "Aninon",
     date: "2022-10-27",
     amount: 240,
-    isPaid: true,
+    isPaid: "Paid",
     status: "Completed",
     cycleStaus: "Picked-up",
   },
@@ -76,8 +76,8 @@ export const dataRows = [
     lastName: "Camal",
     date: "2022-10-27",
     amount: 440,
-    isPaid: false,
-    status: "Pending",
+    isPaid: "Pending",
+    status: "Completed",
     cycleStaus: "Washing",
   },
   {
@@ -86,8 +86,9 @@ export const dataRows = [
     lastName: "Cardosa",
     date: "2022-10-27",
     amount: 340,
-    isPaid: true,
+    isPaid: "Paid",
     status: "Pending",
     cycleStaus: "Drying",
   },
+  
 ];

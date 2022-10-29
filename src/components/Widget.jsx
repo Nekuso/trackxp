@@ -59,7 +59,7 @@ const Widget = ({type}) => {
         </div>
         <div className="middle"><h1>{data.currency} {diff}</h1></div>
         <div className="bottom" >
-          <Link to="/home" className="widget__link">{data.linkDescription}</Link>
+          <Link to={`${data.link}`} className="widget__link">{data.linkDescription}</Link>
           <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div>
         </div>
     </StyledWidget>
