@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
 
         :focus {
             outline: none;
-            color: #FFFFFF;
         }
     }
 

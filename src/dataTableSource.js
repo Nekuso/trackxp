@@ -1,14 +1,17 @@
 export const dataColumns = [
-  { field: "id", headerName: "ID", width: 90, flex: 1 },
+  { field: "id", headerName: "ID", width: 50 },
 
-  { field: "firstName", headerName: "First name", width: 130, flex: 1 },
-
-  { field: "lastName", headerName: "Last name", width: 130, flex: 1 },
+  { field: "Name", 
+    headerName: "Name", 
+    flex: 1,
+    valueGetter: (params) =>
+      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+  },
+    
   {
     field: "amount",
     headerName: "Price",
     type: "number",
-    width: 80,
     headerAlign: "center",
     flex: 1,
     align: "center",
@@ -16,7 +19,6 @@ export const dataColumns = [
   {
     field: "date",
     headerName: "Date",
-    width: 100,
     headerAlign: "center",
     align: "center",
     flex: 1,
@@ -25,7 +27,6 @@ export const dataColumns = [
   {
     field: "isPaid",
     headerName: "Paid",
-    width: 70,
     headerAlign: "center",
     align: "center",
     flex: 1,
@@ -35,11 +36,10 @@ export const dataColumns = [
   {
     field: "status",
     headerName: "Status",
-    width: 160,
-    headerAlign: "center",
-    align: "center",
+    headerAlign: "right",
+    align: "right",
     flex: 1,
-    cellRender: (params) => {
+    renderCell: (params) => {
       return (
         <div className={`cellWithStatus ${params.row.status}`}>
           {params.row.status}
@@ -76,7 +76,7 @@ export const dataRows = [
     lastName: "Camal",
     date: "2022-10-27",
     amount: 440,
-    isPaid: true,
+    isPaid: false,
     status: "Pending",
     cycleStaus: "Washing",
   },

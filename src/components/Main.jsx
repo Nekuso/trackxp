@@ -5,6 +5,7 @@ import Completed from './Completed'
 import Dashboard from './Dashboard'
 import Orders from './Orders'
 import Paid from './Paid'
+import SingleOrder from './SingleOrder'
 import Unpaid from './Unpaid'
 
 function Main() {
@@ -12,7 +13,10 @@ function Main() {
    <StyledMain className='main__container'>
     <Routes>
       <Route path="" element={<Dashboard />} />
-      <Route path="Orders" element={<Orders/>} />
+      <Route path="Orders">
+        <Route index element={<Orders />} />
+        <Route path=":orderId" element={<SingleOrder/>}/>
+      </Route>
       <Route path="Completed" element={<Completed/>} />
       <Route path="Paid" element={<Paid/>} />
       <Route path="Unpaid" element={<Unpaid/>} />
