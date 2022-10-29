@@ -53,6 +53,7 @@ export const StyledDataTable = styled.div`
     }
     
     @media screen and (min-width: 768px) {
+
         
         .dataTable {
             height: 100%;

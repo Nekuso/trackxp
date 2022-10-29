@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledDataTable } from '../styles/DataTable.styled';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { dataColumns, dataRows } from '../dataTableSource';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ const Datatable = () => {
             headerName: 'Action', 
             headerAlign: "center",
             width: 160,
+            disableExport: true,
             renderCell: () => {
             return (
                 <div className="cell__action">
@@ -31,6 +32,8 @@ const Datatable = () => {
                     rowsPerPageOptions={[7]}
                     // checkboxSelection
                     sx={{
+                        borderRadius: ".5rem",
+                        p: "10px",
                         boxShadow: 2,
                         // border: 2,
                         // borderColor: 'primary.light',
@@ -39,8 +42,14 @@ const Datatable = () => {
                         // }
                     }}
                     // disableColumnMenu
+                    autoHeight
+                    components={{ Toolbar: GridToolbar }}
+
+                    
                 />
             </div>
+
+            
         </StyledDataTable>
     );
 }
