@@ -20,7 +20,7 @@ export const StyledNavbar = styled.nav`
       .nav__dash__button {
         padding: 0.6rem 1.3rem;
         border: none;
-        border-radius: 1rem;
+        border-radius: 4rem;
         text-align: center;
       }
     }
@@ -156,7 +156,7 @@ export const StyledNavbar = styled.nav`
         color: #000000;
         border: none;
         padding: 0.8rem 1rem;
-        border-radius: 1rem;
+        border-radius: .3rem;
       }
 
       li {
