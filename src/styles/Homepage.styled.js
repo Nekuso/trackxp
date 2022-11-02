@@ -65,6 +65,7 @@ export const StyledHomePage = styled.div`
                         padding: 1rem;
                         border: none;
                         background: transparent;
+                        color: white;
                         
                         ::placeholder {
                             color: #FFFFFF;
