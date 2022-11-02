@@ -7,6 +7,36 @@ const SingleOrder = () => {
     return (
         <StyledSinglePage>
             <div className="single__page__section">
+                <div className="order__cycle__container">  
+                    <div className="order__cycle__item">
+                        <i className='bx bx-badge-check' ></i>
+                        <div className="order__cycle__title">
+                            <p className="cycle__title">Completed</p>
+                            <p className="cycle__stamp">11/3/2022 (1:15 AM)</p>
+                        </div>
+                    </div>
+                    <div className="order__cycle__item">
+                        <i className='bx bxs-package' ></i>
+                        <div className="order__cycle__title">
+                            <p className="cycle__title">Ready for pickup </p>
+                            <p className="cycle__stamp">11/3/2022 (12:55 AM)</p>
+                        </div>
+                    </div>
+                    <div className="order__cycle__item">
+                        <i className='bx bxs-washer' ></i>
+                        <div className="order__cycle__title">
+                            <p className="cycle__title">Processing</p>
+                            <p className="cycle__stamp">11/3/2022 (12:15 AM)</p>
+                        </div>
+                    </div>
+                    <div className="order__cycle__item">
+                        <i className='bx bx-receipt'></i>
+                        <div className="order__cycle__title">
+                            <p className="cycle__title">Created</p>
+                            <p className="cycle__stamp">11/3/2022 (12:15 AM)</p>
+                        </div>
+                    </div>
+                </div>
                 <div className="order__info__container">
                     <div className="order__info">
                         <img src={qrcode} alt="qrcode" />
@@ -120,12 +150,9 @@ const SingleOrder = () => {
                             <td className="particular__align grand__total" colspan="3">Grand Total</td>
                             <td className="grand__total">90</td>
                         </tr>
-
                     </table>
                 </div>
-
-                <div className="order__cycle__container">  
-                </div>
+                
             </div>
         </StyledSinglePage>
     );

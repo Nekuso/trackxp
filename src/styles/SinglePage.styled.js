@@ -13,6 +13,45 @@ export const StyledSinglePage = styled.div`
         height: 100%;
         row-gap: 1%;
 
+        .order__cycle__container {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            width: 100%;
+            border-radius: .7rem;
+            padding: 1rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            
+            .order__cycle__item {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: .7rem;
+                border-radius: .7rem;
+                // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                i {
+                    background: #5773db;
+                    padding: .5rem;
+                    font-size: 1.5rem;
+                    margin-right: 1rem;
+                    border-radius: 50%;
+                    color: white;
+                    box-shadow: #5773db 0px 3px 8px;
+                }
+
+                .order__cycle__title {
+                    .cycle__title {
+                        font-weight: 700;
+                        font-size: 1rem;
+                    }
+                    .cycle__stamp {
+                        font-size: .6rem;
+                    }
+                }
+            }
+        }
+
         .order__info__container {
             width: 100%;
             .order__info {
@@ -73,8 +112,6 @@ export const StyledSinglePage = styled.div`
         
         .order__table__container {
             display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100%;
             height: auto;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -108,29 +145,67 @@ export const StyledSinglePage = styled.div`
                 }
             }
         }
-        
-        .order__cycle__container {
-            width: 100%;
-            height: 200px;
-            grid-area: big;
-            background: yellow;
-            border-radius: .7rem;
-        }
     }
     
     @media screen and (min-width: 768px) {
         width: 95%;
         height: 95%;
-
+        
         .single__page__section {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             gap: .5rem;
+            width: 100%;
+            height: auto;
+
+            .order__cycle__container {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                gap: .5rem;
+                width: 100%;
+                border-radius: .7rem;
+                padding: .5rem;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                
+                .order__cycle__item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: .5rem;
+                    padding: .3rem;
+                    border-radius: .7rem;
+
+                    i {
+                        text-align: center;
+                        background: #5773db;
+                        padding: .5rem;
+                        font-size: 1.5rem;
+                        margin-right: .5rem;
+                        border-radius: 50%;
+                        color: white;
+                        box-shadow: #5773db 0px 3px 8px;
+                    }
+
+                    .order__cycle__title {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .cycle__title {
+                            font-size: .7rem;
+                        }
+                        .cycle__stamp {
+                            font-size: .5rem;
+                        }
+                    }
+                }
+            }
 
             .order__info__container {
-                flex: 1 0 18%;
-                height: auto;
+                flex: 1 0 15%;
 
                 .order__info {
                     width: 100%;
@@ -182,11 +257,11 @@ export const StyledSinglePage = styled.div`
                         th {
                             font-size: .9rem;
                             padding-right: 0;
-                            padding-bottom: .5rem;
+                            padding-bottom: .3rem;
                         }
                         td{
                             text-align: center;
-                            padding: .1rem 0;
+                            padding: .05rem 0;
                             font-size: .7rem;
                         }
                         .particular__align {
@@ -194,33 +269,66 @@ export const StyledSinglePage = styled.div`
                         }
                         
                         .grand__total {
-                            font-size: 1.1rem;
-                            padding: .4rem 0 0 0;
+                            font-size: 1rem;
+                            padding: .2rem 0 0 0;
                         }
                     }
                 }
-            }
-            
-            .order__cycle__container {
-                width: 100%;
-                height: 100%;
             }
         }
     }
 
     @media screen and (min-width: 1024px) {
-        height: 90%;
         .single__page__section {
-            gap: 1rem;
-            .order__info__container {
-                flex: 1 0 20px;
-                height: auto;
+            gap: .5rem;
+            
+            .order__cycle__container {
+                width: 100%;
+                padding: .5rem;
 
+                .order__cycle__item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: .7rem;
+                    border-radius: .7rem;
+
+                    i {
+                        text-align: center;
+                        background: #5773db;
+                        padding: .5rem;
+                        font-size: 1.5rem;
+                        margin-right: .5rem;
+                        border-radius: 50%;
+                        color: white;
+                        box-shadow: #5773db 0px 3px 8px;
+                    }
+
+                    .order__cycle__title {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .cycle__title {
+                            font-size: .8rem;
+                        }
+                        .cycle__stamp {
+                            font-size: .7rem;
+                        }
+                    }
+                }
+            }
+
+            .order__info__container {
+                flex: 1 0 7%;
+                height: auto;
+                
                 .order__info {
                     width: 100%;
                     height: auto;
                     padding: 1.5rem;
-    
+                    
                     img {
                         width: 180px;
                     }
@@ -228,24 +336,24 @@ export const StyledSinglePage = styled.div`
                     .order__title {
                         padding-top: .5rem;
                         h2 {
-                            font-size: .9rem;
+                            font-size: .7rem;
                         }
                         p {
-                            font-size: .8rem;
+                            font-size: .6rem;
                         }
                     }
                     
                     .order__desc {
                         padding: 0;
                         .left, .right {
-                            row-gap: .4rem;
+                            row-gap: .2rem;
                             .item__desc {
                                 text-overflow: ellipsis;
                                 p {
-                                    font-size: .8rem;
+                                    font-size: .7rem;
                                 }
                                 .item__title {
-                                    font-size: .8rem;
+                                    font-size: .7rem;
                                 }
                             }
                         }
@@ -267,7 +375,7 @@ export const StyledSinglePage = styled.div`
                         }
                         td{
                             text-align: center;
-                            padding: .15rem 0;
+                            padding: .1rem 0;
                             font-size: .8rem;
                         }
                         .particular__align {
@@ -278,11 +386,7 @@ export const StyledSinglePage = styled.div`
                             font-size: 1.2rem;
                         }
                     }
-            }
-            
-            .order__cycle__container {
-                width: 100%;
-                height: 100%;
+                }
             }
         }
     }
