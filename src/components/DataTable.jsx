@@ -42,7 +42,7 @@ const Datatable = () => {
                         // }
                     }}
                     // disableColumnMenu
-                    autoHeight
+                    // autoHeight
                     components={{ Toolbar: GridToolbar }}
 
                     

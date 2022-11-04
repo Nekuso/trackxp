@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledSinglePage } from '../styles/SinglePage.styled';
 import qrcode from "../img/qrcode.png";
+import {dataRows} from ".././dataTableSource";
 
 const SingleOrder = () => {
 
@@ -41,32 +42,32 @@ const SingleOrder = () => {
                     <div className="order__info">
                         <img src={qrcode} alt="qrcode" />
                         <div className="order__title">
-                            <h2 className="order__id">ORDER ID: NXX9000000001</h2>
-                            <p href="/">trackXp.dev/order/NXX9000000001</p>
+                            <h2 className="order__id">ORDER ID: NXX{dataRows[0].id}</h2>
+                            <p href="/">trackXp.dev/order/NXX{dataRows[0].id}</p>
                         </div>
                         <div className="order__desc">
                             <div className="left">
                                 <div className="item__desc">
                                     <p className="item__title">Order Date</p>
-                                    <p>10-28-2022</p>
+                                    <p>{dataRows[0].date}</p>
                                 </div>
                                 <div className="item__desc">
                                     <p className="item__title">Name</p>
-                                    <p>Sargine Pinili</p>
+                                    <p>{dataRows[0].firstName + " " + dataRows[0].lastName}</p>
                                 </div>
                                 <div className="item__desc">
                                     <p className="item__title">Payment</p>
-                                    <p>Pending</p>
+                                    <p>{dataRows[0].isPaid}</p>
                                 </div>
                             </div>
                             <div className="right">
                                 <div className="item__desc">
                                     <p className="item__title">Contact No.</p>
-                                    <p>09123456789</p>
+                                    <p>{dataRows[0].contact}</p>
                                 </div>
                                 <div className="item__desc">
                                     <p className="item__title">Price</p>
-                                    <p>P90</p>
+                                    <p>P {dataRows[0].amount}</p>
                                 </div>
                             </div>
                         </div>
@@ -80,75 +81,17 @@ const SingleOrder = () => {
                             <th>Price</th>
                             <th>Total</th>
                         </tr>
-                        <tr>
-                            <td className="particular__align">Wash Loads</td>
-                            <td>1</td>
-                            <td>70</td>
-                            <td>70</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Dry Loads</td>
-                            <td>0</td>
-                            <td>70</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Ariel</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Breeze</td>
-                            <td>0</td>
-                            <td>9</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Downy</td>
-                            <td>0</td>
-                            <td>8</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Surf</td>
-                            <td>0</td>
-                            <td>8</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Color Safe Sachet</td>
-                            <td>0</td>
-                            <td>10</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Color Safe Bottle</td>
-                            <td>0</td>
-                            <td>10</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Plastic Bag</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Drop-off (Folding)</td>
-                            <td>1</td>
-                            <td>20</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td className="particular__align">Other</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
+                        {dataRows[0].particulars.map((item, index) => (
+                            <tr>
+                                <td className="particular__align">{item.name}</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.price}</td>
+                                <td>{item.quantity * item.price}</td>
+                            </tr>
+                        ))}
                         <tr>
                             <td className="particular__align grand__total" colspan="3">Grand Total</td>
-                            <td className="grand__total">90</td>
+                            <td className="grand__total">{dataRows[0].amount}</td>
                         </tr>
                     </table>
                 </div>

@@ -161,11 +161,11 @@ export const StyledWidget = styled.div`
   
       .percentage {
         i {
-          font-size: 0.4rem;
+          font-size: 0.7rem;
           font-weight: 700;
         }
         p {
-          font-size: .7rem;
+          font-size: 1rem;
         }
       }
     }

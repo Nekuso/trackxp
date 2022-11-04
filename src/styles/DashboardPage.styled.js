@@ -135,7 +135,7 @@ export const StyledDashboardPage = styled.div`
                             }
                             .link {
                                 margin: 1rem 0;
-                                font-size: 1.3rem;
+                                font-size: 1rem;
                                 color: white;
                             }
                         }

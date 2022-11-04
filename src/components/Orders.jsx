@@ -6,6 +6,10 @@ const Orders = () => {
 
   return (
     <StyledOrders>
+      <div className="orders__header">
+        <h1 className="title">ORDERS</h1>
+        <button className="new__button">New Order</button>
+      </div>
       <DataTable/>
     </StyledOrders>
   );

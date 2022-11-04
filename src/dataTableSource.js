@@ -54,66 +54,63 @@ export const dataRows = [
     firstName: "Sargine",
     lastName: "Pinili",
     date: "2022-10-28",
-    amount: 120,
+    contact: "09123456789",
     isPaid: "Paid",
     status: "Pending",
+    amount: 140,
     cycleStaus: "Ready for pick-up",
-    particulars: {
-      washLoads: {
+    particulars: [
+      {
         name: "Wash Loads",
-        quantity: 0,
+        quantity: 1,
         price: 70,
       },
-      dryLoads: {
+      {
         name: "Dry Loads",
-        quantity: 0,
+        quantity: 1,
         price: 70,
       },
-      ariel: {
+      {
         name: "Ariel",
         quantity: 0,
         price: 0,
       },
-      breeze: {
+      {
         name: "Breeze",
         quantity: 0,
         price: 9,
       },
-      downy: {
+      {
         name: "Downy",
         quantity: 0,
         price: 8,
       },
-      surf: {
+      {
         name: "Surf",
         quantity: 0,
         price: 8,
       },
-      colorSafeSachet: {
+      {
         name: "Color Safe Sachet",
         quantity: 0,
         price: 10,
       },
-      colorSafeBottle: {
+      {
         name: "Color Safe Bottle",
         quantity: 0,
         price: 10,
       },
-      plasticBag: {
+      {
         name: "Plastic Bag",
         quantity: 0,
         price: 0,
       },
-      dropOff: {
+      {
         name: "Drop-Off (Folding)",
         quantity: 0,
         price: 20,
       },
-      grandTotal: {
-        name: "Grand Total",
-        total: 0,
-      },
-    },
+    ],
   },
   {
     id: 1000001,
