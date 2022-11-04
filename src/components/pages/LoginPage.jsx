@@ -46,7 +46,7 @@ function Loginpage() {
                 <div className="login__form__container">
                     <div className="login__form__content">
                         <h2>Welcome Back!</h2>
-                        <p>Welcome to TrackWash, please put your login credentials to start using the app
+                        <p>Welcome to TrackXp, please put your login credentials to start using the app
                         </p>
                         <form className="login__form" onSubmit={handleLogin}>
 

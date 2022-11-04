@@ -9,7 +9,7 @@ export const StyledDataTable = styled.div`
     }
     
     .dataTable {
-        height: 70vh;
+        height: 75vh;
         
         .cellWithStatus {
             font-size: .8rem;
@@ -53,7 +53,7 @@ export const StyledDataTable = styled.div`
     }
     
     @media screen and (min-width: 768px) {
-        
+        height: auto;
         .dataTable {
             div {
                 font-size: .6rem;

@@ -17,7 +17,7 @@ function SignupPage() {
                 <div className="signup__form__container">
                     <div className="signup__form__content">
                         <h2>Welcome to TrackXP!</h2>
-                        <p>Welcome to TrackWash, please put your signup credentials to start using the app
+                        <p>Welcome to TrackXP, please put your signup credentials to start using the app
                         </p>
                         <form className="signup__form">
                             <h4>Full Name</h4>

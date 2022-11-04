@@ -31,12 +31,13 @@ export const StyledOrders = styled.div`
       transition: all .2s ease-in-out;
       
       &:hover {
-        box-shadow: #0dcc63 0px 3px 8px;
+        box-shadow: 0 0 6px #5c7;
       }
     }
   }
 
   @media screen and (min-width: 768px) {
+    height: 100%;
     .orders__header {
       padding: 1rem .5rem .5rem .5rem;
   
@@ -56,11 +57,11 @@ export const StyledOrders = styled.div`
       padding: .8rem .5rem;
   
       .title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
   
       .new__button {
-        padding: .7rem 1.5rem;
+        padding: .6rem 1.5rem;
         font-size: .8rem;
         font-weight: 700;
       }
