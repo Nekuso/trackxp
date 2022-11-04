@@ -34,7 +34,7 @@ function Completed() {
   return (
     <StyledCompleted>
       <div className="data__table">
-
+        Coming Soon
       </div>
     </StyledCompleted>
   )

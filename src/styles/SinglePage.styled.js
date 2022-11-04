@@ -166,7 +166,7 @@ export const StyledSinglePage = styled.div`
         flex-direction: row-reverse;
         gap: 0.5rem;
         width: 100%;
-        border-radius: 10rem;
+        // border-radius: 10rem;
         padding: 0.5rem;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -362,7 +362,7 @@ export const StyledSinglePage = styled.div`
 
           tr {
             th {
-              font-size: 1.2rem;
+              font-size: 1rem;
               padding-bottom: 0.3rem;
             }
             td {
