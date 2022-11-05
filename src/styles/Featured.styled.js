@@ -224,7 +224,7 @@ export const StyledFeatured = styled.div`
     .bottom {
       display: flex;
       gap: .2rem;
-      padding: 0;
+      padding: 0 0 1rem 0;
 
       .featured__chart {
         width: 50%;

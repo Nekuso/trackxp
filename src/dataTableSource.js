@@ -77,12 +77,12 @@ export const dataRows = [
       },
       {
         name: "Breeze",
-        quantity: 0,
+        quantity: 2,
         price: 9,
       },
       {
         name: "Downy",
-        quantity: 0,
+        quantity: 2,
         price: 8,
       },
       {
@@ -92,7 +92,7 @@ export const dataRows = [
       },
       {
         name: "Color Safe Sachet",
-        quantity: 0,
+        quantity: 1,
         price: 10,
       },
       {
@@ -107,7 +107,7 @@ export const dataRows = [
       },
       {
         name: "Drop-Off (Folding)",
-        quantity: 0,
+        quantity: 1,
         price: 20,
       },
     ],

@@ -9,14 +9,21 @@ export const StyledOrders = styled.div`
   }
 
   .orders__header {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 .5rem .5rem .5rem;
 
-    .title {
-      font-size: 1.5rem;
+    .text__header {
+      width: 60%;
+      .title {
+        font-size: 1.5rem;
+      }
+      .date {
+        font-size: .6rem;
+      }
     }
 
     .new__button {
@@ -41,8 +48,10 @@ export const StyledOrders = styled.div`
     .orders__header {
       padding: 1rem .5rem .5rem .5rem;
   
-      .title {
-        font-size: 1.5rem;
+      .text__header {
+        .title {
+          font-size: 1.5rem;
+        }
       }
   
       .new__button {
@@ -56,8 +65,13 @@ export const StyledOrders = styled.div`
     .orders__header {
       padding: .8rem .5rem;
   
-      .title {
-        font-size: 1.8rem;
+      .text__header {
+        .title {
+          font-size: 1.3rem;
+        }
+        .date {
+          font-size: .7rem;
+        }
       }
   
       .new__button {

@@ -25,7 +25,7 @@ export const StyledDashboard = styled.div`
     margin: 1rem 0 0 0;
     justify-content: space-between;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 
   @media screen and (min-width: 768px) {

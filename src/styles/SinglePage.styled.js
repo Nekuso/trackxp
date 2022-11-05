@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledSinglePage = styled.div`
   width: 90%;
   height: 98%;
-  // background: red;
 
   .single__page__section {
     display: flex;
@@ -21,7 +20,7 @@ export const StyledSinglePage = styled.div`
       border-radius: 0.7rem;
       padding: 1rem;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
+      
       .order__cycle__item {
         display: flex;
         align-items: center;
@@ -37,16 +36,27 @@ export const StyledSinglePage = styled.div`
           margin-right: 1rem;
           border-radius: 50%;
           color: white;
-          box-shadow: #5773db 0px 3px 8px;
+          box-shadow: 0 0 6px #5773db;
+          transition: all 0.2s ease-in-out;
         }
-
+        
         .order__cycle__title {
+          cursor: pointer;
           .cycle__title {
+            width: auto;
+            color: #5773db;
             font-weight: 700;
             font-size: 1rem;
           }
           .cycle__stamp {
             font-size: 0.8rem;
+          }
+        }
+        
+        :hover {
+          i {
+            transform: translateY(-16px) scale(1.2);
+            box-shadow: 0 0 6px #5773db;
           }
         }
       }
@@ -181,10 +191,9 @@ export const StyledSinglePage = styled.div`
 
           i {
             text-align: center;
-            background: #5773db;
             padding: 0.5rem;
             font-size: 1.5rem;
-            margin-right: 0.5rem;
+            margin-right: 0;
             border-radius: 50%;
             color: white;
             box-shadow: #5773db 0px 3px 8px;
@@ -282,7 +291,7 @@ export const StyledSinglePage = styled.div`
 
   @media screen and (min-width: 1024px) {
     .single__page__section {
-      gap: 0.5rem;
+      gap: 1rem;
 
       .order__cycle__container {
         width: 100%;
@@ -293,19 +302,17 @@ export const StyledSinglePage = styled.div`
 
           i {
             text-align: center;
-            background: #5773db;
             font-size: 1.5rem;
-            margin-right: 0.5rem;
+            margin-right: 0;
             border-radius: 50%;
             color: white;
-            box-shadow: #5773db 0px 3px 8px;
           }
 
           .order__cycle__title {
             .cycle__title {
             }
             .cycle__stamp {
-              font-size: 0.6rem;
+              font-size: 0.7rem;
             }
           }
         }
