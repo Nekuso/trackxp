@@ -34,11 +34,11 @@ export const StyledOrders = styled.div`
       border: none;
       border-radius: 2rem;
       color: white;
-      background: #0dcc63;
+      background: black;
       transition: all .2s ease-in-out;
       
       &:hover {
-        box-shadow: 0 0 6px #5c7;
+        transform: scale(1.1);
       }
     }
   }

@@ -32,9 +32,9 @@ const Datatable = () => {
                     rowsPerPageOptions={[7]}
                     // checkboxSelection
                     sx={{
-                        borderRadius: ".5rem",
+                        // borderRadius: ".5rem",
                         p: "10px",
-                        boxShadow: 2,
+                        // boxShadow: 2,
                         // border: 2,
                         // borderColor: 'primary.light',
                         // '& .MuiDataGrid-cell:hover': {

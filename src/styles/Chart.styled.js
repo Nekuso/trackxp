@@ -5,7 +5,15 @@ export const StyledChart = styled.div`
   border-radius: 1rem;
   padding: 1rem;
   // background: #f5f6f8;
-  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  
+  :hover {
+    box-shadow: black 10px 10px 0px;
+    transform: translate(-5px, -5px);
+    border: 1px solid black;
+  }
   height: auto;
   * {
     color: #000000;

@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const StyledSidebar = styled.div`
 
     .sidebar__links {
-        margin-top: 10%;
         width: 100%;
         height: 100%;
         overflow: hidden;
+        padding: 1rem 0;
 
         .home__logo {
             h2 {
@@ -28,7 +28,7 @@ export const StyledSidebar = styled.div`
             color: #000000;
             width: 80%;
             margin: 0 auto;
-            font-size: 1rem;
+            font-size: .7rem;
             padding: 0 1rem;
         }
         li {
@@ -39,18 +39,18 @@ export const StyledSidebar = styled.div`
                 display: flex;
                 align-items: center;
                 width: 80%;
-                margin: .3rem 0;
-                font-size: .8rem;
+                margin: .2rem 0;
+                font-size: .7rem;
                 font-weight: 600;
-                padding: .5rem 1rem;
+                padding: .4rem 1rem;
                 border-radius: 10px;
                 color: #000000;
                 transition: .4s ease-in-out;
                 
                 i {
                     color: #5773db;
-                    margin-right: .5rem;
-                    font-size: 1.5rem;
+                    margin-right: .2rem;
+                    font-size: 1.4rem;
                     transition: .4s ease-in-out;
                 }
                 
@@ -74,9 +74,9 @@ export const StyledSidebar = styled.div`
             align-items: center;
             width: 80%;
             margin: .3rem 0;
-            font-size: .8rem;
+            font-size: .7rem;
             font-weight: 600;
-            padding: .8rem 1rem;
+            padding: .4rem 1rem;
             border-radius: 10px;
             color: #000000;
             transition: .4s ease-in-out;
@@ -84,7 +84,7 @@ export const StyledSidebar = styled.div`
             i {
                 color: #5773db;
                 margin-right: .5rem;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 transition: .4s ease-in-out;
                 
             }
@@ -95,5 +95,40 @@ export const StyledSidebar = styled.div`
         }
     }
 
+    @media screen and (min-width: 1024px) {
+        .sidebar__links {
+            padding: 2rem 0;
 
+            .home__logo {
+                h2 {
+                    font-size: 2rem;
+                }
+            }
+            h4 {
+                font-size: .9rem;
+            }
+
+            li {
+                .link {
+                    font-size: .8rem;
+                    padding: .5rem 1rem;
+                    margin: .3rem 0;
+                    i {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .other__container {
+            .other__link {
+                font-size: .8rem;
+                padding: .7rem 1rem;
+                margin: .3rem 0;
+
+                i {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
 `;

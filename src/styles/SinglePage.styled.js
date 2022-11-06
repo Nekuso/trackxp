@@ -19,7 +19,14 @@ export const StyledSinglePage = styled.div`
       width: 100%;
       border-radius: 0.7rem;
       padding: 1rem;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      
+      :hover {
+        box-shadow: black 10px 10px 0px;
+        transform: translate(-5px, -5px);
+      }
       
       .order__cycle__item {
         display: flex;
@@ -72,7 +79,14 @@ export const StyledSinglePage = styled.div`
         width: 100%;
         padding: 1.3rem;
         border-radius: 0.7rem;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        
+        :hover {
+          box-shadow: black 10px 10px 0px;
+          transform: translate(-5px, -5px);
+        }
 
         img {
           width: 90%;
@@ -125,8 +139,15 @@ export const StyledSinglePage = styled.div`
       display: flex;
       width: 100%;
       height: auto;
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       border-radius: 0.7rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      
+      :hover {
+        box-shadow: black 10px 10px 0px;
+        transform: translate(-5px, -5px);
+      }
 
       .order__table {
         width: 100%;
@@ -181,7 +202,6 @@ export const StyledSinglePage = styled.div`
         width: 100%;
         // border-radius: 10rem;
         padding: 0.5rem;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
         .order__cycle__item {
           display: flex;

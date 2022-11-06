@@ -13,7 +13,6 @@ export const StyledDashboardPage = styled.div`
             height: auto;
             width: 100%;
             
-            
             .dashboard__nav {
                 display: flex;
                 justify-content: space-between;
@@ -197,6 +196,7 @@ export const StyledDashboardPage = styled.div`
                     // align-items: center;
                     width: 100%;
                     height: 100%;
+                    // background: #f4f4f4;
                     // overflow-y: scroll;
                 }
             }
@@ -235,7 +235,7 @@ export const StyledDashboardPage = styled.div`
                     display: grid;
                     justify-content: space-between;
                     align-items: center;
-                    grid-template-columns: 22% 78%;
+                    grid-template-columns: 20% 80%;
                     background: white;
                     .sidebar__container {
                         display: flex;
@@ -244,7 +244,7 @@ export const StyledDashboardPage = styled.div`
                         width: 100%;
                         height: 100%;
                         // border-right: .5px solid #00000023;
-                        // background: #256799;
+                        // background: linear-gradient(108deg, rgba(134,227,206,0.4225862219887955) 0%, rgba(204,171,216,0.3889727766106442) 100%);
                         // border-radius: 0 1rem 1rem 0;
                     }
                     .main__container {
