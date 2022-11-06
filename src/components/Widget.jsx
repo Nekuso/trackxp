@@ -37,7 +37,7 @@ const Widget = ({type}) => {
         data = {
           title: "BALANCE",
           isMoney: false,
-          currency: "₱",
+          currency: "PHP",
         linkDescription: "View balance →",
         link: "orders",
         icon: "bx bxs-wallet-alt",

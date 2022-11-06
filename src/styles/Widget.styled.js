@@ -10,7 +10,16 @@ export const StyledWidget = styled.div`
   // background: #f5f6f8;
   border: none;
   border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  
+  :hover {
+    box-shadow: black 10px 10px 0px;
+    transform: translate(-5px, -5px);
+  }
+  
 
   .top {
     display: flex;
@@ -135,7 +144,8 @@ export const StyledWidget = styled.div`
   
     .bottom {
       .widget__link {
-        font-size: .5rem;
+        padding: .2rem .4rem;
+        font-size: .4rem;
       }
   
       .icon {

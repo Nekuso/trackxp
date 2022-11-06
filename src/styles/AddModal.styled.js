@@ -22,6 +22,7 @@ export const StyledAddModal = styled.div`
         width: 100vw;
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
         z-index: 101;
     }
     .add__modal {

@@ -1,12 +1,9 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { StyledMain } from '../styles/Main.styled'
-import Completed from './Completed'
 import Dashboard from './Dashboard'
 import Orders from './Orders'
-import Paid from './Paid'
 import SingleOrder from './SingleOrder'
-import Unpaid from './Unpaid'
 
 function Main() {
   return (

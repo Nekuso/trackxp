@@ -4,7 +4,7 @@ export const StyledDashboardPage = styled.div`
     .dashboard__section {
         width: 100vw;
         height: 100vh;
-        background: transparent; 
+        background: transparent;
 
         .dashboard__wrapper {       
             display: flex;
@@ -12,6 +12,7 @@ export const StyledDashboardPage = styled.div`
             justify-content: center;
             height: auto;
             width: 100%;
+            
             
             .dashboard__nav {
                 display: flex;
@@ -103,7 +104,8 @@ export const StyledDashboardPage = styled.div`
                     width: 100vw;
                     height: 100vh;
                     z-index: 30;
-                    background #3030301f;
+                    background: #3030301f;
+                    backdrop-filter: blur(5px);
                     transition: all .4s ease-in-out;
                 }
 
@@ -241,9 +243,9 @@ export const StyledDashboardPage = styled.div`
                         justify-content: space-between;
                         width: 100%;
                         height: 100%;
-                        border-right: .5px solid #00000023;
-                        border-top: .5px solid #00000023;
-                        // background: purple;
+                        // border-right: .5px solid #00000023;
+                        // background: #256799;
+                        // border-radius: 0 1rem 1rem 0;
                     }
                     .main__container {
                         display: flex;
