@@ -31,7 +31,7 @@ export const StyledDashboardPage = styled.div`
                 .nav__hamburger{
                     cursor: pointer;  
                     display: grid;
-                    position: relative;
+                    // position: fixed;
                     z-index: 101;
                     
                     user-select: none;
@@ -109,7 +109,8 @@ export const StyledDashboardPage = styled.div`
 
                 .hamburger__content {
                     display: flex;
-                    justify-content: center;
+                    flex-direction: column;
+                    justify-content: space-between;
                     width: 60vw;
                     height: 100vh;
                     background: #303030e7;
@@ -136,6 +137,24 @@ export const StyledDashboardPage = styled.div`
                             .link {
                                 margin: 1rem 0;
                                 font-size: 1rem;
+                                color: white;
+                            }
+                        }
+                    }
+
+                    .other__container {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 1.5rem;
+
+                        .other__link {
+                            display: flex;
+                            margin: 1rem 0;
+                            font-size: 1rem;
+                            color: white;
+                            i {
+                                margin-right: 1rem;
+                                font-size: 1.5rem;
                                 color: white;
                             }
                         }
@@ -188,6 +207,7 @@ export const StyledDashboardPage = styled.div`
             .dashboard__wrapper {
                 height: 100%;
                 .dashboard__nav {
+                    display: none;
                     padding: .3rem 2rem;
                     .nav__hamburger {
                         display: none;

@@ -75,24 +75,28 @@ const SingleOrder = () => {
                 </div>
                 <div className="order__table__container">
                     <table className="order__table">
-                        <tr className="header">
-                            <th className="particular__align">Particulars</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total</th>
-                        </tr>
-                        {dataRows[0].particulars.map((item, index) => (
+                        <thead>
+                            <tr className="header">
+                                <th className="particular__align">Particulars</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>   
+                        </thead>
+                        <tbody>
+                            {dataRows[0].particulars.map((item, index) => (
+                                <tr key={index}>
+                                    <td className="particular__align">{item.name}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>{item.price}</td>
+                                    <td>{item.quantity * item.price}</td>
+                                </tr>
+                            ))}
                             <tr>
-                                <td className="particular__align">{item.name}</td>
-                                <td>{item.quantity}</td>
-                                <td>{item.price}</td>
-                                <td>{item.quantity * item.price}</td>
+                                <td className="particular__align grand__total" colSpan="3">Grand Total</td>
+                                <td className="grand__total">{dataRows[0].amount}</td>
                             </tr>
-                        ))}
-                        <tr>
-                            <td className="particular__align grand__total" colspan="3">Grand Total</td>
-                            <td className="grand__total">{dataRows[0].amount}</td>
-                        </tr>
+                        </tbody>
                     </table>
                 </div>
                 

@@ -17,9 +17,6 @@ function Main() {
         <Route index element={<Orders />} />
         <Route path=":orderId" element={<SingleOrder/>}/>
       </Route>
-      <Route path="Completed" element={<Completed/>} />
-      <Route path="Paid" element={<Paid/>} />
-      <Route path="Unpaid" element={<Unpaid/>} />
     </Routes>
    </StyledMain>
   )

@@ -7,7 +7,7 @@ import Chart from './Chart';
 function Dashbooard() {
   return (
     <StyledDashboard>
-      {/* <h1>Dashboard</h1> */}
+      <h1 className="page__title">Dashboard</h1>
       <div className="widgets">
         <Widget type="orders" className="widget1"/>
         <Widget type="earnings" className="widget2"/>

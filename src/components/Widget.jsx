@@ -19,7 +19,7 @@ const Widget = ({type}) => {
         icon: "bx bxs-package",
         backgroundColor: "#415ebe", 
       };
-      break;
+    break;
       
     case 'earnings':
       data = {
@@ -31,21 +31,21 @@ const Widget = ({type}) => {
         icon: "bx bx-money",
         backgroundColor: "#41be7f", 
       };
-      break;
+    break;
       
       case 'balance':
         data = {
           title: "BALANCE",
           isMoney: false,
-          currency: "PHP",
+          currency: "₱",
         linkDescription: "View balance →",
         link: "orders",
         icon: "bx bxs-wallet-alt",
         backgroundColor: "#be4141", 
       };
-      break;
+    break;
     default:
-      break;
+    break;
   }
 
   return (

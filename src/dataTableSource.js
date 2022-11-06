@@ -58,7 +58,7 @@ export const dataRows = [
     isPaid: "Paid",
     status: "Pending",
     amount: 140,
-    cycleStaus: "Ready for pick-up",
+    cycleStatus: "Ready for pick-up",
     particulars: [
       {
         name: "Wash Loads",

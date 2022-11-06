@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { AuthContext } from  "../../context/AuthContext"
 import {StyledDashboardPage} from '../../styles/DashboardPage.styled';
 import Sidebar from '../Sidebar';
 import Main from '../Main';
@@ -28,6 +30,8 @@ function DashboardPage() {
         : setDarkActive("bx bx-moon");
     }
 
+    const {dispatch} = useContext(AuthContext)
+
 
   return (
 
@@ -52,19 +56,18 @@ function DashboardPage() {
                                 <i className='bx bxs-receipt' ></i>
                                 <Link className="link" onClick={navToggle} to="/Home/Orders">Orders</Link>
                             </li>
-                            <li>
-                                <i className='bx bxs-badge-check' ></i>
-                                <Link className="link" onClick={navToggle} to="/Home/Completed">Completed</Link>
-                            </li>
-                            <li>
-                                <i className='bx bx-money'></i>
-                                <Link className="link" onClick={navToggle} to="/Home/Paid">Paid</Link>
-                            </li>
-                            <li>
-                                <i className='bx bx-money-withdraw' ></i>
-                                <Link className="link" onClick={navToggle} to="/Home/Unpaid">Unpaid</Link>
-                            </li>
                         </ul>
+
+                        <div className="other__container">
+                            <a className="other__link" href="/">
+                                <i className='bx bx-question-mark'></i>
+                                FAQ
+                            </a>
+                            <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
+                                <i className='bx bx-log-out'></i>
+                                Logout
+                            </Link>
+                        </div>
                     </div>
 
                     <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>

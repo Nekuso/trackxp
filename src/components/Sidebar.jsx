@@ -11,6 +11,7 @@ function Sidebar() {
   return (
     <StyledSidebar className="sidebar__container">
       <ul className="sidebar__links">
+        <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
         <h4>Menu</h4>
         <li>
             <Link className="link" to="/Home">
@@ -22,24 +23,6 @@ function Sidebar() {
             <Link className="link" to="/Home/Orders">
               <i className='bx bxs-receipt' ></i>
               Orders
-            </Link>
-        </li>
-        <li>
-            <Link className="link" to="/Home/Completed">
-              <i className='bx bxs-badge-check' ></i>
-              Completed
-            </Link>
-        </li>
-        <li>
-            <Link className="link" to="/Home/Paid">
-              <i className='bx bx-money'></i>
-              Paid
-            </Link>
-        </li>
-        <li>
-            <Link className="link" to="/Home/Unpaid">
-              <i className='bx bx-money-withdraw' ></i>
-              Unpaid
             </Link>
         </li>
     </ul>

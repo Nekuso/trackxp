@@ -44,6 +44,10 @@ export const StyledOrders = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     .orders__header {
       padding: 1rem .5rem .5rem .5rem;

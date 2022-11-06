@@ -161,6 +161,9 @@ export const StyledSinglePage = styled.div`
   @media screen and (min-width: 768px) {
     width: 95%;
     height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .single__page__section {
       display: flex;

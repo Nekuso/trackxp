@@ -6,6 +6,11 @@ export const StyledDashboard = styled.div`
   width: 93%;
   height: 100%;
 
+  .page__title {
+    font-size: 2rem;
+    margin: .5rem 0;
+  }
+
   .widgets {
     display: flex;
     flex-wrap: wrap;
@@ -29,14 +34,24 @@ export const StyledDashboard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    height: 90%;
-    h1 {
-      font-size: 1.2rem;
-      margin: 0.2rem 0 0.3rem 0;
+    justify-content: center;
+    height: 100%;
+    
+    .page__title {
+      font-size: 1.3rem;
+      margin: .5rem 0;
     }
+
     .widgets {
       justify-content: space-between;
       gap: 0;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .page__title {
+      font-size: 1.5rem;
+      margin: .5rem 0;
     }
   }
 `;

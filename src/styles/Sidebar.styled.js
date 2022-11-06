@@ -8,6 +8,22 @@ export const StyledSidebar = styled.div`
         height: 100%;
         overflow: hidden;
 
+        .home__logo {
+            h2 {
+                color: #000000;
+                width: auto;
+                margin: 0 auto 1rem 0;
+                font-size: 1.5rem;
+                text-align: center;
+                padding: 0 1rem;
+
+                mark {
+                    background: none;
+                    color: #5773db;
+                }
+            }
+        }
+
         h4 {
             color: #000000;
             width: 80%;
@@ -78,5 +94,6 @@ export const StyledSidebar = styled.div`
             }
         }
     }
+
 
 `;
