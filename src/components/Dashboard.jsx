@@ -17,7 +17,7 @@ function Dashbooard() {
     <StyledDashboard>
       {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
       <div className="dashboard__header">
-        <h1 className="page__title">Dashboard</h1>
+        <h1 className="page__title">Dashboard🚀</h1>
         <button onClick={handleAddModal} className="new__button">New Order</button>
       </div>
       <div className="widgets">

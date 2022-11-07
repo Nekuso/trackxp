@@ -10,7 +10,7 @@ export const StyledSidebar = styled.div`
 
         .home__logo {
             h2 {
-                color: #000000;
+                color: white;
                 width: auto;
                 margin: 0 auto 1rem 0;
                 font-size: 1.5rem;
@@ -25,7 +25,7 @@ export const StyledSidebar = styled.div`
         }
 
         h4 {
-            color: #000000;
+            color: white;
             width: 80%;
             margin: 0 auto;
             font-size: .7rem;
@@ -40,16 +40,16 @@ export const StyledSidebar = styled.div`
                 align-items: center;
                 width: 80%;
                 margin: .2rem 0;
-                font-size: .7rem;
+                font-size: .6rem;
                 font-weight: 600;
                 padding: .4rem 1rem;
                 border-radius: 10px;
-                color: #000000;
+                color: white;
                 transition: .4s ease-in-out;
                 
                 i {
                     color: #5773db;
-                    margin-right: .2rem;
+                    margin-right: .5rem;
                     font-size: 1.4rem;
                     transition: .4s ease-in-out;
                 }
@@ -61,14 +61,14 @@ export const StyledSidebar = styled.div`
             }
         }
     }
-
+    
     .other__container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 40%;
-
+        
         .other__link {
             display: flex;
             align-items: center;
@@ -78,12 +78,12 @@ export const StyledSidebar = styled.div`
             font-weight: 600;
             padding: .4rem 1rem;
             border-radius: 10px;
-            color: #000000;
+            color: white;
             transition: .4s ease-in-out;
-
+            
             i {
                 color: #5773db;
-                margin-right: .5rem;
+                margin-right: .8rem;
                 font-size: 1.4rem;
                 transition: .4s ease-in-out;
                 
@@ -98,16 +98,16 @@ export const StyledSidebar = styled.div`
     @media screen and (min-width: 1024px) {
         .sidebar__links {
             padding: 2rem 0;
-
+            
             .home__logo {
                 h2 {
-                    font-size: 2rem;
+                    font-size: 1.6rem;
                 }
             }
             h4 {
-                font-size: .9rem;
+                font-size: .7rem;
             }
-
+            
             li {
                 .link {
                     font-size: .8rem;
@@ -115,6 +115,7 @@ export const StyledSidebar = styled.div`
                     margin: .3rem 0;
                     i {
                         font-size: 1.5rem;
+                        margin-right: .6rem;
                     }
                 }
             }

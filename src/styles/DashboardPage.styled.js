@@ -245,7 +245,8 @@ export const StyledDashboardPage = styled.div`
                         height: 100%;
                         // border-right: .5px solid #00000023;
                         // background: linear-gradient(108deg, rgba(134,227,206,0.4225862219887955) 0%, rgba(204,171,216,0.3889727766106442) 100%);
-                        // border-radius: 0 1rem 1rem 0;
+                        // border-radius: 0 1.5rem 1.5rem 0;
+                        background: #293241;
                     }
                     .main__container {
                         display: flex;
@@ -256,6 +257,7 @@ export const StyledDashboardPage = styled.div`
                         border-top: .5px solid #00000023;
                         overflow-x: hidden;
                         overflow-y: scroll;
+                        background: #fafafa;
                     }
                 }
             }
