@@ -44,7 +44,7 @@ export const StyledAddModal = styled.div`
       padding: 0.5rem 0;
 
       .title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
 
       i {
@@ -65,7 +65,7 @@ export const StyledAddModal = styled.div`
       .add__user__info {
         display: flex;
         flex-direction: column;
-        gap: .8rem;
+        gap: 0.8rem;
         width: 100%;
         border: 1px solid #ccc;
         padding: 1rem;
@@ -82,7 +82,6 @@ export const StyledAddModal = styled.div`
           display: flex;
           width: 100%;
           justify-content: space-between;
-
           .user__input {
             width: 48%;
             p {
@@ -134,7 +133,7 @@ export const StyledAddModal = styled.div`
       .add__user__particulars {
         display: flex;
         flex-direction: column;
-        gap: .3rem;
+        gap: 0.3rem;
         width: 100%;
         border: 1px solid #ccc;
         padding: 1.5rem 1rem;
@@ -142,56 +141,80 @@ export const StyledAddModal = styled.div`
         background: white;
 
         thead {
-            tr{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+          tr {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-                th {
-                    font-size: 1.5rem;
-                }
-
-                .amounts {
-                    text-align: center;
-                    display: flex;
-                    width: 40%;
-
-                    th {
-                        font-size: 0.7rem;
-                        width: 50%;
-                    }
-                }
+            th {
+              font-size: 1.5rem;
             }
+
+            .amounts {
+              text-align: center;
+              display: flex;
+              width: 40%;
+
+              th {
+                font-size: 0.7rem;
+                width: 50%;
+              }
+            }
+          }
         }
-        
+
         tbody {
-            tr {
-                display: flex;
-                justify-content: space-between;
+          tr {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0.3rem 0;
+            .particular__input {
+              width: 40%;
+              display: flex;
+              gap: 0.5rem;
+
+              input {
+                text-align: center;
                 width: 100%;
-                margin: .3rem 0;
-                .particular__input {
-                    width: 40%;
-                    display: flex;
-                    gap: .5rem;
-                    
-                    input {
-                        text-align: center;
-                        width: 100%;
-                        border: none;
-                        border-radius: 0.5rem;
-                        padding: 0.4rem;
-                        border: 1px solid #ccc;
-                    }
-                }
+                border: none;
+                border-radius: 0.5rem;
+                padding: 0.4rem;
+                border: 1px solid #ccc;
+              }
             }
-            .grand__total {
-                td {
-                    text-align: center;
-                    font-weight: 700;
-                    font-size: 1.5rem;
-                }
+          }
+          .grand__total {
+            td {
+              text-align: center;
+              font-weight: 700;
+              font-size: 1.5rem;
             }
+          }
+        }
+      }
+
+      .submit__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+
+        .grand__total {
+          display: flex;
+          gap: 1rem;
+          font-weight: 700;
+        }
+
+        button {
+            cursor: pointer;
+          font-size: 1.1rem;
+          padding: 0.6rem 2rem;
+          border: none;
+          border-radius: 2rem;
+          background: black;
+          color: white;
         }
       }
     }
@@ -199,19 +222,228 @@ export const StyledAddModal = styled.div`
 
   @media screen and (min-width: 768px) {
     .add__modal {
-      width: 85%;
+      width: 90%;
       height: 90%;
       background: white;
       border-radius: 1rem;
-      padding: 1rem;
+      padding: 2rem;
+
+      .add__modal__header {
+        padding-top: 0;
+        .title {
+          font-size: 1.5rem;
+        }
+      }
+
+      .add__modal__body {
+        padding-bottom: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0;
+        scroll-y: hidden;
+
+        .add__user__info {
+          width: 38%;
+          gap: 0.3rem;
+          padding: 0.8rem;
+
+          h2 {
+            font-size: 1rem;
+          }
+
+          .fullName__container {
+            .user__input {
+              p {
+                font-size: 0.7rem;
+              }
+              input {
+                font-size: 0.7rem;
+                padding: 0.6rem;
+              }
+            }
+          }
+
+          .contact__container {
+            p {
+              font-size: 0.7rem;
+            }
+            input {
+              font-size: 0.7rem;
+              padding: 0.6rem;
+            }
+          }
+
+          .payment__container {
+            p {
+              font-size: 0.8rem;
+            }
+            select {
+              font-size: 0.7rem;
+              padding: 0.6rem;
+            }
+          }
+        }
+        .add__user__particulars {
+          width: 61%;
+          padding: 1rem;
+
+          thead {
+            tr {
+              th {
+                font-size: 1rem;
+              }
+              .amounts {
+                th {
+                  font-size: 0.7rem;
+                }
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              align-items: center;
+              margin: 0.1rem 0;
+              td {
+                font-size: 0.7rem;
+              }
+              .particular__input {
+                justify-content: space-evenly;
+                input {
+                  width: 30%;
+                  border-radius: 0.3rem;
+                  font-size: 0.7rem;
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .submit__container {
+          padding: 1rem 0;
+
+          .grand__total {
+            gap: 2rem;
+          }
+
+          button {
+            font-size: 0.8rem;
+          }
+        }
+      }
     }
-
-
-    
   }
 
   @media screen and (min-width: 1024px) {
     .add__modal {
+      width: 55%;
+      height: 87%;
+      background: white;
+      .add__modal__header {
+        padding-top: 0;
+        .title {
+          font-size: 1.5rem;
+        }
+      }
+
+      .add__modal__body {
+        padding-bottom: 0;
+        align-items: flex-start;
+        scroll-y: hidden;
+        overflow-y: hidden;
+
+        .add__user__info {
+          width: 35%;
+          gap: 0.3rem;
+
+          h2 {
+            font-size: 1rem;
+          }
+
+          .fullName__container {
+            .user__input {
+              p {
+                font-size: 0.7rem;
+              }
+              input {
+                font-size: 0.7rem;
+                padding: 0.6rem;
+              }
+            }
+          }
+
+          .contact__container {
+            p {
+              font-size: 0.7rem;
+            }
+            input {
+              font-size: 0.7rem;
+              padding: 0.6rem;
+            }
+          }
+
+          .payment__container {
+            p {
+              font-size: 0.8rem;
+            }
+            select {
+              font-size: 0.7rem;
+              padding: 0.6rem;
+            }
+          }
+        }
+        .add__user__particulars {
+          width: 64%;
+          padding: 1rem;
+
+          thead {
+            tr {
+              th {
+                font-size: 1rem;
+              }
+              .amounts {
+                th {
+                  font-size: 0.7rem;
+                }
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              align-items: center;
+              margin: 0.1rem 0;
+              td {
+                font-size: .9rem;
+              }
+              .particular__input {
+                justify-content: space-around;
+                input {
+                  width: 30%;
+                  border-radius: 0.3rem;
+                  font-size: 0.7rem;
+                  padding: .3rem;
+                }
+              }
+            }
+          }
+        }
+
+        .submit__container {
+          padding: 1rem 0;
+
+          .grand__total {
+            gap: 2rem;
+          }
+
+          button {
+            font-size: 0.8rem;
+          }
+        }
+      }
     }
   }
 `;

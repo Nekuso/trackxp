@@ -58,85 +58,89 @@ const AddModal = ({handleAddModal}) => {
                   <td>Wash Loads</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={70} />
+                    <input type="number" defaultValue={70} />
                   </td>
                 </tr>
                 <tr>
                   <td>Dry Loads</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={70} />
+                    <input type="number" defaultValue={70} />
                   </td>
                 </tr>
                 <tr>
                   <td>Ariel</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={0} />
+                    <input type="number" defaultValue={0} />
                   </td>
                 </tr>
                 <tr>
                   <td>Breeze</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={9} />
+                    <input type="number" defaultValue={9} />
                   </td>
                 </tr>
                 <tr>
                   <td>Downy</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={8} />
+                    <input type="number" defaultValue={8} />
                   </td>
                 </tr>
                 <tr>
                   <td>Surf</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={8} />
+                    <input type="number" defaultValue={8} />
                   </td>
                 </tr>
                 <tr>
                   <td>Color Safe Sachet</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={10} />
+                    <input type="number" defaultValue={10} />
                   </td>
                 </tr>
                 <tr>
                   <td>Color Safe Bottle</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={10} />
+                    <input type="number" defaultValue={10} />
                   </td>
                 </tr>
                 <tr>
                   <td>Plastic Bag</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={0}/>
+                    <input type="number" defaultValue={0}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Drop-Off (folding)</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={20}/>
+                    <input type="number" defaultValue={20}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Other</td>
                   <td className="particular__input">
                     <input type="number" />
-                    <input type="number" value={0}/>
+                    <input type="number" defaultValue={0}/>
                   </td>
-                </tr>
-                <tr className="grand__total">
-                  <td>Grand Total</td>
-                  <td colSpan="2">0</td>
                 </tr>
               </tbody>
             </table>
+
+            <div className="submit__container">
+              <div className="grand__total">
+                <p>Grand Total</p>
+                <p>0</p>
+              </div>
+              <button>Submit</button>
+            </div>
           </form>
         </div>
     </StyledAddModal>
