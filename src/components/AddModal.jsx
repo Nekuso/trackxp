@@ -2,6 +2,12 @@ import React from 'react'
 import { StyledAddModal } from '../styles/AddModal.styled'
 
 const AddModal = ({handleAddModal}) => {
+
+
+
+
+
+
   return (
     <StyledAddModal >
         <div className="closer" onClick={()=>handleAddModal()}/>
@@ -14,7 +20,7 @@ const AddModal = ({handleAddModal}) => {
 
             <div className="add__user__info">
               <h2>Costumer Info</h2>
-              <div className="fullName__input__container">
+              <div className="fullName__container">
                 <div className="user__input">
                   <p>First Name</p>
                   <input type="text" placeholder="Enter First Name"/>
@@ -37,9 +43,100 @@ const AddModal = ({handleAddModal}) => {
               </div>
             </div>
 
-            <div className="add__user__particulars">
-
-            </div>
+            <table className="add__user__particulars">
+              <thead>
+                <tr>
+                  <th>Particulars</th>
+                  <div className="amounts">
+                    <th>Quantity</th>
+                    <th>Price</th>
+                  </div>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Wash Loads</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={70} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dry Loads</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={70} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ariel</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={0} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Breeze</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={9} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Downy</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={8} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Surf</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={8} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Color Safe Sachet</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={10} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Color Safe Bottle</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={10} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Plastic Bag</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={0}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Drop-Off (folding)</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={20}/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Other</td>
+                  <td className="particular__input">
+                    <input type="number" />
+                    <input type="number" value={0}/>
+                  </td>
+                </tr>
+                <tr className="grand__total">
+                  <td>Grand Total</td>
+                  <td colSpan="2">0</td>
+                </tr>
+              </tbody>
+            </table>
           </form>
         </div>
     </StyledAddModal>

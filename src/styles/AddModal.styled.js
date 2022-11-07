@@ -57,6 +57,7 @@ export const StyledAddModal = styled.div`
     .add__modal__body {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
       width: 100%;
       height: 100%;
       overflow-y: scroll;
@@ -64,7 +65,8 @@ export const StyledAddModal = styled.div`
       .add__user__info {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: .8rem;
+        width: 100%;
         border: 1px solid #ccc;
         padding: 1rem;
         border-radius: 1rem;
@@ -76,7 +78,7 @@ export const StyledAddModal = styled.div`
           padding: 0.3rem 0;
         }
 
-        .fullName__input__container {
+        .fullName__container {
           display: flex;
           width: 100%;
           justify-content: space-between;
@@ -128,6 +130,70 @@ export const StyledAddModal = styled.div`
           }
         }
       }
+
+      .add__user__particulars {
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 1.5rem 1rem;
+        border-radius: 1rem;
+        background: white;
+
+        thead {
+            tr{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                th {
+                    font-size: 1.5rem;
+                }
+
+                .amounts {
+                    text-align: center;
+                    display: flex;
+                    width: 40%;
+
+                    th {
+                        font-size: 0.7rem;
+                        width: 50%;
+                    }
+                }
+            }
+        }
+        
+        tbody {
+            tr {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin: .3rem 0;
+                .particular__input {
+                    width: 40%;
+                    display: flex;
+                    gap: .5rem;
+                    
+                    input {
+                        text-align: center;
+                        width: 100%;
+                        border: none;
+                        border-radius: 0.5rem;
+                        padding: 0.4rem;
+                        border: 1px solid #ccc;
+                    }
+                }
+            }
+            .grand__total {
+                td {
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+      }
     }
   }
 
@@ -139,6 +205,9 @@ export const StyledAddModal = styled.div`
       border-radius: 1rem;
       padding: 1rem;
     }
+
+
+    
   }
 
   @media screen and (min-width: 1024px) {
