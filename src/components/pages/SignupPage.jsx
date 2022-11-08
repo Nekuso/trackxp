@@ -28,7 +28,7 @@ function SignupPage() {
                             <input type="password" name="password" id="password" placeholder="Enter your password" />
                         </form>
                         <button type="submit">Signup</button>
-                        <h3>Already have an account? <Link to="/Login">Login</Link></h3>
+                        <h3>Already have an account? <Link to="/trackxp/Login">Login</Link></h3>
                     </div>
                 </div>
             </div>

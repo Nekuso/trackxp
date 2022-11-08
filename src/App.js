@@ -21,12 +21,12 @@ function App() {
       <GlobalStyle />
       <div className="content">
         <Routes>
-          <Route path="trackxp/">
+          <Route path="/trackxp/">
             <Route index element={<HomePage />} />
-            <Route path="trackxp/Login" element={<LoginPage />} />
-            <Route path="trackxp/Signup" element={<SignupPage />} />
+            <Route path="/trackxp/Login" element={<LoginPage />} />
+            <Route path="/trackxp/Signup" element={<SignupPage />} />
             <Route
-              path="trackxp/Home/*"
+              path="Home/*"
               element={
                 <RequireAuth>
                   <DashboardPage />

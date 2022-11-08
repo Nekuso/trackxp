@@ -24,15 +24,15 @@ function Navbar() {
   return (
 
     <StyledNavbar>
-        <Link to="trackxp/" className="home__link"><h2>TrackXP</h2></Link>
+        <Link to="/trackxp" className="home__link"><h2>TrackXP</h2></Link>
         
         <ul
         className={navActive}
         >
           {
-            currentUser ? <div className="dash__nav__container"><Link to="/Home" className="nav__dash__button">Dashboard</Link></div>
-            : <><li><Link to="trackxp/Login" className='Link' onClick={navToggle }>Login</Link></li>
-            <li><Link to="trackxp/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li></>
+            currentUser ? <div className="dash__nav__container"><Link to="/trackxp/Home" className="nav__dash__button">Dashboard</Link></div>
+            : <><li><Link to="/trackxp/Login" className='Link' onClick={navToggle }>Login</Link></li>
+            <li><Link to="/trackxp/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li></>
           }
           
         </ul>
