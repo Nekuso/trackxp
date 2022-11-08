@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { StyledAddModal } from '../styles/AddModal.styled'
 import OrderDataService from '../order.services'
-import { Timestamp } from "firebase/firestore"; 
 
 const AddModal = ({handleAddModal}) => {
   const [orderId, setOrderId] = useState(100000001)
@@ -12,8 +11,7 @@ const AddModal = ({handleAddModal}) => {
   const [price,setPrice] = useState(0);
   const [cycleStatus, setCycleStatus] = useState("Pending");
   const current = new Date();
-  const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;;
-
+  const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
   const handleAdd = async (e) => {
     e.preventDefault()

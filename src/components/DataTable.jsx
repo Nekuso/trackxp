@@ -3,39 +3,44 @@ import { StyledDataTable } from '../styles/DataTable.styled';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { dataColumns, dataRows } from '../dataTableSource';
 import { Link } from 'react-router-dom';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import {db} from "../firebase"
+import OrderDataServices from "../order.services"
 
 const Datatable = () => {
     const [data, setData] = useState([]);
 
-    useEffect(()=> {
-        const fetchData = async () => {
-            let list = [];
-            try {
-                const querySnapshot = await getDocs(collection(db, "orders"));
-                querySnapshot.forEach((doc)=> {
-                    list.push({ id: doc.id, ...doc.data()});
-                });
-                setData(list);
-            } catch(err) {
-                console.log(err)
-            }
-        }
-        fetchData();
-    },[])
+    onSnapshot(collection(db, "orders"), (snapshot) => {
+        let orderData= [];
+        snapshot.docs.forEach((doc) => {
+            orderData.push({ ...doc.data(), id: doc.id });
+        })
+        setData(orderData);
+    });
+    
+    const handleDelete = async (id) => {
+        try {
+            await deleteDoc(doc(db, "orders", id));
 
+        }catch(err) {
+            console.log(err)
+        }
+        setData(data.filter((item)=> item.id !== id))
+        
+    }
+
+    
     const actionColumn =[
         {field: 'action', 
             headerName: 'Action', 
             headerAlign: "center",
             width: 160,
             disableExport: true,
-            renderCell: () => {
+            renderCell: (params) => {
             return (
                 <div className="cell__action">
                     <Link to={"Single"} className="view__button">View</Link>
-                    <div className="delete__button">Delete</div>
+                    <div className="delete__button" onClick={() => handleDelete(params.row.id)}>Delete</div>
                 </div>
             )
     }}]
