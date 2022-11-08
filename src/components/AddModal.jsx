@@ -7,6 +7,7 @@ const AddModal = ({handleAddModal}) => {
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [contact,setContact] = useState(0);
+  const [payment,setPayment] = useState("Pending");
   const dateCreated = Timestamp.now();
 
 
@@ -18,6 +19,7 @@ const AddModal = ({handleAddModal}) => {
       firstName,
       lastName,
       contact,
+      payment,
       dateCreated
     }
     try {
@@ -29,6 +31,7 @@ const AddModal = ({handleAddModal}) => {
     setFirstName("")
     setLastName("")
     setContact(0)
+    setPayment("Pending")
 
     handleAddModal()
   }
@@ -76,7 +79,7 @@ const AddModal = ({handleAddModal}) => {
               </div>
               <div className="payment__container">
                 <p>Payment</p>
-                <select name="payment" id="payment">
+                <select name="payment" id="payment" value={payment} onChange={(e)=>setPayment(e.target.value)}>
                   <option value="Pending">Pending</option>
                   <option value="Paid">Paid</option>
                 </select>
