@@ -132,14 +132,14 @@ const AddModal = ({handleAddModal}) => {
       }
     });
     setParticularsData(newArr);
-
-    {particularsData.map((particular) => {
+    
+    particularsData.map((particular) => {
       if(particular.quantity > 0) {
         particular.itemTotal = particular.quantity * particular.price;
+        console.log(particular.itemTotal)
       }
-    })}
-
-
+    })
+    setTotal(particularsData.reduce((acc, curr) => acc + curr.itemTotal, 0));
 
   };
 
