@@ -17,7 +17,7 @@ function HomePage() {
               </p>
               <h1 className="hero__title">
                 Tracking made easy<br/>
-                with TrackXp.
+                with TrackXP.
               </h1>
               <h3 className="hero__description">
                 A proper tracking system that enables you to 

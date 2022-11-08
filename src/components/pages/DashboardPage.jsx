@@ -50,11 +50,11 @@ function DashboardPage() {
                         <ul className="hamburger__links">
                             <li>
                                 <i className='bx bxs-dashboard'></i>
-                                <Link className="link" onClick={navToggle} to="/Home">Dashboard</Link>
+                                <Link className="link" onClick={navToggle} to="">Dashboard</Link>
                             </li>
                             <li>
                                 <i className='bx bxs-receipt' ></i>
-                                <Link className="link" onClick={navToggle} to="/Home/Orders">Orders</Link>
+                                <Link className="link" onClick={navToggle} to="Orders">Orders</Link>
                             </li>
                         </ul>
 
@@ -63,7 +63,7 @@ function DashboardPage() {
                                 <i className='bx bx-question-mark'></i>
                                 FAQ
                             </a>
-                            <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
+                            <Link className="other__link" to="/trackxp/Login" onClick={() => dispatch({type: "LOGOUT"})}>
                                 <i className='bx bx-log-out'></i>
                                 Logout
                             </Link>
