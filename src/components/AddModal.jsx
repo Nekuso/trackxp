@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyledAddModal } from '../styles/AddModal.styled'
+import OrderDataService from '../order.services'
+import { Timestamp } from "firebase/firestore"; 
 
 const AddModal = ({handleAddModal}) => {
+  const [firstName,setFirstName] = useState("");
+  const [lastName,setLastName] = useState("");
+  const [contact,setContact] = useState(0);
+  const dateCreated = Timestamp.now();
 
 
+  const handleAdd = async (e) => {
+    e.preventDefault()
+
+
+    const newOrder = {
+      firstName,
+      lastName,
+      contact,
+      dateCreated
+    }
+    try {
+      await OrderDataService.addOrders(newOrder)
+    } catch(err) {
+      console.log(err)
+    }
+
+    setFirstName("")
+    setLastName("")
+    setContact(0)
+
+    handleAddModal()
+  }
 
 
 
@@ -16,23 +44,35 @@ const AddModal = ({handleAddModal}) => {
               <h1 className="title">New Order</h1>
               <i onClick={()=>handleAddModal()} className='bx bx-x'></i>
           </div>
-          <form className="add__modal__body">
+          <form onSubmit={handleAdd} className="add__modal__body">
 
             <div className="add__user__info">
               <h2>Costumer Info</h2>
               <div className="fullName__container">
                 <div className="user__input">
                   <p>First Name</p>
-                  <input type="text" placeholder="Enter First Name"/>
+                  <input 
+                    type="text" 
+                    placeholder="Enter First Name"
+                    value={firstName} 
+                    onChange={(e)=>setFirstName(e.target.value)}/>
                 </div>
                 <div className="user__input">
                   <p>Last Name</p>
-                  <input type="text" placeholder="Enter Last Name"/>
+                  <input 
+                    type="text" 
+                    placeholder="Enter Last Name"
+                    value={lastName} 
+                    onChange={(e)=>setLastName(e.target.value)}/>
                 </div>
               </div>
               <div className="contact__container">
                 <p>Contact No.</p>
-                <input type="number" placeholder="Enter Contact No."/>
+                <input 
+                  type="number" 
+                  placeholder="Enter Contact No."
+                  value={contact} 
+                  onChange={(e)=>setContact(e.target.value)}/>
               </div>
               <div className="payment__container">
                 <p>Payment</p>
@@ -138,7 +178,7 @@ const AddModal = ({handleAddModal}) => {
               </div>
               <div className="buttons">
                 <p>Cancel</p>
-                <button>Submit</button>
+                <button type='submit'>Submit</button>
               </div>
             </div>
           </form>
