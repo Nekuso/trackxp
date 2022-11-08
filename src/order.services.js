@@ -10,7 +10,6 @@ import {
     doc,
 } from 'firebase/firestore'
 
-
 const ordersCollectionRef = collection(db, "orders");
 
 class OrderDataService {
