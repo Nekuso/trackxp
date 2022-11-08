@@ -10,9 +10,10 @@ const Datatable = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        
         // LISTEN (REALTIME)
         const unsub = onSnapshot(
-          collection(db, "users"),
+          collection(db, "orders"),
           (snapShot) => {
             let list = [];
             snapShot.docs.forEach((doc) => {

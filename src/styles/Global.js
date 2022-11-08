@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        font-family: "Montserrat", Poppins;
         background: white;
         width: 100vw;
         max-width: 100vw;

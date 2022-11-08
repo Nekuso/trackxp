@@ -13,7 +13,7 @@ function App() {
 
   // Create a function for RequireAuth
   const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/Login" />;
+    return currentUser ? children : <Navigate to="/trackxp/Login" />;
   };
 
   return (
@@ -21,10 +21,10 @@ function App() {
       <GlobalStyle />
       <div className="content">
         <Routes>
-          <Route path="/trackxp/">
+          <Route path="/trackxp">
             <Route index element={<HomePage />} />
-            <Route path="/trackxp/Login" element={<LoginPage />} />
-            <Route path="/trackxp/Signup" element={<SignupPage />} />
+            <Route path="Login" element={<LoginPage />} />
+            <Route path="Signup" element={<SignupPage />} />
             <Route
               path="Home/*"
               element={
