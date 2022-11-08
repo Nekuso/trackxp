@@ -25,7 +25,7 @@ function Loginpage() {
             const user = userCredential.user;
             dispatch({type: "LOGIN", payload: user})
             console.log(user);
-            navigate("/home");
+            navigate("trackxp/home");
         })
         .catch((error) => {
             setError(true)
@@ -69,7 +69,7 @@ function Loginpage() {
                             <button type="submit">Login</button>
                         </form>
                         {error && <span className="error"><p>Invalid Credentials!</p></span>}
-                        <h3>Don't have an account? <Link to="/Signup">Signup</Link></h3>
+                        <h3>Don't have an account? <Link to="trackxp/Signup">Signup</Link></h3>
                     </div>
                 </div>
             </div>
