@@ -5,27 +5,27 @@ export const StyledDashboard = styled.div`
   flex-direction: column;
   width: 93%;
   height: 100%;
-  
+
   .dashboard__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
     .page__title {
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
 
     .new__button {
       cursor: pointer;
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      padding: .6rem 1.1rem;
+      padding: 0.6rem 1.1rem;
       border: none;
       border-radius: 2rem;
       color: white;
       background: black;
-      transition: all .2s ease-in-out;
-      
+      transition: all 0.2s ease-in-out;
+
       &:hover {
         transform: scale(1.1);
       }
@@ -40,7 +40,6 @@ export const StyledDashboard = styled.div`
     align-items: center;
     width: 100%;
     height: auto;
-    background: yellow;
     background: transparent;
   }
 
@@ -57,15 +56,15 @@ export const StyledDashboard = styled.div`
   @media screen and (min-width: 768px) {
     justify-content: center;
     height: 100%;
-    
+
     .dashboard__header {
-      margin: .5rem 0;
+      margin: 0.5rem 0;
       .page__title {
         font-size: 1.3rem;
       }
 
       .new__button {
-        font-size: .6rem;
+        font-size: 0.6rem;
         font-weight: 700;
       }
     }
@@ -78,13 +77,13 @@ export const StyledDashboard = styled.div`
 
   @media screen and (min-width: 1024px) {
     .dashboard__header {
-      margin: .5rem 0;
+      margin: 0.5rem 0;
       .page__title {
         font-size: 1.8rem;
       }
       .new__button {
-        padding: .6rem 1.5rem;
-        font-size: .8rem;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.8rem;
         font-weight: 700;
       }
     }

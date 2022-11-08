@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import { StyledAddModal } from '../styles/AddModal.styled';
 import OrderDataService from '../order.services';
 import { serverTimestamp } from 'firebase/firestore';
-import { particulars } from '../formSource';
 
 const AddModal = ({handleAddModal}) => {
-  const [orderId, setOrderId] = useState(100000001)
+  const [orderId, setOrderId] = useState(100000001);
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [contact,setContact] = useState(0);
   const [payment,setPayment] = useState("Pending");
-  const [total,setTotal] = useState(234);
+  const [total,setTotal] = useState(0);
   const [cycleStatus, setCycleStatus] = useState("Pending");
   const [particularsData, setParticularsData] = useState(
   [
@@ -19,54 +18,63 @@ const AddModal = ({handleAddModal}) => {
     name: "Wash Loads",
     quantity: 0,
     price: 70,
+    itemTotal: 0,
   },
   {
     id: "dryLoads",
     name: "Dry Loads",
     quantity: 0,
     price: 70,
+    itemTotal: 0,
   },
   {
     id: "ariel",
     name: "Ariel",
     quantity: 0,
     price: 0,
+    itemTotal: 0,
   },
   {
     id: "breeze",
     name: "Breeze",
     quantity: 0,
     price: 9,
+    itemTotal: 0,
   },
   {
     id: "downy",
     name: "Downy",
     quantity: 0,
     price: 8,
+    itemTotal: 0,
   },
   {
     id: "surf",
     name: "Surf",
     quantity: 0,
     price: 8,
+    itemTotal: 0,
   },
   {
     id: "colorSafeSachet",
     name: "Color Safe Sachet",
     quantity: 0,
     price: 10,
+    itemTotal: 0,
   },
   {
     id: "colorSafeBottle",
     name: "Color Safe Bottle",
     quantity: 0,
     price: 10,
+    itemTotal: 0,
   },
   {
     id: "plasticBag",
     name: "Plastic Bag",
     quantity: 0,
     price: 0,
+    itemTotal: 0,
   },
   {
     id: "dropOff",
@@ -79,13 +87,17 @@ const AddModal = ({handleAddModal}) => {
     name: "Other",
     quantity: 0,
     price: 0,
+    itemTotal: 0,
   },]
   );
   const current = new Date();
   const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
   const handleAdd = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    handleAddModal();
+
+    // calculate total price
 
     const newOrder = {
       orderId,
@@ -102,18 +114,14 @@ const AddModal = ({handleAddModal}) => {
     try {
       await OrderDataService.addOrders(newOrder)
     } catch(err) {
-      console.log(err)
+      console.log(err);
     }
 
-    setFirstName("")
-    setLastName("")
-    setContact(0)
-    setPayment("Pending")
-
-    handleAddModal()
+    setFirstName("");
+    setLastName("");
+    setContact(0);
+    setPayment("Pending");
   }
-
-
 
   const updateFieldChanged = (name, index) => (event) => {
     let newArr = particularsData.map((item, i) => {
@@ -124,8 +132,16 @@ const AddModal = ({handleAddModal}) => {
       }
     });
     setParticularsData(newArr);
-  };
 
+    {particularsData.map((particular) => {
+      if(particular.quantity > 0) {
+        particular.itemTotal = particular.quantity * particular.price;
+      }
+    })}
+
+
+
+  };
 
 
   return (
@@ -201,7 +217,7 @@ const AddModal = ({handleAddModal}) => {
                 <p>{total}</p>
               </div>
               <div className="buttons">
-                <p>Cancel</p>
+                <p onClick={handleAddModal}>Cancel</p>
                 <button type='submit'>Submit</button>
               </div>
             </div>

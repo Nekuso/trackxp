@@ -24,6 +24,7 @@ export const StyledSinglePage = styled.div`
       cursor: pointer;
       
       :hover {
+        border: 1px solid black;
         box-shadow: black 10px 10px 0px;
         transform: translate(-5px, -5px);
       }
@@ -35,7 +36,7 @@ export const StyledSinglePage = styled.div`
         padding: 0.7rem;
         border-radius: 0.7rem;
         // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
+        
         i {
           background: #5773db;
           padding: 0.5rem;
@@ -84,6 +85,7 @@ export const StyledSinglePage = styled.div`
         cursor: pointer;
         
         :hover {
+          border: 1px solid black;
           box-shadow: black 10px 10px 0px;
           transform: translate(-5px, -5px);
         }
@@ -145,6 +147,7 @@ export const StyledSinglePage = styled.div`
       cursor: pointer;
       
       :hover {
+        border: 1px solid black;
         box-shadow: black 10px 10px 0px;
         transform: translate(-5px, -5px);
       }

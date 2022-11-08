@@ -21,7 +21,7 @@ export const dataColumns = [
     headerName: "Ordered Date",
     headerAlign: "center",
     align: "center",
-    flex: 2,
+    flex: 1,
     headerClassname: "date__header",
     cellClassName: "date__cell",
   },

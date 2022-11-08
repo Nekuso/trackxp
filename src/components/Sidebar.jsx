@@ -11,7 +11,7 @@ function Sidebar() {
   return (
     <StyledSidebar className="sidebar__container">
       <ul className="sidebar__links">
-        <Link to="/trackxp" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
+        <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
         <h4>Menu</h4>
         <li>
             <Link className="link" to="">

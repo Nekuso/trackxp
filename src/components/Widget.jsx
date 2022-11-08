@@ -26,7 +26,7 @@ const Widget = ({type}) => {
       data = {
         title: "EARNINGS",
         isMoney: false,
-        currency: "PHP",
+        currency: "P",
         linkDescription: "View all earnings →",
         link: "orders",
         icon: "bx bx-money",
@@ -38,7 +38,7 @@ const Widget = ({type}) => {
         data = {
           title: "BALANCE",
           isMoney: false,
-          currency: "PHP",
+          currency: "P",
         linkDescription: "View balance →",
         link: "orders",
         icon: "bx bxs-wallet-alt",
