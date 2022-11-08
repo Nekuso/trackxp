@@ -12,7 +12,7 @@ export const StyledAddModal = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 110;
-
+  
   .closer {
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ export const StyledAddModal = styled.div`
     backdrop-filter: blur(5px);
     z-index: 101;
   }
-
+  
   .add__modal {
     display: flex;
     flex-direction: column;
@@ -224,6 +224,9 @@ export const StyledAddModal = styled.div`
           display: flex;
           gap: 1rem;
           font-weight: 700;
+          p {
+            font-size: .9rem;
+          }
         }
 
         .buttons {
@@ -385,7 +388,7 @@ export const StyledAddModal = styled.div`
 
   @media screen and (min-width: 1024px) {
     .add__modal {
-      width: 55%;
+      width: 50%;
       height: auto;
       padding: 1rem;
       .add__modal__header {
