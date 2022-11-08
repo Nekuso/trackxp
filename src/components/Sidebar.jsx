@@ -28,10 +28,10 @@ function Sidebar() {
     </ul>
 
     <div className="other__container">
-      <a className="other__link" href="/">
-        <i className='bx bx-question-mark'></i>
-        FAQ
-      </a>
+      <div className="other__link" href="/">
+        <i className='bx bxs-moon'></i>
+        Dark Mode
+      </div>
       <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
         <i className='bx bx-log-out'></i>
         Logout

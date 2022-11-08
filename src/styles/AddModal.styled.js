@@ -226,19 +226,29 @@ export const StyledAddModal = styled.div`
           font-weight: 700;
         }
 
-        button {
-          cursor: pointer;
-          font-size: 1.1rem;
-          padding: 0.6rem 2rem;
-          border: none;
-          border-radius: 2rem;
-          background: black;
-          color: white;
-          transform: scale(.9);
-          transition: all 0.2s ease-in-out;
+        .buttons {
+          display: flex;
+          align-items: center;
+          gap: .5rem;
 
-          :hover {
-            transform: scale(1);
+          p {
+            cursor: pointer;
+            font-size: 1rem;
+          }
+          button {
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 0.6rem 2rem;
+            border: none;
+            border-radius: 2rem;
+            background: black;
+            color: white;
+            transform: scale(.9);
+            transition: all 0.2s ease-in-out;
+  
+            :hover {
+              transform: scale(1);
+            }
           }
         }
       }
@@ -357,9 +367,16 @@ export const StyledAddModal = styled.div`
           .grand__total {
             gap: 2rem;
           }
+          
+          .buttons {
+            gap: .5rem;
 
-          button {
-            font-size: 0.8rem;
+            p {
+              font-size: 0.8rem;
+            }
+            button {
+              font-size: 0.8rem;
+            }
           }
         }
       }
@@ -470,11 +487,14 @@ export const StyledAddModal = styled.div`
           padding: 1rem 0 0 0;
 
           .grand__total {
-            gap: 2rem;
+            gap: 1.5rem;
           }
 
-          button {
-            font-size: 0.8rem;
+          .buttons {
+            gap: .8rem;
+            button {
+              font-size: 0.8rem;
+            }
           }
         }
       }

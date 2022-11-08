@@ -136,7 +136,10 @@ const AddModal = ({handleAddModal}) => {
                 <p>Grand Total</p>
                 <p>0</p>
               </div>
-              <button>Submit</button>
+              <div className="buttons">
+                <p>Cancel</p>
+                <button>Submit</button>
+              </div>
             </div>
           </form>
         </div>
