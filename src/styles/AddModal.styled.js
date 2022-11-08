@@ -227,13 +227,19 @@ export const StyledAddModal = styled.div`
         }
 
         button {
-            cursor: pointer;
+          cursor: pointer;
           font-size: 1.1rem;
           padding: 0.6rem 2rem;
           border: none;
           border-radius: 2rem;
           background: black;
           color: white;
+          transform: scale(.9);
+          transition: all 0.2s ease-in-out;
+
+          :hover {
+            transform: scale(1);
+          }
         }
       }
     }
@@ -243,7 +249,6 @@ export const StyledAddModal = styled.div`
     .add__modal {
       width: 90%;
       height: 90%;
-      background: white;
       border-radius: 1rem;
       padding: 1.5rem;
 
@@ -365,7 +370,6 @@ export const StyledAddModal = styled.div`
     .add__modal {
       width: 55%;
       height: auto;
-      background: white;
       padding: 1rem;
       .add__modal__header {
         padding-top: 0;
@@ -400,7 +404,7 @@ export const StyledAddModal = styled.div`
               }
               input {
                 font-size: 0.7rem;
-                padding: 0.6rem;
+                padding: 0.4rem;
               }
             }
           }
