@@ -63,14 +63,14 @@ function DashboardPage() {
                                 <i className='bx bx-question-mark'></i>
                                 FAQ
                             </a>
-                            <Link className="other__link" to="/trackxp/Login" onClick={() => dispatch({type: "LOGOUT"})}>
+                            <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
                                 <i className='bx bx-log-out'></i>
                                 Logout
                             </Link>
                         </div>
                     </div>
 
-                    <Link to="/trackxp" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
+                    <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
                     <button onClick={darkToggle}>
                         <i className={darkActive}></i>
                     </button>

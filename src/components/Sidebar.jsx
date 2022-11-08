@@ -14,7 +14,7 @@ function Sidebar() {
         <Link to="/trackxp" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
         <h4>Menu</h4>
         <li>
-            <Link className="link" to="/trackxp/Home">
+            <Link className="link" to="">
               <i className='bx bxs-dashboard'></i>
                 Dashboard
             </Link>
@@ -32,7 +32,7 @@ function Sidebar() {
         <i className='bx bxs-moon'></i>
         Dark Mode
       </div>
-      <Link className="other__link" to="/trackxp/" onClick={() => dispatch({type: "LOGOUT"})}>
+      <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
         <i className='bx bx-log-out'></i>
         Logout
       </Link>
