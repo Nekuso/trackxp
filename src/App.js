@@ -17,6 +17,7 @@ function App() {
   };
 
   return ( 
+    // https://stackoverflow.com/questions/71984401/react-router-not-working-with-github-pages
     <HashRouter>
       <GlobalStyle />
       <div className="content">
