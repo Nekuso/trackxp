@@ -4,11 +4,15 @@ import OrderDataService from '../order.services'
 import { Timestamp } from "firebase/firestore"; 
 
 const AddModal = ({handleAddModal}) => {
+  const [orderId, setOrderId] = useState(100000001)
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [contact,setContact] = useState(0);
   const [payment,setPayment] = useState("Pending");
-  const dateCreated = Timestamp.now();
+  const [price,setPrice] = useState(0);
+  const [cycleStatus, setCycleStatus] = useState("Pending");
+  const current = new Date();
+  const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;;
 
 
   const handleAdd = async (e) => {
@@ -16,11 +20,14 @@ const AddModal = ({handleAddModal}) => {
 
 
     const newOrder = {
+      orderId,
       firstName,
       lastName,
       contact,
       payment,
-      dateCreated
+      dateCreated,
+      cycleStatus,
+      price
     }
     try {
       await OrderDataService.addOrders(newOrder)

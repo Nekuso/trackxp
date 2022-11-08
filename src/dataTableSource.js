@@ -9,7 +9,7 @@ export const dataColumns = [
       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
   {
-    field: "amount",
+    field: "price",
     headerName: "Price",
     type: "number",
     headerAlign: "center",
@@ -17,7 +17,7 @@ export const dataColumns = [
     align: "center",
   },
   {
-    field: "date",
+    field: "dateCreated",
     headerName: "Ordered Date",
     headerAlign: "center",
     align: "center",
@@ -26,22 +26,22 @@ export const dataColumns = [
     cellClassName: "date__cell",
   },
   {
-    field: "isPaid",
+    field: "payment",
     headerName: "Payment",
     headerAlign: "center",
     align: "center",
     flex: 1,
   },
   {
-    field: "status",
+    field: "cycleStatus",
     headerName: "Status",
     headerAlign: "right",
     align: "right",
     width: 120,
     renderCell: (params) => {
       return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
+        <div className={`cellWithStatus ${params.row.cycleStatus}`}>
+          {params.row.cycleStatus}
         </div>
       );
     },
