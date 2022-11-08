@@ -1,22 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { StyledDataTable } from '../styles/DataTable.styled';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { dataColumns, dataRows } from '../dataTableSource';
+import { dataColumns } from '../dataTableSource';
 import { Link } from 'react-router-dom';
-import { collection, getDocs, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
+import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import {db} from "../firebase"
-import OrderDataServices from "../order.services"
 
 const Datatable = () => {
     const [data, setData] = useState([]);
 
-    onSnapshot(collection(db, "orders"), (snapshot) => {
-        let orderData= [];
-        snapshot.docs.forEach((doc) => {
-            orderData.push({ ...doc.data(), id: doc.id });
-        })
-        setData(orderData);
-    });
+    useEffect(() => {
+        // LISTEN (REALTIME)
+        const unsub = onSnapshot(
+          collection(db, "users"),
+          (snapShot) => {
+            let list = [];
+            snapShot.docs.forEach((doc) => {
+              list.push({ id: doc.id, ...doc.data() });
+            });
+            setData(list);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    
+        return () => {
+          unsub();
+        };
+      }, []);
     
     const handleDelete = async (id) => {
         try {
