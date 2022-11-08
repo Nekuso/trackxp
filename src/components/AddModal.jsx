@@ -14,7 +14,7 @@ const AddModal = ({handleAddModal}) => {
         <div className="add__modal">
           <div className="add__modal__header">
               <h1 className="title">New Order</h1>
-              <i onClick={()=>handleAddModal()} className='bx bx-collapse-alt'></i>
+              <i onClick={()=>handleAddModal()} className='bx bx-x'></i>
           </div>
           <form className="add__modal__body">
 
@@ -47,10 +47,7 @@ const AddModal = ({handleAddModal}) => {
               <thead>
                 <tr>
                   <th>Particulars</th>
-                  <div className="amounts">
-                    <th>Quantity</th>
-                    <th>Price</th>
-                  </div>
+                  <th className="amounts"><p>Quantity</p> <p>Price</p> </th>
                 </tr>
               </thead>
               <tbody>

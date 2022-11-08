@@ -44,7 +44,12 @@ export const StyledAddModal = styled.div`
       padding: 0.5rem 0;
 
       .title {
-        font-size: 1.8rem;
+        background: black;
+        font-size: 1rem;
+        color: white;
+        padding: .2rem 1rem;
+        border-radius: 2rem;
+        font-weight: 600;
       }
 
       i {
@@ -71,6 +76,7 @@ export const StyledAddModal = styled.div`
         padding: 1rem;
         border-radius: 1rem;
         background: white;
+        
 
         h2 {
           font-size: 1.3rem;
@@ -110,6 +116,12 @@ export const StyledAddModal = styled.div`
             border-radius: 0.5rem;
             padding: 0.8rem;
             border: 1px solid #ccc;
+            appearance: none;
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
           }
         }
         .payment__container {
@@ -153,9 +165,10 @@ export const StyledAddModal = styled.div`
             .amounts {
               text-align: center;
               display: flex;
+              justify-content: space-evenly;
               width: 40%;
 
-              th {
+              p {
                 font-size: 0.7rem;
                 width: 50%;
               }
@@ -175,12 +188,18 @@ export const StyledAddModal = styled.div`
               gap: 0.5rem;
 
               input {
+                font-weight: 700;
                 text-align: center;
                 width: 100%;
                 border: none;
                 border-radius: 0.5rem;
                 padding: 0.4rem;
                 border: 1px solid #ccc;
+              }
+              input::-webkit-outer-spin-button,
+              input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
               }
             }
           }
@@ -226,12 +245,12 @@ export const StyledAddModal = styled.div`
       height: 90%;
       background: white;
       border-radius: 1rem;
-      padding: 2rem;
+      padding: 1.5rem;
 
       .add__modal__header {
         padding-top: 0;
         .title {
-          font-size: 1.5rem;
+          font-size: 1rem;
         }
       }
 
@@ -245,6 +264,7 @@ export const StyledAddModal = styled.div`
         scroll-y: hidden;
 
         .add__user__info {
+          border-radius: .5rem;
           width: 38%;
           gap: 0.3rem;
           padding: 0.8rem;
@@ -286,6 +306,7 @@ export const StyledAddModal = styled.div`
           }
         }
         .add__user__particulars {
+          border-radius: .5rem;
           width: 61%;
           padding: 1rem;
 
@@ -295,7 +316,8 @@ export const StyledAddModal = styled.div`
                 font-size: 1rem;
               }
               .amounts {
-                th {
+                width: 30%;
+                p {
                   font-size: 0.7rem;
                 }
               }
@@ -310,12 +332,14 @@ export const StyledAddModal = styled.div`
                 font-size: 0.7rem;
               }
               .particular__input {
+                width: 30%;
+                gap:.3rem;
                 justify-content: space-evenly;
                 input {
-                  width: 30%;
+                  width: 100%;
                   border-radius: 0.3rem;
                   font-size: 0.7rem;
-                  padding: 0;
+                  padding: .2rem;
                 }
               }
             }
@@ -323,7 +347,7 @@ export const StyledAddModal = styled.div`
         }
 
         .submit__container {
-          padding: 1rem 0;
+          padding: 1rem 0 0 0;
 
           .grand__total {
             gap: 2rem;
@@ -340,12 +364,18 @@ export const StyledAddModal = styled.div`
   @media screen and (min-width: 1024px) {
     .add__modal {
       width: 55%;
-      height: 87%;
+      height: auto;
       background: white;
+      padding: 1rem;
       .add__modal__header {
         padding-top: 0;
         .title {
-          font-size: 1.5rem;
+          font-size: 1rem;
+          padding: .2rem 1.5rem;
+        }
+
+        i {
+          font-size: 2rem;
         }
       }
 
@@ -405,7 +435,7 @@ export const StyledAddModal = styled.div`
                 font-size: 1rem;
               }
               .amounts {
-                th {
+                p {
                   font-size: 0.7rem;
                 }
               }
@@ -417,15 +447,15 @@ export const StyledAddModal = styled.div`
               align-items: center;
               margin: 0.1rem 0;
               td {
-                font-size: .9rem;
+                font-size: .7rem;
               }
               .particular__input {
                 justify-content: space-around;
                 input {
-                  width: 30%;
+                  width: 100%;
                   border-radius: 0.3rem;
                   font-size: 0.7rem;
-                  padding: .3rem;
+                  padding: .1rem;
                 }
               }
             }
@@ -433,7 +463,7 @@ export const StyledAddModal = styled.div`
         }
 
         .submit__container {
-          padding: 1rem 0;
+          padding: 1rem 0 0 0;
 
           .grand__total {
             gap: 2rem;
