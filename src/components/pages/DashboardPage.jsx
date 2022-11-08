@@ -70,7 +70,7 @@ function DashboardPage() {
                         </div>
                     </div>
 
-                    <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
+                    <Link to="/trackxp" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
                     <button onClick={darkToggle}>
                         <i className={darkActive}></i>
                     </button>
