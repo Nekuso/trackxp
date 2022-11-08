@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { StyledAddModal } from '../styles/AddModal.styled'
-import OrderDataService from '../order.services'
+import { StyledAddModal } from '../styles/AddModal.styled';
+import OrderDataService from '../order.services';
+import { serverTimestamp } from 'firebase/firestore';
+import { particulars } from '../formSource';
 
 const AddModal = ({handleAddModal}) => {
   const [orderId, setOrderId] = useState(100000001)
@@ -8,14 +10,82 @@ const AddModal = ({handleAddModal}) => {
   const [lastName,setLastName] = useState("");
   const [contact,setContact] = useState(0);
   const [payment,setPayment] = useState("Pending");
-  const [price,setPrice] = useState(0);
+  const [total,setTotal] = useState(234);
   const [cycleStatus, setCycleStatus] = useState("Pending");
+  const [particularsData, setParticularsData] = useState(
+  [
+    {
+    id: "washLoads",
+    name: "Wash Loads",
+    quantity: 0,
+    price: 70,
+  },
+  {
+    id: "dryLoads",
+    name: "Dry Loads",
+    quantity: 0,
+    price: 70,
+  },
+  {
+    id: "ariel",
+    name: "Ariel",
+    quantity: 0,
+    price: 0,
+  },
+  {
+    id: "breeze",
+    name: "Breeze",
+    quantity: 0,
+    price: 9,
+  },
+  {
+    id: "downy",
+    name: "Downy",
+    quantity: 0,
+    price: 8,
+  },
+  {
+    id: "surf",
+    name: "Surf",
+    quantity: 0,
+    price: 8,
+  },
+  {
+    id: "colorSafeSachet",
+    name: "Color Safe Sachet",
+    quantity: 0,
+    price: 10,
+  },
+  {
+    id: "colorSafeBottle",
+    name: "Color Safe Bottle",
+    quantity: 0,
+    price: 10,
+  },
+  {
+    id: "plasticBag",
+    name: "Plastic Bag",
+    quantity: 0,
+    price: 0,
+  },
+  {
+    id: "dropOff",
+    name: "Drop-Off (Folding)",
+    quantity: 0,
+    price: 20,
+  },
+  {
+    id: "other",
+    name: "Other",
+    quantity: 0,
+    price: 0,
+  },]
+  );
   const current = new Date();
   const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
   const handleAdd = async (e) => {
     e.preventDefault()
-
 
     const newOrder = {
       orderId,
@@ -25,7 +95,9 @@ const AddModal = ({handleAddModal}) => {
       payment,
       dateCreated,
       cycleStatus,
-      price
+      particularsData,
+      total,
+      timeStamp: serverTimestamp()
     }
     try {
       await OrderDataService.addOrders(newOrder)
@@ -41,6 +113,18 @@ const AddModal = ({handleAddModal}) => {
     handleAddModal()
   }
 
+
+
+  const updateFieldChanged = (name, index) => (event) => {
+    let newArr = particularsData.map((item, i) => {
+      if (index === i) {
+        return { ...item, [name]: event.target.value };
+      } else {
+        return item;
+      }
+    });
+    setParticularsData(newArr);
+  };
 
 
 
@@ -99,90 +183,22 @@ const AddModal = ({handleAddModal}) => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Wash Loads</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={70} />
-                  </td>
+                {particularsData.map((particular,index) => (
+                  <tr key={index} >
+                    <td>{particular.name}</td>
+                    <td className="particular__input">
+                      <input type="number" value={particular.quantity} onChange={updateFieldChanged("quantity", index)}/>
+                      <input type="number" value={particular.price} onChange={updateFieldChanged("price", index)}/>
+                    </td>
                 </tr>
-                <tr>
-                  <td>Dry Loads</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={70} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ariel</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={0} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Breeze</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={9} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Downy</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={8} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Surf</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={8} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Color Safe Sachet</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={10} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Color Safe Bottle</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={10} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Plastic Bag</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={0}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Drop-Off (folding)</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={20}/>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Other</td>
-                  <td className="particular__input">
-                    <input type="number" />
-                    <input type="number" defaultValue={0}/>
-                  </td>
-                </tr>
+                ))}
               </tbody>
             </table>
 
             <div className="submit__container">
               <div className="grand__total">
                 <p>Grand Total</p>
-                <p>0</p>
+                <p>{total}</p>
               </div>
               <div className="buttons">
                 <p>Cancel</p>

@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { StyledWidget } from '../styles/Widget.styled'
+import { StyledWidget } from '../styles/Widget.styled';
+import {collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
+
 
 const Widget = ({type}) => {
+  const [amount, setAmount] = useState(0);
+  const [diff, setDiff] = useState(0);
   let data;
-
-  //temporary
-  const balance = 100;
-  const diff = 100;
 
   switch (type) {
     case 'orders':
@@ -48,16 +49,51 @@ const Widget = ({type}) => {
     break;
   }
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const today = new Date();
+      const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
+      const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
+
+      const lastMonthQuery = query(
+        collection(db, "orders"),
+        where("timeStamp", "<=", today),
+        where("timeStamp", ">", lastMonth)
+      );
+      const prevMonthQuery = query(
+        collection(db, "orders"),
+        where("timeStamp", "<=", lastMonth),
+        where("timeStamp", ">", prevMonth)
+      );
+
+      const lastMonthData = await getDocs(lastMonthQuery);
+      const prevMonthData = await getDocs(prevMonthQuery);
+
+      setAmount(lastMonthData.docs.length);
+      setDiff(
+        ((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
+          100
+      );
+      console.log(lastMonthData.docs.length)
+      console.log(prevMonthData.docs.length)
+      
+    };
+    fetchData();
+  }, []);
+
+
   return (
     <StyledWidget>
         <div className="top">
           <h3 className="top__title">{data.title}</h3>
-          <div className="percentage positive">
-            <i className='bx bxs-up-arrow'></i>
-            <p>+20%</p>
+          <div className={`percentage ${diff < 0 ? "negative" : "positive"}`}>
+            {diff < 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i> }
+            <p>
+              {diff} %
+            </p>
           </div>
         </div>
-        <div className="middle"><h1>{data.currency} {diff}</h1></div>
+        <div className="middle"><h1>{data.currency} {amount}</h1></div>
         <div className="bottom" >
           <Link to={`${data.link}`} className="widget__link">{data.linkDescription}</Link>
           <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div>

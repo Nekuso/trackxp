@@ -9,7 +9,7 @@ export const dataColumns = [
       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
   {
-    field: "price",
+    field: "total",
     headerName: "Price",
     type: "number",
     headerAlign: "center",
