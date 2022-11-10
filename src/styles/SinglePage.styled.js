@@ -21,6 +21,7 @@ export const StyledSinglePage = styled.div`
       padding: 1rem;
       border: 1px solid #e0e0e0;
       transition: all 0.3s ease-in-out;
+      flex-direction: column-reverse;
       cursor: pointer;
       
       :hover {
@@ -200,9 +201,9 @@ export const StyledSinglePage = styled.div`
       .order__cycle__container {
         display: flex;
         justify-content: space-between;
-        flex-direction: row-reverse;
         gap: 0.5rem;
         width: 100%;
+        flex-direction: row;
         // border-radius: 10rem;
         padding: 0.5rem;
 

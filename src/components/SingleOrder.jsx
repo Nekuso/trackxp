@@ -27,13 +27,12 @@ const SingleOrder = () => {
         };
     }, [orderId]);
 
-    console.log(orderId);
 
     return (
         <StyledSinglePage>
             <div className="single__page__section">
                 <div className="order__cycle__container">  
-                    <div className="order__cycle__item">
+                    {/* <div className="order__cycle__item">
                         <i className='bx bx-badge-check' ></i>
                         <div className="order__cycle__title">
                             <p className="cycle__title">Completed</p>
@@ -53,21 +52,23 @@ const SingleOrder = () => {
                             <p className="cycle__title">Processing</p>
                             <p className="cycle__stamp">11/3/2022 (12:15 AM)</p>
                         </div>
-                    </div>
-                    <div className="order__cycle__item">
-                        <i className='bx bx-receipt'></i>
-                        <div className="order__cycle__title">
-                            <p className="cycle__title">Created</p>
-                            <p className="cycle__stamp">11/3/2022 (12:15 AM)</p>
+                    </div> */}
+                    {order.cycleStatusCollection ? order.cycleStatusCollection.map((item, index) => (
+                        <div className="order__cycle__item" key={index}>
+                            <i className={`bx ${item.icon}`}></i>
+                            <div className="order__cycle__title">
+                                <p className="cycle__title">{item.name}</p>
+                                <p className="cycle__stamp">{item.timeStamp}</p>
+                            </div>
                         </div>
-                    </div>
+                    )): <tr style={{textAlign: 'center', width: '100%', fontWeight: "bold"}}>Loading</tr>}
                 </div>
                 <div className="order__info__container">
                     <div className="order__info">
                         <img src={qrcode} alt="qrcode" />
                         <div className="order__title">
-                            <h2 className="order__id">ORDER ID: NXX{order.orderId}</h2>
-                            <p href="/">trackXp.dev/order/NXX{order.orderId}</p>
+                            <h2 className="order__id">ORDER ID: {orderId}</h2>
+                            <p href="/">trackXP.dev/order/{orderId}</p>
                         </div>
                         <div className="order__desc">
                             <div className="left">
@@ -108,14 +109,15 @@ const SingleOrder = () => {
                             </tr>   
                         </thead>
                         <tbody>
-                            {order.particularsData?.map((item, index) => (
+                            {order.particularsData ? order.particularsData.map((item, index) => (
                                 <tr key={index}>
                                     <td className="particular__align">{item.name}</td>
                                     <td>{item.quantity}</td>
                                     <td>{item.price}</td>
                                     <td>{item.itemTotal}</td>
                                 </tr>
-                            ))}
+                            )) : <tr style={{textAlign: 'center', width: '100%'}}>Loading</tr>}
+
                             <tr>
                                 <td className="particular__align grand__total" colSpan="3">Grand Total</td>
                                 <td className="grand__total">{order.total}</td>

@@ -4,13 +4,24 @@ import OrderDataService from '../order.services';
 import { serverTimestamp } from 'firebase/firestore';
 
 const AddModal = ({handleAddModal}) => {
-  const [orderId, setOrderId] = useState(100000001);
+
+  // Current Data and Time
+  const currentDateTime = new Date()
+
+  // Order input data
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [contact,setContact] = useState(0);
   const [payment,setPayment] = useState("Pending");
   const [total,setTotal] = useState(0);
   const [cycleStatus, setCycleStatus] = useState("Pending");
+  const [cycleStatusCollection, setCycleStatusCollection] = useState([
+    {
+      icon: "bx-receipt",
+      name: "Created",
+      timeStamp: `${currentDateTime.getMonth() + 1}/${currentDateTime.getDate()}/${currentDateTime.getFullYear()} ${currentDateTime.getHours()}:${currentDateTime.getMinutes()}:${currentDateTime.getSeconds()}`,
+    },
+  ]);
   const [particularsData, setParticularsData] = useState(
   [
     {
@@ -98,13 +109,13 @@ const AddModal = ({handleAddModal}) => {
     handleAddModal();
 
     const newOrder = {
-      orderId,
       firstName,
       lastName,
       contact,
       payment,
       dateCreated,
       cycleStatus,
+      cycleStatusCollection,
       particularsData,
       total,
       timeStamp: serverTimestamp()
