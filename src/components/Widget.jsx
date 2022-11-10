@@ -82,68 +82,78 @@ const Widget = ({type}) => {
         ((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
           100
       );
+
+      let list1 = []
+
+      lastMonthData.forEach((doc) => {
+        list1.push({ id: doc.id, ...doc.data() })
+      });
+      setEarningsData(list1);
+      
+
+
     };
     fetchData();
 
   }, []);
   
-  useEffect(() => {
-    const today = new Date();
-    const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
-    const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
+  // useEffect(() => {
+  //   const today = new Date();
+  //   const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
+  //   const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
 
-    const lastEarnings = query(
-      collection(db, "orders"),
-      where("timeStamp", "<=", today), 
-      where("timeStamp", ">", lastMonth)
-    );
+  //   const lastEarnings = query(
+  //     collection(db, "orders"),
+  //     where("timeStamp", "<=", today), 
+  //     where("timeStamp", ">", lastMonth)
+  //   );
   
-    const prevEarnings = query(
-      collection(db, "orders"),
-      where("timeStamp", "<=", lastMonth),
-      where("timeStamp", ">", prevMonth) 
-    );
+  //   const prevEarnings = query(
+  //     collection(db, "orders"),
+  //     where("timeStamp", "<=", lastMonth),
+  //     where("timeStamp", ">", prevMonth) 
+  //   );
   
-    const unsub = onSnapshot(lastEarnings,(snapshot) => {
-      let list = [];
-      snapshot.docs.forEach((doc) => {
-        list.push({ id: doc.id, ...doc.data() });
-      });
-      setEarningsData(list);
-    });
+  //   const unsub = onSnapshot(lastEarnings,(snapshot) => {
+  //     let list = [];
+  //     snapshot.docs.forEach((doc) => {
+  //       list.push({ id: doc.id, ...doc.data() });
+  //     });
+  //     setEarningsData(list);
+  //   });
   
-    const unsub2 =onSnapshot(prevEarnings,(snapshot) => {
-      let list = [];
-      snapshot.docs.forEach((doc) => {
-        list.push({ id: doc.id, ...doc.data() });
-      });
-      setEarningsDataDiff(list);
-    });
+  //   const unsub2 =onSnapshot(prevEarnings,(snapshot) => {
+  //     let list = [];
+  //     snapshot.docs.forEach((doc) => {
+  //       list.push({ id: doc.id, ...doc.data() });
+  //     });
+  //     setEarningsDataDiff(list);
+  //   });
   
-    let totalEarnings = 0;
-    let totalEarningsDiff = 0;
-    earningsData.forEach((item) => {
-      if (item.payment === "Paid") {
-        totalEarnings += item.total;
-      }
-    }
-    );
-    earningsDataDiff.forEach((item) => {
-      if (item.payment === "Paid") {
-        totalEarningsDiff += item.total;
-      }
-    }
-    );
-    setEarnings(totalEarnings);
-    setEarningsDiff(
-      ((totalEarnings - totalEarningsDiff) / totalEarningsDiff) * 100
-    );
+  //   let totalEarnings = 0;
+  //   let totalEarningsDiff = 0;
+  //   earningsData.forEach((item) => {
+  //     if (item.payment === "Paid") {
+  //       totalEarnings += item.total;
+  //     }
+  //   }
+  //   );
+  //   earningsDataDiff.forEach((item) => {
+  //     if (item.payment === "Paid") {
+  //       totalEarningsDiff += item.total;
+  //     }
+  //   }
+  //   );
+  //   setEarnings(totalEarnings);
+  //   setEarningsDiff(
+  //     ((totalEarnings - totalEarningsDiff) / totalEarningsDiff) * 100
+  //   );
 
-    return () => {
-      unsub();
-      unsub2();
-    }
-  })
+  //   return () => {
+  //     unsub();
+  //     unsub2();
+  //   }
+  // })
 
 
   return (
