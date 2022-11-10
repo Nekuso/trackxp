@@ -3,35 +3,31 @@ import { StyledSinglePage } from '../styles/SinglePage.styled';
 import qrcode from "../img/qrcode.png";
 import {dataRows} from ".././dataTableSource";
 import { useParams } from 'react-router-dom';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { doc, getDoc, collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 
 const SingleOrder = () => {
 
-    const { orderid } = useParams();
-
-    const [data, setData] = useState([]);
+    const [order, setOrder] = useState([null]);
+    const { orderId } = useParams();
 
     useEffect(() => {
-        // LISTEN (REALTIME)
         const unsub = onSnapshot(
-          collection(db, "orders",),
-          (snapShot) => {
-            let list = [];
-            snapShot.docs.forEach((doc) => {
-              list.push({ id: doc.id, ...doc.data() });
-            });
-            setData(list);
-          },
-          (error) => {
-            console.log(error);
-          }
+            doc(db, "orders", orderId),
+            (snapShot) => {
+                setOrder(snapShot.data());
+                console.log(snapShot.data());
+            },
+            (error) => {
+                console.log(error);
+            }
         );
-    
         return () => {
-          unsub();
+            unsub();
         };
-      }, [data]);
+    }, [orderId]);
+
+    console.log(orderId);
 
     return (
         <StyledSinglePage>
@@ -70,32 +66,32 @@ const SingleOrder = () => {
                     <div className="order__info">
                         <img src={qrcode} alt="qrcode" />
                         <div className="order__title">
-                            <h2 className="order__id">ORDER ID: NXX{dataRows[0].id}</h2>
-                            <p href="/">trackXp.dev/order/NXX{dataRows[0].id}</p>
+                            <h2 className="order__id">ORDER ID: NXX{order.orderId}</h2>
+                            <p href="/">trackXp.dev/order/NXX{order.orderId}</p>
                         </div>
                         <div className="order__desc">
                             <div className="left">
                                 <div className="item__desc">
                                     <p className="item__title">Order Date</p>
-                                    <p>{dataRows[0].date}</p>
+                                    <p>{order.dateCreated}</p>
                                 </div>
                                 <div className="item__desc">
                                     <p className="item__title">Name</p>
-                                    <p>{dataRows[0].firstName + " " + dataRows[0].lastName}</p>
+                                    <p>{order.firstName + " " + order.lastName}</p>
                                 </div>
                                 <div className="item__desc">
                                     <p className="item__title">Payment</p>
-                                    <p>{dataRows[0].isPaid}</p>
+                                    <p>{order.payment}</p>
                                 </div>
                             </div>
                             <div className="right">
                                 <div className="item__desc">
                                     <p className="item__title">Contact No.</p>
-                                    <p>{dataRows[0].contact}</p>
+                                    <p>{order.contact}</p>
                                 </div>
                                 <div className="item__desc">
                                     <p className="item__title">Price</p>
-                                    <p>P {dataRows[0].amount}</p>
+                                    <p>P {order.total}</p>
                                 </div>
                             </div>
                         </div>
@@ -112,17 +108,17 @@ const SingleOrder = () => {
                             </tr>   
                         </thead>
                         <tbody>
-                            {dataRows[0].particulars.map((item, index) => (
+                            {order.particularsData?.map((item, index) => (
                                 <tr key={index}>
                                     <td className="particular__align">{item.name}</td>
                                     <td>{item.quantity}</td>
                                     <td>{item.price}</td>
-                                    <td>{item.quantity * item.price}</td>
+                                    <td>{item.itemTotal}</td>
                                 </tr>
                             ))}
                             <tr>
                                 <td className="particular__align grand__total" colSpan="3">Grand Total</td>
-                                <td className="grand__total">{dataRows[0].amount}</td>
+                                <td className="grand__total">{order.total}</td>
                             </tr>
                         </tbody>
                     </table>
