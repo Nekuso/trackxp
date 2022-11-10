@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyledAddModal } from '../styles/AddModal.styled';
 import OrderDataService from '../order.services';
 import { serverTimestamp } from 'firebase/firestore';
@@ -97,8 +97,6 @@ const AddModal = ({handleAddModal}) => {
     e.preventDefault();
     handleAddModal();
 
-    // calculate total price
-
     const newOrder = {
       orderId,
       firstName,
@@ -133,15 +131,20 @@ const AddModal = ({handleAddModal}) => {
     });
     setParticularsData(newArr);
     
+  };
+
+  useEffect(() => {
     particularsData.map((particular) => {
       if(particular.quantity > 0) {
-        particular.itemTotal = particular.quantity * particular.price;
+        return particular.itemTotal = particular.quantity * particular.price;
         console.log(particular.itemTotal)
+      }
+      else {
+        return particular.itemTotal = 0;
       }
     })
     setTotal(particularsData.reduce((acc, curr) => acc + curr.itemTotal, 0));
-
-  };
+  },[particularsData])
 
 
   return (

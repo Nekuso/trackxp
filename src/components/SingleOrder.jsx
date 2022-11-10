@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyledSinglePage } from '../styles/SinglePage.styled';
 import qrcode from "../img/qrcode.png";
 import {dataRows} from ".././dataTableSource";
+import { useParams } from 'react-router-dom';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const SingleOrder = () => {
+
+    const { orderid } = useParams();
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        // LISTEN (REALTIME)
+        const unsub = onSnapshot(
+          collection(db, "orders",),
+          (snapShot) => {
+            let list = [];
+            snapShot.docs.forEach((doc) => {
+              list.push({ id: doc.id, ...doc.data() });
+            });
+            setData(list);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    
+        return () => {
+          unsub();
+        };
+      }, [data]);
 
     return (
         <StyledSinglePage>

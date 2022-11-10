@@ -52,11 +52,10 @@ const Datatable = () => {
             renderCell: (params) => {
             return (
                 <div className="cell__action">
-                    <Link to={"Single"} className="view__button">View</Link>
+                    <Link to={params.id} className="view__button">View</Link>
                     <div className="delete__button" onClick={() => handleDelete(params.row.id)}>Delete</div>
                 </div>
-            )
-    }}]
+            )}}]
 
     return (
         <StyledDataTable>
