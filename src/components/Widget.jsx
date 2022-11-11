@@ -74,7 +74,7 @@ const Widget = ({type}) => {
       );
       setEarnings(totalEarnings);
       setEarningsDiff(
-        ((totalEarnings - totalEarningsDiff) / totalEarningsDiff) * 100
+        Math.floor(((totalEarnings - totalEarningsDiff) / totalEarningsDiff) * 100)
       );
   }
 
