@@ -14,12 +14,12 @@ const Chart = () => {
 
   const data = [
     {name: "Monday", Total: 1200 },
-    {name: "Tuesday", Total: 2100 },
+    {name: "Tuesday", Total: 1500 },
     {name: "Wednesday", Total: 800 },
     {name: "Thursday", Total: 1600 },
     {name: "Friday", Total: 600 },
-    {name: "Saturday", Total: 900 },
-    {name: "Sunday", Total: 1700 },
+    {name: "Saturday", Total: 3600 },
+    {name: "Sunday", Total: 1300 },
   ];
 
   return (
