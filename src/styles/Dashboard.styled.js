@@ -76,6 +76,7 @@ export const StyledDashboard = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
+    width: 90%;
     .dashboard__header {
       margin: 0.5rem 0;
       .page__title {

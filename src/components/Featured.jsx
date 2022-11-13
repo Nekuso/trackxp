@@ -3,7 +3,7 @@ import {StyledFeatured} from '../styles/Featured.styled';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-function featured() {
+function featured({todaysEarnings}) {
   return (
     <StyledFeatured>
         <div className="top">
@@ -19,7 +19,7 @@ function featured() {
                   })}/>
             </div>
             <p className="title">Total sales made today</p>
-            <p className="amount">PHP 4,000</p>
+            <p className="amount">P {todaysEarnings}</p>
             <p className="desc">
                 Previous transaction processing. Last payments may not be included.
             </p>

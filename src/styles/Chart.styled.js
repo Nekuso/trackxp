@@ -49,7 +49,7 @@ export const StyledChart = styled.div`
 
     .title {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: .8rem;
       color: #00000091;
     }
   }

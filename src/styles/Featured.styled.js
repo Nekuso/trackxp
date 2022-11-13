@@ -219,7 +219,7 @@ export const StyledFeatured = styled.div`
 
     .top {
       .title {
-        font-size: 1rem;
+        font-size: .8rem;
         color: #00000091;
         font-weight: 700;
       }
@@ -241,17 +241,17 @@ export const StyledFeatured = styled.div`
 
       .title {
         font-weight: 700;
-        font-size: 1rem;
+        font-size: .8rem;
         color: #00000091;
       }
 
       .amount {
         font-weight: 900;
-        font-size: 1.6rem;
+        font-size: 1.3rem;
       }
 
       .desc {
-        font-size: 1rem;
+        font-size: .7rem;
       }
 
       .summary {
