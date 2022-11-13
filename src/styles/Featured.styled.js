@@ -30,9 +30,48 @@ export const StyledFeatured = styled.div`
     }
 
     i {
+      position: relative;
       cursor: pointer;
       color: #000000;
       font-size: 2rem;
+      padding: .2rem;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+      
+      .round__container {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        border-radius: 1rem;
+        background: red;
+        width: 200px;
+        height: 200px;
+        transition: all 0.3s ease-in-out;
+
+        .top {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          padding: 2rem 0;
+
+          h1 {
+            font-size: 2rem;
+          }
+          h3 {
+            padding: 1rem;
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      .closed {
+        display: none;
+      }
+
+      :hover {
+        color: white;
+        background: #000000;
+      }
     }
   }
 
@@ -72,7 +111,7 @@ export const StyledFeatured = styled.div`
 
     .summary {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       gap: 1rem;
       align-items: center;
       padding: 1rem 0;
@@ -169,7 +208,7 @@ export const StyledFeatured = styled.div`
         width: 100%;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         gap: 0.5rem;
 
         .item {
