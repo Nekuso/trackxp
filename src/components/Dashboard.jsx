@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {StyledDashboard} from "../styles/Dashboard.styled";
-import {collection, query, where, getDocs,} from "firebase/firestore"
+import {collection, query, where, getDocs, onSnapshot,} from "firebase/firestore"
 import Widget from './Widget';
 import Featured from './Featured';
 import Chart from './Chart';
@@ -20,6 +20,7 @@ function Dashbooard() {
   const [earningsDataDiff, setEarningsDataDiff] = useState([]);
   const [todaysEarningsData, setTodaysEarningsData] = useState([]);
   let data;
+
 
   const [isAddModal, setIsAddModal] = useState(false);
 
@@ -119,6 +120,20 @@ function Dashbooard() {
     // Call functions
     fetchData();
     handleEarnings();
+
+    // Listen to changes in firestore
+    const unsub = onSnapshot(collection(db, "orders"), (snapshot) => {
+      data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        data: doc.data(),
+      }));
+      setEarningsData(data);
+      console.log(data);
+    }
+    );
+
+    return () => unsub();
+    
   }, [amount]);
 
   return (

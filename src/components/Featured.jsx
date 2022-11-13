@@ -8,12 +8,15 @@ function Featured({todaysEarnings}) {
     const [isOpen, setIsOpen] = useState(false);
     const [target, setTarget] = useState(5000);
     const [progress, setProgress] = useState(0);
+    const [diff, setDiff] = useState(0);
 
     useEffect(() =>{
         let percentage = Math.floor((todaysEarnings / target) * 100);
         setProgress(
             percentage > 100 ? 100 : percentage
         );
+
+    setDiff( target - todaysEarnings);
     
     },[todaysEarnings]);
 
@@ -55,18 +58,17 @@ function Featured({todaysEarnings}) {
                 <div className="item">
                     <div className="item__title">Target</div>
                     <div className="item__result positive">
-                        <i className='bx bxs-up-arrow'></i>
                         <div className="result__amount">
-                            P 24.5k
+                            P {target}
                         </div>
                     </div>
                 </div>
                 <div className="item">
-                    <div className="item__title">Target</div>
-                    <div className="item__result positive">
-                        <i className='bx bxs-up-arrow '></i>
+                    <div className="item__title">Difference</div>
+                    <div className={`item__result ${diff < target ? "negative" : "positive"}`}>
+                        {diff < target ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow ' ></i>) }
                         <div className="result__amount">
-                            P 24.5k
+                            P {diff}
                         </div>
                     </div>
                 </div>
