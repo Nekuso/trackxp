@@ -13,6 +13,11 @@ export const GlobalStyle = createGlobalStyle`
         :focus {
             outline: none;
         }
+
+        ::selection {
+            color: none;
+            background: none;
+          }
     }
 
     body {
