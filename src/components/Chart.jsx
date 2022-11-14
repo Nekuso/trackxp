@@ -18,7 +18,7 @@ const Chart = () => {
     {name: "Wednesday", Total: 800 },
     {name: "Thursday", Total: 1600 },
     {name: "Friday", Total: 600 },
-    {name: "Saturday", Total: 3600 },
+    {name: "Saturday", Total: 3400 },
     {name: "Sunday", Total: 1300 },
   ];
 

@@ -39,29 +39,44 @@ export const StyledFeatured = styled.div`
       transition: all 0.3s ease-in-out;
       
       .round__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: absolute;
         top: 40px;
         right: 0;
         border-radius: 1rem;
-        background: red;
-        width: 200px;
-        height: 200px;
+        background: white;
+        border: 1px solid #e0e0e0;
+        width: auto;
+        height: auto;
+        overflow: hidden;
         transition: all 0.3s ease-in-out;
-
-        .top {
+        
+        .update__target {
           display: flex;
-          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
           text-align: center;
-          padding: 2rem 0;
-
-          h1 {
-            font-size: 2rem;
+          transition: all 0.3s ease-in-out;
+          :hover {
+            border: none;
+            background: black;
+            i, p {
+              color: white;
+            }
           }
-          h3 {
-            padding: 1rem;
-            font-size: 2.5rem;
+          i, p {
+            color: black;
+          }
+          
+          p {
+            width: 250px;
+            font-size: 1rem;
           }
         }
+        
       }
 
       .closed {
@@ -128,18 +143,22 @@ export const StyledFeatured = styled.div`
           display: flex;
           align-items: center;
           text-align: center;
+          border-radius: 2rem;
+          padding: .2rem 1rem;
           i {
             font-size: 0.8rem;
             margin-right: 0.5rem;
             font-weight: 700;
           }
           .result__amount {
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             font-weight: 700;
           }
         }
 
         .positive {
+          background: #e6f4ea;
+          border: 1px solid #40bd47;
           i {
             color: #40bd47;
           }
@@ -149,6 +168,8 @@ export const StyledFeatured = styled.div`
         }
 
         .negative {
+          background: #fdeaea;
+          border: 1px solid #ff0000;
           i {
             color: #be4141;
           }
@@ -176,6 +197,22 @@ export const StyledFeatured = styled.div`
       i {
         color: #000000;
         font-size: 1.1rem;
+
+        .round__container {
+          top: 25px;
+          border-radius: 0.5rem;
+
+          .update__target {
+            padding: 0.3rem;
+            i {
+              font-size: 0.8rem;
+            }
+            p {
+              font-size: 0.5rem;
+              width: 100px;
+            }
+          }
+        }
       }
     }
 
@@ -218,13 +255,14 @@ export const StyledFeatured = styled.div`
             font-size: 0.6rem;
           }
           .item__result {
+            padding: 0.1rem 0.5rem;
             i {
-              font-size: 0.3rem;
+              font-size: 0.4rem;
               margin-right: 0.2rem;
             }
 
             .result__amount {
-              font-size: 0.8rem;
+              font-size: 0.6rem;
             }
           }
 
@@ -266,6 +304,21 @@ export const StyledFeatured = styled.div`
       i {
         color: #000000;
         font-size: 1.3rem;
+        .round__container {
+          top: 25px;
+          border-radius: 0.5rem;
+
+          .update__target {
+            padding: 0.5rem;
+            i {
+              font-size: 1rem;
+            }
+            p {
+              font-size: 0.7rem;
+              width: 140px;
+            }
+          }
+        }
       }
     }
 
@@ -305,13 +358,14 @@ export const StyledFeatured = styled.div`
             font-size: .8rem;
           }
           .item__result {
+            padding: .2rem 1rem;
             i {
               font-size: 0.5rem;
               margin-right: 0.2rem;
             }
 
             .result__amount {
-              font-size: .9rem;
+              font-size: .7rem;
             }
           }
 
@@ -337,66 +391,43 @@ export const StyledFeatured = styled.div`
     }
   }
 
-  @media screen and (min-width: 1024px) and (min-height: 600px) {
+//   @media screen and (min-width: 1024px) and (min-height: 600px) {
 
-  .bottom {
-    .title {
-      font-weight: 700;
-      font-size: .8rem;
-      color: #00000091;
-    }
+//   .bottom {
+//     .title {
+//       font-weight: 700;
+//       font-size: .8rem;
+//       color: #00000091;
+//     }
 
-    .amount {
-      font-weight: 900;
-      font-size: 1.4rem;
-    }
+//     .amount {
+//       font-weight: 900;
+//       font-size: 1.4rem;
+//     }
 
-    .desc {
-      font-size: .8rem;
-    }
-  }
+//     .desc {
+//       font-size: .8rem;
+//     }
+//   }
+// }
 
-  @media screen and (min-width: 1280px) and (min-height: 800px) {
-    height: auto;
-    .bottom {
-      .title {
-        font-weight: 700;
-        font-size: 1rem;
-        color: #00000091;
-      }
+//   @media screen and (min-width: 1280px) and (min-height: 800px) {
+//     height: auto;
+//     .bottom {
+//       .title {
+//         font-weight: 700;
+//         font-size: 1rem;
+//         color: #00000091;
+//       }
   
-      .amount {
-        font-weight: 900;
-        font-size: 2rem;
-      }
+//       .amount {
+//         font-weight: 900;
+//         font-size: 2rem;
+//       }
   
-      .desc {
-        font-size: 1rem;
-      }
-
-      .summary {
-        padding: .5rem 0 0 0;
-        gap: 1rem;
-        align-items: center;
-
-        .item {
-          .item__title {
-            color: #00000091;
-            text-align: center;
-            font-size: 1.2rem;
-          }
-          .item__result {
-            i {
-              font-size: 0.8rem;
-              margin-right: 0.2rem;
-            }
-
-            .result__amount {
-              font-size: 1.3rem;
-            }
-          }
-        }
-      }
-    }
-  }
+//       .desc {
+//         font-size: 1rem;
+//       }
+//     }
+//   }
 `;

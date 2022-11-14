@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyledSinglePage } from '../styles/SinglePage.styled';
 import qrcode from "../img/qrcode.png";
-import {dataRows} from ".././dataTableSource";
 import { useParams } from 'react-router-dom';
 import { doc, getDoc, collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';

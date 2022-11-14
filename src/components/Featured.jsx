@@ -3,25 +3,28 @@ import {StyledFeatured} from '../styles/Featured.styled';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-function Featured({todaysEarnings}) {
+function Featured({todaysEarnings, handleSetTargetModal, target}) {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [target, setTarget] = useState(5000);
     const [progress, setProgress] = useState(0);
     const [diff, setDiff] = useState(0);
+
 
     useEffect(() =>{
         let percentage = Math.floor((todaysEarnings / target) * 100);
         setProgress(
             percentage > 100 ? 100 : percentage
         );
-
-    setDiff( target - todaysEarnings);
     
-    },[todaysEarnings]);
+        setDiff( target - todaysEarnings);
+    
+    },[todaysEarnings,target]);
 
     const handleOpen = () => {
         setIsOpen(!isOpen);
+    }
+    const handleOpen2 = () => {
+        setIsOpen(false);
     }
 
 
@@ -29,13 +32,11 @@ function Featured({todaysEarnings}) {
     <StyledFeatured>
         <div className="top">
             <h1 className="title">Featured</h1>
-            <i className='bx bx-dots-horizontal-rounded' onClick={handleOpen}>
+            <i className='bx bx-dots-horizontal-rounded' onClick={handleOpen} onMouseLeave={handleOpen2}>
                 <div className={`round__container ${isOpen ? "open" : "closed"}`}>
-                    <div className="top">
-                        <h1>Todays Target</h1>
-                        <h3>{target}</h3>
-                    </div>
-                    <div className="bottom">
+                    <div className="update__target" onClick={()=> {handleSetTargetModal()}}>
+                        <i className='bx bxs-edit'></i>
+                        <p>Update Today's Target</p>
                     </div>
                 </div>
             </i>
@@ -65,7 +66,7 @@ function Featured({todaysEarnings}) {
                 </div>
                 <div className="item">
                     <div className="item__title">Difference</div>
-                    <div className={`item__result ${diff < target ? "negative" : "positive"}`}>
+                    <div className={`item__result ${diff <= target ? "negative" : "positive"}`}>
                         {diff < target ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow ' ></i>) }
                         <div className="result__amount">
                             P {diff}

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import {StyledDashboard} from "../styles/Dashboard.styled";
-import {collection, query, where, getDocs, onSnapshot,} from "firebase/firestore"
+import {collection, query, where, getDocs, doc, getDoc} from "firebase/firestore"
 import Widget from './Widget';
 import Featured from './Featured';
 import Chart from './Chart';
 import AddModal from './AddModal';
 import { db } from "../firebase";
 import { useEffect } from 'react';
+import SetTargetModal from './SetTargetModal';
 
 
 function Dashbooard() {
@@ -19,13 +20,18 @@ function Dashbooard() {
   const [earningsData, setEarningsData] = useState([]);
   const [earningsDataDiff, setEarningsDataDiff] = useState([]);
   const [todaysEarningsData, setTodaysEarningsData] = useState([]);
+  const [target, setTarget] = useState(5000);
   let data;
 
 
   const [isAddModal, setIsAddModal] = useState(false);
+  const [isSetTargetModal, setIsSetTargetModal] = useState(false);
 
   const handleAddModal = () => {
     setIsAddModal(!isAddModal);
+  }
+  const handleSetTargetModal = () => {
+    setIsSetTargetModal(!isSetTargetModal);
   }
 
   const handleEarnings = () => {
@@ -56,7 +62,6 @@ function Dashbooard() {
       }
     });
     setTodaysEarnings(todaysTotal);
-
   }
 
   useEffect(() => {
@@ -84,6 +89,16 @@ function Dashbooard() {
         where("dateCreated", "==", dateCreated)
       );
 
+      // Today's Target
+      const todaysTarget = doc(db, "analytics", "targets");
+      const docSnap = await getDoc(todaysTarget);
+      if (docSnap.exists()) {
+        setTarget(docSnap.data().target);
+        console.log(target)
+      } else {
+        console.log("No such document!");
+      }
+
       // Get data from firestore
       const lastMonthData = await getDocs(lastMonthQuery);
       const prevMonthData = await getDocs(prevMonthQuery);
@@ -95,7 +110,7 @@ function Dashbooard() {
         Math.floor(((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
           100)
       );
-
+      
       // Populate data from firestore
       let list = [];
       lastMonthData.docs.forEach((doc) => {
@@ -115,30 +130,18 @@ function Dashbooard() {
       });
       setTodaysEarningsData(list3);
 
+      handleEarnings();
     };
 
     // Call functions
     fetchData();
-    handleEarnings();
-
-    // Listen to changes in firestore
-    const unsub = onSnapshot(collection(db, "orders"), (snapshot) => {
-      data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        data: doc.data(),
-      }));
-      setEarningsData(data);
-      console.log(data);
-    }
-    );
-
-    return () => unsub();
     
-  }, [amount]);
+  }, [amount,target]);
 
   return (
     <StyledDashboard>
       {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
+      {isSetTargetModal ? <SetTargetModal handleSetTargetModal={handleSetTargetModal} /> : null}
       <div className="dashboard__header">
         <h1 className="page__title">Dashboard🚀</h1>
         <button onClick={handleAddModal} className="new__button">New Order</button>
@@ -174,7 +177,7 @@ function Dashbooard() {
       </div>
 
       <div className="charts">
-        <Featured todaysEarnings={todaysEarnings}/>
+        <Featured todaysEarnings={todaysEarnings} handleSetTargetModal={handleSetTargetModal} target={target}/>
         <Chart/>
       </div>
     </StyledDashboard>

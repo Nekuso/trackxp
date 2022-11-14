@@ -37,21 +37,25 @@ export const StyledWidget = styled.div`
     .percentage {
       display: flex;
       align-items: center;
-
+      border-radius: 2rem;
+      padding: .2rem .8rem;
+      
       i {
         color: #40bd47;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         font-weight: 700;
         margin-right: 0.3rem;
       }
       p {
         font-weight: 700;
         color: #40bd47;
-        font-size: 1.4rem;
+        font-size: 1rem;
       }
     }
-
+    
     .positive {
+      background-color: #e6f4ea;
+      border: 1px solid #40bd47;
       i {
         color: #40bd47;
       }
@@ -61,6 +65,8 @@ export const StyledWidget = styled.div`
     }
 
     .negative {
+      background-color: #fce8e6;
+      border: 1px solid #ff0000;
       i {
         color: #be4141;
       }
@@ -126,12 +132,13 @@ export const StyledWidget = styled.div`
       }
   
       .percentage {
+        padding: .1rem .5rem;
         i {
           font-size: 0.3rem;
           font-weight: 700;
         }
         p {
-          font-size: .6rem;
+          font-size: .5rem;
         }
       }
     }
@@ -173,11 +180,11 @@ export const StyledWidget = styled.div`
   
       .percentage {
         i {
-          font-size: 0.7rem;
+          font-size: 0.4rem;
           font-weight: 700;
         }
         p {
-          font-size: 1rem;
+          font-size: .7rem;
         }
       }
     }
