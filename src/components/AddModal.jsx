@@ -9,6 +9,7 @@ const AddModal = ({handleAddModal}) => {
   const currentDateTime = new Date()
 
   // Order input data
+  const [orderId, setOrderId] = useState(0)
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
   const [contact,setContact] = useState(0);

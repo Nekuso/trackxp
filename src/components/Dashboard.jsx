@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {StyledDashboard} from "../styles/Dashboard.styled";
-import {collection, query, where, getDocs, doc, getDoc} from "firebase/firestore"
+import {collection, query, where, getDocs, doc, getDoc, onSnapshot} from "firebase/firestore"
 import Widget from './Widget';
 import Featured from './Featured';
 import Chart from './Chart';
@@ -11,6 +11,7 @@ import SetTargetModal from './SetTargetModal';
 
 
 function Dashbooard() {
+  const [queryData, setQueryData] = useState([]);
   const [amount, setAmount] = useState(0);
   const [diff, setDiff] = useState(0);
   const [earnings, setEarnings] = useState(0);
@@ -134,9 +135,10 @@ function Dashbooard() {
     };
 
     // Call functions
-    fetchData();
-    
+      fetchData();
+
   }, [amount,target]);
+
 
   return (
     <StyledDashboard>
