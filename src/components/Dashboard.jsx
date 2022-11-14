@@ -12,6 +12,7 @@ import SetTargetModal from './SetTargetModal';
 
 function Dashbooard() {
   const [queryData, setQueryData] = useState([]);
+  const [queryTarget, setQueryTarget] = useState([]);
   const [amount, setAmount] = useState(0);
   const [diff, setDiff] = useState(0);
   const [earnings, setEarnings] = useState(0);
@@ -64,6 +65,41 @@ function Dashbooard() {
     });
     setTodaysEarnings(todaysTotal);
   }
+
+  useEffect(() => {
+    const unsub = onSnapshot(
+      collection(db, "orders"),
+      (snapShot) => {
+        let item = [];
+        snapShot.docs.forEach((doc) => {
+          item.push({ id: doc.id, ...doc.data() });
+        });
+        setQueryData(item);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    const unsub2 = onSnapshot(
+      collection(db, "analytics"),
+      (snapShot) => {
+        let item = [];
+        snapShot.docs.forEach((doc) => {
+          item.push({ id: doc.id, ...doc.data() });
+        });
+        setQueryTarget(item);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    return () => {
+      unsub();
+      unsub2();
+    };
+  },[])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -137,7 +173,7 @@ function Dashbooard() {
     // Call functions
       fetchData();
 
-  }, [amount,target]);
+  }, [amount,target,queryData,queryTarget]);
 
 
   return (
