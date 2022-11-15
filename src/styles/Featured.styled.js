@@ -157,7 +157,7 @@ export const StyledFeatured = styled.div`
         }
 
         .positive {
-          background: #e6f4ea;
+          background: #00ff4818;
           border: 1px solid #40bd47;
           i {
             color: #40bd47;
@@ -168,7 +168,7 @@ export const StyledFeatured = styled.div`
         }
 
         .negative {
-          background: #fdeaea;
+          background: #ff000018;
           border: 1px solid #ff0000;
           i {
             color: #be4141;

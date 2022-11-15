@@ -63,7 +63,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
         <div className="middle"><h1>{data.currency} {data.query === "orders" ? amount : earnings}</h1></div>
         <div className="bottom" >
           <Link to={`${data.link}`} className="widget__link">{data.linkDescription}</Link>
-          <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div>
+          {/* <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div> */}
         </div>
     </StyledWidget>
   )
