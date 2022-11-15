@@ -131,7 +131,6 @@ function Dashbooard() {
       const docSnap = await getDoc(todaysTarget);
       if (docSnap.exists()) {
         setTarget(docSnap.data().target);
-        console.log(target)
       } else {
         console.log("No such document!");
       }

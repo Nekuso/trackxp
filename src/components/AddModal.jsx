@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { StyledAddModal } from '../styles/AddModal.styled';
 import OrderDataService from '../order.services';
-import { serverTimestamp } from 'firebase/firestore';
+import { serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore';
+import {db} from "../firebase"
 
 const AddModal = ({handleAddModal}) => {
 
@@ -105,11 +106,28 @@ const AddModal = ({handleAddModal}) => {
   const current = new Date();
   const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
+
+  useEffect (() => {
+    const fetchData = async () => {
+      const todaysTarget = doc(db, "analytics", "idCount");
+      const docSnap = await getDoc(todaysTarget);
+      if (docSnap.exists()) {
+        setOrderId(docSnap.data().count);
+        console.log(orderId);
+      } else {
+        console.log("No such document!");
+      }
+    }
+
+    fetchData();
+  },[orderId])
+  
   const handleAdd = async (e) => {
     e.preventDefault();
     handleAddModal();
 
     const newOrder = {
+      orderId,
       firstName,
       lastName,
       contact,
@@ -123,6 +141,9 @@ const AddModal = ({handleAddModal}) => {
     }
     try {
       await OrderDataService.addOrders(newOrder)
+      await setDoc(doc(db,"analytics", "idCount"), {
+        count: orderId + 1,
+      })
     } catch(err) {
       console.log(err);
     }
@@ -149,7 +170,6 @@ const AddModal = ({handleAddModal}) => {
     particularsData.map((particular) => {
       if(particular.quantity > 0) {
         return particular.itemTotal = particular.quantity * particular.price;
-        console.log(particular.itemTotal)
       }
       else {
         return particular.itemTotal = 0;

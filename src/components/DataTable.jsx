@@ -53,7 +53,7 @@ const Datatable = () => {
             renderCell: (params) => {
             return (
                 <div className="cell__action">
-                    <Link to={params.id} className="view__button">View</Link>
+                    <Link to={params.row.orderId.toString()} className="view__button">View</Link>
                     <div className="delete__button" onClick={() => handleDelete(params.row.id)}>Delete</div>
                 </div>
             )}}]

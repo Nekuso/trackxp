@@ -1,31 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import { StyledSinglePage } from '../styles/SinglePage.styled';
-import qrcode from "../img/qrcode.png";
 import { useParams } from 'react-router-dom';
-import { doc, getDoc, collection, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import QRCode from 'qrcode';
 
 const SingleOrder = () => {
 
-    const [order, setOrder] = useState([null]);
+    const [order, setOrder] = useState([]);
+    const [queryOrder, setQueryOrder] = useState([]);
     const { orderId } = useParams();
+    const [qrCode, setQrCode] = useState("");
+    const qrLink =`nekuso.github.io/trackxp/#/Home/Orders/${orderId}`;
+
 
     useEffect(() => {
         const unsub = onSnapshot(
-            doc(db, "orders", orderId),
+            collection(db, "orders"),
             (snapShot) => {
-                setOrder(snapShot.data());
-                console.log(snapShot.data());
+              let item = [];
+              snapShot.docs.forEach((doc) => {
+                item.push({ id: doc.id, ...doc.data() });
+              });
+              setQueryOrder(item);
             },
             (error) => {
-                console.log(error);
+              console.log(error);
             }
         );
+
         return () => {
             unsub();
         };
-    }, [orderId]);
+    }, []);
 
+    useEffect(() => {
+        //get order by orders id
+        const fetchOrder = async () => {
+            const orderRef = query( collection(db, "orders"), where("orderId", "==", parseInt(orderId)));
+            const orderSnap = await getDocs(orderRef);
+            orderSnap.forEach((doc) => {
+                setOrder(doc.data());
+            }
+            )
+        }
+
+        return () => {
+            fetchOrder();
+            GenerateQRCode();
+        };
+    }, [orderId, queryOrder]);
+
+    const GenerateQRCode = () => {
+        QRCode.toDataURL(qrLink, (err, url) => {
+            if (err) throw err
+            setQrCode(url);
+        })
+    }
 
     return (
         <StyledSinglePage>
@@ -60,14 +91,14 @@ const SingleOrder = () => {
                                 <p className="cycle__stamp">{item.timeStamp}</p>
                             </div>
                         </div>
-                    )): <tr style={{textAlign: 'center', width: '100%', fontWeight: "bold"}}>Loading</tr>}
+                    )): <div style={{textAlign: 'center', width: '100%', fontWeight: "bold"}}>Loading</div>}
                 </div>
                 <div className="order__info__container">
                     <div className="order__info">
-                        <img src={qrcode} alt="qrcode" />
+                        <img src={qrCode} alt="qrcode" />
                         <div className="order__title">
-                            <h2 className="order__id">ORDER ID: {orderId}</h2>
-                            <p href="/">trackXP.dev/order/{orderId}</p>
+                            <h2 className="order__id">ORDER ID: {order.orderId}</h2>
+                            <p href={qrLink}>trackXP.dev/order/{order.orderId}</p>
                         </div>
                         <div className="order__desc">
                             <div className="left">
@@ -115,7 +146,7 @@ const SingleOrder = () => {
                                     <td>{item.price}</td>
                                     <td>{item.itemTotal}</td>
                                 </tr>
-                            )) : <tr style={{textAlign: 'center', width: '100%'}}>Loading</tr>}
+                            )) : <tr style={{textAlign: 'center', width: '100%'}}><td>{"Loading"}</td></tr>}
 
                             <tr>
                                 <td className="particular__align grand__total" colSpan="3">Grand Total</td>
