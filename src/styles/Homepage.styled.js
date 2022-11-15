@@ -6,7 +6,8 @@ export const StyledHomePage = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #243160;
+        background: rgb(0,8,77);
+        background: linear-gradient(0deg, rgba(0,8,77,1) 0%, rgba(44,67,137,1) 100%);
         width: 100vw;
         height: 100vh;
         color: white;

@@ -22,6 +22,13 @@ export const StyledNavbar = styled.nav`
         border: none;
         border-radius: 4rem;
         text-align: center;
+        transition: all 0.3s ease-in-out;
+        
+        :hover {
+          background: #293241;
+          font-weight: 700;
+          color: white;
+        }
       }
     }
 

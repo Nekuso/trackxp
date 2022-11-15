@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyledWidget } from '../styles/Widget.styled';
+import Tooltip from '@mui/material/Tooltip';
 
 
 const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
@@ -15,6 +16,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
         link: "orders",
         icon: "bx bxs-package",
         backgroundColor: "#415ebe", 
+        info: "Your orders this month"
       };
     break;
       
@@ -28,6 +30,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
         link: "orders",
         icon: "bx bx-money",
         backgroundColor: "#41be7f", 
+        info: "Your earnings this month"
       };
     break;
       
@@ -41,6 +44,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
         link: "orders",
         icon: "bx bxs-wallet-alt",
         backgroundColor: "#be4141", 
+        info: "Your balance this month"
       };
     break;
     default:
@@ -50,7 +54,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
   return (
     <StyledWidget>
         <div className="top">
-          <h3 className="top__title">{data.title}</h3>
+          <Tooltip title={data.info} placement="right" followCursor><h3 className="top__title">{data.title}</h3></Tooltip>
           <div className={`percentage ${data.query === "orders" && (diff < 0 ? "negative" : "positive")} ${data.query === "earnings" && ( earningsDiff < 0 ? "negative" : "positive")}`}>
             {data.query === "orders" && (diff < 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>)}
             {data.query === "earnings" && (earningsDiff < 0 ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow'></i>))}

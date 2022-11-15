@@ -11,11 +11,13 @@ export const StyledFeatured = styled.div`
   cursor: pointer;
   background: white;
   
+  
   :hover {
     box-shadow: black 10px 10px 0px;
     transform: translate(-5px, -5px);
     border: 1px solid black;
   }
+
 
   .top {
     display: flex;

@@ -8,7 +8,8 @@ export const StyledSignupPage = styled.div`
         width: 100vw;
         height: 100vh;
         max-height: 100%;
-        background: #243160;
+        background: rgb(0,8,77);
+        background: linear-gradient(0deg, rgba(0,8,77,1) 0%, rgba(44,67,137,1) 100%);
         overflow: hidden;
 
         .signup__container {

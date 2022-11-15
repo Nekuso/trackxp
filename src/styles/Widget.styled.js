@@ -35,6 +35,9 @@ export const StyledWidget = styled.div`
       font-size: 1.3rem;
       color: #00000091;
       font-weight: 700;
+      .tooltip{
+        margin-left: .3rem;
+      }
     }
 
     .percentage {
@@ -152,6 +155,7 @@ export const StyledWidget = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
     // .top {
     //   .top__title {
     //     color: #ffffff;
