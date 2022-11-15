@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyledSinglePage } from '../styles/SinglePage.styled';
 import { useParams } from 'react-router-dom';
-import { collection, doc, onSnapshot, query, where, getDocs } from 'firebase/firestore';
+import { collection, onSnapshot, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import QRCode from 'qrcode';
 
@@ -34,6 +34,14 @@ const SingleOrder = () => {
         };
     }, []);
 
+    // Generates QR Code
+    const GenerateQRCode = () => {
+        QRCode.toDataURL(qrLink, (err, url) => {
+            if (err) throw err
+            setQrCode(url);
+        })
+    }
+
     useEffect(() => {
         //get order by orders id
         const fetchOrder = async () => {
@@ -51,13 +59,6 @@ const SingleOrder = () => {
         };
     }, [orderId, queryOrder]);
 
-    // Generates QR Code
-    const GenerateQRCode = () => {
-        QRCode.toDataURL(qrLink, (err, url) => {
-            if (err) throw err
-            setQrCode(url);
-        })
-    }
 
     return (
         <StyledSinglePage>
