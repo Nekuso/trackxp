@@ -51,6 +51,7 @@ const SingleOrder = () => {
         };
     }, [orderId, queryOrder]);
 
+    // Generates QR Code
     const GenerateQRCode = () => {
         QRCode.toDataURL(qrLink, (err, url) => {
             if (err) throw err
