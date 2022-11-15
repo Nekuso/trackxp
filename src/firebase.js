@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBA5NAA3cIhmEIUj7qZ6VRLb1SEgwb_JhM",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "trackxp-3bd25.firebaseapp.com",
   projectId: "trackxp-3bd25",
   storageBucket: "trackxp-3bd25.appspot.com",
