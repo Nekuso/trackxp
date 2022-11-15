@@ -20,6 +20,7 @@ export const StyledDashboardPage = styled.div`
                 padding: 1rem;
                 width: 100vw;
                 position: relative;
+                background: #f4f4f4;
 
                 .is-Active {
                     position: fixed;
@@ -196,7 +197,7 @@ export const StyledDashboardPage = styled.div`
                     // align-items: center;
                     width: 100%;
                     height: 100%;
-                    // background: #f4f4f4;
+                    background: #f4f4f4;
                     // overflow-y: scroll;
                 }
             }
