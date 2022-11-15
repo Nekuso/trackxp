@@ -56,7 +56,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
             {data.query === "earnings" && (earningsDiff < 0 ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow'></i>))}
             {/* {data.query === "earnings" && earningsDiff !== 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>}} */}
             <p>
-              {data.query === "orders" ? diff : earningsDiff} %
+              {diff && earningsDiff ? (data.query === "orders" ? diff : earningsDiff) : "Loading"} %
             </p>
           </div>
         </div>
