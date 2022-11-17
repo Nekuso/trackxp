@@ -10,6 +10,7 @@ export const StyledDataTable = styled.div`
     }
     
     .dataTable {
+        background: white;
         height: 75vh;
         
         .cellWithStatus {

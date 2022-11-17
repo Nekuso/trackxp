@@ -54,7 +54,9 @@ export const StyledDashboard = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    justify-content: center;
+    -webkit-justify-content: flex-start;
+    // justify-content: center;
+    padding: 2rem 0;
     height: 100%;
 
     .dashboard__header {
@@ -77,6 +79,7 @@ export const StyledDashboard = styled.div`
 
   @media screen and (min-width: 1024px) {
     width: 90%;
+    // height: auto;
     .dashboard__header {
       margin: 0.5rem 0;
       .page__title {

@@ -185,7 +185,6 @@ export const StyledFeatured = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 28%;
-    height: 100%;
     border-radius: 0.5rem;
     padding: 0.7rem;
 
@@ -292,7 +291,6 @@ export const StyledFeatured = styled.div`
 
   @media screen and (min-width: 1024px) {
     width: 26%;
-    height: 100%;
     border-radius: .5rem;
     padding: 1rem;
 

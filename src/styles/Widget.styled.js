@@ -248,7 +248,6 @@ export const StyledWidget = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    width: 32%;
     padding: 1.2rem 1.2rem;
     border-radius: 1rem;
 
@@ -279,7 +278,7 @@ export const StyledWidget = styled.div`
   
     .bottom {
       .widget__link {
-        font-size: .7rem;
+        font-size: .6rem;
       }
   
       .icon {
@@ -290,5 +289,6 @@ export const StyledWidget = styled.div`
           color: #ffffff;
         }
       }
+    }
   }
 `;

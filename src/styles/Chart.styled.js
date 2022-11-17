@@ -42,9 +42,8 @@ export const StyledChart = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    height: auto;
     padding: 1.1rem;
-    width: 72%;
+    width: 71%;
     border-radius: 0.5rem;
 
     .title {
@@ -54,11 +53,11 @@ export const StyledChart = styled.div`
     }
   }
 
-  @media screen and (min-width: 1280px) and (min-height: 800px) {
-    height: 60%;
-  }
+  // @media screen and (min-width: 1280px) and (min-height: 800px) {
+  //   height: 60%;
+  // }
 
-  @media screen and (min-width: 1024px) and (min-height: 600px) {
-    height: 100%;
-  }
+  // @media screen and (min-width: 1024px) and (min-height: 600px) {
+  //   height: 100%;
+  // }
 `;

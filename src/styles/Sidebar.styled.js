@@ -110,12 +110,12 @@ export const StyledSidebar = styled.div`
             
             li {
                 .link {
-                    font-size: .8rem;
+                    font-size: .7rem;
                     padding: .5rem 1rem;
                     margin: .3rem 0;
                     i {
-                        font-size: 1.5rem;
-                        margin-right: .6rem;
+                        font-size: 1.3rem;
+                        margin-right: .4rem;
                     }
                 }
             }
