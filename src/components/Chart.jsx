@@ -14,7 +14,7 @@ const Chart = () => {
 
   const data = [
     {name: "Monday", Total: 1200 },
-    {name: "Tuesday", Total: 1500 },
+    {name: "Tuesday", Total: 500 },
     {name: "Wednesday", Total: 800 },
     {name: "Thursday", Total: 1600 },
     {name: "Friday", Total: 600 },

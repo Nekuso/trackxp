@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const StyledOrders = styled.div`
-  width: 95%;
-  height: 95%;
+  display: flex;
+  flex-direction: column;
+  width: 93%;
+  height: 100%;
   h1 {
     color: black;
     font-size: 1rem;

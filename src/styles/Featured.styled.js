@@ -291,19 +291,20 @@ export const StyledFeatured = styled.div`
 
   @media screen and (min-width: 1024px) {
     width: 26%;
+    // min-height: 7.5vw;
     border-radius: .5rem;
     padding: 1rem;
 
     .top {
       .title {
-        font-size: .8rem;
+        font-size: .9vw;
         color: #00000091;
         font-weight: 700;
       }
 
       i {
         color: #000000;
-        font-size: 1.3rem;
+        font-size: 1.6vw;
         .round__container {
           top: 25px;
           border-radius: 0.5rem;
@@ -311,10 +312,10 @@ export const StyledFeatured = styled.div`
           .update__target {
             padding: 0.5rem;
             i {
-              font-size: 1rem;
+              font-size: 1.2vw;
             }
             p {
-              font-size: 0.7rem;
+              font-size: .8vw;
               width: 140px;
             }
           }
@@ -324,7 +325,7 @@ export const StyledFeatured = styled.div`
 
     .bottom {
       display: flex;
-      gap: .2rem;
+      gap: .1rem;
       padding: 0 0 1rem 0;
 
       .featured__chart {
@@ -333,17 +334,17 @@ export const StyledFeatured = styled.div`
 
       .title {
         font-weight: 700;
-        font-size: .8rem;
+        font-size: 1vw;
         color: #00000091;
       }
 
       .amount {
         font-weight: 900;
-        font-size: 1.3rem;
+        font-size: 1.6vw;
       }
 
       .desc {
-        font-size: .7rem;
+        font-size: .9vw;
       }
 
       .summary {
@@ -355,17 +356,17 @@ export const StyledFeatured = styled.div`
           .item__title {
             color: #00000091;
             text-align: center;
-            font-size: .8rem;
+            font-size: 1.2vw;
           }
           .item__result {
-            padding: .2rem 1rem;
+            padding: .2rem .8rem;
             i {
-              font-size: 0.5rem;
+              font-size: .8vw;
               margin-right: 0.2rem;
             }
 
             .result__amount {
-              font-size: .7rem;
+              font-size: 1vw;
             }
           }
 

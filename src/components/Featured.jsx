@@ -45,6 +45,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
             <div className="featured__chart">
                 <CircularProgressbar value={progress} text={`${progress}%`} strokeWidth={10}
                 styles={buildStyles({
+                    textSize: "1rem",
                     textColor: "#000000",
                     pathColor: "#5773db",
                   })}/>

@@ -248,22 +248,23 @@ export const StyledWidget = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 1.2rem 1.2rem;
+    padding: 3vh 1.5vw;
     border-radius: 1rem;
+    // min-height: 7.5vw;
 
     .top {
       .top__title {
-        font-size: .7rem;
+        font-size: .8vw;
         font-weight: 700;
       }
   
       .percentage {
         i {
-          font-size: 0.4rem;
+          font-size: 0.6vw;
           font-weight: 700;
         }
         p {
-          font-size: .7rem;
+          font-size: .8vw;
         }
       }
     }
@@ -271,14 +272,14 @@ export const StyledWidget = styled.div`
     .middle {
       h1 {
         color: #000000;
-        font-size: 1.6rem;
+        font-size: 2vw;
         font-weight: 700;
       }
     }
   
     .bottom {
       .widget__link {
-        font-size: .6rem;
+        font-size: .7vw;
       }
   
       .icon {

@@ -67,7 +67,7 @@ export const StyledSidebar = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 40%;
+        padding: 2rem 0;
         
         .other__link {
             display: flex;
