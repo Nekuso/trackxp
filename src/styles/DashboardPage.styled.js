@@ -5,13 +5,16 @@ export const StyledDashboardPage = styled.div`
     width: 100vw;
     height: 100vh;
     background: transparent;
-
+    transition: all 0.2s ease-in-out;
+    
+    
     .dashboard__wrapper {
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: auto;
       width: 100%;
+      transition: all 0.2s ease-in-out;
 
       .dashboard__nav {
         display: flex;
@@ -188,9 +191,6 @@ export const StyledDashboardPage = styled.div`
         display: grid;
         width: 100%;
         height: 100%;
-        .sidebar__container {
-          display: none;
-        }
         .main__container {
           display: flex;
           justify-content: center;
@@ -205,6 +205,7 @@ export const StyledDashboardPage = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    transition: all 0.2s ease-in-out;
     .dashboard__section {
       .dashboard__wrapper {
         height: 100%;
@@ -232,22 +233,11 @@ export const StyledDashboardPage = styled.div`
         }
 
         .dashboard__main {
-          display: grid;
-          justify-content: space-between;
+          display: flex;
+          // justify-content: space-between;
           align-items: center;
-          grid-template-columns: 20% 80%;
+          width: 100%;
           background: white;
-          .sidebar__container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 100%;
-            height: 100%;
-            // border-right: .5px solid #00000023;
-            // background: linear-gradient(108deg, rgba(134,227,206,0.4225862219887955) 0%, rgba(204,171,216,0.3889727766106442) 100%);
-            // border-radius: 0 1.5rem 1.5rem 0;
-            background: #293241;
-          }
           .main__container {
             display: flex;
             justify-content: center;
@@ -268,7 +258,7 @@ export const StyledDashboardPage = styled.div`
     .dashboard__section {
       .dashboard__wrapper {
         .dashboard__main {
-          grid-template-columns: 15% 85%;
+          
         }
       }
     }

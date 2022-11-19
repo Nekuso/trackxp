@@ -1,135 +1,168 @@
 import styled from "styled-components";
 
 export const StyledSidebar = styled.div`
+  display: none;
+  transition: all 0.3s ease-in-out;
 
-    .sidebar__links {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0.5rem;
+    width: auto;
+    width: 70px;
+    height: 100%;
+    justify-content: space-between;
+    background: #293241;
+
+    .top__side {
+      .home__logo {
+        display: flex;
         width: 100%;
-        height: 100%;
-        overflow: hidden;
-        padding: 1rem 0;
+        align-items: center;
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.5rem;
+        margin: 0 auto 2rem 0;
 
-        .home__logo {
-            h2 {
-                color: white;
-                width: auto;
-                margin: 0 auto 1rem 0;
-                font-size: 1.5rem;
-                text-align: center;
-                padding: 0 1rem;
+        i {
+          color: #5773db;
+          font-size: 1.7rem;
+        }
+        h2 {
+          display: none;
+          color: white;
+          width: auto;
+          font-size: 1.1rem;
+          text-align: center;
 
-                mark {
-                    background: none;
-                    color: #5773db;
-                }
-            }
+          mark {
+            background: none;
+            color: #5773db;
+          }
         }
+      }
 
-        h4 {
-            color: white;
-            width: 80%;
-            margin: 0 auto;
-            font-size: .7rem;
-            padding: 0 1rem;
-        }
-        li {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .link {
-                display: flex;
-                align-items: center;
-                width: 80%;
-                margin: .2rem 0;
-                font-size: .6rem;
-                font-weight: 600;
-                padding: .4rem 1rem;
-                border-radius: 10px;
-                color: white;
-                transition: .4s ease-in-out;
-                
-                i {
-                    color: #5773db;
-                    margin-right: .5rem;
-                    font-size: 1.4rem;
-                    transition: .4s ease-in-out;
-                }
-                
-                :hover {
-                    background: black;
-                    color: white;
-                }
-            }
-        }
-    }
-    
-    .other__container {
+      h4 {
+        display: none;
+        width: 100%;
+        color: white;
+      }
+
+      .sidebar__links {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem 0;
-        
-        .other__link {
-            display: flex;
-            align-items: center;
-            width: 80%;
-            margin: .3rem 0;
-            font-size: .7rem;
-            font-weight: 600;
-            padding: .4rem 1rem;
-            border-radius: 10px;
+        gap: 0.6rem;
+
+        .li {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          padding: 0.3rem 0.8rem;
+          border-radius: 0.5rem;
+          transition: all 0.4s ease-in-out;
+
+          i {
+            color: #5773db;
+            font-size: 1.7rem;
+            transition: all 0.5s ease-in-out;
+          }
+
+          .link {
+            display: none;
             color: white;
-            transition: .4s ease-in-out;
-            
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+
+          :hover {
+            cursor: pointer;
+            background: #f4f4f4;
             i {
-                color: #5773db;
-                margin-right: .8rem;
-                font-size: 1.4rem;
-                transition: .4s ease-in-out;
-                
+              color: #293241;
             }
-            :hover {
-                background: black;
-                color: white;
+            .link {
+              color: #293241;
             }
+          }
         }
+      }
     }
 
-    @media screen and (min-width: 1024px) {
+    .other__container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      height: auto;
+
+      .other__link {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.5rem;
+        gap: 0.5rem;
+        transition: all 0.4s ease-in-out;
+
+        i {
+          color: #5773db;
+          font-size: 1.7rem;
+          transition: all 0.4s ease-in-out;
+        }
+
+        .link {
+          display: none;
+          color: white;
+          font-size: 0.8rem;
+          font-weight: 600;
+        }
+
+        :hover {
+          cursor: pointer;
+          background: #f4f4f4;
+          i {
+            color: #293241;
+          }
+          .link {
+            color: #293241;
+          }
+        }
+      }
+    }
+
+    :hover {
+      width: 180px;
+      padding: 2rem 1rem;
+      .top__side {
+        .home__logo {
+          i {
+            margin-right: 0.4rem;
+            color: #74a4fd;
+          }
+
+          h2 {
+            display: inline-block;
+          }
+        }
+
         .sidebar__links {
-            padding: 2rem 0;
-            
-            .home__logo {
-                h2 {
-                    font-size: 1.6rem;
-                }
+          .li {
+            i {
+              margin-right: 0.4rem;
             }
-            h4 {
-                font-size: .7rem;
+            .link {
+              display: block;
             }
-            
-            li {
-                .link {
-                    font-size: .7rem;
-                    padding: .5rem 1rem;
-                    margin: .3rem 0;
-                    i {
-                        font-size: 1.3rem;
-                        margin-right: .4rem;
-                    }
-                }
-            }
+          }
         }
-        .other__container {
-            .other__link {
-                font-size: .8rem;
-                padding: .7rem 1rem;
-                margin: .3rem 0;
+      }
+      .other__link {
+        i {
+          margin-right: 0.4rem;
+        }
 
-                i {
-                    font-size: 1.4rem;
-                }
-            }
+        .link {
+          display: inline;
         }
+      }
     }
+  }
 `;

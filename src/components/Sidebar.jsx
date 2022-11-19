@@ -10,31 +10,37 @@ function Sidebar() {
 
   return (
     <StyledSidebar className="sidebar__container">
-      <ul className="sidebar__links">
-        <Link to="/" className="home__logo"><h2>Track<mark>XP</mark></h2></Link>
-        <h4>Menu</h4>
-        <li>
-            <Link className="link" to="">
+      <div className="top__side navigation">
+          <Link to="/" className="home__logo">
+            <i className='bx bxs-analyse'></i>
+            <h2>Track<mark>XP</mark></h2>
+          </Link>
+          <h4>Menu</h4>
+        <ul className="sidebar__links">
+          <Link className="li list" to="">
               <i className='bx bxs-dashboard'></i>
+              <div className="link title">
                 Dashboard
-            </Link>
-        </li>
-        <li>
-            <Link className="link" to="Orders">
+              </div>
+          </Link>
+          <Link className="li list" to="Orders">
               <i className='bx bxs-receipt' ></i>
-              Orders
-            </Link>
-        </li>
-    </ul>
+              <div className="link title">
+                Orders
+              </div>
+          </Link>
+        </ul>
+      </div>
 
     <div className="other__container">
       <div className="other__link" href="/">
         <i className='bx bxs-moon'></i>
-        Dark Mode
       </div>
       <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
         <i className='bx bx-log-out'></i>
-        Logout
+        <div className="link">
+          Logout
+        </div>
       </Link>
     </div>
     </StyledSidebar>
