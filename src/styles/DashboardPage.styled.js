@@ -7,7 +7,6 @@ export const StyledDashboardPage = styled.div`
     background: transparent;
     transition: all 0.2s ease-in-out;
     
-    
     .dashboard__wrapper {
       display: flex;
       flex-direction: column;
@@ -126,7 +125,7 @@ export const StyledDashboardPage = styled.div`
           left: -100%;
           bottom: 0;
           z-index: 50;
-          transition: 0.4s ease-in-out;
+          transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
           .hamburger__links {
             margin: 10vh 1rem 0 1rem;
             padding: 0.5rem;
@@ -182,7 +181,7 @@ export const StyledDashboardPage = styled.div`
             font-weight: 600;
             font-size: 1.8rem;
             color: #000000;
-            transition: all 0.4s ease-in-out;
+            transition: all 0.4s cubic-bezier(0.47, 0, 0.37, 1.47);
           }
         }
       }

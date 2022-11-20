@@ -1,9 +1,11 @@
-import React from 'react'
+import {React, useState} from 'react'
 import {StyledHomePage} from '../../styles/HomePage.styled'
 import HeroImg from '../../img/HeroImg.png'
 import Navbar from '../Navbar';
 
 function HomePage() {
+
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     

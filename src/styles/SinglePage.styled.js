@@ -154,8 +154,10 @@ export const StyledSinglePage = styled.div`
         }
         :nth-last-child(1) {
           i {
+            animation: pulse 2s infinite;
             transform: translateY(-16px) scale(1.3);
             box-shadow: 0 0 6px #5773db;
+            box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
           }
         }
       }
@@ -272,6 +274,23 @@ export const StyledSinglePage = styled.div`
           }
         }
       }
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translateY(-16px) scale(1.3);
+      box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+    }
+    
+    70% {
+      transform: translateY(-16px) scale(1.4);
+      box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+    }
+    
+    100% {
+      transform: translateY(-16px) scale(1.3);
+      box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
     }
   }
 

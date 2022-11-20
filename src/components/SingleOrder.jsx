@@ -14,7 +14,7 @@ const SingleOrder = () => {
     const { orderId } = useParams();
     const [docId, setDocId] = useState("");
     const [qrCode, setQrCode] = useState("");
-    const qrLink =`nekuso.github.io/trackxp/#/Home/Orders/${orderId}`;
+    const qrLink =`https://nekuso.github.io/trackxp/?#/${orderId}`;
     const [isEditModal, setIsEditModal] = useState(false);
     const [cycleCollectionCount, setCycleCollectionCount] = useState(0);
 
@@ -100,7 +100,7 @@ const SingleOrder = () => {
                         <img src={qrCode} alt="qrcode" />
                         <div className="order__title">
                             <h2 className="order__id">ORDER ID: {order.orderId}</h2>
-                            <p href={qrLink}>trackXP.dev/order/{order.orderId}</p>
+                            <p href={qrLink}>nekuso.github.io/trackxp/?#/{order.orderId}</p>
                         </div>
                         <div className="order__desc">
                             <div className="left">

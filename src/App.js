@@ -5,6 +5,7 @@ import DashboardPage from "./components/pages/DashboardPage";
 import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/LoginPage";
 import SignupPage from "./components/pages/SignupPage";
+import View from "./components/pages/View";
 import { AuthContext } from "./context/AuthContext";
 import { GlobalStyle } from "./styles/Global";
 
@@ -23,7 +24,8 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/">
-            <Route index element={<HomePage />} />
+            <Route index element={<HomePage />}/>
+            <Route path=":orderId" element={<View/>}/>
             <Route path="Login" element={<LoginPage />} />
             <Route path="Signup" element={<SignupPage />} />
             <Route
