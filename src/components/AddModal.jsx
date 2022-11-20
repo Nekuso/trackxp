@@ -163,7 +163,6 @@ const AddModal = ({handleAddModal}) => {
       }
     });
     setParticularsData(newArr);
-    
   };
 
   useEffect(() => {
@@ -181,7 +180,7 @@ const AddModal = ({handleAddModal}) => {
 
   return (
     <StyledAddModal >
-        <div className="closer" onClick={()=>handleAddModal()}/>
+      <div className="closer" onClick={()=>handleAddModal()}/>
         <div className="add__modal">
           <div className="add__modal__header">
               <h1 className="title">New Order</h1>

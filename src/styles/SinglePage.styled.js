@@ -3,14 +3,97 @@ import styled from "styled-components";
 export const StyledSinglePage = styled.div`
   width: 90%;
   height: 98%;
+  display: flex;
+  
 
   .single__page__section {
+    position: relative;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
     height: 100%;
     row-gap: 1%;
+
+    .update__controls {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        font-size: 1.3rem;
+      }
+
+      .buttons {
+        display: flex;
+        gap: .5rem;
+
+        .button {
+          position: relative;
+          z-index: 1;
+          cursor: pointer;
+          width: 2.4rem;
+          height: 2.4rem;
+          padding: .7rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 2rem;
+          background: black;
+          white-space: nowrap;
+          overflow: hidden;
+          transition: all .4s cubic-bezier(0.47, 0, 0.37, 1.47);
+
+          :before {
+            content: "";
+            position: absolute;
+            border: none;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-radius: 15px;
+            background-color: #fafafa;
+            z-index: -1;
+            -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+            box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+            transition: all 0.5s cubic-bezier(0.47, 0, 0.37, 1.47);
+          }
+
+          i{
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+          
+          p {
+            display: none;
+            font-size: .6rem;
+            color: white;
+          }
+
+          :hover {
+            width: 120px;
+            justify-content: flex-start;
+            border: 1px solid black;
+            :before {
+              width: 100%;
+            }
+
+            i {
+              margin-right: .5rem;
+              color: black;
+            }
+
+            p {
+              color: black;
+              display: inline;
+            }
+          }
+        }
+      }
+    }
 
     .order__cycle__container {
       display: flex;
@@ -23,6 +106,7 @@ export const StyledSinglePage = styled.div`
       transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       flex-direction: column-reverse;
       cursor: pointer;
+      background: white;
       
       :hover {
         border: 1px solid black;
@@ -72,6 +156,7 @@ export const StyledSinglePage = styled.div`
     }
 
     .order__info__container {
+      background: white;
       width: 100%;
       .order__info {
         display: flex;
@@ -146,6 +231,7 @@ export const StyledSinglePage = styled.div`
       border: 1px solid #e0e0e0;
       transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       cursor: pointer;
+      background: white;
       
       :hover {
         border: 1px solid black;
@@ -184,11 +270,10 @@ export const StyledSinglePage = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    width: 95%;
+    width: 93%;
     height: 95%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 1.8rem 0;
 
     .single__page__section {
       display: flex;
@@ -197,6 +282,31 @@ export const StyledSinglePage = styled.div`
       gap: 0.5rem;
       width: 100%;
       height: auto;
+
+      .update__controls {
+        .title {
+          font-size: 1.5rem;
+        }
+
+        .buttons {
+          .button {
+            width: 2.5rem;
+            height: 2.5rem;
+
+            i {
+              font-size: 1.3rem;
+            }
+
+            p {
+              font-size: 0.8rem;
+            }
+
+            :hover {
+              width: 150px
+            }
+          }
+        }
+      }
 
       .order__cycle__container {
         display: flex;
@@ -317,6 +427,8 @@ export const StyledSinglePage = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
+    width: 90%;
+    padding: 1.5rem 0;
     .single__page__section {
       gap: 1rem;
 

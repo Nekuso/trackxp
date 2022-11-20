@@ -4,15 +4,23 @@ import { useParams } from 'react-router-dom';
 import { collection, onSnapshot, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import QRCode from 'qrcode';
+import { EditModal } from './EditModal';
+import UpdateButton from './UpdateButton';
 
 const SingleOrder = () => {
 
     const [order, setOrder] = useState([]);
     const [queryOrder, setQueryOrder] = useState([]);
     const { orderId } = useParams();
+    const [docId, setDocId] = useState("");
     const [qrCode, setQrCode] = useState("");
     const qrLink =`nekuso.github.io/trackxp/#/Home/Orders/${orderId}`;
+    const [isEditModal, setIsEditModal] = useState(false);
 
+    
+    const handleEditModal = () => {
+        setIsEditModal(!isEditModal);
+    }
 
     useEffect(() => {
         const unsub = onSnapshot(
@@ -23,6 +31,7 @@ const SingleOrder = () => {
                 item.push({ id: doc.id, ...doc.data() });
               });
               setQueryOrder(item);
+              console.log(queryOrder)
             },
             (error) => {
               console.log(error);
@@ -41,7 +50,7 @@ const SingleOrder = () => {
             setQrCode(url);
         })
     }
-
+    
     useEffect(() => {
         //get order by orders id
         const fetchOrder = async () => {
@@ -49,8 +58,8 @@ const SingleOrder = () => {
             const orderSnap = await getDocs(orderRef);
             orderSnap.forEach((doc) => {
                 setOrder(doc.data());
-            }
-            )
+                setDocId(doc.id);
+            })
         }
 
         return () => {
@@ -63,6 +72,17 @@ const SingleOrder = () => {
     return (
         <StyledSinglePage>
             <div className="single__page__section">
+                {isEditModal ? <EditModal handleEditModal={handleEditModal} order={order} docId={docId}/> : null}
+                <div className="update__controls">
+                    <h2 className="title">Order Status</h2>
+                    <div className="buttons">
+                        <UpdateButton order={order} docId={docId}/>
+                        <div className="button" onClick={handleEditModal}>
+                            <i className='bx bxs-edit' ></i>
+                            <p>Edit Order</p>
+                        </div>
+                    </div>
+                </div>
                 <div className="order__cycle__container">  
                     {/* <div className="order__cycle__item">
                         <i className='bx bx-badge-check' ></i>
