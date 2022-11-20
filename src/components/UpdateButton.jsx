@@ -2,22 +2,15 @@ import {React,useState, useEffect} from 'react';
 import OrderDataService from "../order.services";
 
 
-const UpdateButton = ({order, docId}) => {
+const UpdateButton = ({order, docId, cycleCollectionCount}) => {
     const [cycleStatus, setCycleStatus] = useState(order.cycleStatus);
     const [cycleStatusCollection, setCycleStatusCollection] = useState(order.cycleStatusCollection);
-    
-    useEffect (() => {
-        setCycleStatusCollection(order.cycleStatusCollection);
-        setCycleStatus(order.cycleStatus);
-        
-    }, [order.cycleStatusCollection]);
-    
     const current = new Date();
-    
+
     const handleCycleStatus = () => {
-        cycleStatusCollection.length === 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
         if(cycleStatusCollection.length <= 1) {
-            return setCycleStatusCollection(cycleStatusCollection.push(
+            console.log(cycleStatus);
+            setCycleStatusCollection(cycleStatusCollection.push(
                 {
                     icon: "bxs-washer",
                     name: "Washing",
@@ -26,17 +19,17 @@ const UpdateButton = ({order, docId}) => {
             ))
         }
         else if(cycleStatusCollection.length === 2) {
-            return setCycleStatusCollection(cycleStatusCollection.push(
+            console.log(cycleStatus);
+            setCycleStatusCollection(cycleStatusCollection.push(
                 {
                     icon: "bxs-package",
                     name: "Ready for Pickup",
                     timeStamp: `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`,
                 }
-            ))
-        }
+                ))
+            }
         else if(cycleStatusCollection.length === 3) {
-            setCycleStatus("Completed");
-            return setCycleStatusCollection(cycleStatusCollection.push(
+            setCycleStatusCollection(cycleStatusCollection.push(
                 {
                     icon: "bx-badge-check",
                     name: "Completed",
@@ -44,13 +37,13 @@ const UpdateButton = ({order, docId}) => {
                 }
             ))
         }
-        cycleStatusCollection.length === 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
     }
     
     const handleUpdateCycle = async(e) => {
         e.preventDefault();
         handleCycleStatus();
-        cycleStatusCollection.length === 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
+        cycleCollectionCount === 3 && setCycleStatus("Completed")
+        
         const newData = {
             cycleStatus: cycleStatus,
             cycleStatusCollection: cycleStatusCollection,
@@ -62,6 +55,13 @@ const UpdateButton = ({order, docId}) => {
             console.log(error);
         }
     }
+
+    useEffect (() => {
+        setCycleStatusCollection(order.cycleStatusCollection);
+        setCycleStatus(order.cycleStatus);
+        cycleCollectionCount === 3 && setCycleStatus("Completed")
+        
+    }, [order.cycleStatusCollection, cycleCollectionCount, order.cycleStatus]);
 
   return (
     <div className="button" onClick={handleUpdateCycle}>

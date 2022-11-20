@@ -16,6 +16,7 @@ const SingleOrder = () => {
     const [qrCode, setQrCode] = useState("");
     const qrLink =`nekuso.github.io/trackxp/#/Home/Orders/${orderId}`;
     const [isEditModal, setIsEditModal] = useState(false);
+    const [cycleCollectionCount, setCycleCollectionCount] = useState(0);
 
     
     const handleEditModal = () => {
@@ -58,6 +59,7 @@ const SingleOrder = () => {
             orderSnap.forEach((doc) => {
                 setOrder(doc.data());
                 setDocId(doc.id);
+                setCycleCollectionCount(doc.data().cycleStatusCollection.length);
             })
         }
 
@@ -75,7 +77,7 @@ const SingleOrder = () => {
                 <div className="update__controls">
                     <h2 className="title">Order Status</h2>
                     <div className="buttons">
-                        <UpdateButton order={order} docId={docId}/>
+                        <UpdateButton order={order} docId={docId} cycleCollectionCount={cycleCollectionCount}/>
                         <div className="button" onClick={handleEditModal}>
                             <i className='bx bxs-edit' ></i>
                             <p>Edit Order</p>

@@ -1,6 +1,5 @@
 import {React, useState, useEffect} from 'react';
 import { StyledEditModal } from '../styles/EditModal.styled';
-import { doc } from 'firebase/firestore';
 import OrderDataService from '../order.services';
 
 export const EditModal = ({handleEditModal, order, docId}) => {
