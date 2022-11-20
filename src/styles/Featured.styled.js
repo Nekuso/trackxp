@@ -7,7 +7,7 @@ export const StyledFeatured = styled.div`
   border-radius: 1rem;
   // background: #f5f6f8;
   border: 1px solid #e0e0e0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
   cursor: pointer;
   background: white;
   
@@ -17,7 +17,6 @@ export const StyledFeatured = styled.div`
     transform: translate(-5px, -5px);
     border: 1px solid black;
   }
-
 
   .top {
     display: flex;
@@ -124,6 +123,7 @@ export const StyledFeatured = styled.div`
 
     .desc {
       font-size: 1.1rem;
+      color: #00000096;
     }
 
     .summary {
@@ -292,7 +292,7 @@ export const StyledFeatured = styled.div`
   @media screen and (min-width: 1024px) {
     width: 26%;
     // min-height: 7.5vw;
-    border-radius: .5rem;
+    border-radius: 1rem;
     padding: 1rem;
 
     .top {
@@ -356,7 +356,7 @@ export const StyledFeatured = styled.div`
           .item__title {
             color: #00000091;
             text-align: center;
-            font-size: 1.2vw;
+            font-size: 1vw;
           }
           .item__result {
             padding: .2rem .8rem;

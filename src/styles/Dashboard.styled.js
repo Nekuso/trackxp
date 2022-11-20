@@ -16,18 +16,41 @@ export const StyledDashboard = styled.div`
     }
 
     .new__button {
+      position: relative;
+      z-index: 1;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       font-weight: 700;
       padding: 0.6rem 1.1rem;
       border: none;
       border-radius: 2rem;
       color: white;
       background: black;
-      transition: all 0.2s ease-in-out;
+      transition: all 0.6s ease-in-out;
+      overflow: hidden;
 
-      &:hover {
-        transform: scale(1.1);
+      :before {
+        content: "";
+        position: absolute;
+        border: none;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        border-radius: 15px;
+        background-color: #fafafa;
+        z-index: -1;
+        -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+        box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+        transition: all 850ms;
+      }
+      :hover {
+        border: 1px solid black;
+        :before {
+          width: 100%;
+        }
+        color: black;
+        transform: scale(1.05);
       }
     }
   }
@@ -55,9 +78,8 @@ export const StyledDashboard = styled.div`
 
   @media screen and (min-width: 768px) {
     -webkit-justify-content: flex-start;
-    // justify-content: center;
     padding: 2rem 0;
-    height: 100%;
+    height: auto;
 
     .dashboard__header {
       margin: 0.5rem 0;
@@ -72,8 +94,14 @@ export const StyledDashboard = styled.div`
     }
 
     .widgets {
+      height: auto;
       justify-content: space-between;
       gap: 0;
+    }
+
+    .charts {
+      flex-wrap: no-wrap;
+      margin: 0.8rem 0 0 0;
     }
   }
 

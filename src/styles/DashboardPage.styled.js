@@ -135,9 +135,9 @@ export const StyledDashboardPage = styled.div`
               align-items: center;
 
               i {
-                margin-right: 1rem;
+                margin-right: .5rem;
                 font-size: 1.5rem;
-                color: white;
+                color: #5773db;
               }
               .link {
                 margin: 1rem 0;
@@ -158,9 +158,9 @@ export const StyledDashboardPage = styled.div`
               font-size: 1rem;
               color: white;
               i {
-                margin-right: 1rem;
+                margin-right: .5rem;
                 font-size: 1.5rem;
-                color: white;
+                color: #5773db;
               }
             }
           }

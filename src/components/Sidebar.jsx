@@ -24,7 +24,7 @@ function Sidebar() {
               </div>
           </Link>
           <Link className="li list" to="Orders">
-              <i className='bx bxs-receipt' ></i>
+              <i className='bx bxs-package' ></i>
               <div className="link title">
                 Orders
               </div>

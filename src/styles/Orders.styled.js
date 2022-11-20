@@ -21,26 +21,49 @@ export const StyledOrders = styled.div`
     .text__header {
       width: 60%;
       .title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
       .date {
-        font-size: .6rem;
+        font-size: .5rem;
       }
     }
 
     .new__button {
+      position: relative;
+      z-index: 1;
       cursor: pointer;
-      font-size: .9rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      padding: .5rem 1rem;
+      padding: 0.6rem 1.1rem;
       border: none;
       border-radius: 2rem;
       color: white;
       background: black;
-      transition: all .2s ease-in-out;
-      
-      &:hover {
-        transform: scale(1.1);
+      transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+      overflow: hidden;
+
+      :before {
+        content: "";
+        position: absolute;
+        border: none;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        border-radius: 15px;
+        background-color: #fafafa;
+        z-index: -1;
+        -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+        box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+        transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+      }
+      :hover {
+        border: 1px solid black;
+        :before {
+          width: 100%;
+        }
+        color: black;
+        transform: scale(1.05);
       }
     }
   }

@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const StyledSidebar = styled.div`
   display: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.47, 0, 0.37, 1.47);
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
     padding: 2rem 0.5rem;
     width: auto;
-    width: 70px;
+    width: 65px;
     height: 100%;
     justify-content: space-between;
     background: #293241;
@@ -50,13 +51,14 @@ export const StyledSidebar = styled.div`
       .sidebar__links {
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.7rem;
 
         .li {
+          position: relative;
           display: flex;
           width: 100%;
           align-items: center;
-          padding: 0.3rem 0.8rem;
+          padding: 0.4rem 0.8rem;
           border-radius: 0.5rem;
           transition: all 0.4s ease-in-out;
 
@@ -75,7 +77,7 @@ export const StyledSidebar = styled.div`
 
           :hover {
             cursor: pointer;
-            background: #f4f4f4;
+            background: #fafafa;
             i {
               color: #293241;
             }

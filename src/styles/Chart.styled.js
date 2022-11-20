@@ -6,7 +6,7 @@ export const StyledChart = styled.div`
   padding: 1rem;
   // background: #f5f6f8;
   border: 1px solid #e0e0e0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
   cursor: pointer;
   background: white;
 
@@ -43,8 +43,8 @@ export const StyledChart = styled.div`
 
   @media screen and (min-width: 1024px) {
     padding: 1.1rem;
-    width: 71%;
-    border-radius: 0.5rem;
+    width: 72%;
+    border-radius: 1rem;
 
     .title {
       font-weight: 700;

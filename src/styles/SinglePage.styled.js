@@ -20,7 +20,7 @@ export const StyledSinglePage = styled.div`
       border-radius: 0.7rem;
       padding: 1rem;
       border: 1px solid #e0e0e0;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       flex-direction: column-reverse;
       cursor: pointer;
       
@@ -46,7 +46,7 @@ export const StyledSinglePage = styled.div`
           border-radius: 50%;
           color: white;
           box-shadow: 0 0 6px #5773db;
-          transition: all 0.2s ease-in-out;
+          transition: all 0.2s cubic-bezier(0.47, 0, 0.37, 1.47);
         }
         
         .order__cycle__title {
@@ -82,7 +82,7 @@ export const StyledSinglePage = styled.div`
         padding: 1.3rem;
         border-radius: 0.7rem;
         border: 1px solid #e0e0e0;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
         cursor: pointer;
         
         :hover {
@@ -144,7 +144,7 @@ export const StyledSinglePage = styled.div`
       height: auto;
       border-radius: 0.7rem;
       border: 1px solid #e0e0e0;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       cursor: pointer;
       
       :hover {
