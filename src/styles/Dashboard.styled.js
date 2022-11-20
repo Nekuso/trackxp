@@ -26,7 +26,7 @@ export const StyledDashboard = styled.div`
       border-radius: 2rem;
       color: white;
       background: black;
-      transition: all 0.6s ease-in-out;
+      transition: all 0.4s ease-in-out;
       overflow: hidden;
 
       :before {
@@ -42,7 +42,7 @@ export const StyledDashboard = styled.div`
         z-index: -1;
         -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
         box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-        transition: all 850ms;
+        transition: all 250ms;
       }
       :hover {
         border: 1px solid black;
