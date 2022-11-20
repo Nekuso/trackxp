@@ -3,17 +3,19 @@ import OrderDataService from "../order.services";
 
 
 const UpdateButton = ({order, docId}) => {
-    const [cycleStatus, setCycleStatus] = useState(`${order.cycleStatus}`);
+    const [cycleStatus, setCycleStatus] = useState(order.cycleStatus);
     const [cycleStatusCollection, setCycleStatusCollection] = useState(order.cycleStatusCollection);
-
+    
     useEffect (() => {
         setCycleStatusCollection(order.cycleStatusCollection);
+        setCycleStatus(order.cycleStatus);
+        
     }, [order.cycleStatusCollection]);
     
     const current = new Date();
-
+    
     const handleCycleStatus = () => {
-        console.log( cycleStatusCollection);
+        cycleStatusCollection.length === 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
         if(cycleStatusCollection.length <= 1) {
             return setCycleStatusCollection(cycleStatusCollection.push(
                 {
@@ -33,6 +35,7 @@ const UpdateButton = ({order, docId}) => {
             ))
         }
         else if(cycleStatusCollection.length === 3) {
+            setCycleStatus("Completed");
             return setCycleStatusCollection(cycleStatusCollection.push(
                 {
                     icon: "bx-badge-check",
@@ -41,13 +44,13 @@ const UpdateButton = ({order, docId}) => {
                 }
             ))
         }
+        cycleStatusCollection.length === 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
     }
-        
+    
     const handleUpdateCycle = async(e) => {
         e.preventDefault();
         handleCycleStatus();
-        cycleStatusCollection.length <= 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
-
+        cycleStatusCollection.length === 4 ? setCycleStatus("Completed") : setCycleStatus("Pending");
         const newData = {
             cycleStatus: cycleStatus,
             cycleStatusCollection: cycleStatusCollection,

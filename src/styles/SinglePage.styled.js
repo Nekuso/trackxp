@@ -152,6 +152,12 @@ export const StyledSinglePage = styled.div`
             box-shadow: 0 0 6px #5773db;
           }
         }
+        :nth-last-child(1) {
+          i {
+            transform: translateY(-16px) scale(1.3);
+            box-shadow: 0 0 6px #5773db;
+          }
+        }
       }
     }
 

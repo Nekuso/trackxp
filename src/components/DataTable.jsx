@@ -20,7 +20,6 @@ const Datatable = () => {
               list.push({ id: doc.id, ...doc.data() });
             });
             setData(list);
-            console.log(data);
           },
           (error) => {
             console.log(error);

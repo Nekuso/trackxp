@@ -31,7 +31,6 @@ const SingleOrder = () => {
                 item.push({ id: doc.id, ...doc.data() });
               });
               setQueryOrder(item);
-              console.log(queryOrder)
             },
             (error) => {
               console.log(error);
@@ -83,28 +82,7 @@ const SingleOrder = () => {
                         </div>
                     </div>
                 </div>
-                <div className="order__cycle__container">  
-                    {/* <div className="order__cycle__item">
-                        <i className='bx bx-badge-check' ></i>
-                        <div className="order__cycle__title">
-                            <p className="cycle__title">Completed</p>
-                            <p className="cycle__stamp">11/3/2022 (1:15 AM)</p>
-                        </div>
-                    </div>
-                    <div className="order__cycle__item">
-                        <i className='bx bxs-package' ></i>
-                        <div className="order__cycle__title">
-                            <p className="cycle__title">Ready for pickup </p>
-                            <p className="cycle__stamp">11/3/2022 (12:55 AM)</p>
-                        </div>
-                    </div>
-                    <div className="order__cycle__item">
-                        <i className='bx bxs-washer' ></i>
-                        <div className="order__cycle__title">
-                            <p className="cycle__title">Processing</p>
-                            <p className="cycle__stamp">11/3/2022 (12:15 AM)</p>
-                        </div>
-                    </div> */}
+                <div className="order__cycle__container">
                     {order.cycleStatusCollection ? order.cycleStatusCollection.map((item, index) => (
                         <div className="order__cycle__item" key={index}>
                             <i className={`bx ${item.icon}`}></i>
