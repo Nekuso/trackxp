@@ -52,19 +52,21 @@ function Loginpage() {
 
                             <h4>Email</h4>
                             <input 
-                            type="email" 
-                            name="email" 
-                            id="email" 
-                            placeholder="Enter your email" 
-                            onChange={e=>setEmail(e.target.value)} />
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                placeholder="Enter your email" 
+                                onChange={e=>setEmail(e.target.value)} 
+                            />
 
                             <h4>Password</h4>
                             <input 
-                            type="password" 
-                            name="password" 
-                            id="password" 
-                            placeholder="Enter your password" 
-                            onChange={e=>setPassword(e.target.value)} />
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                placeholder="Enter your password" 
+                                onChange={e=>setPassword(e.target.value)} 
+                            />
 
                             <button type="submit">Login</button>
                         </form>

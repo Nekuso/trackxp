@@ -67,6 +67,7 @@ export const StyledSignupPage = styled.div`
                             border-radius: .5rem;
                             padding: .8rem 1.4rem;
                             color: #000000;
+                            border: 1px solid #6363635d;
                         }
                     }
                     
