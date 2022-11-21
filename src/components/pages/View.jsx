@@ -12,7 +12,6 @@ const View = () => {
   const { orderId } = useParams();
   const [qrCode, setQrCode] = useState("");
   const qrLink =`https://nekuso.github.io/trackxp/?#/${orderId}`;
-  const [found, setFound] = useState(false);
 
 
   useEffect(() => {
