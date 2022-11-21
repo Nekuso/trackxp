@@ -26,6 +26,7 @@ const View = () => {
             item.push({ id: doc.id, ...doc.data() });
             });
             setQueryOrder(item);
+            
         },
         (error) => {
           console.log(error);
@@ -33,15 +34,9 @@ const View = () => {
       );
       return () => {
         unsub();
+        
       };
     }, []);
-
-    useEffect(() => {
-      setTimeout(function() {
-        this.setFound(true)
-      }.bind(this), 4000);
-
-    }, [])
 
   // Generates QR Code
   const GenerateQRCode = () => {
@@ -71,6 +66,12 @@ const View = () => {
         GenerateQRCode();
       };
   }, [orderId, queryOrder]);
+
+  useEffect(() => {
+    setTimeout(()=> {
+      setFound(true)
+    }, 4000);
+  }, [order]);
 
   const viewVariants = {
     initialHidden: {
