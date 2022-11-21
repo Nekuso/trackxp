@@ -23,7 +23,6 @@ function HomePage() {
   }
 
   return (
-    
     <StyledHomePage>
         <Navbar/>
         <div className="homepage__section">

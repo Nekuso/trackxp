@@ -5,6 +5,7 @@ export const StyledDashboard = styled.div`
   flex-direction: column;
   width: 93%;
   height: 100%;
+  
 
   .dashboard__header {
     display: flex;

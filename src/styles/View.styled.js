@@ -9,6 +9,32 @@ export const StyledView = styled.div`
   padding: 1.5rem 0;
   background: #f5f5f5;
 
+  .loading__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    .loading__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 70%;
+      height: 100%;
+
+      img {
+        width: 20rem;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
   .not__found__container {
     display: flex;
     justify-content: center;
@@ -29,12 +55,12 @@ export const StyledView = styled.div`
       }
 
       h2 {
-        font-size: 2rem;
+        font-size: 1.7rem;
       }
       .home__link 
       {
         color: #5773db;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
     }
   }
