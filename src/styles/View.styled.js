@@ -157,7 +157,8 @@ export const StyledView = styled.div`
       transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       flex-direction: column-reverse;
       cursor: pointer;
-      background: white;
+      background: #ffffff69;
+      backdrop-filter: blur(10px);
 
       :hover {
         border: 1px solid black;
@@ -215,31 +216,32 @@ export const StyledView = styled.div`
     }
 
     .order__info__container {
-        width: 100%;
-        .order__info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            width: 100%;
-            padding: 1.3rem;
-            border-radius: 0.7rem;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
-            cursor: pointer;
-            background: white;
-
-        :hover {
-          border: 1px solid black;
-          box-shadow: black 10px 10px 0px;
-          transform: translate(-5px, -5px);
-        }
-
-        img {
-          width: 90%;
+      width: 100%;
+      .order__info {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          padding: 1.3rem;
           border-radius: 0.7rem;
-          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        }
+          border: 1px solid #e0e0e0;
+          transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+          cursor: pointer;
+          background: #ffffff69;
+          backdrop-filter: blur(10px);
+
+          :hover {
+            border: 1px solid black;
+            box-shadow: black 10px 10px 0px;
+            transform: translate(-5px, -5px);
+          }
+
+          img {
+            width: 90%;
+            border-radius: 0.7rem;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          }
 
         .order__title {
           padding: 1rem 0;
@@ -290,7 +292,8 @@ export const StyledView = styled.div`
       border: 1px solid #e0e0e0;
       transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       cursor: pointer;
-      background: white;
+      background: #ffffff69;
+      backdrop-filter: blur(10px);
 
       :hover {
         border: 1px solid black;

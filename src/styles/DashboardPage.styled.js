@@ -5,7 +5,7 @@ export const StyledDashboardPage = styled.div`
   .dashboard__section {
     width: 100vw;
     height: 100%;
-    background: black;
+    background:  #fafafa;
     background-image: url(${LightBackground});
     background-size: cover;
     background-position: center;
@@ -28,7 +28,6 @@ export const StyledDashboardPage = styled.div`
         width: 100vw;
         position: relative;
         background: transparent;
-        backdrop-filter: blur(10px);
 
         .is-Active {
           position: fixed;
@@ -212,9 +211,6 @@ export const StyledDashboardPage = styled.div`
     transition: all 0.2s ease-in-out;
     .dashboard__section {
       height: 100vh;
-      background-image: url(${LightBackground});
-      background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
       .dashboard__wrapper {
         height: 100%;

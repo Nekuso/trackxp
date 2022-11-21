@@ -20,7 +20,7 @@ export const StyledHomePage = styled.div`
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
-    color: black;
+    color: #04294F;
 
     .hero__container {
       display: grid;
@@ -42,7 +42,8 @@ export const StyledHomePage = styled.div`
           padding: 0.2rem 1.3rem;
           border-radius: 2rem;
           font-size: 0.8rem;
-          background: #cccccc59;
+          background: #ffffff96;
+          border: 1px solid #63636396;
           backdrop-filter: blur(20px);
         }
 
@@ -66,7 +67,7 @@ export const StyledHomePage = styled.div`
           width: 100%;
           height: 3.8rem;
           margin: 1rem 0;
-          background: #cccccc59;
+          background: #ffffff96;
           border-radius: 1.3rem;
           overflow: hidden;
 
