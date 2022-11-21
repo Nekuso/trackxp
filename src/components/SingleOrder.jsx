@@ -157,7 +157,6 @@ const SingleOrder = () => {
                         </tbody>
                     </table>
                 </div>
-                
             </div>
         </StyledSinglePage>
     );

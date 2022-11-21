@@ -1,11 +1,25 @@
-import {React, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import {StyledHomePage} from '../../styles/HomePage.styled'
 import HeroImg from '../../img/HeroImg.png'
 import Navbar from '../Navbar';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
 
   const [searchValue, setSearchValue] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => { 
+    console.log(searchValue);
+  }, [searchValue]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    navigate(`/${searchValue}`);
+
+  }
 
   return (
     
@@ -27,8 +41,14 @@ function HomePage() {
                 particular delivery.
               </h3>
 
-              <form className="tracking__input__container">
-                <input className="tracking__input" type="text" placeholder="Tracking Number"/>
+              <form onSubmit={handleSearch} className="tracking__input__container">
+                <input 
+                  className="tracking__input" 
+                  type="text" 
+                  placeholder="Tracking Number"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
                 <button className="tracking__input__button">
                   <i className='bx bx-search-alt'/>
                 </button>

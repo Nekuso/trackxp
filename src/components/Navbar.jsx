@@ -24,7 +24,10 @@ function Navbar() {
   return (
 
     <StyledNavbar>
-        <Link to="/" className="home__link"><h2>TrackXP</h2></Link>
+        <Link to="/" className="home__link">
+          <i className='bx bxs-analyse'></i>
+          <h2>Track<mark>XP</mark></h2>
+        </Link>
         
         <ul
         className={navActive}

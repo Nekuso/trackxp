@@ -164,7 +164,6 @@ export const StyledSinglePage = styled.div`
     }
 
     .order__info__container {
-      background: white;
       width: 100%;
       .order__info {
         display: flex;
@@ -176,6 +175,7 @@ export const StyledSinglePage = styled.div`
         border-radius: 0.7rem;
         border: 1px solid #e0e0e0;
         transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+        background: white;
         cursor: pointer;
         
         :hover {

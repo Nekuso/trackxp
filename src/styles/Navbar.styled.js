@@ -7,12 +7,31 @@ export const StyledNavbar = styled.nav`
   right: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 90%;
   margin: 0 auto;
   padding: 2rem 1rem;
 
   .home__link {
-    color: white;
+    display: flex;
+    align-items: center;
+
+    i {
+      color: #5773db;
+      font-size: 1.8rem;
+      margin-right: 0.5rem;
+    }
+    h2 {
+      color: white;
+      width: auto;
+      font-size: 1.8rem;
+      text-align: center;
+
+      mark {
+        background: none;
+        color: #5773db;
+      }
+    }
   }
 
   .nav__links {
