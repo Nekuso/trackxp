@@ -135,7 +135,7 @@ export const StyledNavbar = styled.nav`
       span {
         display: block;
         position: relative;
-        background: rgb(252, 252, 252);
+        background: #04294F;
         width: 33px;
         height: 4px;
         margin-bottom: 5px;
