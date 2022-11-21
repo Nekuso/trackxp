@@ -68,40 +68,101 @@ const View = () => {
       };
   }, [orderId, queryOrder]);
 
-  const containerVariant = {
-    hidden: {
+  const viewVariants = {
+    initialHidden: {
       opacity: 0,
     },
-    visible: {
+    initialVisible: {
       opacity: 1,
       transition: {
         delay: 0.5,
-        duration: 1.5,
-        type:'spring',
+        duration: 1,
+      }
+    },
+    hidden: {
+      opacity: 0,
+      y: -10
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        delay: 0.7,
+        duration: 1,
+      }
+    },
+    visible2: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        delay: .9,
+        duration: 1,
       }
     }
   }
 
   return (
-    <motion.div>
-
+    <motion.div
+      variants={viewVariants}
+      initial="initialHidden"
+      animate="initialVisible"
+      exit="initialHidden"
+    >
       <StyledView>
         {!found ?
             <div className="loading__container">
-                <div className="loading__content">
-                    <img src={Loading} alt="" />
-                    <h2>Searching for your underwear...</h2>
-                </div>
+                <motion.div className="loading__content"
+                  variants={viewVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  <motion.img src={Loading} alt="" 
+                    variants={viewVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  />
+                  <motion.h2
+                    variants={viewVariants}
+                    initial="hidden"
+                    animate="visible2"
+                    exit="hidden"
+                  >Searching for your underwear...</motion.h2>
+                </motion.div>
             </div>: 
             found && order !== null ?
             <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> : 
             <div className="not__found__container">
                 <div className="not__found__content">
-                    <img src={NotFound} alt="" />
-                    <h2>Order Not Found</h2>
-                    <Link to="/" className="home__link">
+                    <motion.img src={NotFound} alt="" 
+                      variants={viewVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                    />
+                    <motion.h2
+                      variants={viewVariants}
+                      initial="hidden"
+                      animate="visible2"
+                      exit="hidden"
+                    >Order Not Found</motion.h2>
+                    <motion.div
+                      variants={viewVariants}
+                      initial="hidden"
+                      animate="visible2"
+                      exit="hidden"
+                    >
+                      <Link to="/" className="home__link">
                         Go Back!
-                    </Link>
+                      </Link>
+                    </motion.div>
                 </div>
             </div>
         }
