@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 export const StyledSinglePage = styled.div`
-  width: 90%;
-  height: 98%;
+  width: 100%;
+  height: 100%;
   display: flex;
-  
+  justify-content: center;
 
   .single__page__section {
     position: relative;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     row-gap: 1%;
 
     .update__controls {
@@ -106,7 +106,8 @@ export const StyledSinglePage = styled.div`
       transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       flex-direction: column-reverse;
       cursor: pointer;
-      background: white;
+      background: #ffffff69;
+      backdrop-filter: blur(10px);
       
       :hover {
         border: 1px solid black;
@@ -175,7 +176,8 @@ export const StyledSinglePage = styled.div`
         border-radius: 0.7rem;
         border: 1px solid #e0e0e0;
         transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
-        background: white;
+        background: #ffffff69;
+        backdrop-filter: blur(10px);
         cursor: pointer;
         
         :hover {
@@ -239,7 +241,8 @@ export const StyledSinglePage = styled.div`
       border: 1px solid #e0e0e0;
       transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       cursor: pointer;
-      background: white;
+      background: #ffffff69;
+      backdrop-filter: blur(10px);
       
       :hover {
         border: 1px solid black;
@@ -295,24 +298,23 @@ export const StyledSinglePage = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    width: 93%;
-    height: 95%;
+    height: auto;
     display: flex;
-    padding: 1.8rem 0;
-
+    
     .single__page__section {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 0.5rem;
-      width: 100%;
-      height: auto;
+      width: 90%;
+      height: 0;
 
       .update__controls {
+        padding: 1rem 0;
         .title {
           font-size: 1.5rem;
         }
-
+        
         .buttons {
           .button {
             width: 2.5rem;
@@ -452,10 +454,14 @@ export const StyledSinglePage = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-    width: 90%;
+    width: 100%;
     padding: 1.5rem 0;
     .single__page__section {
       gap: 1rem;
+      
+      .update__controls{
+        padding: 0;
+      }
 
       .order__cycle__container {
         width: 100%;

@@ -22,7 +22,7 @@ export const StyledNavbar = styled.nav`
       margin-right: 0.5rem;
     }
     h2 {
-      color: white;
+      color: black;
       width: auto;
       font-size: 1.8rem;
       text-align: center;
@@ -41,12 +41,12 @@ export const StyledNavbar = styled.nav`
         border: none;
         border-radius: 4rem;
         text-align: center;
+        background: #293241;
+        font-weight: 700;
+        color: white;
         transition: all 0.3s ease-in-out;
-        
         :hover {
-          background: #293241;
-          font-weight: 700;
-          color: white;
+          transform: scale(1.1);
         }
       }
     }
@@ -182,7 +182,7 @@ export const StyledNavbar = styled.nav`
         color: #000000;
         border: none;
         padding: 0.8rem 1rem;
-        border-radius: .3rem;
+        border-radius: 0.3rem;
       }
 
       li {

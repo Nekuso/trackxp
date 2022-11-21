@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import LightBackground from "../img/LightBackground.jpg";
+import SmLightBackground from "../img/SmLightBackground.jpg";
 
 export const StyledDashboardPage = styled.div`
   .dashboard__section {
     width: 100vw;
-    height: 100vh;
-    background: transparent;
+    height: 100%;
+    background: black;
+    background-image: url(${LightBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: all 0.2s ease-in-out;
     
     .dashboard__wrapper {
@@ -22,7 +28,7 @@ export const StyledDashboardPage = styled.div`
         padding: 1rem;
         width: 100vw;
         position: relative;
-        background: #f4f4f4;
+        background: transparent;
 
         .is-Active {
           position: fixed;
@@ -125,7 +131,7 @@ export const StyledDashboardPage = styled.div`
           left: -100%;
           bottom: 0;
           z-index: 50;
-          transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+          transition: all 0.3s ease-in-out;
           .hamburger__links {
             margin: 10vh 1rem 0 1rem;
             padding: 0.5rem;
@@ -196,7 +202,6 @@ export const StyledDashboardPage = styled.div`
           // align-items: center;
           width: 100%;
           height: 100%;
-          background: #f4f4f4;
           // overflow-y: scroll;
         }
       }
@@ -206,6 +211,11 @@ export const StyledDashboardPage = styled.div`
   @media screen and (min-width: 768px) {
     transition: all 0.2s ease-in-out;
     .dashboard__section {
+      height: 100vh;
+      background-image: url(${LightBackground});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       .dashboard__wrapper {
         height: 100%;
         .dashboard__nav {
@@ -236,7 +246,7 @@ export const StyledDashboardPage = styled.div`
           // justify-content: space-between;
           align-items: center;
           width: 100%;
-          background: white;
+          background: transparent;
           .main__container {
             display: flex;
             justify-content: center;
@@ -246,7 +256,6 @@ export const StyledDashboardPage = styled.div`
             border-top: 0.5px solid #00000023;
             overflow-x: hidden;
             overflow-y: scroll;
-            background: #fafafa;
           }
         }
       }

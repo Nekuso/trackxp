@@ -9,9 +9,9 @@ export const StyledFeatured = styled.div`
   border: 1px solid #e0e0e0;
   transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
   cursor: pointer;
-  background: white;
-  
-  
+  background: #ffffff69;
+  backdrop-filter: blur(10px);
+
   :hover {
     box-shadow: black 10px 10px 0px;
     transform: translate(-5px, -5px);
@@ -35,10 +35,10 @@ export const StyledFeatured = styled.div`
       cursor: pointer;
       color: #000000;
       font-size: 2rem;
-      padding: .2rem;
+      padding: 0.2rem;
       border-radius: 50%;
       transition: all 0.3s ease-in-out;
-      
+
       .round__container {
         display: flex;
         justify-content: center;
@@ -53,7 +53,7 @@ export const StyledFeatured = styled.div`
         height: auto;
         overflow: hidden;
         transition: all 0.3s ease-in-out;
-        
+
         .update__target {
           display: flex;
           justify-content: center;
@@ -64,20 +64,21 @@ export const StyledFeatured = styled.div`
           :hover {
             border: none;
             background: black;
-            i, p {
+            i,
+            p {
               color: white;
             }
           }
-          i, p {
+          i,
+          p {
             color: black;
           }
-          
+
           p {
             width: 250px;
             font-size: 1rem;
           }
         }
-        
       }
 
       .closed {
@@ -146,7 +147,7 @@ export const StyledFeatured = styled.div`
           align-items: center;
           text-align: center;
           border-radius: 2rem;
-          padding: .2rem 1rem;
+          padding: 0.2rem 1rem;
           i {
             font-size: 0.8rem;
             margin-right: 0.5rem;
@@ -297,7 +298,7 @@ export const StyledFeatured = styled.div`
 
     .top {
       .title {
-        font-size: .9vw;
+        font-size: 0.9vw;
         color: #00000091;
         font-weight: 700;
       }
@@ -315,7 +316,7 @@ export const StyledFeatured = styled.div`
               font-size: 1.2vw;
             }
             p {
-              font-size: .8vw;
+              font-size: 0.8vw;
               width: 140px;
             }
           }
@@ -325,7 +326,7 @@ export const StyledFeatured = styled.div`
 
     .bottom {
       display: flex;
-      gap: .1rem;
+      gap: 0.1rem;
       padding: 0 0 1rem 0;
 
       .featured__chart {
@@ -344,11 +345,11 @@ export const StyledFeatured = styled.div`
       }
 
       .desc {
-        font-size: .9vw;
+        font-size: 0.9vw;
       }
 
       .summary {
-        padding: .5rem 0 0 0;
+        padding: 0.5rem 0 0 0;
         gap: 1rem;
         align-items: center;
 
@@ -359,9 +360,9 @@ export const StyledFeatured = styled.div`
             font-size: 1vw;
           }
           .item__result {
-            padding: .2rem .8rem;
+            padding: 0.2rem 0.8rem;
             i {
-              font-size: .8vw;
+              font-size: 0.8vw;
               margin-right: 0.2rem;
             }
 
@@ -392,43 +393,43 @@ export const StyledFeatured = styled.div`
     }
   }
 
-//   @media screen and (min-width: 1024px) and (min-height: 600px) {
+  //   @media screen and (min-width: 1024px) and (min-height: 600px) {
 
-//   .bottom {
-//     .title {
-//       font-weight: 700;
-//       font-size: .8rem;
-//       color: #00000091;
-//     }
+  //   .bottom {
+  //     .title {
+  //       font-weight: 700;
+  //       font-size: .8rem;
+  //       color: #00000091;
+  //     }
 
-//     .amount {
-//       font-weight: 900;
-//       font-size: 1.4rem;
-//     }
+  //     .amount {
+  //       font-weight: 900;
+  //       font-size: 1.4rem;
+  //     }
 
-//     .desc {
-//       font-size: .8rem;
-//     }
-//   }
-// }
+  //     .desc {
+  //       font-size: .8rem;
+  //     }
+  //   }
+  // }
 
-//   @media screen and (min-width: 1280px) and (min-height: 800px) {
-//     height: auto;
-//     .bottom {
-//       .title {
-//         font-weight: 700;
-//         font-size: 1rem;
-//         color: #00000091;
-//       }
-  
-//       .amount {
-//         font-weight: 900;
-//         font-size: 2rem;
-//       }
-  
-//       .desc {
-//         font-size: 1rem;
-//       }
-//     }
-//   }
+  //   @media screen and (min-width: 1280px) and (min-height: 800px) {
+  //     height: auto;
+  //     .bottom {
+  //       .title {
+  //         font-weight: 700;
+  //         font-size: 1rem;
+  //         color: #00000091;
+  //       }
+
+  //       .amount {
+  //         font-weight: 900;
+  //         font-size: 2rem;
+  //       }
+
+  //       .desc {
+  //         font-size: 1rem;
+  //       }
+  //     }
+  //   }
 `;

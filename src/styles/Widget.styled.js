@@ -17,7 +17,8 @@ export const StyledWidget = styled.div`
   border: 1px solid #e0e0e0;
   transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
   cursor: pointer;
-  background: white;
+  background: #ffffff69;
+  backdrop-filter: blur(10px);
 
   :hover {
     box-shadow: black 10px 10px 0px;

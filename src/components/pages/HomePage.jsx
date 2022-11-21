@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react'
 import {StyledHomePage} from '../../styles/HomePage.styled'
 import HeroImg from '../../img/HeroImg.png'
+import HeroImg2 from '../../img/HeroImg2.gif'
 import Navbar from '../Navbar';
 import { useNavigate } from 'react-router-dom';
 
@@ -56,7 +57,7 @@ function HomePage() {
             </div>
 
             <div className="hero__img">
-              <img src={HeroImg} alt="" />
+              <img src={HeroImg2} alt="" />
             </div>
           </div>
         </div>
