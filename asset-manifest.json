@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/trackxp/static/css/main.31690426.css",
-    "main.js": "/trackxp/static/js/main.cc71f7aa.js",
+    "main.js": "/trackxp/static/js/main.a0113f12.js",
     "static/js/787.ecac3bf6.chunk.js": "/trackxp/static/js/787.ecac3bf6.chunk.js",
+    "static/media/ViewBackground.gif": "/trackxp/static/media/ViewBackground.ea5e79ea4348c9acfdb2.gif",
     "static/media/NotFound.gif": "/trackxp/static/media/NotFound.fde3195c131a923f1c3f.gif",
     "static/media/HeroImg2.gif": "/trackxp/static/media/HeroImg2.c63b7253e94a861f92b0.gif",
     "static/media/Loading.gif": "/trackxp/static/media/Loading.20bc2ed198a861e92e82.gif",
@@ -14,11 +15,11 @@
     "static/media/Widget1.png": "/trackxp/static/media/Widget1.968e10c47fda4e6d0a83.png",
     "index.html": "/trackxp/index.html",
     "main.31690426.css.map": "/trackxp/static/css/main.31690426.css.map",
-    "main.cc71f7aa.js.map": "/trackxp/static/js/main.cc71f7aa.js.map",
+    "main.a0113f12.js.map": "/trackxp/static/js/main.a0113f12.js.map",
     "787.ecac3bf6.chunk.js.map": "/trackxp/static/js/787.ecac3bf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31690426.css",
-    "static/js/main.cc71f7aa.js"
+    "static/js/main.a0113f12.js"
   ]
 }
