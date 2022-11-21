@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React from "react";
 import { useContext } from "react";
-import { HashRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import DashboardPage from "./components/pages/DashboardPage";
 import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/LoginPage";
@@ -21,10 +21,11 @@ function App() {
 
   return ( 
     // https://stackoverflow.com/questions/71984401/react-router-not-working-with-github-pages
-    <AnimatePresence exitBeforeEnter>
-        <GlobalStyle />
-        <div className="content">
-          <Routes>
+    <>
+      <GlobalStyle />
+      <div className="content">
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.key}>
             <Route path="/">
               <Route index element={<HomePage />}/>
               <Route path=":orderId" element={<View/>}/>
@@ -40,8 +41,9 @@ function App() {
               />
             </Route>
           </Routes>
-        </div>
-    </AnimatePresence>
+      </AnimatePresence>
+      </div>
+    </>
   );
 }
 

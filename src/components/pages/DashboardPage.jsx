@@ -29,12 +29,9 @@ function DashboardPage() {
         darkActive === "bx bx-moon" ? setDarkActive("bx bx-sun")
         : setDarkActive("bx bx-moon");
     }
-
     const {dispatch} = useContext(AuthContext)
 
-
   return (
-
     <StyledDashboardPage>
         <div className="dashboard__section">
             <div className="dashboard__wrapper">

@@ -7,6 +7,7 @@ import QRCode from 'qrcode';
 import NotFound from "../../img/NotFound.gif";
 import Loading from "../../img/Loading.gif";
 import ViewSingle from '../ViewSingle';
+import {motion} from "framer-motion"
 
 const View = () => {
   const [order, setOrder] = useState(null);
@@ -16,27 +17,26 @@ const View = () => {
   const qrLink =`https://nekuso.github.io/trackxp/?#/${orderId}`;
   const [found,setFound] = useState(false)
 
-
     useEffect(() => {
-        const unsub = onSnapshot(
-            collection(db, "orders"),
-            (snapShot) => {
-                let item = [];
-                snapShot.docs.forEach((doc) => {
-                item.push({ id: doc.id, ...doc.data() });
-                });
-                setQueryOrder(item);
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
-        return () => {
-            unsub();
-            setTimeout(() => {
-                setFound(true)
-            }, 4000);
-        };
+      const unsub = onSnapshot(
+          collection(db, "orders"),
+          (snapShot) => {
+              let item = [];
+              snapShot.docs.forEach((doc) => {
+              item.push({ id: doc.id, ...doc.data() });
+              });
+              setQueryOrder(item);
+          },
+          (error) => {
+            console.log(error);
+          }
+      );
+      return () => {
+          unsub();
+          setTimeout(() => {
+            setFound(true)
+          }, 4000);
+      };
     }, []);
 
   // Generates QR Code
@@ -68,8 +68,24 @@ const View = () => {
       };
   }, [orderId, queryOrder]);
 
+  const containerVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 1.5,
+        type:'spring',
+      }
+    }
+  }
+
   return (
-    <StyledView>
+    <motion.div>
+
+      <StyledView>
         {!found ?
             <div className="loading__container">
                 <div className="loading__content">
@@ -89,7 +105,8 @@ const View = () => {
                 </div>
             </div>
         }
-    </StyledView>
+      </StyledView>
+    </motion.div>
   )
 }
 

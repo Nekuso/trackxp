@@ -8,7 +8,7 @@ import AddModal from './AddModal';
 import { db } from "../firebase";
 import { useEffect } from 'react';
 import SetTargetModal from './SetTargetModal';
-
+import {motion} from "framer-motion";
 
 function Dashbooard() {
   const [queryData, setQueryData] = useState([]);
@@ -174,7 +174,6 @@ function Dashbooard() {
       fetchData();
 
   }, [amount,target,queryData,queryTarget]);
-
 
   return (
     <StyledDashboard>

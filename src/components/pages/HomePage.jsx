@@ -26,13 +26,37 @@ function HomePage() {
     hidden: {
       opacity: 0,
     },
+    hidden2: {
+      opacity: 0,
+      y: 10
+    },
+    hidden3: {
+      opacity: 0,
+      y: -10
+    },
     visible: {
       opacity: 1,
       transition: {
         delay: 0.5,
-        duration: 1.5,
+        duration: 1,
       }
     },
+    visible2: {
+      opacity: 1,
+      y:0,
+      transition: {
+        delay: 1,
+        duration: 1,
+      }
+    },
+    visible3: {
+      opacity: 1,
+      y:0,
+      transition: {
+        delay: 1.5,
+        duration: 1,
+      }
+    }
   }
 
   return (
@@ -47,7 +71,11 @@ function HomePage() {
         <Navbar/>
         <div className="homepage__section">
           <div className="hero__container">
-            <div className="hero__text">
+            <motion.div className="hero__text"
+              variants={homeVariants}
+              initial={"hidden2"}
+              animate={"visible2"}
+              exit={"hidden2"}>
               <p className="hero__badge">
                 NEW
               </p>
@@ -73,11 +101,15 @@ function HomePage() {
                   <i className='bx bx-search-alt'/>
                 </button>
               </form>
-            </div>
+            </motion.div>
 
-            <div className="hero__img">
+            <motion.div className="hero__img"
+              variants={homeVariants}
+              initial={"hidden3"}
+              animate={"visible3"}
+              exit={"hidden3"}>
               <img src={HeroImg2} alt="" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </StyledHomePage>
