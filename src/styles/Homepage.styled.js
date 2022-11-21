@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import LightHomepage from "../img/LightHomepage.jpg";
 
-
 export const StyledHomePage = styled.div`
   .homepage__section {
     display: flex;

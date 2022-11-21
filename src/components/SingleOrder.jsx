@@ -6,6 +6,7 @@ import { db } from '../firebase';
 import QRCode from 'qrcode';
 import { EditModal } from './EditModal';
 import UpdateButton from './UpdateButton';
+import {motion, AnimatePresence} from "framer-motion";
 
 const SingleOrder = () => {
 
@@ -73,7 +74,9 @@ const SingleOrder = () => {
     return (
         <StyledSinglePage>
             <div className="single__page__section">
-                {isEditModal ? <EditModal handleEditModal={handleEditModal} order={order} docId={docId}/> : null}
+                <AnimatePresence>
+                    {isEditModal ? <EditModal handleEditModal={handleEditModal} order={order} docId={docId}/> : null}
+                </AnimatePresence>
                 <div className="update__controls">
                     <h2 className="title">Order Status</h2>
                     <div className="buttons">

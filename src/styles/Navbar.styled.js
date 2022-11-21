@@ -37,11 +37,9 @@ export const StyledNavbar = styled.nav`
   .nav__links {
     .dash__nav__container {
       .nav__dash__button {
-        padding: 0.6rem 1.3rem;
         border: none;
         border-radius: 4rem;
         text-align: center;
-        background: #293241;
         font-weight: 700;
         color: white;
         transition: all 0.3s ease-in-out;
@@ -178,11 +176,17 @@ export const StyledNavbar = styled.nav`
       position: relative;
 
       .nav__dash__button {
-        background: #ffff;
-        color: #000000;
+        padding: 0.6rem 1.3rem;
         border: none;
-        padding: 0.8rem 1rem;
-        border-radius: 0.3rem;
+        border-radius: 4rem;
+        text-align: center;
+        background: #293241;
+        font-weight: 700;
+        color: white;
+        transition: all 0.3s ease-in-out;
+        :hover {
+          transform: scale(1.1);
+        }
       }
 
       li {

@@ -8,7 +8,7 @@ import AddModal from './AddModal';
 import { db } from "../firebase";
 import { useEffect } from 'react';
 import SetTargetModal from './SetTargetModal';
-import {motion} from "framer-motion";
+import {AnimatePresence} from "framer-motion";
 
 function Dashbooard() {
   const [queryData, setQueryData] = useState([]);
@@ -177,8 +177,11 @@ function Dashbooard() {
 
   return (
     <StyledDashboard>
-      {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
-      {isSetTargetModal ? <SetTargetModal handleSetTargetModal={handleSetTargetModal} /> : null}
+      <AnimatePresence>
+        {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
+        {isSetTargetModal ? <SetTargetModal handleSetTargetModal={handleSetTargetModal} />
+        : null}
+      </AnimatePresence>
       <div className="dashboard__header">
         <h1 className="page__title">Dashboard</h1>
         <button onClick={handleAddModal} className="new__button">New Order</button>

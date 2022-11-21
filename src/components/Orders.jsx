@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 import { StyledOrders } from '../styles/Orders.styled';
 import AddModal from './AddModal';
@@ -15,7 +16,9 @@ const Orders = () => {
   return (
     <StyledOrders>
       <div className="orders__header">
-        {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
+        <AnimatePresence>
+          {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
+        </AnimatePresence>
         <div className="text__header">
           <h1 className="title">Today's orders</h1>
           <p className="date">{Date()}</p>

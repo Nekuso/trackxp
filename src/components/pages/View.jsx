@@ -7,7 +7,7 @@ import QRCode from 'qrcode';
 import NotFound from "../../img/NotFound.gif";
 import Loading from "../../img/Loading.gif";
 import ViewSingle from '../ViewSingle';
-import {motion} from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 
 const View = () => {
   const [order, setOrder] = useState(null);
@@ -93,8 +93,7 @@ const View = () => {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 20,
+        stiffness: 80,
         delay: 0.7,
         duration: 1,
       }
@@ -104,8 +103,7 @@ const View = () => {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 20,
+        stiffness: 80,
         delay: .9,
         duration: 1,
       }
@@ -120,33 +118,16 @@ const View = () => {
       exit="initialHidden"
     >
       <StyledView>
-        {!found ?
-          <div className="loading__container">
-              <motion.div className="loading__content"
-                variants={viewVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-              >
-                <motion.img src={Loading} alt="" 
+        <AnimatePresence>
+          {!found ?
+            <div className="loading__container">
+                <motion.div className="loading__content"
                   variants={viewVariants}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                />
-                <motion.h2
-                  variants={viewVariants}
-                  initial="hidden"
-                  animate="visible2"
-                  exit="hidden"
-                >Searching for your underwear...</motion.h2>
-              </motion.div>
-          </div>: 
-          found && order !== null ?
-          <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> : 
-          <div className="not__found__container">
-              <div className="not__found__content">
-                  <motion.img src={NotFound} alt="" 
+                >
+                  <motion.img src={Loading} alt="" 
                     variants={viewVariants}
                     initial="hidden"
                     animate="visible"
@@ -157,20 +138,39 @@ const View = () => {
                     initial="hidden"
                     animate="visible2"
                     exit="hidden"
-                  >Order Not Found</motion.h2>
-                  <motion.div
-                    variants={viewVariants}
-                    initial="hidden"
-                    animate="visible2"
-                    exit="hidden"
-                  >
-                    <Link to="/" className="home__link">
-                      Go Back!
-                    </Link>
-                  </motion.div>
-              </div>
-          </div>
-        }
+                  >Searching for your underwear...</motion.h2>
+                </motion.div>
+            </div>: 
+            found && order !== null ?
+            <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> : 
+            <div className="not__found__container">
+                <div className="not__found__content">
+                    <motion.img src={NotFound} alt="" 
+                      variants={viewVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                    />
+                    <motion.h2
+                      variants={viewVariants}
+                      initial="hidden"
+                      animate="visible2"
+                      exit="hidden"
+                    >Order Not Found</motion.h2>
+                    <motion.div
+                      variants={viewVariants}
+                      initial="hidden"
+                      animate="visible2"
+                      exit="hidden"
+                    >
+                      <Link to="/" className="home__link">
+                        Go Back!
+                      </Link>
+                    </motion.div>
+                </div>
+            </div>
+          }
+        </AnimatePresence>
       </StyledView>
     </motion.div>
   )

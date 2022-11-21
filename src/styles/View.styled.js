@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ViewBackground from "../img/ViewBackground.gif";
 
 export const StyledView = styled.div`
   display: flex;
@@ -8,6 +9,10 @@ export const StyledView = styled.div`
   align-items: center;
   padding: 1.5rem 0;
   background: #f5f5f5;
+  background-image: url(${ViewBackground});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .loading__container {
     display: flex;
