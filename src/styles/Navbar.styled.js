@@ -56,7 +56,7 @@ export const StyledNavbar = styled.nav`
         padding: 0.3rem 0;
         border-bottom: 3px solid rgba(255, 255, 255, 0);
         transition: 0.4s ease-in-out;
-        color: #ffff;
+        color: black;
       }
     }
   }
@@ -197,6 +197,7 @@ export const StyledNavbar = styled.nav`
           color: #000000;
           padding: 0.6rem 1.3rem;
           border-radius: 1rem;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
         }
       }
     }

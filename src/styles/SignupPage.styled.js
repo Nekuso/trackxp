@@ -9,7 +9,7 @@ export const StyledSignupPage = styled.div`
         height: 100vh;
         max-height: 100%;
         background: rgb(0,8,77);
-        background: linear-gradient(0deg, rgba(0,8,77,1) 0%, rgba(44,67,137,1) 100%);
+        background: #ffffff;
         overflow: hidden;
 
         .signup__container {
@@ -46,20 +46,20 @@ export const StyledSignupPage = styled.div`
                     h2 {
                         text-align: center;
                         font-size: 7vw;
-                        color: white;
+                        color: black;
                     }
                     
                     p {
                         font-size: 3.8vw;
                         text-align: center;
-                        color: white;
+                        color: black;
                     }
                     
                     .signup__form {
                         h4 {
                             margin: .8rem 0 0;
                             font-size: 4.5vw;
-                            color: white;
+                            color: black;
                         }
                         input {
                             width: 100%;
@@ -91,7 +91,7 @@ export const StyledSignupPage = styled.div`
                     h3 {
                         text-align: center;
                         font-size: 4.5vw;
-                        color: white;
+                        color: black;
                         
                         a {
                             color: #5c79e2;

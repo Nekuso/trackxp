@@ -9,7 +9,7 @@ export const StyledLoginPage = styled.div`
         height: 100vh;
         max-height: 100%;
         background: rgb(0,8,77);
-        background: linear-gradient(0deg, rgba(0,8,77,1) 0%, rgba(44,67,137,1) 100%);
+        background: #ffffff;
         overflow: hidden;
 
         .login__container {
@@ -46,18 +46,18 @@ export const StyledLoginPage = styled.div`
                     h2 {
                         text-align: center;
                         font-size: 9vw;
-                        color: white;
+                        color: black;
                     }
                     
                     p {
                         font-size: 3.5vw;
                         text-align: center;
-                        color: white;
+                        color: black;
                     }
                     
                     .login__form {
                         h4 {
-                            color: white;
+                            color: black;
                             margin: 1rem 0 0;
                             font-size: 5.5vw;
                         }
@@ -98,7 +98,7 @@ export const StyledLoginPage = styled.div`
                     h3 {
                         text-align: center;
                         font-size: 4.5vw;
-                        color: white;
+                        color: black;
                         
                         a {
                             color: #4b65c2;
