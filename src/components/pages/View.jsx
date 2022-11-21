@@ -37,7 +37,7 @@ const View = () => {
                 setFound(true)
             }, 4000);
         };
-    }, [order]);
+    }, []);
 
   // Generates QR Code
   const GenerateQRCode = () => {
