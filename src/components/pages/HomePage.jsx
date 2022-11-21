@@ -1,6 +1,6 @@
 import {React, useEffect, useState} from 'react'
 import {StyledHomePage} from '../../styles/HomePage.styled'
-import HeroImg from '../../img/HeroImg.png'
+// import HeroImg from '../../img/HeroImg.png'
 import HeroImg2 from '../../img/HeroImg2.gif'
 import Navbar from '../Navbar';
 import { useNavigate } from 'react-router-dom';
