@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { AuthContextProvider } from './context/AuthContext';
 import reportWebVitals from './reportWebVitals';
@@ -8,7 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <App />
+      <HashRouter>
+        <App />
+      </HashRouter>
     </AuthContextProvider>
   </React.StrictMode>
 );

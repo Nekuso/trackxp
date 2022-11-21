@@ -4,11 +4,11 @@ import {StyledHomePage} from '../../styles/HomePage.styled'
 import HeroImg2 from '../../img/HeroImg2.gif'
 import Navbar from '../Navbar';
 import { useNavigate } from 'react-router-dom';
+import {motion} from 'framer-motion';
 
 function HomePage() {
 
   const [searchValue, setSearchValue] = useState("");
-
   const navigate = useNavigate();
 
   useEffect(() => { 
@@ -22,8 +22,28 @@ function HomePage() {
 
   }
 
+  const homeVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 1.5,
+      }
+    },
+  }
+
   return (
-    <StyledHomePage>
+    <motion.div
+      variants={homeVariants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+
+      >
+      <StyledHomePage>
         <Navbar/>
         <div className="homepage__section">
           <div className="hero__container">
@@ -60,7 +80,8 @@ function HomePage() {
             </div>
           </div>
         </div>
-    </StyledHomePage>
+      </StyledHomePage>
+    </motion.div>
   )
 }
 
