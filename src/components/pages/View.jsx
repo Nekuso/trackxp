@@ -19,31 +19,35 @@ const View = () => {
 
     useEffect(() => {
       const unsub = onSnapshot(
-          collection(db, "orders"),
-          (snapShot) => {
-              let item = [];
-              snapShot.docs.forEach((doc) => {
-              item.push({ id: doc.id, ...doc.data() });
-              });
-              setQueryOrder(item);
-          },
-          (error) => {
-            console.log(error);
-          }
+        collection(db, "orders"),
+        (snapShot) => {
+            let item = [];
+            snapShot.docs.forEach((doc) => {
+            item.push({ id: doc.id, ...doc.data() });
+            });
+            setQueryOrder(item);
+        },
+        (error) => {
+          console.log(error);
+        }
       );
       return () => {
-          unsub();
-          setTimeout(() => {
-            setFound(true)
-          }, 4000);
+        unsub();
       };
     }, []);
+
+    useEffect(() => {
+      setTimeout(function() {
+        this.setFound(true)
+      }.bind(this), 4000);
+
+    }, [])
 
   // Generates QR Code
   const GenerateQRCode = () => {
     QRCode.toDataURL(qrLink, (err, url) => {
-        if (err) throw err
-        setQrCode(url);
+      if (err) throw err
+      setQrCode(url);
     })
   }
   
@@ -116,14 +120,32 @@ const View = () => {
     >
       <StyledView>
         {!found ?
-            <div className="loading__container">
-                <motion.div className="loading__content"
+          <div className="loading__container">
+              <motion.div className="loading__content"
+                variants={viewVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+              >
+                <motion.img src={Loading} alt="" 
                   variants={viewVariants}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                >
-                  <motion.img src={Loading} alt="" 
+                />
+                <motion.h2
+                  variants={viewVariants}
+                  initial="hidden"
+                  animate="visible2"
+                  exit="hidden"
+                >Searching for your underwear...</motion.h2>
+              </motion.div>
+          </div>: 
+          found && order !== null ?
+          <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> : 
+          <div className="not__found__container">
+              <div className="not__found__content">
+                  <motion.img src={NotFound} alt="" 
                     variants={viewVariants}
                     initial="hidden"
                     animate="visible"
@@ -134,37 +156,19 @@ const View = () => {
                     initial="hidden"
                     animate="visible2"
                     exit="hidden"
-                  >Searching for your underwear...</motion.h2>
-                </motion.div>
-            </div>: 
-            found && order !== null ?
-            <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> : 
-            <div className="not__found__container">
-                <div className="not__found__content">
-                    <motion.img src={NotFound} alt="" 
-                      variants={viewVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="hidden"
-                    />
-                    <motion.h2
-                      variants={viewVariants}
-                      initial="hidden"
-                      animate="visible2"
-                      exit="hidden"
-                    >Order Not Found</motion.h2>
-                    <motion.div
-                      variants={viewVariants}
-                      initial="hidden"
-                      animate="visible2"
-                      exit="hidden"
-                    >
-                      <Link to="/" className="home__link">
-                        Go Back!
-                      </Link>
-                    </motion.div>
-                </div>
-            </div>
+                  >Order Not Found</motion.h2>
+                  <motion.div
+                    variants={viewVariants}
+                    initial="hidden"
+                    animate="visible2"
+                    exit="hidden"
+                  >
+                    <Link to="/" className="home__link">
+                      Go Back!
+                    </Link>
+                  </motion.div>
+              </div>
+          </div>
         }
       </StyledView>
     </motion.div>
