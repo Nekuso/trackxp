@@ -29,6 +29,7 @@ export const StyledDashboardPage = styled.div`
         width: 100vw;
         position: relative;
         background: transparent;
+        backdrop-filter: blur(10px);
 
         .is-Active {
           position: fixed;
