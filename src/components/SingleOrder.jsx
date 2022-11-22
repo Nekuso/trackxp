@@ -82,6 +82,7 @@ const SingleOrder = () => {
           }
         }
     }
+    
 
     return (
         <StyledSinglePage>
