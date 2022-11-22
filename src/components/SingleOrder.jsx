@@ -70,10 +70,27 @@ const SingleOrder = () => {
         };
     }, [orderId, queryOrder]);
 
+    const viewVariants = {
+        initialHidden: {
+          opacity: 0,
+        },
+        initialVisible: {
+          opacity: 1,
+          transition: {
+            delay: 0.5,
+            duration: .6,
+          }
+        }
+    }
 
     return (
         <StyledSinglePage>
-            <div className="single__page__section">
+            <motion.div className="single__page__section"
+                variants={viewVariants}
+                initial="initialHidden"
+                animate="initialVisible"
+                exit="initialHidden"
+            >
                 <AnimatePresence>
                     {isEditModal ? <EditModal handleEditModal={handleEditModal} order={order} docId={docId}/> : null}
                 </AnimatePresence>
@@ -160,7 +177,7 @@ const SingleOrder = () => {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </motion.div>
         </StyledSinglePage>
     );
 }

@@ -84,9 +84,9 @@ function HomePage() {
                 with TrackXP.
               </h1>
               <h3 className="hero__description">
-                A proper tracking system that enables you to 
-                optimize the best routes available for the 
-                particular delivery.
+                A real-time tracking system that enables you to 
+                optimize the best updates for
+                particular order.
               </h3>
 
               <form onSubmit={handleSearch} className="tracking__input__container">

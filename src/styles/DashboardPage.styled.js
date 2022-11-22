@@ -6,10 +6,10 @@ export const StyledDashboardPage = styled.div`
     width: 100vw;
     height: 100%;
     background:  #fafafa;
-    // background-image: url(${LightBackground});
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
+    background-image: url(${LightBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: all 0.2s ease-in-out;
     
     .dashboard__wrapper {

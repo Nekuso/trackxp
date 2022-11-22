@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyledOrders } from '../styles/Orders.styled';
 import AddModal from './AddModal';
 import DataTable from './DataTable';
+import {motion} from 'framer-motion';
 
 
 const Orders = () => {
@@ -13,9 +14,33 @@ const Orders = () => {
     setIsAddModal(!isAddModal);
   }
 
+  const viewVariants = {
+    initialHidden: {
+      opacity: 0,
+      y: 6
+    },
+    initialVisible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.5,
+        duration: .5,
+        transition: {
+          type: "spring",
+          stiffness: 80,
+        }
+      }
+    }
+  }
+
   return (
     <StyledOrders>
-      <div className="orders__header">
+      <motion.div className="orders__header"
+        variants={viewVariants}
+        initial="initialHidden"
+        animate="initialVisible"
+        exit="initialHidden"
+      >
         <AnimatePresence>
           {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
         </AnimatePresence>
@@ -24,7 +49,7 @@ const Orders = () => {
           <p className="date">{Date()}</p>
         </div>
         <button onClick={handleAddModal} className="new__button">New Order</button>
-      </div>
+      </motion.div>
       <DataTable/>
     </StyledOrders>
   );

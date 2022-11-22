@@ -42,7 +42,7 @@ export const StyledHomePage = styled.div`
           border-radius: 2rem;
           font-size: 0.8rem;
           background: #ffffff96;
-          border: 1px solid #63636396;
+          border: 1px solid #dbdbdb3f;
           backdrop-filter: blur(20px);
         }
 
@@ -73,7 +73,7 @@ export const StyledHomePage = styled.div`
           .tracking__input {
             width: 85%;
             height: 100%;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             border: none;
             background: transparent;
             color: black;

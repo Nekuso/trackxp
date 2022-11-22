@@ -86,7 +86,10 @@ const View = () => {
     },
     hidden: {
       opacity: 0,
-      y: -10
+      y: -10,
+      transition: {
+        duration: 0.5,
+      }
     },
     visible: {
       opacity: 1,
@@ -118,9 +121,10 @@ const View = () => {
       exit="initialHidden"
     >
       <StyledView>
-        <AnimatePresence>
-          {!found ?
-            <div className="loading__container">
+        <AnimatePresence exitBeforeEnter>
+          {!found ? <motion.div 
+          key={`${found}`}
+          className="loading__container">
                 <motion.div className="loading__content"
                   variants={viewVariants}
                   initial="hidden"
@@ -140,34 +144,34 @@ const View = () => {
                     exit="hidden"
                   >Searching for your underwear...</motion.h2>
                 </motion.div>
-            </div>: 
+            </motion.div> :
             found && order !== null ?
-            <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> : 
+              <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> :
             <div className="not__found__container">
-                <div className="not__found__content">
-                    <motion.img src={NotFound} alt="" 
-                      variants={viewVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="hidden"
-                    />
-                    <motion.h2
-                      variants={viewVariants}
-                      initial="hidden"
-                      animate="visible2"
-                      exit="hidden"
-                    >Order Not Found</motion.h2>
-                    <motion.div
-                      variants={viewVariants}
-                      initial="hidden"
-                      animate="visible2"
-                      exit="hidden"
-                    >
-                      <Link to="/" className="home__link">
-                        Go Back!
-                      </Link>
-                    </motion.div>
-                </div>
+              <div className="not__found__content">
+                <motion.img src={NotFound} alt="" 
+                  variants={viewVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                />
+                <motion.h2
+                  variants={viewVariants}
+                  initial="hidden"
+                  animate="visible2"
+                  exit="hidden"
+                >Order Not Found</motion.h2>
+                <motion.div
+                  variants={viewVariants}
+                  initial="hidden"
+                  animate="visible2"
+                  exit="hidden"
+                >
+                  <Link to="/" className="home__link">
+                    Go Back! →
+                  </Link>
+                </motion.div>
+              </div>
             </div>
           }
         </AnimatePresence>

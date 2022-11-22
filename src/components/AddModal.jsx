@@ -198,9 +198,9 @@ const AddModal = ({handleAddModal}) => {
       y: 0,
       transition: {
         delay: .3,
-        duration: 1,
+        duration: .7,
         type: "spring",
-        stiffness: 70,
+        stiffness: 90,
       }
     },
   }

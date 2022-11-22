@@ -4,7 +4,8 @@ import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { dataColumns } from '../dataTableSource';
 import { Link } from 'react-router-dom';
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
-import {db} from "../firebase"
+import {db} from "../firebase";
+import {motion} from "framer-motion";
 
 const Datatable = () => {
     const [data, setData] = useState([]);
@@ -41,7 +42,6 @@ const Datatable = () => {
         setData(data.filter((item)=> item.id !== id))
         
     }
-
     
     const actionColumn =[
         {field: 'action', 
@@ -55,11 +55,37 @@ const Datatable = () => {
                     <Link to={params.row.orderId.toString()} className="view__button">View</Link>
                     <div className="delete__button" onClick={() => handleDelete(params.row.id)}>Delete</div>
                 </div>
-            )}}]
+            )}
+        }
+    ]
+
+    const viewVariants = {
+        initialHidden: {
+          opacity: 0,
+          y: 6
+        },
+        initialVisible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 0.8,
+            duration: .5,
+            transition: {
+                type: "spring",
+                stiffness: 80,
+            }
+          }
+        }
+    }
 
     return (
         <StyledDataTable>
-            <div className="dataTable">
+            <motion.div className="dataTable"
+                variants={viewVariants}
+                initial="initialHidden"
+                animate="initialVisible"
+                exit="initialHidden"
+            >
                 <DataGrid
                     className="dataGrid"
                     rows={data}
@@ -83,7 +109,7 @@ const Datatable = () => {
 
                     
                 />
-            </div>
+            </motion.div>
 
             
         </StyledDataTable>

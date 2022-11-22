@@ -1,10 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 
 const ViewSingle = ({order,qrCode,qrLink}) => {
+
+    const viewVariants = {
+        initialHidden: {
+          opacity: 0,
+        },
+        initialVisible: {
+          opacity: 1,
+          transition: {
+            delay: 0.5,
+            duration: 1,
+          }
+        }
+    }
+
+
   return (
-    <div className="single__page__section">
+    <>
+    <motion.div className="single__page__section"
+        variants={viewVariants}
+        initial="initialHidden"
+        animate="initialVisible"
+        exit="initialHidden"
+    >
         <div className="update__controls">
         <Link to="/" className="home__link">
             <i className='bx bxs-analyse'></i>
@@ -84,7 +106,8 @@ const ViewSingle = ({order,qrCode,qrLink}) => {
                 </tbody>
             </table>
         </div>
-    </div>
+    </motion.div> 
+    </>
   )
 }
 

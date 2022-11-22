@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import ViewBackground from "../img/ViewBackground.gif";
+import ViewBackground from "../img/ViewBackground.jpg";
 
 export const StyledView = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
   height: 100%;
@@ -9,10 +10,18 @@ export const StyledView = styled.div`
   align-items: center;
   padding: 1.5rem 0;
   background: #f5f5f5;
-  background-image: url(${ViewBackground});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  z-index: 1;
+  :after {
+    content: "";
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0; 
+    z-index: -1;
+    background-image: url(${ViewBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // filter: contrast(0.8) blur(5px);
+  }
 
   .loading__container {
     display: flex;
@@ -34,6 +43,7 @@ export const StyledView = styled.div`
       }
 
       h2 {
+        color: #ffffff;
         text-align: center;
         font-size: 1.3rem;
       }
@@ -60,6 +70,7 @@ export const StyledView = styled.div`
       }
 
       h2 {
+        color: #ffffff;
         font-size: 1.7rem;
       }
       .home__link 
