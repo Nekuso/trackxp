@@ -131,7 +131,7 @@ const View = () => {
                   animate="visible"
                   exit="hidden"
                 >
-                  <motion.img src={Loading} alt="" 
+                  <motion.img src={Loading} alt="" Loading='lazy'
                     variants={viewVariants}
                     initial="hidden"
                     animate="visible"
@@ -149,7 +149,7 @@ const View = () => {
               <ViewSingle order={order} qrCode={qrCode} qrLink={qrLink}/> :
             <div className="not__found__container">
               <div className="not__found__content">
-                <motion.img src={NotFound} alt="" 
+                <motion.img src={NotFound} alt="" loading="lazy"
                   variants={viewVariants}
                   initial="hidden"
                   animate="visible"

@@ -108,7 +108,7 @@ function HomePage() {
               initial={"hidden3"}
               animate={"visible3"}
               exit={"hidden3"}>
-              <img src={HeroImg2} alt="" />
+              <img src={HeroImg2} alt="" loading='lazy' />
             </motion.div>
           </div>
         </div>
