@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
+import CountUp from 'react-countup';
 
 const ViewSingle = ({order,qrCode,qrLink}) => {
 
@@ -101,7 +101,7 @@ const ViewSingle = ({order,qrCode,qrLink}) => {
 
                     <tr>
                     <td className="particular__align grand__total" colSpan="3">Grand Total</td>
-                    <td className="grand__total">{order.total}</td>
+                    <td className="grand__total"><CountUp duration={1} end={order.total}/></td>
                     </tr>
                 </tbody>
             </table>

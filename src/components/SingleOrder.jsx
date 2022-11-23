@@ -7,6 +7,7 @@ import QRCode from 'qrcode';
 import { EditModal } from './EditModal';
 import UpdateButton from './UpdateButton';
 import {motion, AnimatePresence} from "framer-motion";
+import CountUp from 'react-countup';
 
 const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
 
@@ -173,7 +174,7 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
 
                             <tr>
                                 <td className="particular__align grand__total" colSpan="3">Grand Total</td>
-                                <td className="grand__total">{order.total}</td>
+                                <td className="grand__total"><CountUp duration={1} end={order.total}/></td>
                             </tr>
                         </tbody>
                     </table>

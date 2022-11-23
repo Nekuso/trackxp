@@ -4,6 +4,8 @@ import OrderDataService from '../order.services';
 import { serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore';
 import {db} from "../firebase";
 import {motion} from "framer-motion";
+import CountUp from 'react-countup';
+
 
 const AddModal = ({handleAddModal, handleAddNotification}) => {
 
@@ -293,7 +295,7 @@ const AddModal = ({handleAddModal, handleAddNotification}) => {
             <div className="submit__container">
               <div className="grand__total">
                 <p>Grand Total</p>
-                <p>{total}</p>
+                <p><CountUp duration={1} end={total}/></p>
               </div>
               <div className="buttons">
                 <p onClick={handleAddModal}>Cancel</p>

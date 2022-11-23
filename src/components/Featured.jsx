@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {StyledFeatured} from '../styles/Featured.styled';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import CountUp from 'react-countup';
 
 function Featured({todaysEarnings, handleSetTargetModal, target}) {
 
@@ -51,9 +52,9 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                   })}/>
             </div>
             <p className="title">Total sales made today</p>
-            <p className="amount">P {todaysEarnings}</p>
+            <p className="amount">P <CountUp duration={3} end={todaysEarnings}/></p>
             <p className="desc">
-                Previous transaction processing. Last payments may not be included.
+                Target restarts after a day, but you can always update your target anytime.
             </p>
 
             <div className="summary">
@@ -61,7 +62,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                     <div className="item__title">Target</div>
                     <div className="item__result positive">
                         <div className="result__amount">
-                            P {target}
+                            P <CountUp duration={4} end={target}/>
                         </div>
                     </div>
                 </div>
@@ -70,7 +71,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                     <div className={`item__result ${diff <= target ? "negative" : "positive"}`}>
                         {diff < target ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow ' ></i>) }
                         <div className="result__amount">
-                            P {diff}
+                            P <CountUp duration={4} end={diff}/>
                         </div>
                     </div>
                 </div>

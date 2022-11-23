@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyledWidget } from '../styles/Widget.styled';
 import Tooltip from '@mui/material/Tooltip';
+import CountUp from 'react-countup';
 
 
 const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
@@ -52,24 +53,26 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
   }
 
   return (
-    <StyledWidget>
-        <div className="top">
-          <Tooltip title={data.info} placement="right" followCursor><h3 className="top__title">{data.title}</h3></Tooltip>
-          <div className={`percentage ${data.query === "orders" && (diff < 0 ? "negative" : "positive")} ${data.query === "earnings" && ( earningsDiff < 0 ? "negative" : "positive")}`}>
-            {data.query === "orders" && (diff < 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>)}
-            {data.query === "earnings" && (earningsDiff < 0 ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow'></i>))}
-            {/* {data.query === "earnings" && earningsDiff !== 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>}} */}
-            <p>
-              {diff && earningsDiff ? (data.query === "orders" ? diff : earningsDiff) : "Loading"} %
-            </p>
+    <Tooltip title={data.info} placement="right" followCursor>
+      <StyledWidget>
+          <div className="top">
+            <h3 className="top__title">{data.title}</h3>
+            <div className={`percentage ${data.query === "orders" && (diff < 0 ? "negative" : "positive")} ${data.query === "earnings" && ( earningsDiff < 0 ? "negative" : "positive")}`}>
+              {data.query === "orders" && (diff < 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>)}
+              {data.query === "earnings" && (earningsDiff < 0 ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow'></i>))}
+              {/* {data.query === "earnings" && earningsDiff !== 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>}} */}
+              <p>
+                {diff && earningsDiff ? (data.query === "orders" ? <CountUp duration={4} end={diff}/> : <CountUp duration={4} end={earningsDiff}/>) : "Loading"} %
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="middle"><h1>{data.currency} {data.query === "orders" ? amount : earnings}</h1></div>
-        <div className="bottom" >
-          <Link to={`${data.link}`} className="widget__link">{data.linkDescription}</Link>
-          {/* <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div> */}
-        </div>
-    </StyledWidget>
+          <div className="middle"><h1>{data.currency} {data.query === "orders" ? <CountUp duration={3} end={amount} /> : <CountUp duration={3} end={earnings} />}</h1></div>
+          <div className="bottom" >
+            <Link to={`${data.link}`} className="widget__link">{data.linkDescription}</Link>
+            {/* <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div> */}
+          </div>
+      </StyledWidget>
+    </Tooltip>
   )
 }
 
