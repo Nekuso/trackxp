@@ -12,7 +12,7 @@ export const StyledAddModal = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 110;
-  
+
   .closer {
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ export const StyledAddModal = styled.div`
     backdrop-filter: blur(5px);
     z-index: 101;
   }
-  
+
   .add__modal {
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@ export const StyledAddModal = styled.div`
         background: black;
         font-size: 1rem;
         color: white;
-        padding: .2rem 1rem;
+        padding: 0.2rem 1rem;
         border-radius: 2rem;
         font-weight: 600;
       }
@@ -76,7 +76,6 @@ export const StyledAddModal = styled.div`
         padding: 1rem;
         border-radius: 1rem;
         background: white;
-        
 
         h2 {
           font-size: 1.3rem;
@@ -225,14 +224,14 @@ export const StyledAddModal = styled.div`
           gap: 1rem;
           font-weight: 700;
           p {
-            font-size: .9rem;
+            font-size: 0.9rem;
           }
         }
 
         .buttons {
           display: flex;
           align-items: center;
-          gap: .5rem;
+          gap: 0.5rem;
 
           p {
             cursor: pointer;
@@ -246,9 +245,9 @@ export const StyledAddModal = styled.div`
             border-radius: 2rem;
             background: black;
             color: white;
-            transform: scale(.9);
+            transform: scale(0.9);
             transition: all 0.2s ease-in-out;
-  
+
             :hover {
               transform: scale(1);
             }
@@ -261,7 +260,7 @@ export const StyledAddModal = styled.div`
   @media screen and (min-width: 768px) {
     .add__modal {
       width: 90%;
-      height: 90%;
+      height: auto;
       border-radius: 1rem;
       padding: 1.5rem;
 
@@ -282,7 +281,7 @@ export const StyledAddModal = styled.div`
         scroll-y: hidden;
 
         .add__user__info {
-          border-radius: .5rem;
+          border-radius: 0.5rem;
           width: 38%;
           gap: 0.3rem;
           padding: 0.8rem;
@@ -324,7 +323,7 @@ export const StyledAddModal = styled.div`
           }
         }
         .add__user__particulars {
-          border-radius: .5rem;
+          border-radius: 0.5rem;
           width: 61%;
           padding: 1rem;
 
@@ -351,13 +350,13 @@ export const StyledAddModal = styled.div`
               }
               .particular__input {
                 width: 30%;
-                gap:.3rem;
+                gap: 0.3rem;
                 justify-content: space-evenly;
                 input {
                   width: 100%;
                   border-radius: 0.3rem;
                   font-size: 0.7rem;
-                  padding: .2rem;
+                  padding: 0.2rem;
                 }
               }
             }
@@ -370,9 +369,9 @@ export const StyledAddModal = styled.div`
           .grand__total {
             gap: 2rem;
           }
-          
+
           .buttons {
-            gap: .5rem;
+            gap: 0.5rem;
 
             p {
               font-size: 0.8rem;
@@ -388,14 +387,14 @@ export const StyledAddModal = styled.div`
 
   @media screen and (min-width: 1024px) {
     .add__modal {
-      width: 50%;
+      width: 60%;
       height: auto;
       padding: 1rem;
       .add__modal__header {
         padding-top: 0;
         .title {
           font-size: 1rem;
-          padding: .2rem 1.5rem;
+          padding: 0.2rem 1.5rem;
         }
 
         i {
@@ -471,7 +470,7 @@ export const StyledAddModal = styled.div`
               align-items: center;
               margin: 0.1rem 0;
               td {
-                font-size: .7rem;
+                font-size: 0.7rem;
               }
               .particular__input {
                 justify-content: space-around;
@@ -479,7 +478,7 @@ export const StyledAddModal = styled.div`
                   width: 100%;
                   border-radius: 0.3rem;
                   font-size: 0.7rem;
-                  padding: .1rem;
+                  padding: 0.1rem;
                 }
               }
             }
@@ -494,7 +493,7 @@ export const StyledAddModal = styled.div`
           }
 
           .buttons {
-            gap: .8rem;
+            gap: 0.8rem;
             button {
               font-size: 0.8rem;
             }

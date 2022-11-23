@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import SetTargetModal from './SetTargetModal';
 import {AnimatePresence} from "framer-motion";
 
-function Dashbooard() {
+function Dashbooard({handleAddNotification, handleTargetNotification}) {
   const [queryData, setQueryData] = useState([]);
   const [queryTarget, setQueryTarget] = useState([]);
   const [amount, setAmount] = useState(0);
@@ -178,10 +178,11 @@ function Dashbooard() {
   return (
     <StyledDashboard>
       <AnimatePresence>
-        {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
-        {isSetTargetModal ? <SetTargetModal handleSetTargetModal={handleSetTargetModal} />
+        {isAddModal ? <AddModal handleAddModal={handleAddModal} handleAddNotification={handleAddNotification} /> : null}
+        {isSetTargetModal ? <SetTargetModal handleSetTargetModal={handleSetTargetModal} handleTargetNotification={handleTargetNotification}/>
         : null}
       </AnimatePresence>
+      
       <div className="dashboard__header">
         <h1 className="page__title">Dashboard</h1>
         <button onClick={handleAddModal} className="new__button">New Order</button>

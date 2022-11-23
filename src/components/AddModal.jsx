@@ -5,7 +5,7 @@ import { serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore';
 import {db} from "../firebase";
 import {motion} from "framer-motion";
 
-const AddModal = ({handleAddModal}) => {
+const AddModal = ({handleAddModal, handleAddNotification}) => {
 
   // Current Data and Time
   const currentDateTime = new Date()
@@ -153,6 +153,7 @@ const AddModal = ({handleAddModal}) => {
     setLastName("");
     setContact(0);
     setPayment("Pending");
+    handleAddNotification();
   }
 
   const updateFieldChanged = (name, index) => (event) => {
@@ -192,12 +193,18 @@ const AddModal = ({handleAddModal}) => {
     hidden2: {
       opacity: 0,
       y: "100vh",
+      transition: {
+        delay: .1,
+        duration: .7,
+        type: "spring",
+        stiffness: 90,
+      }
     },
     visible2: {
       opacity: 1,
       y: 0,
       transition: {
-        delay: .3,
+        delay: .4,
         duration: .7,
         type: "spring",
         stiffness: 90,

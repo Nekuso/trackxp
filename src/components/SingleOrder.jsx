@@ -8,7 +8,7 @@ import { EditModal } from './EditModal';
 import UpdateButton from './UpdateButton';
 import {motion, AnimatePresence} from "framer-motion";
 
-const SingleOrder = () => {
+const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
 
     const [order, setOrder] = useState([]);
     const [queryOrder, setQueryOrder] = useState([]);
@@ -93,12 +93,12 @@ const SingleOrder = () => {
                 exit="initialHidden"
             >
                 <AnimatePresence>
-                    {isEditModal ? <EditModal handleEditModal={handleEditModal} order={order} docId={docId}/> : null}
+                    {isEditModal ? <EditModal handleEditModal={handleEditModal} order={order} docId={docId} handleUpdateNotifcation={handleUpdateNotifcation}/> : null}
                 </AnimatePresence>
                 <div className="update__controls">
                     <h2 className="title">Order Status</h2>
                     <div className="buttons">
-                        <UpdateButton order={order} docId={docId} cycleCollectionCount={cycleCollectionCount}/>
+                        <UpdateButton order={order} docId={docId} cycleCollectionCount={cycleCollectionCount} handleCycleNotification={handleCycleNotification}/>
                         <div className="button" onClick={handleEditModal}>
                             <i className='bx bxs-edit' ></i>
                             <p>Edit Order</p>

@@ -3,7 +3,7 @@ import { StyledEditModal } from '../styles/EditModal.styled';
 import OrderDataService from '../order.services';
 import {motion} from "framer-motion";
 
-export const EditModal = ({handleEditModal, order, docId}) => {
+export const EditModal = ({handleEditModal, order, docId, handleUpdateNotifcation}) => {
     const [firstName,setFirstName] = useState(`${order.firstName}`);
     const [lastName,setLastName] = useState(`${order.lastName}`);
     const [contact,setContact] = useState(`${order.contact}`);
@@ -113,27 +113,27 @@ export const EditModal = ({handleEditModal, order, docId}) => {
     }
 
     const handleEdit = async (e) => {
-        e.preventDefault();
-        handleEditModal();
-        handleCycle();
+      e.preventDefault();
+      handleEditModal();
+      handleCycle();
 
-        const newData = {
-          firstName: firstName,
-          lastName: lastName,
-          contact: contact,
-          payment: payment,
-          total: total,
-          particularsData: particularsData,
-          cycleStatus: cycleStatus,
-        }
+      const newData = {
+        firstName: firstName,
+        lastName: lastName,
+        contact: contact,
+        payment: payment,
+        total: total,
+        particularsData: particularsData,
+        cycleStatus: cycleStatus,
+      }
 
-        try {
-          await OrderDataService.updateOrder(docId, newData);
-        }
-        catch (error) {
-          console.log(error);
-        }
-
+      try {
+        await OrderDataService.updateOrder(docId, newData);
+      }
+      catch (error) {
+        console.log(error);
+      }
+      handleUpdateNotifcation();
     }
 
     useEffect(() => {

@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledDashboard = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 93%;
   height: 100%;
   
-
   .dashboard__header {
     display: flex;
     justify-content: space-between;

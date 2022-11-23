@@ -7,7 +7,7 @@ import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import {db} from "../firebase";
 import {motion} from "framer-motion";
 
-const Datatable = () => {
+const Datatable = ({handleDeleteNotification}) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const Datatable = () => {
             console.log(err)
         }
         setData(data.filter((item)=> item.id !== id))
-        
+        handleDeleteNotification();
     }
     
     const actionColumn =[

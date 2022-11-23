@@ -5,6 +5,7 @@ import { AuthContext } from  "../../context/AuthContext"
 import {StyledDashboardPage} from '../../styles/DashboardPage.styled';
 import Sidebar from '../Sidebar';
 import Main from '../Main';
+import {AnimatePresence, motion} from 'framer-motion';
 
 function DashboardPage() {
     const [navActive, setNavActive] = useState("hamburger__content");
@@ -31,9 +32,139 @@ function DashboardPage() {
     }
     const {dispatch} = useContext(AuthContext)
 
+    const [addNotification, setAddNotification] = useState(false);
+    const [targetNotification, setTargetNotification] = useState(false);
+    const [updateNotification, setUpdateNotification] = useState(false);
+    const [cycleNotification, setCycleNotification] = useState(false);
+    const [deleteNotification, setDeleteNotification] = useState(false);
+    const handleAddNotification = () => {
+        setAddNotification(true);
+
+        setTimeout(() => {
+            setAddNotification(false);
+        }
+        , 3500);
+    }
+    const handleTargetNotification = () => {
+        setTargetNotification(true);
+
+        setTimeout(() => {
+            setTargetNotification(false);
+        }
+        , 3500);
+    }
+    const handleUpdateNotifcation = () => {
+        setUpdateNotification(true);
+
+        setTimeout(() => {
+            setUpdateNotification(false);
+        }
+        , 3500);
+    }
+    const handleCycleNotification = () => {
+        setCycleNotification(true);
+
+        setTimeout(() => {
+            setCycleNotification(false);
+        }
+        , 3500);
+    }
+    const handleDeleteNotification = () => {
+        setDeleteNotification(true);
+
+        setTimeout(() => {
+            setDeleteNotification(false);
+        }
+        , 3500);
+    }
+
+    const notificationVariants = {
+        hidden: {
+            opacity: 0,
+            y: "-50vh",
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: .2,
+                duration: 1,
+                type: "spring",
+                stiffness: 70,
+            }
+        },
+        exit: {
+            opacity: 0,
+            y: "-50vh",
+            transition: {
+                delay: .2,
+                duration: 1,
+                type: "spring",
+                stiffness: 70,
+            }
+        }
+    }
+
   return (
     <StyledDashboardPage>
         <div className="dashboard__section">
+            <AnimatePresence>
+                {addNotification && <div className="notification">
+                    <motion.div className="notification__content"
+                        variants={notificationVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
+                        <i className='bx bx-check'></i>
+                        <p>Order has been added successfully</p>
+                    </motion.div>
+                </div>}
+                {targetNotification && <div className="notification">
+                    <motion.div className="notification__content"
+                        variants={notificationVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
+                        <i className='bx bx-check'></i>
+                        <p>Target Updated Successfully!</p>
+                    </motion.div>
+                </div>}
+                {updateNotification && <div className="notification">
+                    <motion.div className="notification__content"
+                        variants={notificationVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
+                        <i className='bx bx-check'></i>
+                        <p>Order Updated Successfully!</p>
+                    </motion.div>
+                </div>}
+                {cycleNotification && <div className="notification">
+                    <motion.div className="notification__content"
+                        variants={notificationVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
+                        <i className='bx bx-check'></i>
+                        <p>Cycle Updated!</p>
+                    </motion.div>
+                </div>}
+                {deleteNotification && <div className="notification">
+                    <motion.div className="notification__content red"
+                        variants={notificationVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                    >
+                        <i className='bx bx-check'></i>
+                        <p>Order deleted Successfully</p>
+                    </motion.div>
+                </div>}
+            </AnimatePresence>
             <div className="dashboard__wrapper">
                 <div className="dashboard__nav">
                     <button className={btnActive} onClick={navToggle}>
@@ -72,10 +203,15 @@ function DashboardPage() {
                         <i className={darkActive}></i>
                     </button>
                 </div>
-
                 <div className="dashboard__main">
                     <Sidebar/>
-                    <Main/>
+                    <Main 
+                        handleAddNotification={handleAddNotification} 
+                        handleTargetNotification={handleTargetNotification}
+                        handleUpdateNotifcation={handleUpdateNotifcation}
+                        handleCycleNotification={handleCycleNotification}
+                        handleDeleteNotification={handleDeleteNotification}
+                    />
                 </div>
             </div>
         </div>

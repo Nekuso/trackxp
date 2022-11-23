@@ -6,7 +6,7 @@ import DataTable from './DataTable';
 import {motion} from 'framer-motion';
 
 
-const Orders = () => {
+const Orders = ({handleAddNotification, handleDeleteNotification}) => {
 
   const [isAddModal, setIsAddModal] = useState(false);
 
@@ -42,7 +42,7 @@ const Orders = () => {
         exit="initialHidden"
       >
         <AnimatePresence>
-          {isAddModal ? <AddModal handleAddModal={handleAddModal} /> : null}
+          {isAddModal ? <AddModal handleAddModal={handleAddModal} handleAddNotification={handleAddNotification} /> : null}
         </AnimatePresence>
         <div className="text__header">
           <h1 className="title">Today's orders</h1>
@@ -50,7 +50,7 @@ const Orders = () => {
         </div>
         <button onClick={handleAddModal} className="new__button">New Order</button>
       </motion.div>
-      <DataTable/>
+      <DataTable handleDeleteNotification={handleDeleteNotification}/>
     </StyledOrders>
   );
 }

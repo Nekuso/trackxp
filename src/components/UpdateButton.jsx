@@ -2,7 +2,7 @@ import {React,useState, useEffect} from 'react';
 import OrderDataService from "../order.services";
 
 
-const UpdateButton = ({order, docId, cycleCollectionCount}) => {
+const UpdateButton = ({order, docId, cycleCollectionCount, handleCycleNotification}) => {
     const [cycleStatus, setCycleStatus] = useState(order.cycleStatus);
     const [cycleStatusCollection, setCycleStatusCollection] = useState(order.cycleStatusCollection);
     const current = new Date();
@@ -54,6 +54,7 @@ const UpdateButton = ({order, docId, cycleCollectionCount}) => {
         catch (error) {
             console.log(error);
         }
+        handleCycleNotification();
     }
 
     useEffect (() => {

@@ -6,17 +6,18 @@ import {doc} from 'firebase/firestore';
 import {db} from "../firebase";
 import {motion} from "framer-motion"
 
-function SetTargetModal({handleSetTargetModal}) {
+function SetTargetModal({handleSetTargetModal, handleTargetNotification}) {
 
     const [target, setTarget] = useState(0);
 
 
     const handleUpdateTarget = async() => {
 
-        await setDoc(doc(db,"analytics", "targets"), {
-            target: target,
-        })
-        handleSetTargetModal();
+      await setDoc(doc(db,"analytics", "targets"), {
+          target: target,
+      })
+      handleSetTargetModal();
+      handleTargetNotification();
     }
     const modalVariants = {
         hidden: {

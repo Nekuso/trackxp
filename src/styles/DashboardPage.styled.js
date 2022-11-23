@@ -2,15 +2,62 @@ import styled from "styled-components";
 import LightBackground from "../img/LightBackground.jpg";
 
 export const StyledDashboardPage = styled.div`
-  .dashboard__section {
-    width: 100vw;
-    height: 100%;
-    background:  #fafafa;
-    background-image: url(${LightBackground});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all 0.2s ease-in-out;
+.dashboard__section {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  background:  #fafafa;
+  background-image: url(${LightBackground});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease-in-out;
+
+  .notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    // background: red;
+    z-index: 999999;
+    .notification__content {
+      width: auto;
+      display: flex;
+      padding: .5rem;
+      justify-content: center;
+      align-items: center;
+      background-color: #06a80173;
+      // border: 1px solid #40bd47;
+      // border: 1px solid #e0e0e0;
+      border-radius: 2rem;
+      backdrop-filter: blur(10px);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+      i {
+        background: #24a803;
+        padding: .2rem;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        margin-right: .5rem;
+        color: white;
+      }
+      p {
+        font-size: .8rem;
+        color: white;
+      }
+    }
+
+    .red {
+      background-color: #ff000073;
+      i {
+        background: #ff0000;
+      }
+    }
+  }
     
     .dashboard__wrapper {
       display: flex;
@@ -212,6 +259,31 @@ export const StyledDashboardPage = styled.div`
     .dashboard__section {
       height: 100vh;
       background-repeat: no-repeat;
+
+
+      .notification {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        // background: red;
+        z-index: 999999;
+        .notification__content {
+          width: auto;
+          i {
+            font-size: 1.4rem;
+          }
+          p {
+            font-size: .8rem;
+          }
+        }
+      }
+
       .dashboard__wrapper {
         height: 100%;
         .dashboard__nav {
