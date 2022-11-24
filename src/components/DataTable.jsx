@@ -92,6 +92,7 @@ const Datatable = ({handleDeleteNotification}) => {
                     columns={dataColumns.concat(actionColumn)}
                     pageSize={7}
                     rowsPerPageOptions={[7]}
+                    density={"compact"}
                     // checkboxSelection
                     sx={{
                         // borderRadius: ".5rem",
@@ -106,8 +107,8 @@ const Datatable = ({handleDeleteNotification}) => {
                     // disableColumnMenu
                     // autoHeight
                     components={{ Toolbar: GridToolbar }}
-
-                    
+                    disableExportMenu={true}
+                    componentsProps={{ toolbar: { csvOptions: { fields: ['name', 'total', "dateCreated", "payment", "cycleStatus"] } } }}
                 />
             </motion.div>
 

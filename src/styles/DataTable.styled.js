@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledDataTable = styled.div`
   height: 100%;
   width: 100%;
+  
 
   div {
     font-size: 0.7rem;

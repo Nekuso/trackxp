@@ -8,7 +8,7 @@ import AddModal from './AddModal';
 import { db } from "../firebase";
 import { useEffect } from 'react';
 import SetTargetModal from './SetTargetModal';
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 
 function Dashbooard({handleAddNotification, handleTargetNotification}) {
   const [queryData, setQueryData] = useState([]);
@@ -24,7 +24,6 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
   const [todaysEarningsData, setTodaysEarningsData] = useState([]);
   const [target, setTarget] = useState(5000);
   let data;
-
 
   const [isAddModal, setIsAddModal] = useState(false);
   const [isSetTargetModal, setIsSetTargetModal] = useState(false);
@@ -175,6 +174,73 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
 
   }, [amount,target,queryData,queryTarget]);
 
+  const dashboardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible1: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.2,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    visible2: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.4,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    visible3: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.6,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    exit1: {
+      opacity: 0,
+      y: 10,
+      transition: {
+        delay: 0.2,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    exit2: {
+      opacity: 0,
+      y: 10,
+      transition: {
+        delay: 0.4,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    exit3: {
+      opacity: 0,
+      y: 10,  
+      transition: {
+        delay: 0.6,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  }
+
   return (
     <StyledDashboard>
       <AnimatePresence>
@@ -183,11 +249,21 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
         : null}
       </AnimatePresence>
       
-      <div className="dashboard__header">
+      <motion.div className="dashboard__header"
+        variants={dashboardVariants}
+        initial="hidden"
+        animate="visible1"
+        exit="exit1"
+      >
         <h1 className="page__title">Dashboard</h1>
         <button onClick={handleAddModal} className="new__button">New Order</button>
-      </div>
-      <div className="widgets">
+      </motion.div>
+      <motion.div className="widgets"
+        variants={dashboardVariants}
+        initial="hidden"
+        animate="visible2"
+        exit="exit2"
+      >
         <Widget 
           type="orders" 
           className="widget1"  
@@ -215,12 +291,17 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
           earningsDiff={earningsDiff} 
           amount={amount}
         />
-      </div>
+      </motion.div>
 
-      <div className="charts">
+      <motion.div className="charts"
+        variants={dashboardVariants}
+        initial="hidden"
+        animate="visible3"
+        exit="exit3"
+      >
         <Featured todaysEarnings={todaysEarnings} handleSetTargetModal={handleSetTargetModal} target={target}/>
         <Chart/>
-      </div>
+      </motion.div>
     </StyledDashboard>
   )
 }

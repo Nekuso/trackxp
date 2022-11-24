@@ -45,7 +45,7 @@ const Orders = ({handleAddNotification, handleDeleteNotification}) => {
           {isAddModal ? <AddModal handleAddModal={handleAddModal} handleAddNotification={handleAddNotification} /> : null}
         </AnimatePresence>
         <div className="text__header">
-          <h1 className="title">Today's orders</h1>
+          <h1 className="title">All orders</h1>
           <p className="date">{Date()}</p>
         </div>
         <button onClick={handleAddModal} className="new__button">New Order</button>

@@ -85,7 +85,7 @@ function HomePage() {
               </h1>
               <h3 className="hero__description">
                 A real-time tracking system that enables you to 
-                optimize the best updates for
+                optimize the best updates for a
                 particular order.
               </h3>
 
@@ -112,6 +112,10 @@ function HomePage() {
             </motion.div>
           </div>
         </div>
+
+        {/* <div className="about__section section">
+
+        </div> */}
       </StyledHomePage>
     </motion.div>
   )

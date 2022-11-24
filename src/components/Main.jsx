@@ -7,6 +7,7 @@ import SingleOrder from './SingleOrder'
 
 function Main({handleAddNotification, handleTargetNotification, handleUpdateNotifcation, handleCycleNotification, handleDeleteNotification}) {
   return (
+    
    <StyledMain className='main__container'>
     <Routes>
       <Route path="" element={

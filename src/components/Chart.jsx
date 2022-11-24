@@ -24,7 +24,7 @@ const Chart = () => {
 
   return (
     <StyledChart>
-      <div className="title">Last 6 Months (Revenue)</div>
+      <div className="title">This week (Revenue)</div>
       <ResponsiveContainer width="100%" height="90%">
         <AreaChart
           width={730}

@@ -33,9 +33,9 @@ function Sidebar() {
       </div>
 
     <div className="other__container">
-      <div className="other__link" href="/">
+      {/* <div className="other__link" href="/">
         <i className='bx bxs-moon'></i>
-      </div>
+      </div> */}
       <Link className="other__link" to="/Login" onClick={() => dispatch({type: "LOGOUT"})}>
         <i className='bx bx-log-out'></i>
         <div className="link">

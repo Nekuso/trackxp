@@ -248,10 +248,16 @@ export const StyledView = styled.div`
         }
         :nth-last-child(1) {
           i {
+            background-color: #4fd34b;
             animation: pulse 2s infinite;
             transform: translateY(-16px) scale(1.3);
             box-shadow: 0 0 6px #5773db;
             box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+          }
+          .order__cycle__title {
+            .cycle__title {
+              color: #318f2d;
+            }
           }
         }
       }
@@ -376,7 +382,7 @@ export const StyledView = styled.div`
   @keyframes pulse {
     0% {
       transform: translateY(-16px) scale(1.3);
-      box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+      box-shadow: 0 0 0 0 #3ae034b3;
     }
 
     70% {

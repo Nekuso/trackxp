@@ -2,16 +2,18 @@ import styled from "styled-components";
 import LightHomepage from "../img/LightHomepage.jpg";
 
 export const StyledHomePage = styled.div`
+  width: 100vw;
+  height: auto;
+
+  .section {
+    width: 100%;
+    height: 100vh;
+  }
   .homepage__section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(0, 8, 77);
-    background: linear-gradient(
-      0deg,
-      rgba(0, 8, 77, 1) 0%,
-      rgba(44, 67, 137, 1) 100%
-    );
+    flex-direction: column;
     background: white;
     background-image: url(${LightHomepage});
     background-size: cover;
@@ -20,6 +22,7 @@ export const StyledHomePage = styled.div`
     width: 100vw;
     height: 100vh;
     color: #04294f;
+    color: black;
 
     .hero__container {
       display: grid;
@@ -30,6 +33,7 @@ export const StyledHomePage = styled.div`
         "text text";
       row-gap: 2rem;
       width: 90vw;
+      height: auto;
       justfy-content: center;
       align-items: center;
 

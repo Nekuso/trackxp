@@ -168,7 +168,7 @@ const View = () => {
                   exit="hidden"
                 >
                   <Link to="/" className="home__link">
-                    Go Back! →
+                    ← Go Back!
                   </Link>
                 </motion.div>
               </div>

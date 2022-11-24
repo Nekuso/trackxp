@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { StyledSinglePage } from '../styles/SinglePage.styled';
 import { useParams } from 'react-router-dom';
 import { collection, onSnapshot, query, where, getDocs } from 'firebase/firestore';
@@ -8,6 +8,8 @@ import { EditModal } from './EditModal';
 import UpdateButton from './UpdateButton';
 import {motion, AnimatePresence} from "framer-motion";
 import CountUp from 'react-countup';
+import { useReactToPrint } from 'react-to-print';
+import { StyledPrintOrderInfo } from '../styles/printOrderInfo';
 
 const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
 
@@ -20,6 +22,7 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
     const [isEditModal, setIsEditModal] = useState(false);
     const [cycleCollectionCount, setCycleCollectionCount] = useState(0);
 
+    let componentRef = useRef();
     
     const handleEditModal = () => {
         setIsEditModal(!isEditModal);
@@ -81,9 +84,34 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
             delay: 0.5,
             duration: .6,
           }
+        },
+        hidden: {
+            opacity: 0,
+            y: 50,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: 0.5,
+                duration: .6,
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+            }
         }
     }
     
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        copyStyles: true,
+        pageStyle: `
+            @page {
+                size: A4;
+                margin: auto 20mm;
+            }
+        `,
+    });
 
     return (
         <StyledSinglePage>
@@ -104,20 +132,31 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
                             <i className='bx bxs-edit' ></i>
                             <p>Edit Order</p>
                         </div>
+                        <div className="button" onClick={handlePrint}>
+                            <i className='bx bxs-printer'></i>
+                            <p>Print Receipt</p>
+                        </div>
                     </div>
                 </div>
                 <div className="order__cycle__container">
-                    {order.cycleStatusCollection ? order.cycleStatusCollection.map((item, index) => (
-                        <div className="order__cycle__item" key={index}>
-                            <i className={`bx ${item.icon}`}></i>
-                            <div className="order__cycle__title">
-                                <p className="cycle__title">{item.name}</p>
-                                <p className="cycle__stamp">{item.timeStamp}</p>
-                            </div>
-                        </div>
-                    )): <div style={{textAlign: 'center', width: '100%', fontWeight: "bold"}}>Loading</div>}
+                    <AnimatePresence>
+                        {order.cycleStatusCollection ? order.cycleStatusCollection.map((item, index) => (
+                            <motion.div className="order__cycle__item" key={index}
+                                variants={viewVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="hidden"
+                            >
+                                <i className={`bx ${item.icon}`}></i>
+                                <div className="order__cycle__title">
+                                    <p className="cycle__title">{item.name}</p>
+                                    <p className="cycle__stamp">{item.timeStamp}</p>
+                                </div>
+                            </motion.div>
+                        )): <div style={{textAlign: 'center', width: '100%', fontWeight: "bold"}}>Loading</div>}
+                    </AnimatePresence>
                 </div>
-                <div className="order__info__container">
+                <StyledPrintOrderInfo className="order__info__container" ref={componentRef} >
                     <div className="order__info">
                         <img src={qrCode} alt="qrcode" />
                         <div className="order__title">
@@ -151,8 +190,8 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="order__table__container">
+                </StyledPrintOrderInfo>
+                <div className="order__table__container" >
                     <table className="order__table">
                         <thead>
                             <tr className="header">

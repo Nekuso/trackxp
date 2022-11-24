@@ -6,6 +6,7 @@ export const StyledSinglePage = styled.div`
   display: flex;
   justify-content: center;
 
+
   .single__page__section {
     position: relative;
     display: flex;
@@ -22,7 +23,7 @@ export const StyledSinglePage = styled.div`
       align-items: center;
 
       .title {
-        font-size: 1.3rem;
+        font-size: 1rem;
       }
 
       .buttons {
@@ -155,10 +156,16 @@ export const StyledSinglePage = styled.div`
         }
         :nth-last-child(1) {
           i {
+            background-color: #4fd34b;
             animation: pulse 2s infinite;
             transform: translateY(-16px) scale(1.3);
             box-shadow: 0 0 6px #5773db;
             box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+          }
+          .order__cycle__title {
+            .cycle__title {
+              color: #318f2d;
+            }
           }
         }
       }
@@ -283,14 +290,14 @@ export const StyledSinglePage = styled.div`
   @keyframes pulse {
     0% {
       transform: translateY(-16px) scale(1.3);
-      box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+      box-shadow: 0 0 0 0 #3ae034b3;
     }
-    
+
     70% {
       transform: translateY(-16px) scale(1.4);
       box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
     }
-    
+
     100% {
       transform: translateY(-16px) scale(1.3);
       box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
@@ -559,4 +566,5 @@ export const StyledSinglePage = styled.div`
       }
     }
   }
+
 `;

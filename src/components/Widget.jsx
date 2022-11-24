@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import CountUp from 'react-countup';
 
 
-const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
+const Widget = ({type, data, earnings, earningsDiff, diff, amount}) => {
 
   switch (type) {
     case 'orders':
@@ -27,7 +27,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
         title: "EARNINGS",
         isMoney: false,
         currency: "P",
-        linkDescription: "View all earnings →",
+        linkDescription: "View all orders →",
         link: "orders",
         icon: "bx bx-money",
         backgroundColor: "#41be7f", 
@@ -41,7 +41,7 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
         title: "BALANCE",
         isMoney: false,
         currency: "P",
-        linkDescription: "View balance →",
+        linkDescription: "View all orders →",
         link: "orders",
         icon: "bx bxs-wallet-alt",
         backgroundColor: "#be4141", 
@@ -62,11 +62,11 @@ const Widget = ({type,data, earnings, earningsDiff, diff, amount}) => {
               {data.query === "earnings" && (earningsDiff < 0 ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow'></i>))}
               {/* {data.query === "earnings" && earningsDiff !== 0 ? <i className='bx bxs-down-arrow'></i> : <i className='bx bxs-up-arrow'></i>}} */}
               <p>
-                {diff && earningsDiff ? (data.query === "orders" ? <CountUp duration={4} end={diff}/> : <CountUp duration={4} end={earningsDiff}/>) : "Loading"} %
+                {diff && earningsDiff ? (data.query === "orders" ? <CountUp duration={2} end={diff}/> : <CountUp duration={2} end={earningsDiff}/>) : "Loading"} %
               </p>
             </div>
           </div>
-          <div className="middle"><h1>{data.currency} {data.query === "orders" ? <CountUp duration={3} end={amount} /> : <CountUp duration={3} end={earnings} />}</h1></div>
+          <div className="middle"><h1>{data.currency} {data.query === "orders" ? <CountUp duration={2} end={amount} /> : <CountUp duration={2} end={earnings} />}</h1></div>
           <div className="bottom" >
             <Link to={`${data.link}`} className="widget__link">{data.linkDescription}</Link>
             {/* <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div> */}
