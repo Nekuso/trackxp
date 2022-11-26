@@ -1,9 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { StyledHomePage } from "../../styles/HomePage.styled";
-// import HeroImg from '../../img/HeroImg.png'
-import HeroImg2 from "../../img/HeroImg2.gif";
 import HeroRobot from "../../img/HeroRobot.webm";
 import HeroRobot2 from "../../img/HeroRobot2.mp4";
+import Satellite from "../../img/Satellite.png"
+import Cloud from "../../img/Cloud.png"
 import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -78,6 +78,8 @@ function HomePage() {
               animate={"visible2"}
               exit={"hidden2"}
             >
+              <img src={Satellite} className="text__img1" alt=""/>
+              <img src={Cloud} className="text__img2" alt=""/>
               <p className="hero__badge">NEW</p>
               <h1 className="hero__title">
                 Tracking made easy

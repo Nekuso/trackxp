@@ -39,7 +39,25 @@ export const StyledHomePage = styled.div`
       align-items: center;
 
       .hero__text {
+        position: relative;
         grid-area: text;
+
+        .text__img1 {
+          animation: floating ease-in-out 4s infinite;
+          position: absolute;
+          bottom: 90%;
+          left: 70%;
+          width: 7rem;
+          border: none;
+        }
+        .text__img2 {
+          animation: floating ease-in-out 6s infinite;
+          position: absolute;
+          top 80%;
+          right: 70%;
+          width: 7rem;
+          border: none;
+        }
 
         .hero__badge {
           display: inline;
@@ -131,6 +149,12 @@ export const StyledHomePage = styled.div`
     }
   }
 
+  @keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+  }
+
   @media screen and (min-width: 768px) {
     .homepage__section {
       .hero__container {
@@ -139,6 +163,16 @@ export const StyledHomePage = styled.div`
           "text image";
 
         .hero__text {
+          .text__img1 {
+            bottom: 90%;
+            left: 80%;
+            width: 10rem;
+          }
+          .text__img2 {
+            top: 85%;
+            right: 70%;
+            width: 10rem;
+          }
           .hero__badge {
             font-size: 1.8vw;
           }
@@ -170,6 +204,12 @@ export const StyledHomePage = styled.div`
         width: 85vw;
         grid-template-columns: 50% 45%;
         .hero__text {
+
+          .text__img2 {
+            top: 85%;
+            right: 80%;
+            width: 10rem;
+          }
           .hero__badge {
             font-size: 1.2vw;
           }
