@@ -116,7 +116,7 @@ function HomePage() {
               exit={"hidden3"}
             >
               {/* <img src={HeroImg2} alt="" loading="lazy" /> */}
-              <video autoplay="autoplay" muted="muted" loop="loop" className="img">
+              <video autoplay="autoplay" muted="muted" loop="loop" className="img" controls={false}>
                 <source src={HeroRobot} type="video/webm"/>
                 <source src={HeroRobot2} type="video/mp4"/>
               </video>

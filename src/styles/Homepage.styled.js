@@ -24,6 +24,7 @@ export const StyledHomePage = styled.div`
     height: 100vh;
     color: #04294f;
     color: #262D31;
+    overflow-x: hidden;
     
     .hero__container {
       display: grid;
@@ -51,12 +52,13 @@ export const StyledHomePage = styled.div`
           border: none;
         }
         .text__img2 {
-          animation: floating ease-in-out 6s infinite;
+          animation: floating ease-in-out 7s infinite;
           position: absolute;
-          top 80%;
+          top 75%;
           right: 70%;
-          width: 7rem;
+          width: 8rem;
           border: none;
+          z-index: 1;
         }
 
         .hero__badge {
@@ -98,7 +100,9 @@ export const StyledHomePage = styled.div`
           background: #ffffff96;
           border-radius: 1.3rem;
           overflow: hidden;
-
+          position: relative;
+          z-index: 50;
+          
           .tracking__input {
             width: 85%;
             height: 100%;
@@ -106,7 +110,7 @@ export const StyledHomePage = styled.div`
             border: none;
             background: transparent;
             color: black;
-
+            
             ::placeholder {
               color: black;
             }
@@ -143,7 +147,9 @@ export const StyledHomePage = styled.div`
         align-items: center;
         grid-area: image;
         .img {
+          pointer-events: none;
           width: 40vh;
+          background: transparent;
         }
       }
     }
@@ -208,7 +214,7 @@ export const StyledHomePage = styled.div`
           .text__img2 {
             top: 85%;
             right: 80%;
-            width: 10rem;
+            width: 12rem;
           }
           .hero__badge {
             font-size: 1.2vw;
