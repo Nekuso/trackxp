@@ -1,27 +1,28 @@
 {
   "files": {
     "main.css": "/trackxp/static/css/main.31690426.css",
-    "main.js": "/trackxp/static/js/main.bcae25b8.js",
+    "main.js": "/trackxp/static/js/main.f4a1782b.js",
     "static/js/787.ecac3bf6.chunk.js": "/trackxp/static/js/787.ecac3bf6.chunk.js",
     "static/media/HeroRobot2.mp4": "/trackxp/static/media/HeroRobot2.9e09cf57b73843cc9e17.mp4",
     "static/media/NotFound.gif": "/trackxp/static/media/NotFound.fde3195c131a923f1c3f.gif",
     "static/media/HeroRobot.webm": "/trackxp/static/media/HeroRobot.01f61aff93e812dcaefa.webm",
-    "static/media/HeroImg2.gif": "/trackxp/static/media/HeroImg2.c63b7253e94a861f92b0.gif",
     "static/media/Loading.gif": "/trackxp/static/media/Loading.20bc2ed198a861e92e82.gif",
     "static/media/ViewBackground.jpg": "/trackxp/static/media/ViewBackground.e792df5f41a442286f66.jpg",
     "static/media/LightHomepage.jpg": "/trackxp/static/media/LightHomepage.b1c8c45a74e4decefe31.jpg",
     "static/media/LightBackground.jpg": "/trackxp/static/media/LightBackground.a9ea5e0db82c3f8c66a8.jpg",
     "static/media/LoginHero.png": "/trackxp/static/media/LoginHero.c14d0a6ee777bdace8c3.png",
+    "static/media/Satellite.png": "/trackxp/static/media/Satellite.089ee4679be5dad19ac3.png",
+    "static/media/Cloud.png": "/trackxp/static/media/Cloud.6ada8202ecceb8ba3439.png",
     "static/media/Widget2.png": "/trackxp/static/media/Widget2.e0cf850748e2969df7c3.png",
     "static/media/Widget3.png": "/trackxp/static/media/Widget3.da97c6fe2b7cfaa8696b.png",
     "static/media/Widget1.png": "/trackxp/static/media/Widget1.968e10c47fda4e6d0a83.png",
     "index.html": "/trackxp/index.html",
     "main.31690426.css.map": "/trackxp/static/css/main.31690426.css.map",
-    "main.bcae25b8.js.map": "/trackxp/static/js/main.bcae25b8.js.map",
+    "main.f4a1782b.js.map": "/trackxp/static/js/main.f4a1782b.js.map",
     "787.ecac3bf6.chunk.js.map": "/trackxp/static/js/787.ecac3bf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31690426.css",
-    "static/js/main.bcae25b8.js"
+    "static/js/main.f4a1782b.js"
   ]
 }
