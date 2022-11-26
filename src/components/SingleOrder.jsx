@@ -107,7 +107,7 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
         copyStyles: true,
         pageStyle: `
             @page {
-                size: A4;
+                size: Roll Paper 80 x 297mm;
                 margin: auto 20mm;
             }
         `,

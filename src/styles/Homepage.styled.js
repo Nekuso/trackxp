@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import LightHomepage from "../img/LightHomepage.jpg";
 
+
 export const StyledHomePage = styled.div`
   width: 100vw;
   height: auto;
-
+  
   .section {
     width: 100%;
     height: 100vh;
@@ -22,8 +23,8 @@ export const StyledHomePage = styled.div`
     width: 100vw;
     height: 100vh;
     color: #04294f;
-    color: black;
-
+    color: #262D31;
+    
     .hero__container {
       display: grid;
       grid-template-columns: 50% 50%;
@@ -56,12 +57,17 @@ export const StyledHomePage = styled.div`
           padding: 0.4rem 0;
           font-size: 8vw;
           line-height: 1.2;
+          mark {
+            color: #5773db;
+            background: none;
+          }
         }
 
         .hero__description {
           font-size: 4vw;
           font-weight: 500;
           padding: 0.4rem 0;
+          
         }
 
         .tracking__input__container {
@@ -118,8 +124,8 @@ export const StyledHomePage = styled.div`
         justify-content: center;
         align-items: center;
         grid-area: image;
-        img {
-          width: 30vh;
+        .img {
+          width: 40vh;
         }
       }
     }
@@ -149,9 +155,8 @@ export const StyledHomePage = styled.div`
         }
 
         .hero__img {
-          img {
-            width: 90%;
-            height: 90%;
+          .img {
+            width: 110%;
           }
         }
       }
@@ -179,8 +184,8 @@ export const StyledHomePage = styled.div`
         }
 
         .hero__img {
-          img {
-            width: 80%;
+          .img {
+            width: 120%;
           }
         }
       }
@@ -207,8 +212,8 @@ export const StyledHomePage = styled.div`
         }
 
         .hero__img {
-          img {
-            width: 90%;
+          .img {
+            width: 130%;
           }
         }
       }

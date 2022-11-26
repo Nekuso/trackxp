@@ -11,6 +11,7 @@ export const StyledNavbar = styled.nav`
   max-width: 90%;
   margin: 0 auto;
   padding: 2rem 1rem;
+  z-index: 50;
 
   .home__link {
     display: flex;

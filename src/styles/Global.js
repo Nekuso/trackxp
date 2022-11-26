@@ -14,10 +14,10 @@ export const GlobalStyle = createGlobalStyle`
             outline: none;
         }
 
-        ::selection {
-            color: none;
-            background: none;
-          }
+        // ::selection {
+        //     color: none;
+        //     background: none;
+        // }
     }
 
     body {
