@@ -50,6 +50,7 @@ export const StyledHomePage = styled.div`
           left: 70%;
           width: 7rem;
           border: none;
+          pointer-events: none;
         }
         .text__img2 {
           animation: floating ease-in-out 7s infinite;
@@ -58,6 +59,7 @@ export const StyledHomePage = styled.div`
           right: 70%;
           width: 8rem;
           border: none;
+          pointer-events: none;
           z-index: 1;
         }
 
@@ -150,6 +152,7 @@ export const StyledHomePage = styled.div`
           pointer-events: none;
           width: 40vh;
           background: transparent;
+          animation: floating2 ease-in-out 7s infinite;
         }
       }
     }
@@ -158,6 +161,11 @@ export const StyledHomePage = styled.div`
   @keyframes floating {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+  }
+  @keyframes floating2 {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 5px); }
     100%   { transform: translate(0, -0px); }   
   }
 

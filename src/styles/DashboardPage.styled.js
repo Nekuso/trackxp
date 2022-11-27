@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LightBackground from "../img/LightBackground.jpg";
+import LightBackground from "../img/LightBackground.png";
 
 export const StyledDashboardPage = styled.div`
 .dashboard__section {
