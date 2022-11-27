@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import LightHomepage from "../img/LightHomepage.jpg";
 
-
 export const StyledHomePage = styled.div`
   width: 100vw;
   height: auto;
-  
+  color: #262D31;
+
   .section {
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+  
   .homepage__section {
     display: flex;
     justify-content: center;
@@ -22,9 +26,8 @@ export const StyledHomePage = styled.div`
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
-    color: #04294f;
-    color: #262D31;
     overflow-x: hidden;
+    overflow-y: hidden;
     
     .hero__container {
       display: grid;
@@ -55,8 +58,8 @@ export const StyledHomePage = styled.div`
         .text__img2 {
           animation: floating ease-in-out 7s infinite;
           position: absolute;
-          top 75%;
-          right: 70%;
+          top 60%;
+          right: 80%;
           width: 8rem;
           border: none;
           pointer-events: none;
@@ -183,7 +186,7 @@ export const StyledHomePage = styled.div`
             width: 10rem;
           }
           .text__img2 {
-            top: 85%;
+            top: 82%;
             right: 70%;
             width: 10rem;
           }
@@ -271,6 +274,16 @@ export const StyledHomePage = styled.div`
           }
         }
       }
+    }
+  }
+
+  @media only screen 
+   and (min-device-width : 768px) 
+   and (max-device-width : 1024px) 
+   and (orientation : portrait) {
+   
+    .section {
+      height: 80vw;
     }
   }
 `;

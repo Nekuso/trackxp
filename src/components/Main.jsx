@@ -18,11 +18,11 @@ function Main({handleAddNotification, handleTargetNotification, handleUpdateNoti
   return (
     
    <StyledMain className='main__container'>
-    <img className="set1 float" src={Float3} alt="" />
+    <img className="set1 float" src={Float5} alt="" />
     <img className="set2 float" src={Float2} alt="" />
     <img className="set3 float" src={Float1} alt="" />
     <img className="set4 float" src={Float4} alt="" />
-    <img className="set5 float" src={Float5} alt="" />
+    <img className="set5 float" src={Float3} alt="" />
     <img className="set6 float" src={Float6} alt="" />
     <img className="set7 float" src={Float7} alt="" />
     <Routes>

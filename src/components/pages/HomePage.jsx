@@ -2,12 +2,12 @@ import { React, useEffect, useState } from "react";
 import { StyledHomePage } from "../../styles/HomePage.styled";
 import HeroRobot from "../../img/HeroRobot.webm";
 import HeroRobot2 from "../../img/HeroRobot2.mp4";
-import Satellite from "../../img/Satellite.png"
-import Cloud from "../../img/Cloud.png"
+import Satellite from "../../img/Satellite.png";
+import Cloud from "../../img/Cloud.png";
 import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import About from "../About";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -69,7 +69,7 @@ function HomePage() {
     >
       <StyledHomePage>
         <Navbar />
-        <div className="homepage__section">
+        <div className="homepage__section section">
           <div className="hero__container">
             <motion.div
               className="hero__text"
@@ -78,8 +78,8 @@ function HomePage() {
               animate={"visible2"}
               exit={"hidden2"}
             >
-              <img src={Satellite} className="text__img1" alt=""/>
-              <img src={Cloud} className="text__img2" alt=""/>
+              <img src={Satellite} className="text__img1" alt="" />
+              <img src={Cloud} className="text__img2" alt="" />
               <p className="hero__badge">NEW</p>
               <h1 className="hero__title">
                 Tracking made easy
@@ -115,14 +115,20 @@ function HomePage() {
               animate={"visible3"}
               exit={"hidden3"}
             >
-              {/* <img src={HeroImg2} alt="" loading="lazy" /> */}
-              <video autoplay="autoplay" muted="muted" loop="loop" className="img" controls={false}>
-                <source src={HeroRobot} type="video/webm"/>
-                <source src={HeroRobot2} type="video/mp4"/>
+              <video
+                autoplay="autoplay"
+                muted="muted"
+                loop="loop"
+                className="img"
+                controls={false}
+              >
+                <source src={HeroRobot} type="video/webm" />
+                <source src={HeroRobot2} type="video/mp4" />
               </video>
             </motion.div>
           </div>
         </div>
+        {/* <About /> */}
       </StyledHomePage>
     </motion.div>
   );

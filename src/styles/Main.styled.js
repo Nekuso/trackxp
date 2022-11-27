@@ -20,7 +20,7 @@ export const StyledMain = styled.div`
     height: auto;
   }
   .set1{
-    top: -1%;
+    top: -2%;
     left: 45%;
     width: 7rem;
     animation: floating ease-in-out 4s infinite;
@@ -47,6 +47,7 @@ export const StyledMain = styled.div`
     top: 40%;
     left: 65%;
     width: 10rem;
+    animation: floating ease-in-out 4s infinite;
   }
   .set6{
     top: 55%;

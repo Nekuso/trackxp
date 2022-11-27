@@ -239,7 +239,7 @@ export const StyledFeatured = styled.div`
       }
 
       .desc {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
       }
 
       .summary {
