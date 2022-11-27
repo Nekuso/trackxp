@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="909px" height="531px" viewBox="0 0 909 531" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Bg-ebook-header</title>
+    <defs>
+        <linearGradient x1="50%" y1="28.5091188%" x2="74.7302882%" y2="65.5962955%" id="linearGradient-1">
+            <stop stop-color="#D9ECFF" offset="0%"></stop>
+            <stop stop-color="#579AF0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-18.0%" y="-27.4%" width="136.0%" height="154.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="60" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-40.5%" y="-40.6%" width="181.1%" height="181.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="60" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="50%" y1="0.0893409229%" x2="91.0689085%" y2="99.9106591%" id="linearGradient-4">
+            <stop stop-color="#F6F6F6" offset="0%"></stop>
+            <stop stop-color="#C72C91" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-29.2%" y="-29.2%" width="158.4%" height="158.4%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="43.2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Bg-ebook-header" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.898678">
+        <g id="Group-10" transform="translate(-391.000000, -164.000000)">
+            <path d="M561.622019,656 C684.264137,656 908.520745,583.531514 978.140559,392.847784 C1047.76037,202.164055 978.140559,0 443.799184,0 C-90.5421921,0 -163.067338,347.671246 339.55882,434.135283 C842.184979,520.59932 438.979901,656 561.622019,656 Z" id="Oval" fill="url(#linearGradient-1)" opacity="0.2927544" filter="url(#filter-2)"></path>
+            <ellipse id="Oval-Copy-2" fill="#FFA530" opacity="0.0497785296" filter="url(#filter-3)" cx="964.936801" cy="261.440585" rx="222.063199" ry="221.864717"></ellipse>
+            <ellipse id="Oval-Copy" fill="url(#linearGradient-4)" opacity="0.302860805" filter="url(#filter-5)" cx="945.731336" cy="371.773309" rx="222.063199" ry="221.864717"></ellipse>
+        </g>
+    </g>
+</svg>
