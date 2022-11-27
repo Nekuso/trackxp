@@ -19,6 +19,7 @@ export const StyledWidget = styled.div`
   cursor: pointer;
   background: #ffffff69;
   backdrop-filter: blur(10px);
+  
 
   :hover {
     box-shadow: black 10px 10px 0px;
