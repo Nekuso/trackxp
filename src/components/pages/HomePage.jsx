@@ -8,6 +8,7 @@ import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import About from "../About";
+import { ScrollerMotion } from 'scroller-motion'
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -61,76 +62,78 @@ function HomePage() {
   };
 
   return (
-    <motion.div
-      variants={homeVariants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-    >
-      <StyledHomePage>
-        <Navbar />
-        <div className="homepage__section section">
-          <div className="hero__container">
-            <motion.div
-              className="hero__text"
-              variants={homeVariants}
-              initial={"hidden2"}
-              animate={"visible2"}
-              exit={"hidden2"}
-            >
-              <img src={Satellite} className="text__img1" alt="" />
-              <img src={Cloud} className="text__img2" alt="" />
-              <p className="hero__badge">NEW</p>
-              <h1 className="hero__title">
-                Tracking made easy
-                <br />
-                with Track<mark>XP</mark>
-              </h1>
-              <h3 className="hero__description">
-                A real-time tracking system that enables you to optimize the
-                best updates for a particular order.
-              </h3>
-
-              <form
-                onSubmit={handleSearch}
-                className="tracking__input__container"
+    <ScrollerMotion>
+      <motion.div
+        variants={homeVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+      >
+        <StyledHomePage>
+          <Navbar />
+          <div className="homepage__section section">
+            <div className="hero__container">
+              <motion.div
+                className="hero__text"
+                variants={homeVariants}
+                initial={"hidden2"}
+                animate={"visible2"}
+                exit={"hidden2"}
               >
-                <input
-                  className="tracking__input"
-                  type="text"
-                  placeholder="Tracking Number"
-                  value={searchValue}
-                  onChange={(e) => setSearchValue(e.target.value)}
-                />
-                <button className="tracking__input__button">
-                  <i className="bx bx-search-alt" />
-                </button>
-              </form>
-            </motion.div>
+                <img src={Satellite} className="text__img1" alt="" />
+                <img src={Cloud} className="text__img2" alt="" />
+                <p className="hero__badge">NEW</p>
+                <h1 className="hero__title">
+                  Tracking made easy
+                  <br />
+                  with Track<mark>XP</mark>
+                </h1>
+                <h3 className="hero__description">
+                  A real-time tracking system that enables you to optimize the
+                  best updates for a particular order.
+                </h3>
 
-            <motion.div
-              className="hero__img"
-              variants={homeVariants}
-              initial={"hidden3"}
-              animate={"visible3"}
-              exit={"hidden3"}
-            >
-              <video
-                autoplay="autoplay"
-                muted="muted"
-                loop="loop"
-                className="img"
-                controls={false}
+                <form
+                  onSubmit={handleSearch}
+                  className="tracking__input__container"
+                >
+                  <input
+                    className="tracking__input"
+                    type="text"
+                    placeholder="Tracking Number"
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                  />
+                  <button className="tracking__input__button">
+                    <i className="bx bx-search-alt" />
+                  </button>
+                </form>
+              </motion.div>
+
+              <motion.div
+                className="hero__img"
+                variants={homeVariants}
+                initial={"hidden3"}
+                animate={"visible3"}
+                exit={"hidden3"}
               >
-                <source src={HeroRobot} type="video/webm" />
-                <source src={HeroRobot2} type="video/mp4" />
-              </video>
-            </motion.div>
+                <video
+                  autoplay="autoplay"
+                  muted="muted"
+                  loop="loop"
+                  className="img"
+                  controls={false}
+                >
+                  <source src={HeroRobot} type="video/webm" />
+                  <source src={HeroRobot2} type="video/mp4" />
+                </video>
+              </motion.div>
+            </div>
           </div>
-        </div>
-        <About />
-      </StyledHomePage>
-    </motion.div>
+          <About />
+        </StyledHomePage>
+      </motion.div>
+    </ScrollerMotion>
   );
 }
 

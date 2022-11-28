@@ -26,4 +26,22 @@ export const GlobalStyle = createGlobalStyle`
         max-width: 100vw;
         overflow-x: hidden;
     }
+
+    
+    ::-webkit-scrollbar {
+        background: transparent;        
+        width: 10px;
+        overflow: overlay;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #b4b4b483;
+        border-radius: 1rem;
+        transition: .3s ease-in-out;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2a447cbb;
+    }
 `;

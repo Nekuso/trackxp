@@ -6,13 +6,15 @@ export const StyledHomePage = styled.div`
   height: auto;
   color: #262D31;
   overflow-x: hidden;
-
+  overflow: hidden;
+  
   .section {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   
   .homepage__section {
@@ -213,6 +215,7 @@ export const StyledHomePage = styled.div`
         }
       }
     }
+
   }
 
   @media screen and (min-width: 1024px) {

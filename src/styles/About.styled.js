@@ -18,16 +18,19 @@ export const StyledAbout = styled.div`
     top: 53%;
     left: -9%;
     width: 11rem;
+    animation: float2 5s ease-in-out infinite;
   }
   .object2 {
     top: 0;
     right: 0%;
     width: 10rem;
+    animation: float2 3s ease-in-out infinite;
   }
   .object3 {
     bottom: 0%;
     right: 0%;
     width: 10rem;
+    animation: float2 7s ease-in-out infinite;
   }
   
 
@@ -89,7 +92,7 @@ export const StyledAbout = styled.div`
         border-radius: 1rem;
 
         :hover {
-          cursor: pointer;
+          cursor: pointer; 
 
           .img__container {
             img {
@@ -123,7 +126,6 @@ export const StyledAbout = styled.div`
             font-size: .8rem;
           }
         }
-        
       }
     }
   }
@@ -157,6 +159,11 @@ export const StyledAbout = styled.div`
   @keyframes float {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, -9px); }
+    100%   { transform: translate(0, -0px); }   
+  }
+  @keyframes float2 {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, -15px); }
     100%   { transform: translate(0, -0px); }   
   }
 
