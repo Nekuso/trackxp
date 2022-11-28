@@ -128,7 +128,7 @@ function HomePage() {
             </motion.div>
           </div>
         </div>
-        {/* <About /> */}
+        <About />
       </StyledHomePage>
     </motion.div>
   );

@@ -1,12 +1,57 @@
 import React from 'react'
 import {StyledAbout} from "../styles/About.styled";
+import About1 from "../img/About1.png";
+import About2 from "../img/About2.png";
+import About3 from "../img/About3.png";
+import Object1 from "../img/Float5.png";
+import Object2 from "../img/Cloud.png";
+import Object3 from "../img/Float4.png";
+
 
 const About = () => {
 
+  const aboutData = [
+    {
+      img: About1,
+      title: "Blazingly Fast",
+      desc: "TrackXP is simplified, Lightweight and direct, making it blazingly fast. It is built with the latest technologies and is optimized for speed."
+    },
+    {
+      img: About2,
+      title: "Real-Time Data",
+      desc: "TrackXP is real-time, so you can see your data as it happens. No more waiting for the next day to see your data. "
+    },
+    {
+      img: About3,
+      title: "Scalable",
+      desc: "TrackXP is built to scale, so you can grow your business without limits. We are always adding new features and improving the existing ones."
+    },
+  ]
+
   return (
     <StyledAbout className="about__section">
+      <img src={Object1} alt="" className="object1 float" />
+      <img src={Object2} alt="" className="object2 float" />
+      <img src={Object3} alt="" className="object3 float" />
       <div className="about__content">
-        <h1>Why TrackXP?</h1>
+        <div className="about__title">
+          <h2>Why TrackXP?</h2>
+          <h1><mark>Real-time</mark> tracking for the <br/>on-demand era</h1>
+        </div>
+        <div className="items__container">
+          {aboutData.map((item, index) => (
+            <div className="item" key={index + 1}>
+              <div className="img__container">
+                <img src={item.img}
+                      alt="about"/>
+              </div>
+              <div className="item__content">
+                <h2>{item.title}</h2>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </StyledAbout>
   )

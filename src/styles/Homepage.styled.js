@@ -5,6 +5,7 @@ export const StyledHomePage = styled.div`
   width: 100vw;
   height: auto;
   color: #262D31;
+  overflow-x: hidden;
 
   .section {
     width: 100%;
