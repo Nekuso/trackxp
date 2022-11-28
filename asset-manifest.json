@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/trackxp/static/css/main.31690426.css",
-    "main.js": "/trackxp/static/js/main.cf4a4755.js",
+    "main.js": "/trackxp/static/js/main.4c3b5b12.js",
     "static/js/787.ecac3bf6.chunk.js": "/trackxp/static/js/787.ecac3bf6.chunk.js",
     "static/media/HeroRobot2.mp4": "/trackxp/static/media/HeroRobot2.9e09cf57b73843cc9e17.mp4",
     "static/media/NotFound.gif": "/trackxp/static/media/NotFound.fde3195c131a923f1c3f.gif",
@@ -9,13 +9,16 @@
     "static/media/Loading.gif": "/trackxp/static/media/Loading.20bc2ed198a861e92e82.gif",
     "static/media/LightHomepage.jpg": "/trackxp/static/media/LightHomepage.b1c8c45a74e4decefe31.jpg",
     "static/media/LoginHero.png": "/trackxp/static/media/LoginHero.c14d0a6ee777bdace8c3.png",
+    "static/media/About2.png": "/trackxp/static/media/About2.0526da9de2c538549ae6.png",
+    "static/media/About3.png": "/trackxp/static/media/About3.5c909907f0204308566a.png",
+    "static/media/Float4.png": "/trackxp/static/media/Float4.040a52a554cdf2c46661.png",
+    "static/media/About1.png": "/trackxp/static/media/About1.e9537cd8b586289ce420.png",
     "static/media/LightBackground.png": "/trackxp/static/media/LightBackground.ddbbcfb51e016068121b.png",
     "static/media/Satellite.png": "/trackxp/static/media/Satellite.089ee4679be5dad19ac3.png",
     "static/media/Float3.png": "/trackxp/static/media/Float3.99a02bfe00918350b407.png",
     "static/media/Float5.png": "/trackxp/static/media/Float5.b178e52222370fa94403.png",
     "static/media/Float7.png": "/trackxp/static/media/Float7.82f8f7683219fbbcb452.png",
     "static/media/Float1.png": "/trackxp/static/media/Float1.81978df83dcbe11b63ab.png",
-    "static/media/Float4.png": "/trackxp/static/media/Float4.abbc32241dcd6c69859c.png",
     "static/media/Float6.png": "/trackxp/static/media/Float6.d0da011eb18a4e6041d3.png",
     "static/media/Cloud.png": "/trackxp/static/media/Cloud.6ada8202ecceb8ba3439.png",
     "static/media/Float2.png": "/trackxp/static/media/Float2.736c70223cabd6acc485.png",
@@ -25,11 +28,11 @@
     "static/media/ViewBackground.svg": "/trackxp/static/media/ViewBackground.87d9aa88020908ff73b21f07843d8aac.svg",
     "index.html": "/trackxp/index.html",
     "main.31690426.css.map": "/trackxp/static/css/main.31690426.css.map",
-    "main.cf4a4755.js.map": "/trackxp/static/js/main.cf4a4755.js.map",
+    "main.4c3b5b12.js.map": "/trackxp/static/js/main.4c3b5b12.js.map",
     "787.ecac3bf6.chunk.js.map": "/trackxp/static/js/787.ecac3bf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31690426.css",
-    "static/js/main.cf4a4755.js"
+    "static/js/main.4c3b5b12.js"
   ]
 }
