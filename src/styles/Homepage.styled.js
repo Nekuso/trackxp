@@ -283,7 +283,7 @@ export const StyledHomePage = styled.div`
    and (max-device-width : 1024px) 
    and (orientation : portrait) {
    
-    .section {
+    .homepage__section {
       height: 80vw;
     }
   }

@@ -268,9 +268,9 @@ export const StyledAbout = styled.div`
       width: 18rem;
     }
     .object2 {
-      top: 3%;
-      right: 15%;
-      width: 12rem;
+      top: 0%;
+      right: 10%;
+      width: 16rem;
     }
     .object3 {
       bottom: 0%;
