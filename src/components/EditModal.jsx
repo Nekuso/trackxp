@@ -245,7 +245,7 @@ export const EditModal = ({handleEditModal, order, docId, handleUpdateNotifcatio
                   <tr key={index} >
                     <td>{particular.name}</td>
                     <td className="particular__input">
-                      <input type="number" value={particular.quantity} onChange={updateFieldChanged("quantity", index)}/>
+                      <input type="number" value={particular.quantity === "0" ? "" : particular.quantity} onChange={updateFieldChanged("quantity", index)} placeholder="0" />
                       <input type="number" value={particular.price} onChange={updateFieldChanged("price", index)}/>
                     </td>
                 </tr>

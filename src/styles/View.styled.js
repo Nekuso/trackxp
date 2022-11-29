@@ -244,17 +244,10 @@ export const StyledView = styled.div`
       border-radius: 0.7rem;
       padding: 1rem;
       border: 1px solid #e0e0e0;
-      transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
       flex-direction: column-reverse;
       cursor: pointer;
       background: #ffffff69;
       backdrop-filter: blur(10px);
-
-      :hover {
-        border: 1px solid black;
-        box-shadow: black 10px 10px 0px;
-        transform: translate(-5px, -5px);
-      }
 
       .order__cycle__item {
         display: flex;

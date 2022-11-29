@@ -219,7 +219,6 @@ const View = () => {
               qrCode={qrCode}
               qrLink={qrLink}
               handleUpdateNotifcation={handleUpdateNotifcation}
-              setQueryOrder={setQueryOrder}
               orderRawId={orderRawId}
               db={db}
             />

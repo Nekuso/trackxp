@@ -74,6 +74,22 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
         };
     }, [orderId, queryOrder]);
 
+
+    const container = {
+        hiddenV: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y:0,
+            transition: {
+                duration: 5,
+                type: "spring",
+                stiffness: 90,
+                when: "beforeChildren",
+                staggerChildren: 0.3,
+            }
+        },
+    }
+
     const viewVariants = {
         initialHidden: {
           opacity: 0,
@@ -85,21 +101,11 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
             duration: .6,
           }
         },
-        hidden: {
-            opacity: 0,
-            y: 50,
-        },
+        hiddenV: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
-            y: 0,
-            transition: {
-                delay: 0.5,
-                duration: .6,
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-            }
-        }
+            y:0,
+        },
     }
     
     const handlePrint = useReactToPrint({
@@ -138,14 +144,29 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
                         </div>
                     </div>
                 </div>
-                <div className="order__cycle__container">
-                    <AnimatePresence>
+                <motion.div className="order__cycle__container"
+                    variants={container}
+                    initial="hiddenV"
+                    animate="visible"
+                    whileHover={{ scale: 1.05 }}
+                >
                         {order.cycleStatusCollection ? order.cycleStatusCollection.map((item, index) => (
                             <motion.div className="order__cycle__item" key={index}
-                                variants={viewVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="hidden"
+                                variants={container}
+                                initial="hiddenV"
+                                animate={{
+                                    opacity: 1,
+                                    y:0,
+                                    transition: {
+                                        delay: 0.5 + index * 0.2,
+                                        duration: 5,
+                                        type: "spring",
+                                        stiffness: 90,
+                                        when: "beforeChildren",
+                                        staggerChildren: 0.3,
+                                    }
+                                }}
+                                
                             >
                                 <i className={`bx ${item.icon}`}></i>
                                 <div className="order__cycle__title">
@@ -154,8 +175,7 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
                                 </div>
                             </motion.div>
                         )): <div style={{textAlign: 'center', width: '100%', fontWeight: "bold"}}>Loading</div>}
-                    </AnimatePresence>
-                </div>
+                </motion.div>
                 <StyledPrintOrderInfo className="order__info__container" ref={componentRef} >
                     <div className="order__info">
                         <img src={qrCode} alt="qrcode" />

@@ -241,6 +241,7 @@ const AddModal = ({handleAddModal, handleAddNotification}) => {
                 <div className="user__input">
                   <p>First Name</p>
                   <input 
+                    required
                     type="text" 
                     placeholder="Enter First Name"
                     value={firstName} 
@@ -249,6 +250,7 @@ const AddModal = ({handleAddModal, handleAddNotification}) => {
                 <div className="user__input">
                   <p>Last Name</p>
                   <input 
+                    required
                     type="text" 
                     placeholder="Enter Last Name"
                     value={lastName} 
@@ -284,7 +286,7 @@ const AddModal = ({handleAddModal, handleAddNotification}) => {
                   <tr key={index} >
                     <td>{particular.name}</td>
                     <td className="particular__input">
-                      <input type="number" value={particular.quantity} onChange={updateFieldChanged("quantity", index)}/>
+                      <input type="number" value={particular.quantity ? particular.quantity : ""} onChange={updateFieldChanged("quantity", index)} placeholder="0" />
                       <input type="number" value={particular.price} onChange={updateFieldChanged("price", index)}/>
                     </td>
                 </tr>

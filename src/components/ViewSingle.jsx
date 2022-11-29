@@ -9,10 +9,25 @@ const ViewSingle = ({
   qrCode,
   qrLink,
   handleUpdateNotifcation,
-  setQueryOrder,
   orderRawId,
   db,
 }) => {
+
+  const container = {
+    hiddenV: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y:0,
+        transition: {
+            duration: 5,
+            type: "spring",
+            stiffness: 90,
+            when: "beforeChildren",
+            staggerChildren: 0.3,
+        }
+    },
+  }
+
   const viewVariants = {
     initialHidden: {
       opacity: 0,
@@ -28,7 +43,7 @@ const ViewSingle = ({
 
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "orders", orderRawId),
-      (doc) => {
+      () => {
         handleUpdateNotifcation();
       },
       (error) => {
@@ -57,16 +72,36 @@ const ViewSingle = ({
             </h2>
           </Link>
         </div>
-        <div className="order__cycle__container">
+        <motion.div className="order__cycle__container"
+          variants={container}
+          initial="hiddenV"
+          animate="visible"
+          whileHover={{ scale: 1.05 }}
+        >
           {order.cycleStatusCollection ? (
             order.cycleStatusCollection.map((item, index) => (
-              <div className="order__cycle__item" key={index}>
+              <motion.div className="order__cycle__item" key={index}
+                variants={container}
+                initial="hiddenV"
+                animate={{
+                  opacity: 1,
+                  y:0,
+                  transition: {
+                      delay: 0.6 + index * 0.2,
+                      duration: 5,
+                      type: "spring",
+                      stiffness: 90,
+                      when: "beforeChildren",
+                      staggerChildren: 0.3,
+                  }
+                }}
+              >
                 <i className={`bx ${item.icon}`}></i>
                 <div className="order__cycle__title">
                   <p className="cycle__title">{item.name}</p>
                   <p className="cycle__stamp">{item.timeStamp}</p>
                 </div>
-              </div>
+              </motion.div>
             ))
           ) : (
             <div
@@ -75,7 +110,7 @@ const ViewSingle = ({
               Loading
             </div>
           )}
-        </div>
+        </motion.div>
         <div className="order__info__container">
           <div className="order__info">
             <img src={qrCode} alt="qrcode" />
