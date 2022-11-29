@@ -130,6 +130,10 @@ const About = () => {
         >
           {aboutData.map((item, index) => (
             <motion.div className="item" key={index} variants={aboutVariants}
+            whileTap={{ scale: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+            onHoverStart={e => {}}
+            onHoverEnd={e => {}}
             >
               <div className="img__container">
                 <img src={item.img} alt="about"/>

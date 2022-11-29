@@ -8,7 +8,7 @@ import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import About from "../About";
-import { ScrollerMotion } from 'scroller-motion'
+import { ScrollerMotion } from "scroller-motion";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -62,14 +62,14 @@ function HomePage() {
   };
 
   return (
-    <ScrollerMotion>
-      <motion.div
-        variants={homeVariants}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-      >
-        <StyledHomePage>
+    <motion.div
+      variants={homeVariants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+    >
+      <StyledHomePage>
+        <ScrollerMotion>
           <Navbar />
           <div className="homepage__section section">
             <div className="hero__container">
@@ -116,6 +116,7 @@ function HomePage() {
                 initial={"hidden3"}
                 animate={"visible3"}
                 exit={"hidden3"}
+                whileTap={{ scale: 0.8 }}
               >
                 <video
                   autoplay="autoplay"
@@ -131,9 +132,9 @@ function HomePage() {
             </div>
           </div>
           <About />
-        </StyledHomePage>
-      </motion.div>
-    </ScrollerMotion>
+        </ScrollerMotion>
+      </StyledHomePage>
+    </motion.div>
   );
 }
 
