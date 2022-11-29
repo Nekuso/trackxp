@@ -27,7 +27,6 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
     }
 
-    
     ::-webkit-scrollbar {
         background: transparent;        
         width: 10px;
