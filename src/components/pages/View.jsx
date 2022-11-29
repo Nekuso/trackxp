@@ -15,6 +15,7 @@ import Loading from "../../img/Loading.gif";
 import ViewSingle from "../ViewSingle";
 import { AnimatePresence, motion } from "framer-motion";
 import notification from "../../sound/notification.mp3";
+import useSound from 'use-sound';
 
 const View = () => {
   const [order, setOrder] = useState(null);
@@ -26,10 +27,7 @@ const View = () => {
   const [found, setFound] = useState(false);
   const [updateNotification, setUpdateNotification] = useState(false);
 
-  const play = () => {
-    const audio = new Audio({notification});
-    audio.play();
-  };
+  const [play] = useSound(notification);
   const handleUpdateNotifcation = () => {
     setUpdateNotification(true);
     play();

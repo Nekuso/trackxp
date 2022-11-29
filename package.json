@@ -28,6 +28,7 @@
     "recharts": "^2.1.15",
     "scroller-motion": "^1.2.1",
     "styled-components": "^5.3.6",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
