@@ -119,7 +119,7 @@ function HomePage() {
                 whileTap={{ scale: 0.8 }}
               >
                 <video
-                  autoplay="autoplay"
+                  autoPlay="autoplay"
                   muted="muted"
                   loop="loop"
                   className="img"

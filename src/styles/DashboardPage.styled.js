@@ -338,7 +338,6 @@ export const StyledDashboardPage = styled.div`
     .dashboard__section {
       .dashboard__wrapper {
         .dashboard__main {
-          
         }
       }
     }
