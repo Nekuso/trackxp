@@ -18,19 +18,16 @@ export const StyledAbout = styled.div`
     top: 53%;
     left: -9%;
     width: 11rem;
-    animation: float2 5s ease-in-out infinite;
   }
   .object2 {
     top: 0;
     right: 0%;
     width: 10rem;
-    animation: float2 3s ease-in-out infinite;
   }
   .object3 {
     bottom: 0%;
     right: 0%;
     width: 10rem;
-    animation: float2 7s ease-in-out infinite;
   }
   
 

@@ -1,40 +1,25 @@
-import {React, useEffect} from 'react'
+import {React} from 'react'
 import { StyledAboutData } from '../styles/AboutData.styled';
 import DataImg from "../img/AboutDataImg.gif";
 import Cloud2 from "../img/Cloud2.png";
 import Float4 from "../img/Float4.png";
 import Float1 from "../img/Float1.png";
-import { useInView } from 'react-intersection-observer';
-import {useAnimation, motion} from 'framer-motion';
+import {motion} from 'framer-motion';
 
 
 const AboutData = () => {
-  const {ref, inView} = useInView({
-    threshold: 0.1
-  });
-
-  const animate1 = useAnimation();
-
-  useEffect(() => {
-    if(inView) {
-      animate1.start("visible");
-    }
-    // else {
-    //   animate1.start("exit");
-    // }
-  }, [animate1, inView]);
 
   const container = {
-    hidden: { opacity: 0, y: 70 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y:0,
       transition: {
         duration: 2,
         type: "spring",
-        stiffness: 90,
+        stiffness: 100,
         when: "beforeChildren",
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
       }
     },
     exit: {
@@ -48,25 +33,41 @@ const AboutData = () => {
         staggerChildren: 0.3,
       }
     }
-  }
-  const AboutDataVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20
-    },
-    visible: {
-      opacity: 1,
-      y:0,
-    }
-  }
+  };
 
   return (
     <StyledAboutData>
-      <div className="about__data__content" ref={ref}>
-        <div className="about__data__img">
+      <motion.div className="about__data__content" 
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ once: false, amount: 0.4 }}
+      >
 
-          <img src={Cloud2} alt="" className="object1 float" />
-          <img src={Float4} alt="" className="object2 float" />
+        <div className="about__data__img">
+          <motion.img src={Cloud2} alt="" className="object1 float" 
+            animate={{
+              y: [0, 15, 0],
+              transition: {
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }
+            }}
+          />
+          <motion.img src={Float4} alt="" className="object2 float" 
+            animate={{
+              y: [0, 15, 0],
+              transition: {
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }
+            }}
+          />
           <motion.div
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.02 }}
@@ -74,40 +75,45 @@ const AboutData = () => {
             onHoverEnd={e => {}}
             className="img__layer"
           >
-            <img src={DataImg} 
+            <motion.img src={DataImg} 
+              variants={container}
               className="img"
               alt=""
-            >
-            </img>
+            />
           </motion.div>
         </div>
-        <motion.div className="about__data__text"
-          variants={container}
-          initial="hidden"
-          animate={animate1}
-          exit="exit"
-        >
-          <img src={Float1} alt="" className="object3 float" />
+        <div className="about__data__text">
+          <motion.img src={Float1} alt="" className="object3 float" 
+            animate={{
+              y: [0, 15, 0],
+              transition: {
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }
+            }}
+          />
           <div className="title">
             <motion.h3 className="badge"
-              variants={AboutDataVariants}
+              variants={container}
               >About Data</motion.h3>
             <motion.h1 className="text__title"
-              variants={AboutDataVariants}
+              variants={container}
               >Keep <mark>Track</mark> Of It All</motion.h1>
           </div>
           <motion.p className="desc"
-              variants={AboutDataVariants}
+              variants={container}
               >Good data allows organizations to establish baselines, benchmarks, and goals to keep moving forward. Because data alows you to measure, you wil be able to establish baselines, find benchmarks and set performance goals.</motion.p>
           <motion.div className="button__container"
-            variants={AboutDataVariants}
+            variants={container}
           >
             <div className="button">
               EXPLORE
             </div>
           </motion.div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </StyledAboutData>
   )
 }

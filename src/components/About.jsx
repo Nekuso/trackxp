@@ -1,7 +1,7 @@
-import {React, useEffect} from 'react'
+import {React} from 'react'
 import {StyledAbout} from "../styles/About.styled";
-import { useAnimation, motion } from 'framer-motion'; 
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion'; 
+
 import About1 from "../img/About1.png";
 import About2 from "../img/About2.png";
 import About3 from "../img/About3.png";
@@ -28,37 +28,16 @@ const About = () => {
       desc: "TrackXP is built to scale, so you can grow your business without limits. We are always adding new features and improving the existing ones."
     },
   ]
-
-  const {ref, inView} = useInView({
-    threshold: 0.5
-  });
-
-  const animation1 = useAnimation();
-  const animation2 = useAnimation();
-  const animation3 = useAnimation();
-
-  useEffect(() => {
-    if(inView) {
-      animation1.start("visible1");
-      animation2.start("visible2");
-      animation3.start("visible");
-    }
-    // else {
-    //   animation1.start("exit");
-    //   animation2.start("exit");
-    //   animation3.start("exit");
-    // }
-  }, [animation1,animation2,animation3,inView]);
   
   const container = {
-    hiddenV: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y:0,
       transition: {
-        duration: 5,
+        duration: 2,
         type: "spring",
-        stiffness: 90,
+        stiffness: 100,
         when: "beforeChildren",
         staggerChildren: 0.3,
       }
@@ -67,7 +46,7 @@ const About = () => {
       opacity: 0,
       y: 20,
       transition: {
-        duration: 5,
+        duration: 3,
         type: "spring",
         stiffness: 90,
         when: "beforeChildren",
@@ -76,73 +55,62 @@ const About = () => {
     }
   };
 
-  const aboutVariants = {
-    hidden: { opacity: 0, y: 20, 
-      transition: {
-        delay: .2,
-      }
-    },
-    visible1: {
-      opacity: 1,
-      y:0,
-      transition: {
-        delay: .3,
-        duration: 2.6,
-        type: "spring",
-        stiffness: 90,
-      },
-    },
-    visible2: {
-      opacity: 1,
-      y:0,
-      transition: {
-        delay: .5,
-        duration: 2.8,
-        type: "spring",
-        stiffness: 90,
-      },
-    },
-    hiddenV: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y:0,
-    },
-    exit: {
-      opacity: 0,
-      y: 20,
-    }
-  }
-
   return (
-    <StyledAbout className="about__section" ref={ref}>
-      <img src={Object1} alt="" className="object1 float" />
-      <img src={Object2} alt="" className="object2 float" />
-      <img src={Object3} alt="" className="object3 float" />
-      <motion.div className="about__content">
+    <StyledAbout className="about__section" id="about">
+      <motion.img src={Object1} alt="" className="object1 float" 
+        animate={{
+          y: [0, 15, 0],
+          transition: {
+            duration: 5,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }
+        }}
+      />
+      <motion.img src={Object2} alt="" className="object2 float" 
+        animate={{
+          y: [0, 15, 0],
+          transition: {
+            duration: 4,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }
+        }}
+      />
+      <motion.img src={Object3} alt="" className="object3 float" 
+        animate={{
+          y: [0, 15, 0],
+          scale:[1, 1.1, 1],
+          transition: {
+            duration: 6,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }
+        }}
+      />
+      <motion.div className="about__content"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ once: false, amount: 0.4 }}
+      >
         <div className="about__title">
           <span style={{overflow: "hidden"}}>
             <motion.h2
-              variants={aboutVariants}
-              initial="hidden"
-              animate={animation1}
-              exit="hidden"
-              
-            >Why TrackXP?</motion.h2>
+              variants={container}
+              >Why TrackXP?</motion.h2>
           </span>
           <motion.h1
-            variants={aboutVariants}
-            initial="hidden"
-            animate={animation2}
-          ><mark>Real-time</mark> tracking for the <br/>on-demand era</motion.h1>
+            variants={container}
+            ><mark>Real-time</mark> tracking for the <br/>on-demand era</motion.h1>
         </div>
-        <motion.div className="items__container"
-          variants={container}
-          initial="hidden"
-          animate={animation3}
-          exit="hidden"
-        >
+        <motion.div className="items__container">
           {aboutData.map((item, index) => (
-            <motion.div className="item" key={index} variants={aboutVariants}
+            <motion.div className="item" key={index} variants={container}
               whileTap={{ scale: 0.8 }}
               whileHover={{ scale: 1.05 }}
               onHoverStart={e => {}}

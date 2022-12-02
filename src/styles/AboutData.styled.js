@@ -276,7 +276,7 @@ export const StyledAboutData = styled.div`
 
         .object2 {
           width: 18rem;
-          bottom: -20%;
+          bottom: -15%;
           left: -40%;
         }
       }

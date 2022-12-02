@@ -10,6 +10,10 @@ export const StyledHomePage = styled.div`
 
   img {
     pointer-events: none;
+    ::selection {
+      color: none;
+      background: transparent;
+    }
   }
   
   .section {
@@ -54,7 +58,6 @@ export const StyledHomePage = styled.div`
         grid-area: text;
 
         .text__img1 {
-          animation: floating ease-in-out 4s infinite;
           position: absolute;
           bottom: 90%;
           left: 70%;
@@ -63,7 +66,6 @@ export const StyledHomePage = styled.div`
           pointer-events: none;
         }
         .text__img2 {
-          animation: floating ease-in-out 7s infinite;
           position: absolute;
           top 60%;
           right: 80%;
@@ -167,11 +169,6 @@ export const StyledHomePage = styled.div`
     }
   }
 
-  @keyframes floating {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 15px); }
-    100%   { transform: translate(0, -0px); }   
-  }
   @keyframes floating2 {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, 5px); }

@@ -81,8 +81,28 @@ function HomePage() {
                 animate={"visible2"}
                 exit={"hidden2"}
               >
-                <img src={Satellite} className="text__img1" alt="" />
-                <img src={Cloud} className="text__img2" alt="" />
+                <motion.img src={Satellite} className="text__img1" alt=""
+                  animate={{
+                    y: [0, 15, 0],
+                    transition: {
+                      duration: 6,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }
+                  }}
+                  />
+                <motion.img src={Cloud} className="text__img2" alt=""
+                  animate={{
+                    y: [0, 15, 0],
+                    transition: {
+                      duration: 8,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }
+                  }}
+                />
                 <p className="hero__badge">NEW</p>
                 <h1 className="hero__title">
                   Tracking made easy

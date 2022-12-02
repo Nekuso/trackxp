@@ -149,11 +149,12 @@ const SingleOrder = ({handleUpdateNotifcation, handleCycleNotification}) => {
                     initial="hiddenV"
                     animate="visible"
                     whileHover={{ scale: 1.05 }}
-                >
+                    >
                         {order.cycleStatusCollection ? order.cycleStatusCollection.map((item, index) => (
                             <motion.div className="order__cycle__item" key={index}
                                 variants={container}
                                 initial="hiddenV"
+                                layout
                                 animate={{
                                     opacity: 1,
                                     y:0,
