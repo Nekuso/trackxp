@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/trackxp/static/css/main.31690426.css",
-    "main.js": "/trackxp/static/js/main.b0cf4579.js",
+    "main.js": "/trackxp/static/js/main.ce15687b.js",
     "static/js/845.57d21f98.chunk.js": "/trackxp/static/js/845.57d21f98.chunk.js",
     "static/js/787.ecac3bf6.chunk.js": "/trackxp/static/js/787.ecac3bf6.chunk.js",
+    "static/media/AboutDataImg.gif": "/trackxp/static/media/AboutDataImg.7ebb6d8bbcf02efc4728.gif",
     "static/media/HeroRobot2.mp4": "/trackxp/static/media/HeroRobot2.9e09cf57b73843cc9e17.mp4",
     "static/media/NotFound.gif": "/trackxp/static/media/NotFound.fde3195c131a923f1c3f.gif",
     "static/media/HeroRobot.webm": "/trackxp/static/media/HeroRobot.01f61aff93e812dcaefa.webm",
@@ -12,7 +13,6 @@
     "static/media/LoginHero.png": "/trackxp/static/media/LoginHero.c14d0a6ee777bdace8c3.png",
     "static/media/About2.png": "/trackxp/static/media/About2.0526da9de2c538549ae6.png",
     "static/media/About3.png": "/trackxp/static/media/About3.5c909907f0204308566a.png",
-    "static/media/Float4.png": "/trackxp/static/media/Float4.040a52a554cdf2c46661.png",
     "static/media/About1.png": "/trackxp/static/media/About1.e9537cd8b586289ce420.png",
     "static/media/LightBackground.png": "/trackxp/static/media/LightBackground.ddbbcfb51e016068121b.png",
     "static/media/Satellite.png": "/trackxp/static/media/Satellite.089ee4679be5dad19ac3.png",
@@ -23,19 +23,21 @@
     "static/media/Float6.png": "/trackxp/static/media/Float6.d0da011eb18a4e6041d3.png",
     "static/media/Cloud.png": "/trackxp/static/media/Cloud.6ada8202ecceb8ba3439.png",
     "static/media/Float2.png": "/trackxp/static/media/Float2.736c70223cabd6acc485.png",
+    "static/media/Float4.png": "/trackxp/static/media/Float4.2777d69a5bcdbc764221.png",
     "static/media/notification.mp3": "/trackxp/static/media/notification.e8d963278203750e430e.mp3",
     "static/media/Widget2.png": "/trackxp/static/media/Widget2.e0cf850748e2969df7c3.png",
+    "static/media/Cloud2.png": "/trackxp/static/media/Cloud2.20144a53210db43086a3.png",
     "static/media/Widget3.png": "/trackxp/static/media/Widget3.da97c6fe2b7cfaa8696b.png",
     "static/media/Widget1.png": "/trackxp/static/media/Widget1.968e10c47fda4e6d0a83.png",
     "static/media/ViewBackground.svg": "/trackxp/static/media/ViewBackground.87d9aa88020908ff73b21f07843d8aac.svg",
     "index.html": "/trackxp/index.html",
     "main.31690426.css.map": "/trackxp/static/css/main.31690426.css.map",
-    "main.b0cf4579.js.map": "/trackxp/static/js/main.b0cf4579.js.map",
+    "main.ce15687b.js.map": "/trackxp/static/js/main.ce15687b.js.map",
     "845.57d21f98.chunk.js.map": "/trackxp/static/js/845.57d21f98.chunk.js.map",
     "787.ecac3bf6.chunk.js.map": "/trackxp/static/js/787.ecac3bf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31690426.css",
-    "static/js/main.b0cf4579.js"
+    "static/js/main.ce15687b.js"
   ]
 }
