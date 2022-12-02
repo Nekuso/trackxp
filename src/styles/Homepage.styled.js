@@ -7,6 +7,10 @@ export const StyledHomePage = styled.div`
   color: #262D31;
   overflow-x: hidden;
   overflow: hidden;
+
+  img {
+    pointer-events: none;
+  }
   
   .section {
     width: 100%;
@@ -95,7 +99,6 @@ export const StyledHomePage = styled.div`
           font-size: 4vw;
           font-weight: 500;
           padding: 0.4rem 0;
-          
         }
 
         .tracking__input__container {
@@ -113,7 +116,6 @@ export const StyledHomePage = styled.div`
           
           .tracking__input {
             width: 85%;
-            height: 100%;
             padding: 1rem 1.5rem;
             border: none;
             background: transparent;
@@ -154,6 +156,7 @@ export const StyledHomePage = styled.div`
         justify-content: center;
         align-items: center;
         grid-area: image;
+        cursor: pointer;
         .img {
           pointer-events: none;
           width: 40vh;

@@ -33,25 +33,22 @@ const About = () => {
     threshold: 0.5
   });
 
-  const animateSection = useAnimation();
   const animation1 = useAnimation();
   const animation2 = useAnimation();
   const animation3 = useAnimation();
 
   useEffect(() => {
     if(inView) {
-      animateSection.start("visible");
       animation1.start("visible1");
       animation2.start("visible2");
       animation3.start("visible");
     }
-    else {
-      animateSection.start("hidden");
-      animation1.start("hidden");
-      animation2.start("hidden");
-      animation3.start("hiddenV");
-    }
-  }, [animateSection,animation1,animation2,animation3,inView]);
+    // else {
+    //   animation1.start("exit");
+    //   animation2.start("exit");
+    //   animation3.start("exit");
+    // }
+  }, [animation1,animation2,animation3,inView]);
   
   const container = {
     hiddenV: { opacity: 0, y: 20 },
@@ -66,6 +63,17 @@ const About = () => {
         staggerChildren: 0.3,
       }
     },
+    exit: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        duration: 5,
+        type: "spring",
+        stiffness: 90,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      }
+    }
   };
 
   const aboutVariants = {
@@ -99,6 +107,10 @@ const About = () => {
       opacity: 1,
       y:0,
     },
+    exit: {
+      opacity: 0,
+      y: 20,
+    }
   }
 
   return (
@@ -106,16 +118,17 @@ const About = () => {
       <img src={Object1} alt="" className="object1 float" />
       <img src={Object2} alt="" className="object2 float" />
       <img src={Object3} alt="" className="object3 float" />
-      <motion.div className="about__content"
-      >
+      <motion.div className="about__content">
         <div className="about__title">
-          <motion.h2
-            variants={aboutVariants}
-            initial="hidden"
-            animate={animation1}
-            exit="hidden"
-            
-          >Why TrackXP?</motion.h2>
+          <span style={{overflow: "hidden"}}>
+            <motion.h2
+              variants={aboutVariants}
+              initial="hidden"
+              animate={animation1}
+              exit="hidden"
+              
+            >Why TrackXP?</motion.h2>
+          </span>
           <motion.h1
             variants={aboutVariants}
             initial="hidden"
@@ -130,10 +143,12 @@ const About = () => {
         >
           {aboutData.map((item, index) => (
             <motion.div className="item" key={index} variants={aboutVariants}
-            whileTap={{ scale: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            onHoverStart={e => {}}
-            onHoverEnd={e => {}}
+              whileTap={{ scale: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              onHoverStart={e => {}}
+              onHoverEnd={e => {}}
+              drag
+              dragConstraints={{left:0, top:0, right:0, bottom:0}}
             >
               <div className="img__container">
                 <img src={item.img} alt="about"/>

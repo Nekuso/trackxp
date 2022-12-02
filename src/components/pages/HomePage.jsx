@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import About from "../About";
 import { ScrollerMotion } from "scroller-motion";
+import AboutData from "../AboutData";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -117,6 +118,8 @@ function HomePage() {
                 animate={"visible3"}
                 exit={"hidden3"}
                 whileTap={{ scale: 0.8 }}
+                drag
+                dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
               >
                 <video
                   autoPlay="autoplay"
@@ -125,13 +128,14 @@ function HomePage() {
                   className="img"
                   controls={false}
                 >
-                  <source src={HeroRobot2} type="video/mp4" />
                   <source src={HeroRobot} type="video/webm" />
+                  <source src={HeroRobot2} type="video/mp4" />
                 </video>
               </motion.div>
             </div>
           </div>
           <About />
+          <AboutData/>
         </ScrollerMotion>
       </StyledHomePage>
     </motion.div>

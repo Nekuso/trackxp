@@ -54,7 +54,6 @@ export const StyledAbout = styled.div`
       h2{
         font-size: 4vw;
         font-weight: 700;
-        margin-bottom: .6rem;
       }
 
       h1{
@@ -121,9 +120,17 @@ export const StyledAbout = styled.div`
             text-align: center;
             font-size: 1.1rem;
             padding-bottom: .7rem;
+            ::selection {
+              color: none;
+              background: none;
+            }
           }
           p {
             font-size: .8rem;
+            ::selection {
+              color: none;
+              background: none;
+            }
           }
         }
       }
@@ -189,6 +196,11 @@ export const StyledAbout = styled.div`
 
     .about__content {
       .about__title {
+        h2 {
+          font-size: 2.5vw;
+          line-height: 1.5; 
+
+        }
         h1 {
           font-size: 4vw;
           line-height: 1.2;

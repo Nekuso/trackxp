@@ -19,11 +19,11 @@ const ViewSingle = ({
         opacity: 1,
         y:0,
         transition: {
-            duration: 5,
-            type: "spring",
-            stiffness: 90,
-            when: "beforeChildren",
-            staggerChildren: 0.3,
+          duration: 5,
+          type: "spring",
+          stiffness: 90,
+          when: "beforeChildren",
+          staggerChildren: 0.3,
         }
     },
   }
@@ -87,7 +87,7 @@ const ViewSingle = ({
                   opacity: 1,
                   y:0,
                   transition: {
-                      delay: 0.6 + index * 0.2,
+                      delay: 0.8 + index * 0.2,
                       duration: 5,
                       type: "spring",
                       stiffness: 90,
