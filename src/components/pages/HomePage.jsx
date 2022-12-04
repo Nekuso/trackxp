@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import About from "../About";
 import { ScrollerMotion } from "scroller-motion";
 import AboutData from "../AboutData";
+import Stack from "../Stack";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -154,6 +155,7 @@ function HomePage() {
               </motion.div>
             </div>
           </div>
+          <Stack/>
           <About />
           <AboutData/>
         </ScrollerMotion>
