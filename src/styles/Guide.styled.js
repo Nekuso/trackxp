@@ -35,9 +35,9 @@ export const StyledGuide = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 2.5rem;
+        gap: 1.5rem;
         
-        :nth-child(odd) {
+        :nth-child(even) {
           flex-direction: row-reverse;
 
           .step__desc {
@@ -57,8 +57,9 @@ export const StyledGuide = styled.div`
           text-align: left;
 
           h3 {
-            font-size: 4.5vw;
+            font-size: 3vw;
             line-height: .8;
+            font-weight: light;
           }
           
           h1 {
@@ -70,8 +71,8 @@ export const StyledGuide = styled.div`
             -webkit-text-fill-color: transparent;
           }
           p {
-            font-size: 3.5vw;
-            font-weight: 500;
+            font-size: 3vw;
+            font-weight: light;
           }
         }
       }
@@ -120,17 +121,17 @@ export const StyledGuide = styled.div`
       padding: 4rem 0;
 
       .guide__steps {
-        gap: 0rem;
+        gap: 7rem;
         .step {
-          gap: 3rem;
+          gap: 7rem;
           .step__desc {
-            width: 65%;
+            width: 45%;
             h3 {
               font-size: 1.5vw;
             }
 
             h1 {
-              font-size: 3vw;
+              font-size: 4vw;
             }
 
             p {

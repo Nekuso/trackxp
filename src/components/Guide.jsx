@@ -1,33 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { StyledGuide } from '../styles/Guide.styled';
-import Step from "../img/Step.png"
+import OrderImg from "../img/OrderImg.png";
+import UpdateImg from "../img/UpdateImg.png";
+import ScanImg from "../img/ScanImg.png";
+import CompletedImg from "../img/CompletedImg.png";
 
 const steps = [
   {
     className: "step",
-    img: `${Step}`,
+    img: `${OrderImg}`,
     firstTitle: "Take your Costumer's",
     secondTitle: "ORDER",
     description: "Simply input the costumer's information such as name, contact number, and particulars then print their receipt.",
   },
   {
     className: "step",
-    img: `${Step}`,
+    img: `${UpdateImg}`,
     firstTitle: "Process the order and", 
     secondTitle: "UPDATE",
     description: "Process and keep track of the orders you've received and update the status of the order in real time. ",
   },
   {
     className: "step scanner",
-    img: `${Step}`,
+    img: `${ScanImg}`,
     firstTitle: "View the order using",
     secondTitle: "SCAN",
     description: "Save time for your costumers by letting them Scan the QR code of the order and view the order's details such as the their information, order details, and real time status.",
   },
   {
     className: "step",
-    img: `${Step}`,
+    img: `${CompletedImg}`,
     firstTitle: "Finish the order and",
     secondTitle: "COMPLETE",
     description: "Once the order's process is done, simply complete the order and the costumer will be notified that their order is ready for pick up.",
@@ -68,11 +71,11 @@ const Guide = () => {
       opacity: 1,
       y:0,
       transition: {
-        duration: 2,
+        duration: 1.5,
         type: "spring",
         stiffness: 100,
         when: "beforeChildren",
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
       }
     },
     exit: {
@@ -110,7 +113,7 @@ const Guide = () => {
               initial="hidden"
               whileInView="visible"
               exit="hidden"
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <motion.div className="step__img"
                 variants={OtherContainer}

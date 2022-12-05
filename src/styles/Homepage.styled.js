@@ -128,7 +128,7 @@ export const StyledHomePage = styled.div`
 
         .hero__description {
           font-size: 4vw;
-          font-weight: 500;
+          font-weight: 400;
           padding: 0.4rem 0;
         }
 

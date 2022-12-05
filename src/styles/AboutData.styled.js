@@ -105,7 +105,7 @@ export const StyledAboutData = styled.div`
 
       .desc {
         font-size: 4vw;
-        font-weight: 500;
+        font-weight: light;
       }
 
       .button__container {
