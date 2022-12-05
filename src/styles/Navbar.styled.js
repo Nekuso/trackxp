@@ -29,8 +29,10 @@ export const StyledNavbar = styled.nav`
       text-align: center;
 
       mark {
-        background: none;
-        color: #5773db;
+        background: #5C31D4;
+        background: linear-gradient(to right, #5C31D4 0%, #D43192 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
   }

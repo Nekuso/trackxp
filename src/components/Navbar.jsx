@@ -45,7 +45,8 @@ function Navbar() {
               <Link to="Home" className="nav__dash__button">Dashboard</Link>
             </div>
             : <><li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
-            <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li></>
+            {/* <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li> */}
+            </>
           }
           
         </ul>

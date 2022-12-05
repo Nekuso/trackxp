@@ -12,6 +12,7 @@ import { ScrollerMotion } from "scroller-motion";
 import AboutData from "../AboutData";
 import Stack from "../Stack";
 import LoaderImg from "../../img/LoaderImg.gif";
+import Guide from "../Guide";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -94,7 +95,7 @@ function HomePage() {
 
   useEffect(() => {
     setTimeout(() => {
-      // setIsLoading(false)
+      setIsLoading(false)
     }, 6000)
   }, []);
 
@@ -217,6 +218,7 @@ function HomePage() {
           <Stack/>
           <About />
           <AboutData/>
+          <Guide/>
         </ScrollerMotion>
       </StyledHomePage>
     </motion.div>

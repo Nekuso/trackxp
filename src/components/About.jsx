@@ -115,8 +115,6 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               onHoverStart={e => {}}
               onHoverEnd={e => {}}
-              drag
-              dragConstraints={{left:0, top:0, right:0, bottom:0}}
             >
               <div className="img__container">
                 <img src={item.img} alt="about"/>

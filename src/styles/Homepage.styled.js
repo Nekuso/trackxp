@@ -119,7 +119,10 @@ export const StyledHomePage = styled.div`
           line-height: 1.2;
           mark {
             color: #5773db;
-            background: none;
+            background: #5C31D4;
+            background: linear-gradient(to right, #5C31D4 0%, #D43192 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
         }
 
