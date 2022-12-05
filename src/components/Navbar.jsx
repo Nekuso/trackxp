@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { StyledNavbar } from '../styles/Navbar.styled'
+import {motion} from "framer-motion";
 
 function Navbar() {
 
@@ -33,7 +34,16 @@ function Navbar() {
         className={navActive}
         >
           {
-            currentUser ? <div className="dash__nav__container"><Link to="Home" className="nav__dash__button">Dashboard</Link></div>
+            currentUser ? 
+            <div className="dash__nav__container">
+              <motion.a href="https://github.com/Nekuso" className="github__link" rel="noopener noreferrer" target="_blank"
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.5 }}
+                onHoverStart={e => {}}
+                onHoverEnd={e => {}}
+              ><i className='bx bxl-github'></i></motion.a>
+              <Link to="Home" className="nav__dash__button">Dashboard</Link>
+            </div>
             : <><li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
             <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li></>
           }

@@ -7,7 +7,33 @@ export const StyledHomePage = styled.div`
   color: #262D31;
   overflow-x: hidden;
   overflow: hidden;
+  position: relative;
 
+  .loader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 20vh;
+    z-index: 99999;
+
+    .loader__img {
+      width: 70vw;
+    }
+
+    h2 {
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+    }
+  }
   img {
     pointer-events: none;
     ::selection {
@@ -176,6 +202,16 @@ export const StyledHomePage = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    .loader {
+  
+      .loader__img {
+        width: 20vw;
+      }
+  
+      h2 {
+        font-size: .8rem;
+      }
+    }
     .homepage__section {
       .hero__container {
         grid-template-areas:

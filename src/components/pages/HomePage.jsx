@@ -6,15 +6,18 @@ import Satellite from "../../img/Satellite.png";
 import Cloud from "../../img/Cloud.png";
 import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import About from "../About";
 import { ScrollerMotion } from "scroller-motion";
 import AboutData from "../AboutData";
 import Stack from "../Stack";
+import LoaderImg from "../../img/LoaderImg.gif";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     console.log(searchValue);
@@ -22,7 +25,6 @@ function HomePage() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
     navigate(`/${searchValue}`);
   };
 
@@ -63,14 +65,71 @@ function HomePage() {
     },
   };
 
+  const LoaderContainer = {
+    exit: {
+      y: "-100vh",
+      transition: {
+        duration: 2,
+        type: "spring",
+        stiffness: 30,
+      }
+    }
+  }
+
+  const LoaderVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y:0,
+      transition: {
+        duration: 1,
+        type: "spring",
+        stiffness: 100,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      }
+    },
+    exit: { opacity: 0, y: 40 },
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      // setIsLoading(false)
+    }, 6000)
+  }, []);
+
   return (
     <motion.div
       variants={homeVariants}
-      initial="hidden"
-      animate="visible"
       exit="hidden"
     >
       <StyledHomePage>
+        <AnimatePresence>
+          {isLoading ? 
+            <motion.div className="loader" variants={LoaderContainer} exit="exit">
+              <motion.div className="loader__content" variants={LoaderVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <motion.div
+                  variants={LoaderVariants}
+                  whileTap={{ scale: 0.8 }}
+                  whileHover={{ scale: 1.05 }}
+                  onHoverStart={e => {}}
+                  onHoverEnd={e => {}}
+                  drag
+                  dragConstraints={{left:0, top:0, right:0, bottom:0}}
+                >
+                  <motion.img className="loader__img" src={LoaderImg} alt=""/>
+                </motion.div>
+                  <motion.h2
+                  variants={LoaderVariants}
+                >Synchronizing</motion.h2>
+              </motion.div>
+            </motion.div> : null
+          }
+        </AnimatePresence>
         <ScrollerMotion>
           <Navbar />
           <div className="homepage__section section">

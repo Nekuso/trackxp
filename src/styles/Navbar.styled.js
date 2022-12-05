@@ -43,10 +43,6 @@ export const StyledNavbar = styled.nav`
         text-align: center;
         font-weight: 700;
         color: white;
-        transition: all 0.3s ease-in-out;
-        :hover {
-          transform: scale(1.1);
-        }
       }
     }
 
@@ -75,6 +71,9 @@ export const StyledNavbar = styled.nav`
       z-index: 100;
 
       .dash__nav__container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         margin: 3rem;
         text-align: center;
         .nav__dash__button {
@@ -83,6 +82,13 @@ export const StyledNavbar = styled.nav`
           font-weight: 500;
           padding: 1rem;
           color: #ffff;
+        }
+
+        .github__link {
+          i {
+            font-size: 3.5rem;
+            color: #ffff;
+          }
         }
       }
 
@@ -171,22 +177,31 @@ export const StyledNavbar = styled.nav`
   @media screen and (min-width: 769px) {
     .nav__links {
       display: flex;
-      align-items: center;
       justify-content: flex-end;
+      align-items: center;
       width: 70%;
+      height: auto;
       position: relative;
 
-      .nav__dash__button {
-        padding: 0.6rem 1.3rem;
-        border: none;
-        border-radius: 4rem;
-        text-align: center;
-        background: #293241;
-        font-weight: 700;
-        color: white;
-        transition: all 0.3s ease-in-out;
-        :hover {
-          transform: scale(1.1);
+      .dash__nav__container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        .nav__dash__button {
+          padding: 0.6rem 1.3rem;
+          border: none;
+          border-radius: 4rem;
+          text-align: center;
+          background: #293241;
+          font-weight: 700;
+          color: white;
+          font-size: 1rem;
+        }
+        .github__link {
+          font-size: 2.5rem;
+          color: #293241;
         }
       }
 

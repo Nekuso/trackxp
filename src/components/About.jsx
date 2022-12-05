@@ -96,7 +96,7 @@ const About = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <div className="about__title">
           <span style={{overflow: "hidden"}}>

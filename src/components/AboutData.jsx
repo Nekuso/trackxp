@@ -42,7 +42,7 @@ const AboutData = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
 
         <div className="about__data__img">
