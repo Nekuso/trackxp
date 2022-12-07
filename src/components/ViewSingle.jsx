@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import CountUp from "react-countup";
 import { doc, onSnapshot } from "firebase/firestore";
+import RatingModal from "./RatingModal";
 
 const ViewSingle = ({
   order,
@@ -10,8 +11,11 @@ const ViewSingle = ({
   qrLink,
   handleUpdateNotifcation,
   orderRawId,
-  db,
+  db
 }) => {
+
+  const [orderRating] = useState(order.orderRating.rating);
+  const [cycleStatusCollection, setCycleStatusCollection] = useState(order.cycleStatusCollection);
 
   const container = {
     hiddenV: { opacity: 0, y: 20 },
@@ -41,19 +45,32 @@ const ViewSingle = ({
     },
   };
 
+  const handleRatingTrigger = () => {
+    orderRating === 0 && cycleStatusCollection.length === 4 ? 
+    setIsRatingOpen(true) : setIsRatingOpen(false);
+  }
+
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "orders", orderRawId),
-      () => {
-        handleUpdateNotifcation();
-      },
-      (error) => {
-        console.log(error);
-      }
+    () => {
+      handleUpdateNotifcation();
+      handleRatingTrigger();
+    },
+    (error) => {
+      console.log(error);
+    }
     );
     return () => {
       unsub();
+      
     };
   }, []);
+  
+  const [isRatingOpen, setIsRatingOpen] = useState(false);
+  
+  const handleIsRatingOpen = () => {
+    setIsRatingOpen(false);
+  }
 
   return (
     <>
@@ -64,6 +81,11 @@ const ViewSingle = ({
         animate="initialVisible"
         exit="initialHidden"
       >
+        <AnimatePresence>
+          {
+            isRatingOpen ? <RatingModal handleIsRatingOpen={handleIsRatingOpen} orderRawId={orderRawId} order={order}/> : null
+          }
+        </AnimatePresence>
         <div className="update__controls">
           <Link to="/" className="home__link">
             <i className="bx bxs-analyse"></i>
@@ -80,7 +102,7 @@ const ViewSingle = ({
         >
           {order.cycleStatusCollection ? (
             order.cycleStatusCollection.map((item, index) => (
-              <motion.div className="order__cycle__item" key={index}
+              <motion.div className="order__cycle__item" key={index + 1}
                 variants={container}
                 initial="hiddenV"
                 animate={{
@@ -159,7 +181,7 @@ const ViewSingle = ({
             <tbody>
               {order.particularsData ? (
                 order.particularsData.map((item, index) => (
-                  <tr key={index}>
+                  <tr key={index + 1}>
                     <td className="particular__align">{item.name}</td>
                     <td>{item.quantity}</td>
                     <td>{item.price}</td>

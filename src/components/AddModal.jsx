@@ -106,6 +106,10 @@ const AddModal = ({handleAddModal, handleAddNotification}) => {
     itemTotal: 0,
   },]
   );
+  const [orderRating,setOrderRating] = useState({
+    rating: 0,
+    comment: "",
+  });
   const current = new Date();
   const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
@@ -140,6 +144,7 @@ const AddModal = ({handleAddModal, handleAddNotification}) => {
       cycleStatusCollection,
       particularsData,
       total,
+      orderRating,
       timeStamp: serverTimestamp()
     }
     try {

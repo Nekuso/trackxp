@@ -113,7 +113,7 @@ function HomePage() {
       transition: {
         type: "spring",
       },
-      backgroundColor:"transparent",
+      backgroundColor:"rgba(0, 0, 0, 0)",
       border: "2px solid black",
       height: "32px",
       width: "32px",
@@ -166,7 +166,7 @@ function HomePage() {
           }
         </AnimatePresence>
           <motion.div className="cursor" variants={cursorVariants} animate={hoverVariant}></motion.div>
-        <ScrollerMotion spring={{mass: 1.25, stiffness: 100, damping: 50}} scale={1}>
+        <ScrollerMotion spring={{mass: 1.25, stiffness: 300, damping: 100}} scale={1}>
           <Navbar />
           <div className="homepage__section section">
             <div className="hero__container">

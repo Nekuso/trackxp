@@ -169,6 +169,7 @@ const View = () => {
     >
       <StyledView>
         <AnimatePresence>
+          
           {updateNotification && (
             <div className="notification">
               <motion.div
@@ -221,6 +222,7 @@ const View = () => {
               handleUpdateNotifcation={handleUpdateNotifcation}
               orderRawId={orderRawId}
               db={db}
+              queryOrder={queryOrder}
             />
           ) : (
             <div className="not__found__container">

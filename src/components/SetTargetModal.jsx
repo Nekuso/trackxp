@@ -10,7 +10,6 @@ function SetTargetModal({handleSetTargetModal, handleTargetNotification}) {
 
     const [target, setTarget] = useState(0);
 
-
     const handleUpdateTarget = async() => {
 
       await setDoc(doc(db,"analytics", "targets"), {
@@ -20,31 +19,31 @@ function SetTargetModal({handleSetTargetModal, handleTargetNotification}) {
       handleTargetNotification();
     }
     const modalVariants = {
-        hidden: {
-          opacity: 0,
-        },
-        visible: {
-          opacity: 1,
-          transition: {
-            delay: .2,
-            duration: 1,
-          }
-        },
-        hidden2: {
-          opacity: 0,
-          y: "100vh",
-        },
-        visible2: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            delay: .3,
-            duration: 1,
-            type: "spring",
-            stiffness: 70,
-          }
-        },
-      }
+      hidden: {
+        opacity: 0,
+      },
+      visible: {
+        opacity: 1,
+        transition: {
+          delay: .2,
+          duration: 1,
+        }
+      },
+      hidden2: {
+        opacity: 0,
+        y: "100vh",
+      },
+      visible2: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: .3,
+          duration: 1,
+          type: "spring",
+          stiffness: 70,
+        }
+      },
+    }
 
   return (
     <StyledSetTargetModal>
