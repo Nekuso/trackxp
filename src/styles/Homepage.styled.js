@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import LightHomepage from "../img/LightHomepage.jpg";
+import { motion } from "framer-motion";
 
-export const StyledHomePage = styled.div`
+export const StyledHomePage = styled(motion.div)`
   width: 100vw;
   height: auto;
   color: #262D31;

@@ -35,11 +35,11 @@ const About = () => {
       opacity: 1,
       y:0,
       transition: {
-        duration: 2,
+        duration: 1,
         type: "spring",
         stiffness: 100,
         when: "beforeChildren",
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
       }
     },
     exit: {
@@ -96,7 +96,7 @@ const About = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="about__title">
           <span style={{overflow: "hidden"}}>

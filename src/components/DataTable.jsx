@@ -90,8 +90,8 @@ const Datatable = ({handleDeleteNotification}) => {
                     className="dataGrid"
                     rows={data}
                     columns={dataColumns.concat(actionColumn)}
-                    pageSize={7}
-                    rowsPerPageOptions={[7]}
+                    pageSize={15}
+                    rowsPerPageOptions={[15]}
                     density={"compact"}
                     // checkboxSelection
                     sx={{
@@ -111,8 +111,6 @@ const Datatable = ({handleDeleteNotification}) => {
                     componentsProps={{ toolbar: { csvOptions: { fields: ['name', 'total', "dateCreated", "payment", "cycleStatus"] } } }}
                 />
             </motion.div>
-
-            
         </StyledDataTable>
     );
 }

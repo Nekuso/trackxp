@@ -4,7 +4,7 @@ import DataImg from "../img/AboutDataImg.gif";
 import Cloud2 from "../img/Cloud2.png";
 import Float4 from "../img/Float4.png";
 import Float1 from "../img/Float1.png";
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 
 const AboutData = () => {
@@ -15,7 +15,7 @@ const AboutData = () => {
       opacity: 1,
       y:0,
       transition: {
-        duration: 2,
+        duration: 1,
         type: "spring",
         stiffness: 100,
         when: "beforeChildren",
@@ -42,21 +42,21 @@ const AboutData = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
 
         <div className="about__data__img">
-          <motion.img src={Cloud2} alt="" className="object1 float" 
-            animate={{
-              y: [0, 15, 0],
-              transition: {
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }
-            }}
-          />
+            <motion.img src={Cloud2} alt="" className="object1 float" 
+              animate={{
+                y: [0, 15, 0],
+                transition: {
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                },
+              }}
+            />
           <motion.img src={Float4} alt="" className="object2 float" 
             animate={{
               y: [0, 15, 0],

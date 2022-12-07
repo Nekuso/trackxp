@@ -64,14 +64,13 @@ const Guide = () => {
       }
     }
   };
-
   const OtherContainer = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity : 0, y: 40 },
     visible: {
       opacity: 1,
       y:0,
       transition: {
-        duration: 1.5,
+        duration: 1,
         type: "spring",
         stiffness: 100,
         when: "beforeChildren",
@@ -90,6 +89,7 @@ const Guide = () => {
       }
     }
   };
+  
 
   return (
     <StyledGuide>
@@ -115,10 +115,8 @@ const Guide = () => {
               exit="hidden"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <motion.div className="step__img"
-                variants={OtherContainer}
-              >
-                <img src={step.img} alt="" />
+              <motion.div className="step__img" variants={OtherContainer}>
+                  <img src={step.img} alt="" />
               </motion.div>
               <div className="step__desc">
                 <motion.h3

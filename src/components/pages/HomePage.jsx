@@ -92,13 +92,47 @@ function HomePage() {
     },
     exit: { opacity: 0, y: 40 },
   }
-
+  
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
     }, 6000)
   }, []);
+  
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  })
 
+  const [hoverVariant, setHoverVariant]= useState("default")
+
+  const cursorVariants = {
+    default: {
+      x: mousePosition.x - 16,
+      y: mousePosition.y - 16,
+      transition: {
+        type: "spring",
+      },
+      backgroundColor:"transparent",
+      border: "2px solid black",
+      height: "32px",
+      width: "32px",
+      borderRadius: "50%",
+      position: "fixed",
+      pointerEvents: "none",
+      zIndex: 9999999,
+    }
+  }
+
+  useEffect(() => {
+    const mouseMove = e => {
+      setMousePosition({x: e.clientX, y: e.clientY})
+    }
+    window.addEventListener("mousemove", mouseMove)
+    return () => {
+      window.removeEventListener("mousemove", mouseMove)
+    }
+  }, [])
   return (
     <motion.div
       variants={homeVariants}
@@ -131,7 +165,8 @@ function HomePage() {
             </motion.div> : null
           }
         </AnimatePresence>
-        <ScrollerMotion>
+          <motion.div className="cursor" variants={cursorVariants} animate={hoverVariant}></motion.div>
+        <ScrollerMotion spring={{mass: 1.25, stiffness: 100, damping: 50}} scale={1}>
           <Navbar />
           <div className="homepage__section section">
             <div className="hero__container">

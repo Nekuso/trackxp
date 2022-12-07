@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100vw;
         max-width: 100vw;
         overflow-x: hidden;
+        overscroll-behavior: none;
     }
 
     ::-webkit-scrollbar {
