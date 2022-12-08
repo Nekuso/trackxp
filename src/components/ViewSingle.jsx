@@ -82,8 +82,7 @@ const ViewSingle = ({
 
 
   const handleIsRatingOpen = () => {
-    setIsRatingOpen(true);
-    setToggle(!toggle);
+    setIsRatingOpen(false);
   };
   
 

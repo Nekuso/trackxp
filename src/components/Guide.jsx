@@ -37,7 +37,7 @@ const steps = [
   },
 ]
 
-const Guide = () => {
+const Guide = ({guideEnter, cursorLeave}) => {
 
   const container = {
     hidden: { opacity: 0, y: 40 },
@@ -118,7 +118,7 @@ const Guide = () => {
               <motion.div className="step__img" variants={OtherContainer}>
                   <img src={step.img} alt="" />
               </motion.div>
-              <div className="step__desc">
+              <div className="step__desc" onMouseEnter={guideEnter} onMouseLeave={cursorLeave}>
                 <motion.h3
                   variants={OtherContainer}
                 >{step.firstTitle}</motion.h3>

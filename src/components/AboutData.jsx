@@ -7,7 +7,7 @@ import Float1 from "../img/Float1.png";
 import { motion } from 'framer-motion';
 
 
-const AboutData = () => {
+const AboutData = ({dataEnter, cursorLeave}) => {
 
   const container = {
     hidden: { opacity: 0, y: 40 },
@@ -74,6 +74,8 @@ const AboutData = () => {
             onHoverStart={e => {}}
             onHoverEnd={e => {}}
             className="img__layer"
+            onMouseEnter={dataEnter}
+            onMouseLeave={cursorLeave}
           >
             <motion.img src={DataImg} 
               variants={container}

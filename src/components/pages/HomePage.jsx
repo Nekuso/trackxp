@@ -13,6 +13,7 @@ import AboutData from "../AboutData";
 import Stack from "../Stack";
 import LoaderImg from "../../img/LoaderImg.gif";
 import Guide from "../Guide";
+import dataflow from "../../img/dataflow.gif";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -103,12 +104,14 @@ function HomePage() {
     x: 0,
     y: 0
   })
-
+  const [cursorText, setCursorText] = useState("")
   const [hoverVariant, setHoverVariant]= useState("default")
 
   const cursorVariants = {
     default: {
-      content:"•",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
       transition: {
@@ -119,10 +122,67 @@ function HomePage() {
       height: "32px",
       width: "32px",
       borderRadius: "50%",
+      textAlign: "center",
+      position: "fixed",
+      pointerEvents: "none",
+      zIndex: 9999999,
+    },
+    
+    guide: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      x: mousePosition.x - 65,
+      y: mousePosition.y - 65,
+      transition: {
+        type: "spring",
+      },
+      backgroundColor:"black",
+      color: "white",
+      border: "2px solid black",
+      height: "130px",
+      width: "130px",
+      borderRadius: "50%",
+      textAlign: "center",
+      position: "fixed",
+      pointerEvents: "none",
+      zIndex: 9999999,
+    },
+
+    data: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      x: mousePosition.x - 65,
+      y: mousePosition.y - 65,
+      transition: {
+        type: "spring",
+      },
+      backgroundColor:"black",
+      color: "white",
+      border: "2px solid black",
+      height: "130px",
+      width: "130px",
+      borderRadius: "50%",
+      textAlign: "center",
       position: "fixed",
       pointerEvents: "none",
       zIndex: 9999999,
     }
+  }
+
+  function guideEnter(event) {
+    setCursorText("Scroll Slowly")
+    setHoverVariant("guide")
+  }
+  function dataEnter(event) {
+    setCursorText(<img src={dataflow} alt="" style={{ width: "100%", borderRadius: "100%" }}/>)
+    setHoverVariant("data")
+  }
+
+  function cursorLeave(event) {
+    setCursorText("")
+    setHoverVariant("default")
   }
 
   useEffect(() => {
@@ -166,7 +226,7 @@ function HomePage() {
             </motion.div> : null
           }
         </AnimatePresence>
-          <motion.div className="cursor" variants={cursorVariants} animate={hoverVariant}></motion.div>
+          <motion.div className="cursor" variants={cursorVariants} animate={hoverVariant}><span>{cursorText}</span></motion.div>
         <ScrollerMotion spring={{mass: 1.25, stiffness: 300, damping: 100}} scale={1}>
           <Navbar />
           <div className="homepage__section section">
@@ -252,9 +312,9 @@ function HomePage() {
             </div>
           </div>
           <Stack/>
-          <About />
-          <AboutData/>
-          <Guide/>
+          <About/>
+          <AboutData dataEnter={dataEnter} cursorLeave={cursorLeave} />
+          <Guide guideEnter={guideEnter} cursorLeave={cursorLeave} />
         </ScrollerMotion>
       </StyledHomePage>
     </motion.div>
