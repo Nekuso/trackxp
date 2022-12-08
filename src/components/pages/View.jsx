@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { StyledView } from "../../styles/View.styled";
 import {
@@ -16,6 +16,8 @@ import ViewSingle from "../ViewSingle";
 import { AnimatePresence, motion } from "framer-motion";
 import notification from "../../sound/notification.mp3";
 import useSound from 'use-sound';
+import Confetti from "react-confetti";
+
 
 const View = () => {
   const [order, setOrder] = useState(null);
@@ -28,6 +30,7 @@ const View = () => {
   const [updateNotification, setUpdateNotification] = useState(false);
 
   const [play] = useSound(notification);
+  
   const handleUpdateNotifcation = () => {
     setUpdateNotification(true);
     play();
@@ -36,6 +39,8 @@ const View = () => {
       setUpdateNotification(false);
     }, 3500);
   };
+
+  
 
   useEffect(() => {
     const unsub = onSnapshot(
@@ -160,6 +165,18 @@ const View = () => {
     },
   };
 
+  const [toggle, setToggle] = useState(false);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+  const wrapper = useRef(null);
+
+  useEffect(() => {
+    if (wrapper.current) {
+      const width = wrapper.current.offsetWidth;
+      const height = wrapper.current.offsetHeight;
+      setSize({ width, height });
+    }
+  }, [toggle]);
+
   return (
     <motion.div
       variants={viewVariants}
@@ -167,7 +184,18 @@ const View = () => {
       animate="initialVisible"
       exit="initialHidden"
     >
-      <StyledView>
+      <StyledView ref={wrapper}>
+        <Confetti
+          style={{ pointerEvents: "none" }}
+          width={size.width}
+          height={size.height}
+          numberOfPieces={toggle ? 500 : 0}
+          recycle={false}
+          onConfettiComplete={(confetti) => {
+            setToggle(false);
+            confetti.reset();
+          }}
+        />
         <AnimatePresence>
           
           {updateNotification && (
@@ -223,6 +251,8 @@ const View = () => {
               orderRawId={orderRawId}
               db={db}
               queryOrder={queryOrder}
+              toggle={toggle}
+              setToggle={setToggle}
             />
           ) : (
             <div className="not__found__container">

@@ -1,9 +1,10 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import CountUp from "react-countup";
 import { doc, onSnapshot } from "firebase/firestore";
 import RatingModal from "./RatingModal";
+
 
 const ViewSingle = ({
   order,
@@ -11,26 +12,26 @@ const ViewSingle = ({
   qrLink,
   handleUpdateNotifcation,
   orderRawId,
-  db
+  db,
+  toggle,
+  setToggle
 }) => {
-
-  const [orderRating] = useState(order.orderRating.rating);
-  const [cycleStatusCollection, setCycleStatusCollection] = useState(order.cycleStatusCollection);
+  const [snapOrder, setSnapOrder] = useState(null);
 
   const container = {
     hiddenV: { opacity: 0, y: 20 },
     visible: {
-        opacity: 1,
-        y:0,
-        transition: {
-          duration: 5,
-          type: "spring",
-          stiffness: 90,
-          when: "beforeChildren",
-          staggerChildren: 0.3,
-        }
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 5,
+        type: "spring",
+        stiffness: 90,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
     },
-  }
+  };
 
   const viewVariants = {
     initialHidden: {
@@ -45,32 +46,46 @@ const ViewSingle = ({
     },
   };
 
-  const handleRatingTrigger = () => {
-    orderRating === 0 && cycleStatusCollection.length === 4 ? 
-    setIsRatingOpen(true) : setIsRatingOpen(false);
-  }
+  const [orderRating, setOrderRating] = useState(order.orderRating.rating);
+  const [cycleStatusCollection, setCycleStatusCollection] = useState(
+    order.cycleStatusCollection
+  );
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, "orders", orderRawId),
-    () => {
-      handleUpdateNotifcation();
-      handleRatingTrigger();
-    },
-    (error) => {
-      console.log(error);
-    }
+    orderRating === 0 && cycleStatusCollection.length === 4
+      ? setIsRatingOpen(true)
+      : setIsRatingOpen(false); 
+  }, [order,orderRating, cycleStatusCollection]);
+
+  useEffect(() => {
+    const unsub = onSnapshot(
+      doc(db, "orders", orderRawId),
+      (snapShot) => {
+        setSnapOrder(snapShot.data());
+        handleUpdateNotifcation();
+        setOrderRating(snapShot.data().orderRating.rating);
+        setCycleStatusCollection(snapShot.data().cycleStatusCollection);
+        orderRating === 0 && cycleStatusCollection.length === 4
+          ? setIsRatingOpen(true)
+          : setIsRatingOpen(false);
+      },
+      (error) => {
+        console.log(error);
+      }
     );
     return () => {
       unsub();
-      
     };
   }, []);
-  
+
   const [isRatingOpen, setIsRatingOpen] = useState(false);
-  
+
+
   const handleIsRatingOpen = () => {
-    setIsRatingOpen(false);
-  }
+    setIsRatingOpen(true);
+    setToggle(!toggle);
+  };
+  
 
   return (
     <>
@@ -82,9 +97,15 @@ const ViewSingle = ({
         exit="initialHidden"
       >
         <AnimatePresence>
-          {
-            isRatingOpen ? <RatingModal handleIsRatingOpen={handleIsRatingOpen} orderRawId={orderRawId} order={order}/> : null
-          }
+          {isRatingOpen ? (
+            <RatingModal
+              handleIsRatingOpen={handleIsRatingOpen}
+              orderRawId={orderRawId}
+              order={order}
+              toggle={toggle}
+              setToggle={setToggle}
+            />
+          ) : null}
         </AnimatePresence>
         <div className="update__controls">
           <Link to="/" className="home__link">
@@ -94,7 +115,8 @@ const ViewSingle = ({
             </h2>
           </Link>
         </div>
-        <motion.div className="order__cycle__container"
+        <motion.div
+          className="order__cycle__container"
           variants={container}
           initial="hiddenV"
           animate="visible"
@@ -102,20 +124,22 @@ const ViewSingle = ({
         >
           {order.cycleStatusCollection ? (
             order.cycleStatusCollection.map((item, index) => (
-              <motion.div className="order__cycle__item" key={index + 1}
+              <motion.div
+                className="order__cycle__item"
+                key={index + 1}
                 variants={container}
                 initial="hiddenV"
                 animate={{
                   opacity: 1,
-                  y:0,
+                  y: 0,
                   transition: {
-                      delay: 0.8 + index * 0.2,
-                      duration: 5,
-                      type: "spring",
-                      stiffness: 90,
-                      when: "beforeChildren",
-                      staggerChildren: 0.3,
-                  }
+                    delay: 0.8 + index * 0.2,
+                    duration: 5,
+                    type: "spring",
+                    stiffness: 90,
+                    when: "beforeChildren",
+                    staggerChildren: 0.3,
+                  },
                 }}
               >
                 <i className={`bx ${item.icon}`}></i>
@@ -126,9 +150,7 @@ const ViewSingle = ({
               </motion.div>
             ))
           ) : (
-            <div
-              style={{ textAlign: "center", width: "100%", fontWeight: "bold" }}
-            >
+            <div style={{ textAlign: "center", width: "100%", fontWeight: "bold" }}>
               Loading
             </div>
           )}

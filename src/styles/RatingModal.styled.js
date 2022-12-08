@@ -49,6 +49,16 @@ export const StyledRatingModal = styled.div`
                 border: 1px solid #ccc;
                 border-radius: .5rem;
             }
+            .text__input {
+                width: 100%;
+                border: none;
+                padding: .5rem;
+                margin: 1rem 0;
+                border: 1px solid #ccc;
+                border-radius: .5rem;
+                height: 5rem;
+                resize: none;
+            }
             .rating__container {
                 display: flex;
                 justify-content: center;

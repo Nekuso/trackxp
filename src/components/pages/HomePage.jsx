@@ -108,6 +108,7 @@ function HomePage() {
 
   const cursorVariants = {
     default: {
+      content:"•",
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
       transition: {
