@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/trackxp/static/css/main.31690426.css",
-    "main.js": "/trackxp/static/js/main.0221cb7e.js",
+    "main.js": "/trackxp/static/js/main.82268943.js",
     "static/js/845.57d21f98.chunk.js": "/trackxp/static/js/845.57d21f98.chunk.js",
     "static/js/787.ecac3bf6.chunk.js": "/trackxp/static/js/787.ecac3bf6.chunk.js",
     "static/media/dataflow.gif": "/trackxp/static/media/dataflow.1bfe294881bd1236bbaa.gif",
@@ -10,8 +10,13 @@
     "static/media/NotFound.gif": "/trackxp/static/media/NotFound.fde3195c131a923f1c3f.gif",
     "static/media/HeroRobot.webm": "/trackxp/static/media/HeroRobot.01f61aff93e812dcaefa.webm",
     "static/media/Loading.gif": "/trackxp/static/media/Loading.20bc2ed198a861e92e82.gif",
+    "static/media/SystemAnalyst.png": "/trackxp/static/media/SystemAnalyst.19edf5f2b96ae8626044.png",
+    "static/media/Documentor.png": "/trackxp/static/media/Documentor.4e4b338d98e821769cef.png",
+    "static/media/Designer.png": "/trackxp/static/media/Designer.ff4b1942ae12e741be8e.png",
+    "static/media/Programmer.png": "/trackxp/static/media/Programmer.6d38291ebd61136f3e3b.png",
     "static/media/UpdateImg.png": "/trackxp/static/media/UpdateImg.d93b0eee7f41b9ec4646.png",
     "static/media/CompletedImg.png": "/trackxp/static/media/CompletedImg.29c45815e0b3d63d525d.png",
+    "static/media/ProjectManager.png": "/trackxp/static/media/ProjectManager.9952f43f07d79ad1060f.png",
     "static/media/LightHomepage.jpg": "/trackxp/static/media/LightHomepage.b1c8c45a74e4decefe31.jpg",
     "static/media/LoaderImg.gif": "/trackxp/static/media/LoaderImg.feac92045e18f1e8be92.gif",
     "static/media/LoginHero.png": "/trackxp/static/media/LoginHero.c14d0a6ee777bdace8c3.png",
@@ -19,7 +24,6 @@
     "static/media/About3.png": "/trackxp/static/media/About3.5c909907f0204308566a.png",
     "static/media/About1.png": "/trackxp/static/media/About1.e9537cd8b586289ce420.png",
     "static/media/LightBackground.png": "/trackxp/static/media/LightBackground.ddbbcfb51e016068121b.png",
-    "static/media/unpreview.png": "/trackxp/static/media/unpreview.280299871acfb621da76.png",
     "static/media/ScanImg.png": "/trackxp/static/media/ScanImg.e358c58e5d0e262ba46d.png",
     "static/media/Satellite.png": "/trackxp/static/media/Satellite.089ee4679be5dad19ac3.png",
     "static/media/OrderImg.png": "/trackxp/static/media/OrderImg.ab6a2b604bea7885f63b.png",
@@ -44,12 +48,12 @@
     "static/media/ViewBackground.svg": "/trackxp/static/media/ViewBackground.87d9aa88020908ff73b21f07843d8aac.svg",
     "index.html": "/trackxp/index.html",
     "main.31690426.css.map": "/trackxp/static/css/main.31690426.css.map",
-    "main.0221cb7e.js.map": "/trackxp/static/js/main.0221cb7e.js.map",
+    "main.82268943.js.map": "/trackxp/static/js/main.82268943.js.map",
     "845.57d21f98.chunk.js.map": "/trackxp/static/js/845.57d21f98.chunk.js.map",
     "787.ecac3bf6.chunk.js.map": "/trackxp/static/js/787.ecac3bf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31690426.css",
-    "static/js/main.0221cb7e.js"
+    "static/js/main.82268943.js"
   ]
 }
