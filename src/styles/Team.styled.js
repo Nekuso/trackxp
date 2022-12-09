@@ -102,8 +102,11 @@ export const StyledTeam = styled.div`
                         justify-content: center;
                         align-items: center;
                         gap: .7rem;
-                        i {
-                            font-size: 2rem;
+                        a {
+                            color: black;
+                            i {
+                                font-size: 2rem;
+                            }
                         }
                     }
                 }
@@ -141,8 +144,10 @@ export const StyledTeam = styled.div`
                         }
 
                         .team__member__links {
-                            i {
-                                font-size: 1.5rem;
+                            a {
+                                i {
+                                    font-size: 1.5rem;
+                                }
                             }
                         }
                     }
@@ -182,8 +187,10 @@ export const StyledTeam = styled.div`
                         }
 
                         .team__member__links {
-                            i {
-                                font-size: 1.5rem;
+                            a {
+                                i {
+                                    font-size: 1.5rem;
+                                }
                             }
                         }
                     }
