@@ -36,7 +36,7 @@ function Navbar() {
           {
             currentUser ? 
             <div className="dash__nav__container">
-              <motion.a href="https://github.com/Nekuso" className="github__link" rel="noopener noreferrer" target="_blank"
+              <motion.a href="https://github.com/Nekuso/trackxp" className="github__link" rel="noopener noreferrer" target="_blank"
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.5 }}
                 onHoverStart={e => {}}

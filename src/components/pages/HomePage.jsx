@@ -14,6 +14,7 @@ import Stack from "../Stack";
 import LoaderImg from "../../img/LoaderImg.gif";
 import Guide from "../Guide";
 import dataflow from "../../img/dataflow.gif";
+import Team from "../Team";
 
 function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -315,6 +316,7 @@ function HomePage() {
           <About/>
           <AboutData dataEnter={dataEnter} cursorLeave={cursorLeave} />
           <Guide guideEnter={guideEnter} cursorLeave={cursorLeave} />
+          <Team/>
         </ScrollerMotion>
       </StyledHomePage>
     </motion.div>
