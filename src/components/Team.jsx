@@ -5,6 +5,18 @@ import ProjectManager from "../img/ProjectManager.png";
 import SystemAnayst from "../img/SystemAnalyst.png";
 import Designer from "../img/Designer.png";
 import Programmer from "../img/Programmer.png";
+import ComputerImg from "../img/ComputerImg.png";
+import CodeImg from "../img/CodeImg.png";
+import AnnounceImg from "../img/AnnounceImg.png";
+import ArcadeImg from "../img/ArcadeImg.png";
+import DiceImg from "../img/DiceImg.png";
+import DroneImg from "../img/DroneImg.png";
+import NoteImg from "../img/NoteImg.png";
+import PenImg from "../img/PenImg.png";
+import PlaneImg from "../img/PlaneImg.png";
+import PieImg from "../img/PieImg.png";
+import {motion} from "framer-motion";
+
 
 const Team = () => {
   const teamData = [
@@ -24,6 +36,8 @@ const Team = () => {
           </a>
         </div>
       ),
+      float1: `${NoteImg}`,
+      float2: `${PenImg}`,
     },
     {
       img: `${ProjectManager}`,
@@ -41,6 +55,8 @@ const Team = () => {
           </a>
         </div>
       ),
+      float1: `${PlaneImg}`,
+      float2: `${AnnounceImg}`,
     },
     {
       img: `${SystemAnayst}`,
@@ -58,6 +74,8 @@ const Team = () => {
           </a>
         </div>
       ),
+      float1: `${PieImg}`,
+      float2: `${DiceImg}`,
     },
     {
       img: `${Designer}`,
@@ -75,6 +93,8 @@ const Team = () => {
           </a>
         </div>
       ),
+      float1: `${DroneImg}`,
+      float2: `${ArcadeImg}`,
     },
     {
       img: `${Programmer}`,
@@ -92,37 +112,82 @@ const Team = () => {
           </a>
         </div>
       ),
+      float1: `${ComputerImg}`,
+      float2: `${CodeImg}`,
     },
   ];
+  
+  const container = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y:0,
+      transition: {
+        duration: 1,
+        type: "spring",
+        stiffness: 100,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        duration: 3,
+        type: "spring",
+        stiffness: 90,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      }
+    }
+  };
 
   return (
     <StyledTeam>
-      <div className="team__content">
+      <motion.div className="team__content"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        exit="hidden"
+        viewport={{ once: false, amount: 0.2 }}
+      >
         <div className="team__title">
-          <h1>Our Team</h1>
-          <h3>
+          <motion.h1
+            variants={container}
+          >Our Team</motion.h1>
+          <motion.h3
+            variants={container}
+          >
             A small team of dedicated individuals working together to bring you
             the best possible experience.
-          </h3>
+          </motion.h3>
         </div>
 
-        <div className="team__members">
+        <motion.div className="team__members"
+        >
           {teamData.map((member, index) => {
             return (
-              <div className="team__member" key={index + 1}>
-                <div className="team__member__img">
-                  <img src={member.img} alt="" />
+              <motion.div className="team__member" key={index + 1}
+                variants={container}
+              >
+                <div className="team__member__img__container">
+                    <img className="float1 float" src={member.float1} alt="" />
+                    <img className="float2 float" src={member.float2} alt="" />
+                  <div className="team__member__img">
+                    <img src={member.img} alt="" />
+                  </div>
                 </div>
                 <div className="team__member__description">
                   <h3>{member.name}</h3>
                   <h1>{member.title}</h1>
                   {member.links}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </StyledTeam>
   );
 };

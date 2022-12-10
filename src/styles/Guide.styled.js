@@ -111,7 +111,6 @@ export const StyledGuide = styled.div`
         }
       }
     }
-    
   }
 
   @media screen and (min-width: 1024px) {
@@ -121,7 +120,7 @@ export const StyledGuide = styled.div`
       padding: 4rem 0;
 
       .guide__steps {
-        gap: 7rem;
+        gap: 1rem;
         .step {
           gap: 7rem;
           .step__desc {
