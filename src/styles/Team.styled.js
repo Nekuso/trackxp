@@ -222,6 +222,7 @@ export const StyledTeam = styled.div`
         width: 60%;
         justify-content: center;
         column-gap: 15%;
+        row-gap: 0.5rem;
         .team__member {
           flex: 0 23%;
           .team__member__description {
