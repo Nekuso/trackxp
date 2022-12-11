@@ -20,7 +20,7 @@ function HomePage() {
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     console.log(searchValue);
@@ -75,60 +75,59 @@ function HomePage() {
         duration: 2,
         type: "spring",
         stiffness: 30,
-      }
-    }
-  }
+      },
+    },
+  };
 
   const LoaderVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      y:0,
+      y: 0,
       transition: {
         duration: 1,
         type: "spring",
         stiffness: 100,
         when: "beforeChildren",
         staggerChildren: 0.3,
-      }
+      },
     },
     exit: { opacity: 0, y: 40 },
-  }
-  
+  };
+
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(false)
-    }, 6000)
+      setIsLoading(false);
+    }, 6000);
   }, []);
-  
+
   const [mousePosition, setMousePosition] = useState({
     x: 0,
-    y: 0
-  })
-  const [cursorText, setCursorText] = useState("")
-  const [hoverVariant, setHoverVariant]= useState("default")
+    y: 0,
+  });
+  const [cursorText, setCursorText] = useState("");
+  const [hoverVariant, setHoverVariant] = useState("default");
 
   const cursorVariants = {
     default: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
+      x: mousePosition.x - 7,
+      y: mousePosition.y - 7,
       transition: {
         type: "spring",
       },
-      backgroundColor:"rgba(0, 0, 0, 0)",
-      border: "2px solid black",
-      height: "32px",
-      width: "32px",
+      backgroundColor: "black",
+      height: "14px",
+      width: "14px",
       borderRadius: "50%",
       textAlign: "center",
       position: "fixed",
       pointerEvents: "none",
       zIndex: 9999999,
     },
-    
+
     guide: {
       display: "flex",
       justifyContent: "center",
@@ -138,7 +137,7 @@ function HomePage() {
       transition: {
         type: "spring",
       },
-      backgroundColor:"black",
+      backgroundColor: "black",
       color: "white",
       border: "2px solid black",
       height: "130px",
@@ -159,7 +158,7 @@ function HomePage() {
       transition: {
         type: "spring",
       },
-      backgroundColor:"black",
+      backgroundColor: "black",
       color: "white",
       border: "2px solid black",
       height: "130px",
@@ -169,42 +168,51 @@ function HomePage() {
       position: "fixed",
       pointerEvents: "none",
       zIndex: 9999999,
-    }
-  }
+    },
+  };
 
   function guideEnter(event) {
-    setCursorText("Scroll Slowly")
-    setHoverVariant("guide")
+    setCursorText("Scroll Slowly");
+    setHoverVariant("guide");
   }
   function dataEnter(event) {
-    setCursorText(<img src={dataflow} alt="" style={{ width: "100%", borderRadius: "100%" }}/>)
-    setHoverVariant("data")
+    setCursorText(
+      <img
+        src={dataflow}
+        alt=""
+        style={{ width: "100%", borderRadius: "100%" }}
+      />
+    );
+    setHoverVariant("data");
   }
 
   function cursorLeave(event) {
-    setCursorText("")
-    setHoverVariant("default")
+    setCursorText("");
+    setHoverVariant("default");
   }
 
   useEffect(() => {
-    const mouseMove = e => {
-      setMousePosition({x: e.clientX, y: e.clientY})
-    }
-    window.addEventListener("mousemove", mouseMove)
+    const mouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", mouseMove);
     return () => {
-      window.removeEventListener("mousemove", mouseMove)
-    }
-  }, [])
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
   return (
-    <motion.div
-      variants={homeVariants}
-      exit="hidden"
-    >
+    <motion.div variants={homeVariants} exit="hidden">
       <StyledHomePage>
         <AnimatePresence>
-          {isLoading ? 
-            <motion.div className="loader" variants={LoaderContainer} exit="exit">
-              <motion.div className="loader__content" variants={LoaderVariants}
+          {isLoading ? (
+            <motion.div
+              className="loader"
+              variants={LoaderContainer}
+              exit="exit"
+            >
+              <motion.div
+                className="loader__content"
+                variants={LoaderVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
@@ -213,22 +221,29 @@ function HomePage() {
                   variants={LoaderVariants}
                   whileTap={{ scale: 0.8 }}
                   whileHover={{ scale: 1.05 }}
-                  onHoverStart={e => {}}
-                  onHoverEnd={e => {}}
+                  onHoverStart={(e) => {}}
+                  onHoverEnd={(e) => {}}
                   drag
-                  dragConstraints={{left:0, top:0, right:0, bottom:0}}
+                  dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
                 >
-                  <motion.img className="loader__img" src={LoaderImg} alt=""/>
+                  <motion.img className="loader__img" src={LoaderImg} alt="" />
                 </motion.div>
-                  <motion.h2
-                  variants={LoaderVariants}
-                >Synchronizing</motion.h2>
+                <motion.h2 variants={LoaderVariants}>Synchronizing</motion.h2>
               </motion.div>
-            </motion.div> : null
-          }
+            </motion.div>
+          ) : null}
         </AnimatePresence>
-          <motion.div className="cursor" variants={cursorVariants} animate={hoverVariant}><span>{cursorText}</span></motion.div>
-        <ScrollerMotion spring={{mass: 1.25, stiffness: 300, damping: 100}} scale={1}>
+        <motion.div
+          className="cursor"
+          variants={cursorVariants}
+          animate={hoverVariant}
+        >
+          <span style={{ fontSize: ".8rem" }}>{cursorText}</span>
+        </motion.div>
+        <ScrollerMotion
+          spring={{ mass: 1.25, stiffness: 300, damping: 100 }}
+          scale={1}
+        >
           <Navbar />
           <div className="homepage__section section">
             <div className="hero__container">
@@ -239,7 +254,10 @@ function HomePage() {
                 animate={"visible2"}
                 exit={"hidden2"}
               >
-                <motion.img src={Satellite} className="text__img1" alt=""
+                <motion.img
+                  src={Satellite}
+                  className="text__img1"
+                  alt=""
                   animate={{
                     y: [0, 15, 0],
                     transition: {
@@ -247,10 +265,13 @@ function HomePage() {
                       repeat: Infinity,
                       repeatType: "reverse",
                       ease: "easeInOut",
-                    }
+                    },
                   }}
-                  />
-                <motion.img src={Cloud} className="text__img2" alt=""
+                />
+                <motion.img
+                  src={Cloud}
+                  className="text__img2"
+                  alt=""
                   animate={{
                     y: [0, 15, 0],
                     transition: {
@@ -258,7 +279,7 @@ function HomePage() {
                       repeat: Infinity,
                       repeatType: "reverse",
                       ease: "easeInOut",
-                    }
+                    },
                   }}
                 />
                 <p className="hero__badge">NEW</p>
@@ -312,11 +333,11 @@ function HomePage() {
               </motion.div>
             </div>
           </div>
-          <Stack/>
-          <About/>
+          <Stack />
+          <About />
           <AboutData dataEnter={dataEnter} cursorLeave={cursorLeave} />
           <Guide guideEnter={guideEnter} cursorLeave={cursorLeave} />
-          <Team/>
+          <Team />
         </ScrollerMotion>
       </StyledHomePage>
     </motion.div>

@@ -150,7 +150,7 @@ const Team = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <div className="team__title">
           <motion.h1
@@ -171,13 +171,17 @@ const Team = () => {
               <motion.div className="team__member" key={index + 1}
                 variants={container}
               >
-                <div className="team__member__img__container">
+                <motion.div className="team__member__img__container"
+                  whileHover={{ scale: 1.05 }}
+                  onHoverStart={e => {}}
+                  onHoverEnd={e => {}}
+                >
                     <img className="float1 float" src={member.float1} alt="" />
                     <img className="float2 float" src={member.float2} alt="" />
                   <div className="team__member__img">
                     <img src={member.img} alt="" />
                   </div>
-                </div>
+                </motion.div>
                 <div className="team__member__description">
                   <h3>{member.name}</h3>
                   <h1>{member.title}</h1>

@@ -87,8 +87,13 @@ export const StyledAbout = styled.div`
         background: #262D31;
         padding: 1rem;
         padding-top: 6.5rem;
+        background: rgba(226, 226, 226, 0.77);
+        border-radius: 2rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3.6px);
+        -webkit-backdrop-filter: blur(3.6px);
 
-        border-radius: 1rem;
+        border-radius: 2rem;
 
         :hover {
           cursor: pointer; 
@@ -113,9 +118,7 @@ export const StyledAbout = styled.div`
           }
         }
         
-        .item__content {
-          color: white;
-          
+        .item__content {          
           h2 {
             text-align: center;
             font-size: 1.1rem;
