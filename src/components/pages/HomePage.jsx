@@ -94,13 +94,11 @@ function HomePage() {
     },
     exit: { opacity: 0, y: 40 },
   };
-
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 6000);
   }, []);
-
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0,
@@ -343,5 +341,4 @@ function HomePage() {
     </motion.div>
   );
 }
-
 export default HomePage;
