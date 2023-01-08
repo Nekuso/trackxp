@@ -75,7 +75,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
         setCycleCollectionCount(doc.data().cycleStatusCollection.length);
       });
     };
-
+    
     return () => {
       fetchOrder();
       GenerateQRCode();
