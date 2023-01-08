@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { StyledMain } from '../styles/Main.styled';
 import Dashboard from './Dashboard';
 import Orders from './Orders';
+import Analytics from './Analytics';
 import SingleOrder from './SingleOrder';
 import Float1 from "../img/Float1.png";
 import Float2 from "../img/Float2.png";
@@ -42,11 +43,14 @@ function Main({handleAddNotification, handleTargetNotification, handleUpdateNoti
           />
         <Route path=":orderId" element={
           <SingleOrder 
-            handleUpdateNotifcation={handleUpdateNotifcation}
-            handleCycleNotification={handleCycleNotification}
+          handleUpdateNotifcation={handleUpdateNotifcation}
+          handleCycleNotification={handleCycleNotification}
           />
         }/>
       </Route>
+      <Route path="Analytics" element={
+        <Analytics/>
+      }/>
     </Routes>
    </StyledMain>
   )

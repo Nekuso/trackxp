@@ -52,7 +52,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                   })}/>
             </div>
             <p className="title">Total sales made today</p>
-            <p className="amount">P <CountUp duration={3} end={todaysEarnings}/></p>
+            <p className="amount">P <CountUp duration={2} end={todaysEarnings} decimal={2}/></p>
             <p className="desc">
                 Target restarts after a day, but you can always update your target anytime.
             </p>

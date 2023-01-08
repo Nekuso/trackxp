@@ -29,6 +29,12 @@ function Sidebar() {
                 Orders
               </div>
           </Link>
+          <Link className="li list" to="Analytics">
+            <i className='bx bxs-objects-horizontal-left'></i>
+            <div className="link title">
+              Analytics
+            </div>
+          </Link>
         </ul>
       </div>
 

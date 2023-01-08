@@ -273,7 +273,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
                   Grand Total
                 </td>
                 <td className="grand__total">
-                  <CountUp duration={1} end={order.total} />
+                  <CountUp duration={1} end={order.total} decimals={2}/>
                 </td>
               </tr>
             </tbody>

@@ -212,7 +212,7 @@ export const StyledPrintOrderInfo = styled.div`
             }
             .item__title {
               font-weight: 700;
-              font-size: 7.4vw;
+              font-size: 7.2vw;
             }
           }
         }
