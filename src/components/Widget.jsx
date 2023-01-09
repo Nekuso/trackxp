@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 import { StyledWidget } from "../styles/Widget.styled";
 import Tooltip from "@mui/material/Tooltip";
@@ -94,9 +94,9 @@ const Widget = ({ type, data, earnings, earningsDiff, diff, amount }) => {
           <h1>
             {data.currency}{" "}
             {data.query === "orders" ? (
-              <CountUp duration={2} end={amount} decimal={2} />
+              <CountUp duration={2} end={amount} />
             ) : (
-              <CountUp duration={2} end={earnings} decimal={2} />
+              <CountUp duration={2} end={earnings} decimals={2} separator="," />
             )}
           </h1>
         </div>

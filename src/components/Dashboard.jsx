@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
-import {StyledDashboard} from "../styles/Dashboard.styled";
-import {collection, query, where, getDocs, doc, getDoc, onSnapshot} from "firebase/firestore"
-import Widget from './Widget';
-import Featured from './Featured';
-import Chart from './Chart';
-import AddModal from './AddModal';
+import React, { useState } from "react";
+import { StyledDashboard } from "../styles/Dashboard.styled";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  getDoc,
+  onSnapshot,
+} from "firebase/firestore";
+import Widget from "./Widget";
+import Featured from "./Featured";
+import Chart from "./Chart";
+import AddModal from "./AddModal";
 import { db } from "../firebase";
-import { useEffect } from 'react';
-import SetTargetModal from './SetTargetModal';
-import {AnimatePresence, motion} from "framer-motion";
+import { useEffect } from "react";
+import SetTargetModal from "./SetTargetModal";
+import { AnimatePresence, motion } from "framer-motion";
 
-function Dashbooard({handleAddNotification, handleTargetNotification}) {
+function Dashbooard({ handleAddNotification, handleTargetNotification }) {
   const [queryData, setQueryData] = useState([]);
   const [queryTarget, setQueryTarget] = useState([]);
   const [amount, setAmount] = useState(0);
@@ -30,10 +38,10 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
 
   const handleAddModal = () => {
     setIsAddModal(!isAddModal);
-  }
+  };
   const handleSetTargetModal = () => {
     setIsSetTargetModal(!isSetTargetModal);
-  }
+  };
 
   const handleEarnings = () => {
     let totalEarnings = 0;
@@ -42,18 +50,17 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
       if (item.payment === "Paid") {
         totalEarnings += item.total;
       }
-    }
-    );
+    });
     earningsDataDiff.forEach((item) => {
       if (item.payment === "Paid") {
         totalEarningsDiff += item.total;
       }
-    }
-    );
+    });
     setEarnings(totalEarnings);
     setEarningsDiff(
-      Math.floor(((totalEarnings - totalEarningsDiff) / totalEarningsDiff) * 
-        100)
+      Math.floor(
+        ((totalEarnings - totalEarningsDiff) / totalEarningsDiff) * 100
+      )
     );
 
     let todaysTotal = 0;
@@ -63,7 +70,7 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
       }
     });
     setTodaysEarnings(todaysTotal);
-  }
+  };
 
   useEffect(() => {
     const unsub = onSnapshot(
@@ -98,8 +105,7 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
       unsub();
       unsub2();
     };
-    
-  },[])
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -108,8 +114,10 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
       const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
       const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
       const current = new Date();
-      const dateCreated = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-  
+      const dateCreated = `${current.getDate()}/${
+        current.getMonth() + 1
+      }/${current.getFullYear()}`;
+
       // Initialize conditional query from firestore
       const lastMonthQuery = query(
         collection(db, "orders"),
@@ -139,14 +147,17 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
       const lastMonthData = await getDocs(lastMonthQuery);
       const prevMonthData = await getDocs(prevMonthQuery);
       const todayData = await getDocs(todayQuery);
-      
+
       // Set data from firestore Data Dates
       setAmount(lastMonthData.docs.length);
       setDiff(
-        Math.floor(((lastMonthData.docs.length - prevMonthData.docs.length) / prevMonthData.docs.length) *
-          100)
+        Math.floor(
+          ((lastMonthData.docs.length - prevMonthData.docs.length) /
+            prevMonthData.docs.length) *
+            100
+        )
       );
-      
+
       // Populate data from firestore
       let list = [];
       lastMonthData.docs.forEach((doc) => {
@@ -170,9 +181,8 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
     };
 
     // Call functions
-      fetchData();
-
-  }, [amount,target,queryData,queryTarget]);
+    fetchData();
+  }, [amount, target, queryData, queryTarget]);
 
   const dashboardVariants = {
     hidden: {
@@ -231,7 +241,7 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
     },
     exit3: {
       opacity: 0,
-      y: 10,  
+      y: 10,
       transition: {
         delay: 0.6,
         duration: 0.5,
@@ -239,71 +249,89 @@ function Dashbooard({handleAddNotification, handleTargetNotification}) {
         stiffness: 100,
       },
     },
-  }
+  };
 
   return (
     <StyledDashboard>
       <AnimatePresence>
-        {isAddModal ? <AddModal handleAddModal={handleAddModal} handleAddNotification={handleAddNotification} /> : null}
-        {isSetTargetModal ? <SetTargetModal handleSetTargetModal={handleSetTargetModal} handleTargetNotification={handleTargetNotification}/>
-        : null}
+        {isAddModal ? (
+          <AddModal
+            handleAddModal={handleAddModal}
+            handleAddNotification={handleAddNotification}
+          />
+        ) : null}
+        {isSetTargetModal ? (
+          <SetTargetModal
+            handleSetTargetModal={handleSetTargetModal}
+            handleTargetNotification={handleTargetNotification}
+          />
+        ) : null}
       </AnimatePresence>
-      
-      <motion.div className="dashboard__header"
+
+      <motion.div
+        className="dashboard__header"
         variants={dashboardVariants}
         initial="hidden"
         animate="visible1"
         exit="exit1"
       >
         <h1 className="page__title">Dashboard</h1>
-        <button onClick={handleAddModal} className="new__button">New Order</button>
+        <button onClick={handleAddModal} className="new__button">
+          New Order
+        </button>
       </motion.div>
-      <motion.div className="widgets"
+      <motion.div
+        className="widgets"
         variants={dashboardVariants}
         initial="hidden"
         animate="visible2"
         exit="exit2"
       >
-        <Widget 
-          type="orders" 
-          className="widget1"  
-          data={data} 
-          diff={diff} 
-          earnings={earnings} 
-          earningsDiff={earningsDiff} 
+        <Widget
+          type="orders"
+          className="widget1"
+          data={data}
+          diff={diff}
+          earnings={earnings}
+          earningsDiff={earningsDiff}
           amount={amount}
         />
-        <Widget 
-          type="earnings" 
-          className="widget2" 
-          data={data} 
-          diff={diff} 
-          earnings={earnings} 
-          earningsDiff={earningsDiff} 
+        <Widget
+          type="earnings"
+          className="widget2"
+          data={data}
+          diff={diff}
+          earnings={earnings}
+          earningsDiff={earningsDiff}
           amount={amount}
         />
-        <Widget 
-          type="balance" 
-          className="widget3" 
-          data={data} 
-          diff={diff} 
-          earnings={earnings} 
-          earningsDiff={earningsDiff} 
+        <Widget
+          type="balance"
+          className="widget3"
+          data={data}
+          diff={diff}
+          earnings={earnings}
+          earningsDiff={earningsDiff}
           amount={amount}
         />
       </motion.div>
 
-      <motion.div className="charts"
+      <motion.div
+        className="charts"
         variants={dashboardVariants}
         initial="hidden"
         animate="visible3"
         exit="exit3"
       >
-        <Featured todaysEarnings={todaysEarnings} handleSetTargetModal={handleSetTargetModal} target={target}/>
-        <Chart/>
+        <Featured
+          todaysEarnings={todaysEarnings}
+          handleSetTargetModal={handleSetTargetModal}
+          target={target}
+        />
+        <Chart />
       </motion.div>
     </StyledDashboard>
-  )
+  );
 }
 
-export default Dashbooard
+export default Dashbooard;

@@ -5,7 +5,12 @@ export const StyledAnalytics = styled.div`
   position: relative;
   flex-direction: column;
   width: 93%;
-  height: 100%;
+  min-height: 100vh;
   background: yellow;
   margin: 1rem auto;
+
+  h1 {
+    color: black;
+    font-size: 1rem;
+  }
 `;

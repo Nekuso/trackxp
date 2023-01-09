@@ -52,7 +52,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                   })}/>
             </div>
             <p className="title">Total sales made today</p>
-            <p className="amount">P <CountUp duration={2} end={todaysEarnings} decimal={2}/></p>
+            <p className="amount">P <CountUp duration={2} end={todaysEarnings} decimals={2}/></p>
             <p className="desc">
                 Target restarts after a day, but you can always update your target anytime.
             </p>
@@ -62,7 +62,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                     <div className="item__title">Target</div>
                     <div className="item__result positive">
                         <div className="result__amount">
-                            P <CountUp duration={4} end={target}/>
+                            P <CountUp duration={4} end={target} decimals={2} separator="," />
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                     <div className={`item__result ${diff <= target ? "negative" : "positive"}`}>
                         {diff < target ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow ' ></i>) }
                         <div className="result__amount">
-                            P <CountUp duration={4} end={diff}/>
+                            P <CountUp duration={4} end={diff} decimals={2} separator=","/>
                         </div>
                     </div>
                 </div>
