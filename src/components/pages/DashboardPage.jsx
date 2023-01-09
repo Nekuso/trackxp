@@ -184,6 +184,10 @@ function DashboardPage() {
                                 <i className='bx bxs-receipt' ></i>
                                 <Link className="link" onClick={navToggle} to="Orders">Orders</Link>
                             </li>
+                            <li>
+                                <i className='bx bxs-objects-horizontal-left' ></i>
+                                <Link className="link" onClick={navToggle} to="Analytics">Analytics</Link>
+                            </li>
                         </ul>
 
                         <div className="other__container">

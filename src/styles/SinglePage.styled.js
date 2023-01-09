@@ -6,7 +6,6 @@ export const StyledSinglePage = styled.div`
   display: flex;
   justify-content: center;
 
-
   .single__page__section {
     position: relative;
     display: flex;
@@ -28,7 +27,7 @@ export const StyledSinglePage = styled.div`
 
       .buttons {
         display: flex;
-        gap: .5rem;
+        gap: 0.5rem;
 
         .button {
           position: relative;
@@ -36,7 +35,7 @@ export const StyledSinglePage = styled.div`
           cursor: pointer;
           width: 2.4rem;
           height: 2.4rem;
-          padding: .7rem;
+          padding: 0.7rem;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -44,7 +43,7 @@ export const StyledSinglePage = styled.div`
           background: black;
           white-space: nowrap;
           overflow: hidden;
-          transition: all .4s cubic-bezier(0.47, 0, 0.37, 1.47);
+          transition: all 0.4s cubic-bezier(0.47, 0, 0.37, 1.47);
 
           :before {
             content: "";
@@ -62,15 +61,15 @@ export const StyledSinglePage = styled.div`
             transition: all 0.5s cubic-bezier(0.47, 0, 0.37, 1.47);
           }
 
-          i{
+          i {
             color: white;
             font-size: 1rem;
             font-weight: 500;
           }
-          
+
           p {
             display: none;
-            font-size: .6rem;
+            font-size: 0.6rem;
             color: white;
           }
 
@@ -83,7 +82,7 @@ export const StyledSinglePage = styled.div`
             }
 
             i {
-              margin-right: .5rem;
+              margin-right: 0.5rem;
               color: black;
             }
 
@@ -109,13 +108,13 @@ export const StyledSinglePage = styled.div`
       cursor: pointer;
       background: #ffffff69;
       backdrop-filter: blur(10px);
-      
+
       // :hover {
       //   border: 1px solid black;
       //   box-shadow: black 10px 10px 0px;
       //   transform: translate(-5px, -5px);
       // }
-      
+
       .order__cycle__item {
         display: flex;
         align-items: center;
@@ -123,7 +122,7 @@ export const StyledSinglePage = styled.div`
         padding: 0.7rem;
         border-radius: 0.7rem;
         // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        
+
         i {
           background: #5773db;
           padding: 0.5rem;
@@ -134,7 +133,7 @@ export const StyledSinglePage = styled.div`
           box-shadow: 0 0 6px #5773db;
           transition: all 0.2s cubic-bezier(0.47, 0, 0.37, 1.47);
         }
-        
+
         .order__cycle__title {
           cursor: pointer;
           .cycle__title {
@@ -147,7 +146,7 @@ export const StyledSinglePage = styled.div`
             font-size: 0.8rem;
           }
         }
-        
+
         :hover {
           i {
             transform: translateY(-16px) scale(1.2);
@@ -186,7 +185,7 @@ export const StyledSinglePage = styled.div`
         background: #ffffff69;
         backdrop-filter: blur(10px);
         cursor: pointer;
-        
+
         :hover {
           border: 1px solid black;
           box-shadow: black 10px 10px 0px;
@@ -250,7 +249,7 @@ export const StyledSinglePage = styled.div`
       cursor: pointer;
       background: #ffffff69;
       backdrop-filter: blur(10px);
-      
+
       :hover {
         border: 1px solid black;
         box-shadow: black 10px 10px 0px;
@@ -307,7 +306,7 @@ export const StyledSinglePage = styled.div`
   @media screen and (min-width: 768px) {
     height: auto;
     display: flex;
-    
+
     .single__page__section {
       display: flex;
       flex-direction: row;
@@ -321,7 +320,7 @@ export const StyledSinglePage = styled.div`
         .title {
           font-size: 1.5rem;
         }
-        
+
         .buttons {
           .button {
             width: 2.5rem;
@@ -336,7 +335,7 @@ export const StyledSinglePage = styled.div`
             }
 
             :hover {
-              width: 150px
+              width: 150px;
             }
           }
         }
@@ -465,8 +464,8 @@ export const StyledSinglePage = styled.div`
     padding: 1.5rem 0;
     .single__page__section {
       gap: 1rem;
-      
-      .update__controls{
+
+      .update__controls {
         padding: 0;
       }
 
@@ -566,5 +565,4 @@ export const StyledSinglePage = styled.div`
       }
     }
   }
-
 `;

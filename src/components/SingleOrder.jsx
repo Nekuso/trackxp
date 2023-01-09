@@ -75,7 +75,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
         setCycleCollectionCount(doc.data().cycleStatusCollection.length);
       });
     };
-    
+
     return () => {
       fetchOrder();
       GenerateQRCode();
@@ -207,7 +207,10 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
             </div>
           )}
         </motion.div>
-        <StyledPrintOrderInfo className="order__info__container" ref={componentRef}>
+        <StyledPrintOrderInfo
+          className="order__info__container"
+          ref={componentRef}
+        >
           <div className="order__info">
             <img src={qrCode} alt="qrcode" />
             <div className="order__title">
@@ -273,7 +276,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
                   Grand Total
                 </td>
                 <td className="grand__total">
-                  <CountUp duration={1} end={order.total} decimals={2}/>
+                  <CountUp duration={1} end={order.total} decimals={2} />
                 </td>
               </tr>
             </tbody>

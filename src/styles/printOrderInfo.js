@@ -178,7 +178,7 @@ export const StyledPrintOrderInfo = styled.div`
         border-radius: 0.7rem;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       }
-      
+
       .order__title {
         padding: 1rem 0;
         width: 100%;
