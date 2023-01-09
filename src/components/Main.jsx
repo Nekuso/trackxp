@@ -14,7 +14,22 @@ import Float6 from "../img/Float6.png";
 import Float7 from "../img/Float7.png";
 
 
-function Main({handleAddNotification, handleTargetNotification, handleUpdateNotifcation, handleCycleNotification, handleDeleteNotification}) {
+function Main({
+  handleAddNotification, 
+  handleTargetNotification, 
+  handleUpdateNotifcation, 
+  handleCycleNotification, 
+  handleDeleteNotification,
+  data,
+  diff,
+  earnings,
+  earningsDiff,
+  amount,
+  target,
+  todaysEarnings,
+  queryData,
+  setQueryData
+}) {
   
   return (
     
@@ -31,6 +46,13 @@ function Main({handleAddNotification, handleTargetNotification, handleUpdateNoti
         <Dashboard 
           handleAddNotification={handleAddNotification} 
           handleTargetNotification={handleTargetNotification}
+          data={data}
+          diff={diff}
+          earnings={earnings}
+          earningsDiff={earningsDiff}
+          amount={amount}
+          target={target}
+          todaysEarnings={todaysEarnings}
           />} 
         />
       <Route path="Orders">
@@ -39,6 +61,8 @@ function Main({handleAddNotification, handleTargetNotification, handleUpdateNoti
             handleAddNotification={handleAddNotification} 
             handleUpdateNotifcation={handleUpdateNotifcation}
             handleDeleteNotification={handleDeleteNotification}
+            queryData={queryData}
+            setQueryData={setQueryData}
             />} 
           />
         <Route path=":orderId" element={

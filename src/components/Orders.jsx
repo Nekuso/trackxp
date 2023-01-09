@@ -6,7 +6,7 @@ import DataTable from './DataTable';
 import {motion} from 'framer-motion';
 
 
-const Orders = ({handleAddNotification, handleDeleteNotification}) => {
+const Orders = ({handleAddNotification, handleDeleteNotification, queryData, setQueryData}) => {
 
   const [isAddModal, setIsAddModal] = useState(false);
 
@@ -50,7 +50,7 @@ const Orders = ({handleAddNotification, handleDeleteNotification}) => {
         </div>
         <button onClick={handleAddModal} className="new__button">New Order</button>
       </motion.div>
-      <DataTable handleDeleteNotification={handleDeleteNotification}/>
+      <DataTable handleDeleteNotification={handleDeleteNotification} queryData={queryData} setQueryData={setQueryData}/>
     </StyledOrders>
   );
 }
