@@ -15,6 +15,11 @@ export const dataColumns = [
     headerAlign: "center",
     flex: 1,
     align: "center",
+    renderCell: (params) => {
+      return (
+        <span>{params.row.total.toFixed(2)}</span>
+      );
+    },
   },
   {
     field: "dateCreated",

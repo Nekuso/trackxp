@@ -4,6 +4,22 @@ export const StyledDataTable = styled.div`
   height: 100%;
   width: 100%;
   
+  .search__container {
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+
+    .search__input {
+      width: 100%;
+      border: none;
+      border-radius: .2rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid #ccc;
+      background: #ffffff69;
+      backdrop-filter: blur(10px);
+    }
+  }
 
   div {
     font-size: 0.7rem;

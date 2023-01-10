@@ -110,9 +110,7 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
     comment: "",
   });
   const current = new Date();
-  const dateCreated = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const dateCreated = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -182,7 +180,8 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
         return (particular.itemTotal = 0);
       }
     });
-    setTotal(particularsData.reduce((acc, curr) => acc + curr.itemTotal, 0));
+    const computedTotal = (particularsData.reduce((acc, curr) => acc + curr.itemTotal, 0));
+    setTotal (parseFloat(computedTotal.toFixed(2)));
   }, [particularsData]);
 
   const modalVariants = {

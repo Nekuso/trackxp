@@ -201,9 +201,8 @@ function DashboardPage() {
       const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
       const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
       const current = new Date();
-      const dateCreated = `${current.getDate()}/${
-        current.getMonth() + 1
-      }/${current.getFullYear()}`;
+      const dateCreated = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;
+
 
       // Initialize conditional query from firestore
       const lastMonthQuery = query(

@@ -11,31 +11,36 @@ import {
 } from "recharts";
 
 const Chart = ({ queryData }) => {
-  const [data, setData] = useState([
-    {name: "Monday", Total: 0 },
-    {name: "Tuesday", Total: 0 },
-    {name: "Wednesday", Total: 0 },
-    {name: "Thursday", Total: 0 },
-    {name: "Friday", Total: 0 },
-    {name: "Saturday", Total: 0 },
-    {name: "Sunday", Total: 0 },
-  ]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-      console.log(data);
-    
-      const updatedData = [...data]; // create a copy of the data array
-      queryData.forEach((item) => {
-        let day = new Date(item.dateCreated);
-        let thisWeek = new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000);
-    
-        if (day >= thisWeek) {
-          let dayName = day.toLocaleString("en-us", { weekday: "long" }); // get the name of the day
-          let dayIndex = updatedData.findIndex((d) => d.name === dayName); // find the index of the day in the array
-          updatedData[dayIndex].Total += item.total; // increment the Total field
-        }
-      });
-      setData(updatedData); // update the data array
+    console.log(data);
+    const days = [
+      {name: "Monday", Total: 0 },
+      {name: "Tuesday", Total: 0 },
+      {name: "Wednesday", Total: 0 },
+      {name: "Thursday", Total: 0 },
+      {name: "Friday", Total: 0 },
+      {name: "Saturday", Total: 0 },
+      {name: "Sunday", Total: 0 },
+    ];
+
+    // Get the current date
+    const now = new Date();
+    // Get the date 7 days ago
+    const pastWeek = new Date(now.getTime() - (7 * 24 * 60 * 60 * 1000));
+    // filter the orders that only include the last 7 days
+    const filteredData = queryData.filter(item => new Date(item.dateCreated) >= pastWeek);
+    // Iterate through each order
+    filteredData.map((item) => {
+      // Get the date of the order
+      let date = new Date(item.dateCreated);
+      // Get the day of the week (0 = Sunday, 1 = Monday, etc.)
+      let day = date.getUTCDay();
+      // Add the revenue of the order to the appropriate day's total
+      days[day].Total += item.total;
+    });
+    setData(days);
   }, [queryData]);
 
   return (

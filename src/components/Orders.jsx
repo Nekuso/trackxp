@@ -7,7 +7,6 @@ import {motion} from 'framer-motion';
 
 
 const Orders = ({handleAddNotification, handleDeleteNotification, queryData, setQueryData}) => {
-
   const [isAddModal, setIsAddModal] = useState(false);
 
   const handleAddModal = () => {

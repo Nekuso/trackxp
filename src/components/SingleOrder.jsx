@@ -239,7 +239,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
                 </div>
                 <div className="item__desc">
                   <p className="item__title">Price</p>
-                  <p>P {order.total}</p>
+                  <p>P <CountUp duration={1} end={order.total} decimals={2} /></p>
                 </div>
               </div>
             </div>
@@ -261,8 +261,8 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
                   <tr key={index}>
                     <td className="particular__align">{item.name}</td>
                     <td>{item.quantity}</td>
-                    <td>{item.price}</td>
-                    <td>{item.itemTotal}</td>
+                    <td><CountUp duration={0} end={item.price} decimals={2} /></td>
+                    <td><CountUp duration={0} end={item.itemTotal} decimals={2} /></td>
                   </tr>
                 ))
               ) : (
@@ -276,7 +276,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
                   Grand Total
                 </td>
                 <td className="grand__total">
-                  <CountUp duration={1} end={order.total} decimals={2} />
+                  P <CountUp duration={1} end={order.total} decimals={2} />
                 </td>
               </tr>
             </tbody>

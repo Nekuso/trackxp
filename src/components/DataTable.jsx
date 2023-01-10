@@ -1,13 +1,15 @@
-import React from "react";
+import { React, useState } from "react";
 import { StyledDataTable } from "../styles/DataTable.styled";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { dataColumns } from "../dataTableSource";
 import { Link } from "react-router-dom";
-import {deleteDoc, doc} from "firebase/firestore";
+import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { motion } from "framer-motion";
 
 const Datatable = ({ handleDeleteNotification, queryData, setQueryData }) => {
+  const [searchValue, setSearchValue] = useState("");
+
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, "orders", id));
@@ -65,6 +67,21 @@ const Datatable = ({ handleDeleteNotification, queryData, setQueryData }) => {
   return (
     <StyledDataTable>
       <motion.div
+        className="search__container"
+        variants={viewVariants}
+        initial="initialHidden"
+        animate="initialVisible"
+        exit="initialHidden"
+      >
+        <input
+          className="search__input"
+          type="text"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          placeholder="INPUT ORDER ID"
+        />
+      </motion.div>
+      <motion.div
         className="dataTable"
         variants={viewVariants}
         initial="initialHidden"
@@ -78,19 +95,23 @@ const Datatable = ({ handleDeleteNotification, queryData, setQueryData }) => {
           pageSize={15}
           rowsPerPageOptions={[15]}
           density={"compact"}
-          // checkboxSelection
           sx={{
-            // borderRadius: ".5rem",
             p: "10px",
-            // boxShadow: 2,
-            // border: 2,
-            // borderColor: 'primary.light',
-            // '& .MuiDataGrid-cell:hover': {
-            //     color: 'primary.main',
-            // }
           }}
-          // disableColumnMenu
-          // autoHeight
+          initialState={{
+            sorting: {
+              sortModel: [{ field: "orderId", sort: "desc" }],
+            },
+          }}
+          filterModel={{
+            items: [
+              {
+                columnField: "orderId",
+                operatorValue: "contains",
+                value: searchValue,
+              },
+            ],
+          }}
           components={{ Toolbar: GridToolbar }}
           disableExportMenu={true}
           componentsProps={{
