@@ -278,11 +278,24 @@ export const StyledSinglePage = styled.div`
           .grand__total {
             border-top: 1px solid black;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             padding: 0.8rem 0 0 0;
           }
         }
       }
+    }
+
+    .order__review__container {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+      min-height: 50vh;
+      border-radius: 0.7rem;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      cursor: pointer;
+      background: #ffffff69;
+      backdrop-filter: blur(10px);
     }
   }
 

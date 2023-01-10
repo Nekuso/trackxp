@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import { StyledNavbar } from '../styles/Navbar.styled'
 import {motion} from "framer-motion";
 
-function Navbar() {
+function Navbar({isLogin}) {
 
   const [navActive, setNavActive] = useState("nav__links");
   const [btnActive, setBtnActive] = useState("nav__hamburger");
@@ -44,7 +44,7 @@ function Navbar() {
               ><i className='bx bxl-github'></i></motion.a>
               <Link to="Home" className="nav__dash__button">Dashboard</Link>
             </div>
-            : <><li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
+            : isLogin ? "":<><li><Link to="/Login" className='Link' onClick={navToggle }>Login</Link></li>
             {/* <li><Link to="/Signup" className='Link Signup' onClick={navToggle }>Signup</Link></li> */}
             </>
           }
