@@ -28,6 +28,7 @@ function Dashbooard({
   amount,
   target,
   todaysEarnings,
+  queryData
 }) {
 
   const [isAddModal, setIsAddModal] = useState(false);
@@ -184,7 +185,7 @@ function Dashbooard({
           handleSetTargetModal={handleSetTargetModal}
           target={target}
         />
-        <Chart />
+        <Chart queryData={queryData} />
       </motion.div>
     </StyledDashboard>
   );

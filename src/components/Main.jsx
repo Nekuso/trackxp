@@ -53,6 +53,8 @@ function Main({
           amount={amount}
           target={target}
           todaysEarnings={todaysEarnings}
+          queryData={queryData}
+          setQueryData={setQueryData}
           />} 
         />
       <Route path="Orders">

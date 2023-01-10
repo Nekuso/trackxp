@@ -378,10 +378,6 @@ function DashboardPage() {
               </ul>
 
               <div className="other__container">
-                {/* <a className="other__link" href="/">
-                                <i className='bx bx-question-mark'></i>
-                                FAQ
-                            </a> */}
                 <Link
                   className="other__link"
                   to="/Login"
