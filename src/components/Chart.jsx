@@ -14,7 +14,6 @@ const Chart = ({ queryData }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    console.log(data);
     const days = [
       {name: "Monday", Total: 0 },
       {name: "Tuesday", Total: 0 },
