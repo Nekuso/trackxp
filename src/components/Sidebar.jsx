@@ -35,6 +35,12 @@ function Sidebar() {
               Analytics
             </div>
           </Link>
+          <Link className="li list" to="">
+            <i className='bx bxs-user-account'></i>
+            <div className="link title">
+              Manage
+            </div>
+          </Link>
         </ul>
       </div>
 

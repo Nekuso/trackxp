@@ -26,7 +26,6 @@ function Loginpage() {
         // Signed in
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
-        console.log(user);
         navigate("/home");
       })
       .catch((error) => {
