@@ -27,7 +27,7 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
             <Route path="/">
-              {/* <Route index element={<HomePage />}/>
+              <Route index element={<HomePage />}/>
               <Route path=":orderId" element={<View/>}/>
               <Route path="Login" element={<LoginPage />} />
               <Route path="Signup" element={<SignupPage />} />
@@ -38,7 +38,7 @@ function App() {
                     <DashboardPage />
                   </RequireAuth>
                 }
-              /> */}
+              />
             </Route>
           </Routes>
       </AnimatePresence>

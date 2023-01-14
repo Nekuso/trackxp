@@ -75,7 +75,10 @@ function Main({
         }/>
       </Route>
       <Route path="Analytics" element={
-        <Analytics/>
+        <Analytics
+          queryData={queryData}
+          setQueryData={setQueryData}
+        />
       }/>
     </Routes>
    </StyledMain>

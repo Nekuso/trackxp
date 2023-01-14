@@ -55,7 +55,6 @@ const RatingModal = ({ handleIsRatingOpen, orderRawId,  toggle, setToggle}) => {
       catch (error) {
         console.log(error);
     }
-    console.log(orderRawId)
 
     handleIsRatingOpen();
     setToggle(!toggle);
@@ -82,14 +81,14 @@ const RatingModal = ({ handleIsRatingOpen, orderRawId,  toggle, setToggle}) => {
         <div className="set__modal__input">
             <div className="rating__container">
               <Rating
-                  size="large"
-                  className="rating"
-                  name="simple-controlled"
-                  value={ratingValue}
-                  onChange={(event, newValue) => {
-                    setRatingValue(parseInt(newValue));
-                    console.table(ratingValue);
-                  }}
+                size="large"
+                className="rating"
+                name="simple-controlled"
+                value={ratingValue}
+                onChange={(event, newValue) => {
+                  setRatingValue(parseInt(newValue));
+                  console.table(ratingValue);
+                }}
               />
             </div>
           <label htmlFor="">Comment:</label>

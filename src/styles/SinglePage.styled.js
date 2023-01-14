@@ -249,6 +249,7 @@ export const StyledSinglePage = styled.div`
       cursor: pointer;
       background: #ffffff69;
       backdrop-filter: blur(10px);
+      margin-bottom: 4.5rem;
 
       :hover {
         border: 1px solid black;
@@ -283,19 +284,6 @@ export const StyledSinglePage = styled.div`
           }
         }
       }
-    }
-
-    .order__review__container {
-      display: flex;
-      gap: 0.5rem;
-      width: 100%;
-      min-height: 50vh;
-      border-radius: 0.7rem;
-      padding: 1rem;
-      border: 1px solid #e0e0e0;
-      cursor: pointer;
-      background: #ffffff69;
-      backdrop-filter: blur(10px);
     }
   }
 
@@ -443,6 +431,8 @@ export const StyledSinglePage = styled.div`
         flex: 1 0 60%;
         height: auto;
         border-radius: 0.7rem;
+        margin-bottom: 0rem;
+
 
         .order__table {
           padding: 1rem;

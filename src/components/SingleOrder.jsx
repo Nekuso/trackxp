@@ -15,7 +15,10 @@ import UpdateButton from "./UpdateButton";
 import { motion, AnimatePresence } from "framer-motion";
 import CountUp from "react-countup";
 import { useReactToPrint } from "react-to-print";
-import { StyledPrintOrderInfo, StyledPrint } from "../styles/printOrderInfo";
+import { StyledPrintOrderInfo} from "../styles/printOrderInfo";
+import Tooltip from "@mui/material/Tooltip";
+import ViewRating from "./ViewRating";
+
 
 const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
   const [order, setOrder] = useState([]);
@@ -26,11 +29,17 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
   const qrLink = `https://nekuso.github.io/trackxp/?#/${orderId}`;
   const [isEditModal, setIsEditModal] = useState(false);
   const [cycleCollectionCount, setCycleCollectionCount] = useState(0);
+  const [ratingValue, setRatingValue] = useState(0);
+  const [commentValue, setCommentValue] = useState("");
+  const [isRatingOpen, setIsRatingOpen] = useState(false);
 
   let componentRef = useRef();
 
   const handleEditModal = () => {
     setIsEditModal(!isEditModal);
+  };
+  const handleViewRating = () => {
+    setIsRatingOpen(!isRatingOpen);
   };
 
   useEffect(() => {
@@ -73,6 +82,8 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
         setOrder(doc.data());
         setDocId(doc.id);
         setCycleCollectionCount(doc.data().cycleStatusCollection.length);
+        setRatingValue(doc.data().orderRating.ratingValue);
+        setCommentValue(doc.data().orderRating.commentValue);
       });
     };
 
@@ -144,6 +155,15 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
               handleUpdateNotifcation={handleUpdateNotifcation}
             />
           ) : null}
+          {
+            isRatingOpen ? (
+              <ViewRating
+                handleViewRating={handleViewRating}
+                ratingValue={ratingValue}
+                commentValue={commentValue}
+              />
+            ) : null
+          }
         </AnimatePresence>
         <div className="update__controls">
           <h2 className="title">Order Status</h2>
@@ -207,9 +227,11 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
             </div>
           )}
         </motion.div>
+      <Tooltip title={"View Rating"} placement="right" followCursor>
         <StyledPrintOrderInfo
           className="order__info__container"
           ref={componentRef}
+          onClick={handleViewRating}
         >
           <div className="order__info">
             <img src={qrCode} alt="qrcode" />
@@ -247,6 +269,7 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
             </div>
           </div>
         </StyledPrintOrderInfo>
+      </Tooltip>
         <div className="order__table__container">
           <table className="order__table">
             <thead>
@@ -288,7 +311,6 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
             </tbody>
           </table>
         </div>
-        <div className="order__review__container">REVIEW</div>
       </motion.div>
     </StyledSinglePage>
   );

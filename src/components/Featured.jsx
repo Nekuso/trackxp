@@ -32,7 +32,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
   return (
     <StyledFeatured>
         <div className="top">
-            <h1 className="title">Featured</h1>
+            <h1 className="title">Target</h1>
             <i className='bx bx-dots-horizontal-rounded' onClick={handleOpen} onMouseLeave={handleOpen2}>
                 <div className={`round__container ${isOpen ? "open" : "closed"}`}>
                     <div className="update__target" onClick={()=> {handleSetTargetModal()}}>
@@ -68,10 +68,10 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
                 </div>
                 <div className="item">
                     <div className="item__title">Difference</div>
-                    <div className={`item__result ${diff <= target ? "negative" : "positive"}`}>
-                        {diff < target ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow ' ></i>) }
+                    <div className={`item__result ${diff >= 0 ? "negative" : "positive"}`}>
+                        {diff >= 0 ? (<i className='bx bxs-down-arrow'></i>) : (<i className='bx bxs-up-arrow'></i>) }
                         <div className="result__amount">
-                            P <CountUp duration={4} end={diff} decimals={2} separator=","/>
+                            P <CountUp duration={4} end={Math.abs(diff)} decimals={2} separator=","/>
                         </div>
                     </div>
                 </div>

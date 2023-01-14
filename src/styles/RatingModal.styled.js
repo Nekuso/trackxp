@@ -53,10 +53,10 @@ export const StyledRatingModal = styled.div`
                 width: 100%;
                 border: none;
                 padding: .5rem;
-                margin: 1rem 0;
+                margin: .5rem 0;
                 border: 1px solid #ccc;
                 border-radius: .5rem;
-                height: 5rem;
+                height: 10rem;
                 resize: none;
             }
             .rating__container {
@@ -97,18 +97,24 @@ export const StyledRatingModal = styled.div`
             width: 25rem;
             padding: 1.5rem;
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
             .set__modal__input {
-                .rating {
-
+                .rating__container {
+                    width: 100%;
+                    .rating {
+                        font-size: 3rem;
+                    }
                 }
-            }
-            .buttons {
-                button {
-                    border-radius: .5rem;
-                    font-size: 1rem;
-                    padding: .5rem 1rem;
+                .text__input {
+                    height: 10rem;
+                }
+                .buttons {
+                    button {
+                        border-radius: 1rem;
+                        font-size: .8rem;
+                        padding: .5rem 1rem;
+                    }
                 }
             }
         }

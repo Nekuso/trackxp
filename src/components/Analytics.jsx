@@ -1,14 +1,21 @@
-import React from "react";
+import {React, useState} from "react";
 import { StyledAnalytics } from "../styles/Analytics.styled";
+// import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
-const Analytics = () => {
+
+
+
+const Analytics = ({queryData, setQueryData}) => {
+  const [dateStart, setDateStart] = useState("");
+  const [dateEnd, setDateEnd] = useState("");
+
   return (
     <StyledAnalytics>
-      <h1>Analytics</h1>
+      <div className="analytics__header">
+        <h1>Analytics</h1>
+      </div>
 
       <div className="analytics__content">
-        <h2>Analytics Under Development</h2>
-        <p>For more information, contact Nekuso</p>
       </div>
     </StyledAnalytics>
   );
