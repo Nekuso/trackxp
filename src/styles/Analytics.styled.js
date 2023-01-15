@@ -9,9 +9,24 @@ export const StyledAnalytics = styled.div`
   background: yellow;
   margin: 1rem auto;
 
-  h1 {
-    color: black;
-    font-size: 1.5rem;
+  .analytics__header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .date__container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
   }
 
   .analytics__content {
@@ -22,5 +37,9 @@ export const StyledAnalytics = styled.div`
     align-items: center;
     text-align: center;
     flex-direction: column;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 2rem auto;
   }
 `;
