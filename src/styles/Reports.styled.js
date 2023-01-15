@@ -19,6 +19,10 @@ export const StyledReports = styled.div`
     h1 {
       font-size: 1.5rem;
     }
+
+    .date {
+        display: none;
+    }
     .right__actions {
       display: flex;
       align-items: center;
@@ -85,7 +89,9 @@ export const StyledReports = styled.div`
             border: 1px solid black;
             padding: 0.5rem;
         }
-
+    }
+    .report__totals {
+        padding: 1rem 0;
     }
   }
 
@@ -94,6 +100,17 @@ export const StyledReports = styled.div`
       h1 {
         font-size: 2rem;
       }
+    }
+  }
+
+  @media print {
+    .reports__header {
+        .date {
+            display: block;
+        }
+        .right__actions {
+            display: none;
+        }
     }
   }
 `;

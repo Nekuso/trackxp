@@ -164,6 +164,7 @@ const Reports = ({ queryData, setqueryData }) => {
     <StyledReports>
       <div className="reports__header">
         <h1>Reports</h1>
+        <p className="date">This {currentDate} report {dateStart + " - " + dateEnd}</p>
         <div className="right__actions">
           <div className="date__buttons">
             <button
@@ -205,10 +206,10 @@ const Reports = ({ queryData, setqueryData }) => {
             </tbody>
         </table>
 
-        <div className="reports__totals">
-            <p>{dateStart + " - " + dateEnd}</p>
-            <p>Total Orders: {filteredOrders.length}</p>
-            <p>Total Revenue: P {<CountUp duration={2} end={filteredOrders.reduce((acc, order) => acc + order.total, 0) } decimals={2} separator="," />}</p>
+        <div className="report__totals">
+            
+            <h2>Total Orders: {filteredOrders.length}</h2>
+            <h2>Total Revenue: P {<CountUp duration={2} end={filteredOrders.reduce((acc, order) => acc + order.total, 0) } decimals={2} separator="," />}</h2>
         </div>
       </div>
     </StyledReports>
