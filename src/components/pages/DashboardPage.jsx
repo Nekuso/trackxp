@@ -374,6 +374,12 @@ function DashboardPage() {
                     Analytics
                   </Link>
                 </li>
+                <li>
+                  <i className='bx bxs-report'></i>
+                  <Link className="link" onClick={navToggle} to="">
+                    Reports
+                  </Link>
+                </li>
               </ul>
 
               <div className="other__container">

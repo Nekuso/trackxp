@@ -39,6 +39,12 @@ export const StyledRatingModal = styled.div`
             text-align: center;
             font-size: 1rem;
         }
+        p {
+            margin: .5rem 0;
+            text-align: center;
+            font-size: .9rem;
+            color: gray;
+        }
 
         .set__modal__input {
             input {
@@ -98,6 +104,13 @@ export const StyledRatingModal = styled.div`
             padding: 1.5rem;
             h1 {
                 font-size: 1.2rem;
+            }
+            
+            p {
+                margin: .5rem 0;
+                text-align: center;
+                font-size: .9rem;
+                color: gray;
             }
             .set__modal__input {
                 .rating__container {

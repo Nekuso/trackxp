@@ -36,9 +36,9 @@ function Sidebar() {
             </div>
           </Link>
           <Link className="li list" to="">
-            <i className='bx bxs-user-account'></i>
+            <i className='bx bxs-report'></i>
             <div className="link title">
-              Manage
+              Reports
             </div>
           </Link>
         </ul>

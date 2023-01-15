@@ -41,7 +41,7 @@ const ViewRating = ({handleViewRating, ratingValue, commentValue}) => {
     <StyledRatingModal>
       <motion.div
         className="closer"
-        onClick={() => handleViewRating}
+        onClick={() => handleViewRating()}
         variants={modalVariants}
         initial="hidden"
         animate="visible"

@@ -61,11 +61,13 @@ const Chart = ({ queryData }) => {
             type="monotone"
             dataKey="Total"
             stroke="#5773db"
+            strokeWidth={2}
             fillOpacity={1}
             fill="url(#total)"
           />
         </AreaChart>
       </ResponsiveContainer>
+      
     </StyledChart>
   );
 };

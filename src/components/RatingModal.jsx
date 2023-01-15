@@ -78,6 +78,7 @@ const RatingModal = ({ handleIsRatingOpen, orderRawId,  toggle, setToggle}) => {
         exit="hidden2"
       >
         <h1>How would you rate your experience?</h1>
+        <p>Let us be aware of it</p>
         <div className="set__modal__input">
             <div className="rating__container">
               <Rating

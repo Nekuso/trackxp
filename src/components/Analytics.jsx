@@ -1,53 +1,39 @@
 import {React, useState} from "react";
 import { StyledAnalytics } from "../styles/Analytics.styled";
-import dayjs from 'dayjs';
-import TextField from '@mui/material/TextField';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useEffect } from "react";
 
 
 const Analytics = ({queryData, setQueryData}) => {
-  let now = dayjs()
-  const [dateStart, setDateStart] = useState("12/1/2022");
-  const [dateEnd, setDateEnd] = useState(dayjs(now).format('M/D/YYYY'));
+  const [dateStart, setDateStart] = useState();
+  const [dateEnd, setDateEnd] = useState();
+
+  function getCurrentWeekStart() {
+    const currentDate = new Date();
+    const dayOfWeek = currentDate.getUTCDay();
+    const startOfWeek = new Date(currentDate);
+    startOfWeek.setUTCDate(currentDate.getUTCDate() - dayOfWeek);
+    startOfWeek.setUTCHours(0, 0, 0, 0);
+    return startOfWeek;
+  }
+  function getCurrentWeekEnd() {
+    const currentWeekStart = getCurrentWeekStart();
+    const endOfWeek = new Date(currentWeekStart);
+    endOfWeek.setUTCDate(currentWeekStart.getUTCDate() + 6);
+    endOfWeek.setUTCHours(23, 59, 59, 999);
+    return endOfWeek;
+  }
 
   useEffect(() => {
+
+    setDateStart(getCurrentWeekStart())
+    setDateEnd(getCurrentWeekEnd())
     console.log(dateStart)
-    console.log(dateEnd)
-  }, [dateStart, dateEnd])
+  }, [])
 
   return (
     <StyledAnalytics>
       <div className="analytics__header">
         <h1>Analytics</h1>
-        <div className="date__container">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-            className="date__picker"
-              label="Start Date"
-              openTo="month"
-              views={['month', 'day', 'year']}
-              value={dateStart}
-              onChange={(newValue) => {
-                setDateStart(dayjs(newValue).format('M/D/YYYY'));
-              }}
-              renderInput={(params) => <TextField {...params} />}
-              />
-            <DatePicker
-              className="date__picker"
-              label="End Date"
-              openTo="month"
-              views={['month', 'day', 'year']}
-              value={dateEnd}
-              onChange={(newValue) => {
-                setDateEnd(dayjs(newValue).format('M/D/YYYY'));
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-        </div>
       </div>
 
       <div className="analytics__content">
