@@ -169,7 +169,8 @@ export const StyledDashboardPage = styled.div`
           justify-content: space-between;
           width: 60vw;
           height: 100vh;
-          background: #303030e7;
+          background: black;
+          border-radius: 0 1.8rem 1.8rem 0;
           display: flex;
           position: fixed;
           top: 0;

@@ -1,28 +1,17 @@
-import { React, useState } from "react";
-import { StyledAnalytics } from "../styles/Analytics.styled";
-import { useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
+import { StyledReports } from "../styles/Reports.styled";
+import { useReactToPrint } from "react-to-print";
 import CountUp from "react-countup";
-import Tooltip from "@mui/material/Tooltip";
-import ChartSecond from "./ChartSecond";
-import Rating from '@mui/material/Rating';
 
-const Analytics = ({ queryData, setQueryData }) => {
+
+const Reports = ({ queryData, setqueryData }) => {
   const [currentDate, setCurrentDate] = useState("week");
   const [dateStart, setDateStart] = useState();
   const [dateEnd, setDateEnd] = useState();
   const [filteredOrders, setFilteredOrders] = useState([]);
-  const [totalOrders, setTotalOrders] = useState();
+  const [totalOrders, setTotalOrders] = useState(0);
   const [totalRevenue, setTotalRevenue] = useState(0);
-  const [pendingOrders, setPendingOrders] = useState(0);
   const [completedOrders, setCompletedOrders] = useState(0);
-  const [totalRating, setTotalRating] = useState(0);
-  const [ratingAverage, setRatingAverage] = useState(0);
-  const [oneStar, setOneStar] = useState(0);
-  const [twoStar, setTwoStar] = useState(0);
-  const [threeStar, setThreeStar] = useState(0);
-  const [fourStar, setFourStar] = useState(0);
-  const [fiveStar, setFiveStar] = useState(0);
-  
 
   useEffect(() => {
     if (currentDate === "week") {
@@ -102,46 +91,7 @@ const Analytics = ({ queryData, setQueryData }) => {
       }
     });
 
-    let one = 0;
-    let two = 0;
-    let three = 0;
-    let four = 0;
-    let five = 0;
-    let totalRating = 0;
-    filteredData.forEach((order) => {
-      if (order.orderRating.ratingValue === 1) {
-        one++;
-        totalRating++;
-      }
-      if (order.orderRating.ratingValue === 2) {
-        two++;
-        totalRating++;
-      }
-      if (order.orderRating.ratingValue === 3) {
-        three++;
-        totalRating++;
-      }
-      if (order.orderRating.ratingValue === 4) {
-        four++;
-        totalRating++;
-      }
-      if (order.orderRating.ratingValue === 5) {
-        five++;
-        totalRating++;
-      }
-    });
-
-
-    setOneStar(one);
-    setTwoStar(two);
-    setThreeStar(three);
-    setFourStar(four);
-    setFiveStar(five);
-    setTotalRating(totalRating);
-    console.log("totalRating", totalRating);
-
     setTotalRevenue(total);
-    setPendingOrders(pending);
     setCompletedOrders(completed);
   }, [currentDate, queryData]);
 
@@ -163,7 +113,6 @@ const Analytics = ({ queryData, setQueryData }) => {
     end = end_month + "/" + end_day + "/" + end_year;
     return { start, end };
   };
-
   const getCurrentMonth = () => {
     let date = new Date();
     let start = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -179,7 +128,6 @@ const Analytics = ({ queryData, setQueryData }) => {
 
     return { start, end };
   };
-
   const getCurrentYear = () => {
     let date = new Date();
     let start = new Date(date.getFullYear(), 0, 1);
@@ -205,41 +153,17 @@ const Analytics = ({ queryData, setQueryData }) => {
     setCurrentDate("month");
   };
 
-  const analyticWidget = [
-    {
-      title: "Total Orders",
-      icon: "bx bxs-box",
-      value: totalOrders,
-      color: "#e74c3c",
-      tooltip: "Total orders placed this " + currentDate,
-    },
-    {
-      title: "Total Revenue",
-      icon: "bx bx-money",
-      value: totalRevenue,
-      color: "#1abc9c",
-      tooltip: "Total revenue generated this " + currentDate,
-    },
-    {
-      title: "Pending Orders",
-      icon: "bx bx-time",
-      value: pendingOrders,
-      color: "#f7b731",
-      tooltip: "Total pending orders this " + currentDate,
-    },
-    {
-      title: "Completed Orders",
-      icon: "bx bx-check",
-      value: completedOrders,
-      color: "#2ecc71",
-      tooltip: "Total completed orders this " + currentDate,
-    },
-  ];
+  let componentRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    copyStyles: true,
+    });
 
   return (
-    <StyledAnalytics>
-      <div className="analytics__header">
-        <h1>Analytics</h1>
+    <StyledReports>
+      <div className="reports__header">
+        <h1>Reports</h1>
         <div className="right__actions">
           <div className="date__buttons">
             <button
@@ -255,65 +179,40 @@ const Analytics = ({ queryData, setQueryData }) => {
               This Month
             </button>
           </div>
+          <i className="bx bxs-printer" onClick={window.print}></i>
         </div>
       </div>
 
-      <div className="analytics__content">
-        <div className="analytic__widgets">
-          {analyticWidget.map((widget, index) => (
-            <Tooltip title={widget.tooltip} placement="right" followCursor  key={index + 1}>
-              <div className="widget">
-                <div className="widget__title">
-                  <i
-                    className={widget.icon}
-                    style={{ background: `${widget.color}` }}
-                  ></i>
-                  <h3>{widget.title}</h3>
-                </div>
-                <div className="widget__value">
-                  <h1>
-                    {widget.title === "Total Revenue" ? "P " : ""}
-                    {widget.title === "Total Revenue" ? (
-                      <CountUp
-                        duration={2}
-                        end={widget.value}
-                        decimals={2}
-                        separator=","
-                      />
-                    ) : (
-                      <CountUp duration={2} end={widget.value} />
-                    )}
-                  </h1>
-                </div>
-              </div>
-            </Tooltip>
-          ))}
-        </div>
-        <div className="analytic__charts">
-          <ChartSecond
-            filteredOrders={filteredOrders}
-            currentDate={currentDate}
-          />
+      <div className="reports__content">
+        <table ref={componentRef}>
+            <thead>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {filteredOrders.map((order, index) => (
+                    <tr key={index + 1}>
+                        <td>{order.dateCreated}</td>
+                        <td>{order.orderId}</td>
+                        <td>{order.firstName + " " + order.lastName}</td>
+                        <td>P <CountUp duration={2} end={order.total} decimals={2} separator="," /></td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
 
-          {/* <div className="small__charts">
-            <div className="analytic__reviews">
-              <h3>Customer Reviews</h3>
-              <div className="reviews__total">
-                <Rating
-                  size="large"
-                  className="rating"
-                  name="simple-controlled"
-                  value={5}
-                />
-                <span className="sum">4.7 out of 5</span>
-              </div>
-              <p>{totalRating} customer ratings</p>
-            </div>
-          </div> */}
+        <div className="reports__totals">
+            <p>{dateStart + " - " + dateEnd}</p>
+            <p>Total Orders: {filteredOrders.length}</p>
+            <p>Total Revenue: P {<CountUp duration={2} end={filteredOrders.reduce((acc, order) => acc + order.total, 0) } decimals={2} separator="," />}</p>
         </div>
       </div>
-    </StyledAnalytics>
+    </StyledReports>
   );
 };
 
-export default Analytics;
+export default Reports;

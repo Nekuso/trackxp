@@ -12,6 +12,7 @@ import Float4 from "../img/Float4.png";
 import Float5 from "../img/Float5.png";
 import Float6 from "../img/Float6.png";
 import Float7 from "../img/Float7.png";
+import Reports from './Reports';
 
 
 function Main({
@@ -76,6 +77,12 @@ function Main({
       </Route>
       <Route path="Analytics" element={
         <Analytics
+          queryData={queryData}
+          setQueryData={setQueryData}
+        />
+      }/>
+      <Route path="Reports" element={
+        <Reports
           queryData={queryData}
           setQueryData={setQueryData}
         />

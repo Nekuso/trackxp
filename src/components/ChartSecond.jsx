@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { StyledChart } from "../styles/Chart.styled";
+import { StyledChartSecond } from "../styles/ChartSecond.styled";
 import {
   AreaChart,
   Area,
@@ -10,61 +10,62 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Chart = ({ queryData }) => {
+const ChartSecond = ({ filteredOrders, currentDate }) => {
   const [data, setData] = useState([]);
 
-  // For this week useEffect
-  useEffect(() => {
-    const days = [
-      { name: "Monday", Total: 0 },
-      { name: "Tuesday", Total: 0 },
-      { name: "Wednesday", Total: 0 },
-      { name: "Thursday", Total: 0 },
-      { name: "Friday", Total: 0 },
-      { name: "Saturday", Total: 0 },
-      { name: "Sunday", Total: 0 },
-    ];
-    const currentWeek = getCurrentWeek();
-    // filter the orders that only include the current week starting on Monday and ending on Sunday
-    const filteredData = queryData.filter((item) => {
-      let date = new Date(item.dateCreated);
-      return (
-        date >= new Date(currentWeek.start) && date <= new Date(currentWeek.end)
-      );
-    });
-    // Iterate through each order
-    filteredData.forEach((item) => {
-      // Get the date of the order
-      let date = new Date(item.dateCreated);
-      // Get the day of the week (0 = Sunday, 1 = Monday, etc.)
-      let day = date.getUTCDay();
-      // Add the revenue of the order to the appropriate day's total
-      days[day].Total += item.total;
-    });
-    setData(days);
-  }, [queryData]);
-
   // For this month useEffect
-  // useEffect(() => {
-  //   const dates = new Array(new Date().getUTCDate()).fill({date:0,Total:0}).map((_, i) => {
-  //    return {date:i+1,Total:0, name: i+1 + ""}
-  //   });
-  //   const currentMonth = getCurrentMonth();
-  //   // filter the orders that only include the current month
-  //   const filteredData = queryData.filter(item => {
-  //       let date = new Date(item.dateCreated);
-  //       return date >= new Date(currentMonth.start) && date <= new Date(currentMonth.end);
-  //   });
-  //   // Iterate through each order
-  //   filteredData.forEach((item) => {
-  //     // Get the date of the order
-  //     let date = new Date(item.dateCreated);
-  //     // Get the date of the month
-  //     let day = date.getUTCDate();
-  //     // Add the revenue of the order to the appropriate date's total
-  //     dates[day-1].Total += item.total;
-  //   });
-  //   setData(dates);
+  useEffect(() => {
+    if (currentDate === "month"){
+      const dates = new Array(new Date().getUTCDate()).fill({date:0,Total:0}).map((_, i) => {
+       return {date:i+1,Total:0, name: i+1 + ""}
+      });
+      const currentMonth = getCurrentMonth();
+      // filter the orders that only include the current month
+      const filteredData = filteredOrders.filter(item => {
+          let date = new Date(item.dateCreated);
+          return date >= new Date(currentMonth.start) && date <= new Date(currentMonth.end);
+      });
+      // Iterate through each order
+      filteredData.forEach((item) => {
+        // Get the date of the order
+        let date = new Date(item.dateCreated);
+        // Get the date of the month
+        let day = date.getUTCDate();
+        // Add the revenue of the order to the appropriate date's total
+        dates[day-1].Total += item.total;
+      });
+      setData(dates);
+    }
+    else if (currentDate === "week"){
+      const days = [
+        { name: "Monday", Total: 0 },
+        { name: "Tuesday", Total: 0 },
+        { name: "Wednesday", Total: 0 },
+        { name: "Thursday", Total: 0 },
+        { name: "Friday", Total: 0 },
+        { name: "Saturday", Total: 0 },
+        { name: "Sunday", Total: 0 },
+      ];
+      const currentWeek = getCurrentWeek();
+      // filter the orders that only include the current week starting on Monday and ending on Sunday
+      const filteredData = filteredOrders.filter((item) => {
+        let date = new Date(item.dateCreated);
+        return (
+          date >= new Date(currentWeek.start) && date <= new Date(currentWeek.end)
+        );
+      });
+      // Iterate through each order
+      filteredData.forEach((item) => {
+        // Get the date of the order
+        let date = new Date(item.dateCreated);
+        // Get the day of the week (0 = Sunday, 1 = Monday, etc.)
+        let day = date.getUTCDay();
+        // Add the revenue of the order to the appropriate day's total
+        days[day].Total += item.total;
+      });
+      setData(days);
+    }
+  }, [filteredOrders, currentDate]);
 
   const getCurrentWeek = () => {
     let date = new Date();
@@ -101,8 +102,8 @@ const Chart = ({ queryData }) => {
   };
 
   return (
-    <StyledChart>
-      <div className="title">This week (Revenue)</div>
+    <StyledChartSecond>
+      <div className="title">This {currentDate} (Revenue)</div>
       <ResponsiveContainer width="100%" height="90%">
         <AreaChart width={730} height={250} data={data}>
           <defs>
@@ -125,8 +126,8 @@ const Chart = ({ queryData }) => {
           />
         </AreaChart>
       </ResponsiveContainer>
-    </StyledChart>
+    </StyledChartSecond>
   );
 };
 
-export default Chart;
+export default ChartSecond;

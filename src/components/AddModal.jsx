@@ -106,8 +106,8 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
     },
   ]);
   const [orderRating, setOrderRating] = useState({
-    rating: 0,
-    comment: "",
+    ratingValue: 0,
+    commentValue: "",
   });
   const current = new Date();
   const dateCreated = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;

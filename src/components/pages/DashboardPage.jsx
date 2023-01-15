@@ -376,7 +376,7 @@ function DashboardPage() {
                 </li>
                 <li>
                   <i className='bx bxs-report'></i>
-                  <Link className="link" onClick={navToggle} to="">
+                  <Link className="link" onClick={navToggle} to="Reports">
                     Reports
                   </Link>
                 </li>

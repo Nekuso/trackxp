@@ -35,7 +35,7 @@ function Sidebar() {
               Analytics
             </div>
           </Link>
-          <Link className="li list" to="">
+          <Link className="li list" to="Reports">
             <i className='bx bxs-report'></i>
             <div className="link title">
               Reports
