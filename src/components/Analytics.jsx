@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 
 const Analytics = ({queryData, setQueryData}) => {
+  const [currentDate, setCurrentDate] = useState("week");
   const [dateStart, setDateStart] = useState();
   const [dateEnd, setDateEnd] = useState();
 
@@ -20,7 +21,7 @@ const Analytics = ({queryData, setQueryData}) => {
     const endOfWeek = new Date(currentWeekStart);
     endOfWeek.setUTCDate(currentWeekStart.getUTCDate() + 6);
     endOfWeek.setUTCHours(23, 59, 59, 999);
-    return endOfWeek;
+    return endOfWeek; 
   }
 
   useEffect(() => {
@@ -34,9 +35,15 @@ const Analytics = ({queryData, setQueryData}) => {
     <StyledAnalytics>
       <div className="analytics__header">
         <h1>Analytics</h1>
+        <div className="date__container">
+          
+        </div>
       </div>
 
       <div className="analytics__content">
+        <div className="orders__container">
+
+        </div>
       </div>
     </StyledAnalytics>
   );

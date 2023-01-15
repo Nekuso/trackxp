@@ -15,20 +15,12 @@ export const StyledAnalytics = styled.div`
     width: 100%;
     justify-content: space-between;
     gap: 1rem;
-    
+
     h1 {
       font-size: 1.5rem;
     }
-
-    .date__container {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 1rem;
-    }
   }
-  
+
   .analytics__content {
     display: flex;
     width: 100%;
@@ -42,11 +34,11 @@ export const StyledAnalytics = styled.div`
 
   @media screen and (min-width: 768px) {
     margin: 2rem auto;
-    
+
     .analytics__header {
       flex-direction: row;
       align-items: center;
-      
+
       .date__container {
         justify-content: flex-end;
         align-items: center;

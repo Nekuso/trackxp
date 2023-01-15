@@ -201,7 +201,7 @@ export const EditModal = ({
         </div>
         <form onSubmit={handleEdit} className="edit__modal__body">
           <div className="edit__user__info">
-            <h2>Costumer Info</h2>
+            <h2>Customer Info</h2>
             <div className="fullName__container">
               <div className="user__input">
                 <p>First Name</p>
