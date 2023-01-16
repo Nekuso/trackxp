@@ -3,13 +3,14 @@ import { StyledReports } from "../styles/Reports.styled";
 import { useReactToPrint } from "react-to-print";
 import CountUp from "react-countup";
 
-
 const Reports = ({ queryData, setqueryData }) => {
   const [currentDate, setCurrentDate] = useState("week");
   const [dateStart, setDateStart] = useState();
   const [dateEnd, setDateEnd] = useState();
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [totalOrders, setTotalOrders] = useState(0);
+  const [totalPendings, setTotalPendings] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
   const [totalRevenue, setTotalRevenue] = useState(0);
   const [completedOrders, setCompletedOrders] = useState(0);
 
@@ -91,7 +92,15 @@ const Reports = ({ queryData, setqueryData }) => {
       }
     });
 
+    let reviews = 0;
+    filteredData.forEach((order) => {
+      if (order.orderRating.ratingValue > 0) {
+        reviews++;
+      }
+    });
+    setTotalReviews(reviews);
     setTotalRevenue(total);
+    setTotalPendings(pending);
     setCompletedOrders(completed);
   }, [currentDate, queryData]);
 
@@ -158,13 +167,16 @@ const Reports = ({ queryData, setqueryData }) => {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
     copyStyles: true,
-    });
+  });
 
   return (
-    <StyledReports>
+    <StyledReports ref={componentRef}>
       <div className="reports__header">
-        <h1>Reports</h1>
-        <p className="date">This {currentDate} report {dateStart + " - " + dateEnd}</p>
+        <h1 className="first__report">Reports</h1>
+        <h1 className="second__report">Spincare Laundry Report</h1>
+        <p className="date">
+          This {currentDate} report {dateStart + " - " + dateEnd}
+        </p>
         <div className="right__actions">
           <div className="date__buttons">
             <button
@@ -180,37 +192,96 @@ const Reports = ({ queryData, setqueryData }) => {
               This Month
             </button>
           </div>
-          <i className="bx bxs-printer" onClick={window.print}></i>
+          <i className="bx bxs-printer" onClick={handlePrint}></i>
         </div>
       </div>
-
+        
       <div className="reports__content">
-        <table ref={componentRef}>
-            <thead>
-                <tr>
-                    <th>Order Date</th>
-                    <th>Order ID</th>
-                    <th>Customer</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                {filteredOrders.map((order, index) => (
-                    <tr key={index + 1}>
-                        <td>{order.dateCreated}</td>
-                        <td>{order.orderId}</td>
-                        <td>{order.firstName + " " + order.lastName}</td>
-                        <td>P <CountUp duration={2} end={order.total} decimals={2} separator="," /></td>
-                    </tr>
-                ))}
-            </tbody>
+        <table>
+          <thead>
+            <tr>
+              <th>Order Date</th>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredOrders.map((order, index) => (
+              <tr key={index + 1}>
+                <td>{order.dateCreated}</td>
+                <td>{order.orderId}</td>
+                <td>{order.firstName + " " + order.lastName}</td>
+                <td>
+                  P{" "}
+                  <CountUp
+                    duration={2}
+                    end={order.total}
+                    decimals={2}
+                    separator=","
+                  />
+                </td>
+              </tr>
+            ))}
+            <tr>
+              <td colSpan={3}>Total Revenue</td>
+              <td>
+                P{" "}
+                <CountUp
+                  duration={2}
+                  end={filteredOrders.reduce(
+                    (acc, order) => acc + order.total,
+                    0
+                  )}
+                  decimals={2}
+                  separator=","
+                />
+              </td>
+            </tr>
+          </tbody>
         </table>
 
-        <div className="report__totals">
-            
-            <h2>Total Orders: {filteredOrders.length}</h2>
-            <h2>Total Revenue: P {<CountUp duration={2} end={filteredOrders.reduce((acc, order) => acc + order.total, 0) } decimals={2} separator="," />}</h2>
-        </div>
+        <table className="report__totals">
+          <tr>
+            <td className="table__title">Total Orders</td>
+            <td>{filteredOrders.length}</td>
+          </tr>
+          <tr>
+            <td className="table__title">Total Pendings</td>
+            <td>{totalPendings}</td>
+          </tr>
+          <tr>
+            <td className="table__title">Total Reviews</td>
+            <td>{totalReviews}</td>
+          </tr>
+          <tr>
+            <td className="table__title">Total Revenue</td>
+            <td>
+              P{" "}
+              <CountUp
+                duration={2}
+                end={filteredOrders.reduce(
+                  (acc, order) => acc + order.total,
+                  0
+                )}
+                decimals={2}
+                separator=","
+              />
+            </td>
+          </tr>
+        </table>
+
+        {/* <div className="report__totals">
+          <h3>
+            Total Orders: <span>{filteredOrders.length}</span>
+          </h3>
+          <h3>
+            Total Pendings: <span>{totalPendings}</span>
+          </h3>
+          <h3>
+            Total Revenue: <span>P <CountUp duration={2} end={filteredOrders.reduce((acc, order) => acc + order.total, 0) } decimals={2} separator="," /></span>
+          </h3>
+        </div> */}
       </div>
     </StyledReports>
   );

@@ -130,11 +130,11 @@ const SingleOrder = ({ handleUpdateNotifcation, handleCycleNotification }) => {
     content: () => componentRef.current,
     copyStyles: true,
     pageStyle: `
-            @page {
-                size: Roll Paper 80 x 297mm;
-                margin: auto 20mm;
-            }
-        `,
+      @page {
+        size: Roll Paper 80 x 297mm;
+        margin: auto 20mm;
+      }
+    `,
   });
 
   return (

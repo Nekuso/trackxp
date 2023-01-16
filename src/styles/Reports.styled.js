@@ -19,9 +19,14 @@ export const StyledReports = styled.div`
     h1 {
       font-size: 1.5rem;
     }
+    .second__report {
+      display: none;
+    }
 
     .date {
-        display: none;
+      display: none;
+      font-size: 1rem;
+      font-weight: 700;
     }
     .right__actions {
       display: flex;
@@ -72,26 +77,34 @@ export const StyledReports = styled.div`
   }
 
   .reports__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     width: 100%;
     height: 100%;
     // background: red;
     table {
-        background: white;
-        width: 100%;
+      background: white;
+      width: 100%;
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      th {
         border: 1px solid black;
-        border-collapse: collapse;
-        text-align: center;
-        th {
-            border: 1px solid black;
-            padding: 0.5rem;
-        }
-        td {
-            border: 1px solid black;
-            padding: 0.5rem;
-        }
+        padding: 0.5rem;
+      }
+      td {
+        border: 1px solid black;
+        padding: 0.5rem;
+      }
     }
     .report__totals {
-        padding: 1rem 0;
+      width: 40%;
+      border: 1px solid black;
+      padding: 1rem 0;
+      .tr {
+
+      }
     }
   }
 
@@ -101,16 +114,27 @@ export const StyledReports = styled.div`
         font-size: 2rem;
       }
     }
+    .reports__content {
+      table {
+      }
+    }
   }
 
   @media print {
+    height: 100%;
     .reports__header {
-        .date {
-            display: block;
-        }
-        .right__actions {
-            display: none;
-        }
+      .first__report {
+        display: none;
+      }
+      .second__report {
+        display: block;
+      }
+      .date {
+        display: block;
+      }
+      .right__actions {
+        display: none;
+      }
     }
   }
 `;
