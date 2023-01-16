@@ -240,7 +240,7 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
         </div>
         <form onSubmit={handleAdd} className="add__modal__body">
           <div className="add__user__info">
-            <h2>Costumer Info</h2>
+            <h2>Customer Info</h2>
             <div className="fullName__container">
               <div className="user__input">
                 <p>First Name</p>

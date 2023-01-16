@@ -46,7 +46,7 @@ const ViewSingle = ({
     },
   };
 
-  const [orderRating, setOrderRating] = useState(order.orderRating.rating);
+  const [orderRating, setOrderRating] = useState(order.orderRating.ratingValue);
   const [cycleStatusCollection, setCycleStatusCollection] = useState(
     order.cycleStatusCollection
   );
@@ -63,7 +63,7 @@ const ViewSingle = ({
       (snapShot) => {
         setSnapOrder(snapShot.data());
         handleUpdateNotifcation();
-        setOrderRating(snapShot.data().orderRating.rating);
+        setOrderRating(snapShot.data().orderRating.ratingValue);
         setCycleStatusCollection(snapShot.data().cycleStatusCollection);
         orderRating === 0 && cycleStatusCollection.length === 4
           ? setIsRatingOpen(true)

@@ -154,6 +154,7 @@ export const StyledAnalytics = styled.div`
   }
 
   @media screen and (max-width: 767px) {
+    
     .analytics__content {
       .analytic__widgets {
         .widget {
@@ -179,10 +180,71 @@ export const StyledAnalytics = styled.div`
   @media screen and (min-width: 768px) {
     margin: 2rem auto;
 
+    .analytics__content {
+      .analytic__widgets {
+        flex-direction: row;
+        border: none;
+        border-radius: .6rem;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+        cursor: pointer;
+        background: #ffffff69;
+        backdrop-filter: blur(10px);
+        
+        :hover {
+          box-shadow: black 10px 10px 0px;
+          transform: translate(-5px, -5px);
+          border: 1px solid black;
+        }
+
+        .widget {
+          padding: 1.5rem .8rem;
+          gap: .5rem;
+
+          .widget__title {
+            font-size: .6rem;
+            font-weight: 700;
+            gap: .3rem;
+
+            i {
+              font-size: .8rem;
+            }
+          }
+
+          .widget__value {
+            font-size: .7rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+
     .analytics__header {
-      flex-direction: row;
-      align-items: center;
-      
+
+      .right__actions {
+        .date__buttons {
+          display: flex;
+          border-radius: 0.7rem;
+          overflow: hidden;
+          border: none;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+          button {
+            background: #f1f1f1;
+            border: none;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            :nth-child(2) {
+              border-left: 1px solid gray;
+            }
+          }
+        }
+      }
     }
 
     .analytics__content {
@@ -203,11 +265,11 @@ export const StyledAnalytics = styled.div`
         }
 
         .widget {
-          padding: .8rem .8rem;
+          padding: 1.5rem .8rem;
           gap: .5rem;
 
           .widget__title {
-            font-size: .6rem;
+            font-size: .8rem;
             font-weight: 700;
             gap: .3rem;
 
@@ -217,7 +279,7 @@ export const StyledAnalytics = styled.div`
           }
 
           .widget__value {
-            font-size: .7rem;
+            font-size: 1.1rem;
           }
         }
       }

@@ -2,7 +2,7 @@ import { React, useState, useContext } from "react";
 import { StyledLoginPage } from "../../styles/LoginPage.styled";
 import LoginHero from "../../img/LoginHero.png";
 import Navbar from "../Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { AuthContext } from "../../context/AuthContext";
@@ -97,9 +97,9 @@ function Loginpage() {
                   <p>Invalid Credentials!</p>
                 </span>
               )}
-              <h3>
+              {/* <h3>
                 Don't have an account? <Link to="/Signup">Signup</Link>
-              </h3>
+              </h3> */}
             </div>
           </div>
         </div>

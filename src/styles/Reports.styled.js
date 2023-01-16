@@ -102,9 +102,6 @@ export const StyledReports = styled.div`
       width: 40%;
       border: 1px solid black;
       padding: 1rem 0;
-      .tr {
-
-      }
     }
   }
 
@@ -112,6 +109,31 @@ export const StyledReports = styled.div`
     .reports__header {
       h1 {
         font-size: 2rem;
+      }
+      .right__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .date__buttons {
+          display: flex;
+          border-radius: 0.7rem;
+          overflow: hidden;
+          border: none;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
+          button {
+            background: #f1f1f1;
+            border: none;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            :nth-child(2) {
+              border-left: 1px solid gray;
+            }
+          }
+        }
       }
     }
     .reports__content {

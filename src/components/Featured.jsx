@@ -32,7 +32,7 @@ function Featured({todaysEarnings, handleSetTargetModal, target}) {
   return (
     <StyledFeatured>
         <div className="top">
-            <h1 className="title">Target</h1>
+            <h1 className="title">TODAY'S TARGET</h1>
             <i className='bx bx-dots-horizontal-rounded' onClick={handleOpen} onMouseLeave={handleOpen2}>
                 <div className={`round__container ${isOpen ? "open" : "closed"}`}>
                     <div className="update__target" onClick={()=> {handleSetTargetModal()}}>

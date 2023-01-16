@@ -16,6 +16,7 @@ const Analytics = ({ queryData, setQueryData }) => {
   const [pendingOrders, setPendingOrders] = useState(0);
   const [completedOrders, setCompletedOrders] = useState(0);
   const [totalRating, setTotalRating] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
   const [ratingAverage, setRatingAverage] = useState(0);
   const [oneStar, setOneStar] = useState(0);
   const [twoStar, setTwoStar] = useState(0);
@@ -131,14 +132,20 @@ const Analytics = ({ queryData, setQueryData }) => {
       }
     });
 
+    let reviews = 0;
+    filteredData.forEach((order) => {
+      if (order.orderRating.ratingValue > 0) {
+        reviews++;
+      }
+    });
 
+    setTotalReviews(reviews);
     setOneStar(one);
     setTwoStar(two);
     setThreeStar(three);
     setFourStar(four);
     setFiveStar(five);
     setTotalRating(totalRating);
-    console.log("totalRating", totalRating);
 
     setTotalRevenue(total);
     setPendingOrders(pending);
@@ -231,6 +238,13 @@ const Analytics = ({ queryData, setQueryData }) => {
       title: "Completed Orders",
       icon: "bx bx-check",
       value: completedOrders,
+      color: "#2ecc71",
+      tooltip: "Total completed orders this " + currentDate,
+    },
+    {
+      title: "Reviewed Orders",
+      icon: "bx bx-star",
+      value: totalReviews,
       color: "#2ecc71",
       tooltip: "Total completed orders this " + currentDate,
     },
