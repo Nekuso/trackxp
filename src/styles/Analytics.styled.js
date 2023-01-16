@@ -235,7 +235,7 @@ export const StyledAnalytics = styled.div`
             background: #f1f1f1;
             border: none;
             padding: 0.8rem;
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
@@ -279,7 +279,7 @@ export const StyledAnalytics = styled.div`
           }
 
           .widget__value {
-            font-size: 1.1rem;
+            font-size: 1rem;
           }
         }
       }
@@ -327,7 +327,6 @@ export const StyledAnalytics = styled.div`
             p {
               font-size: .8rem;
             }
-
           }
         }
       }
