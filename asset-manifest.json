@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/trackxp/static/css/main.31690426.css",
-    "main.js": "/trackxp/static/js/main.bbd5d054.js",
+    "main.js": "/trackxp/static/js/main.b30c9ffc.js",
     "static/js/845.57d21f98.chunk.js": "/trackxp/static/js/845.57d21f98.chunk.js",
     "static/js/787.ecac3bf6.chunk.js": "/trackxp/static/js/787.ecac3bf6.chunk.js",
     "static/media/dataflow.gif": "/trackxp/static/media/dataflow.1bfe294881bd1236bbaa.gif",
@@ -58,12 +58,12 @@
     "static/media/ViewBackground.svg": "/trackxp/static/media/ViewBackground.87d9aa88020908ff73b21f07843d8aac.svg",
     "index.html": "/trackxp/index.html",
     "main.31690426.css.map": "/trackxp/static/css/main.31690426.css.map",
-    "main.bbd5d054.js.map": "/trackxp/static/js/main.bbd5d054.js.map",
+    "main.b30c9ffc.js.map": "/trackxp/static/js/main.b30c9ffc.js.map",
     "845.57d21f98.chunk.js.map": "/trackxp/static/js/845.57d21f98.chunk.js.map",
     "787.ecac3bf6.chunk.js.map": "/trackxp/static/js/787.ecac3bf6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31690426.css",
-    "static/js/main.bbd5d054.js"
+    "static/js/main.b30c9ffc.js"
   ]
 }
