@@ -1,4 +1,5 @@
-<?php 
+"
+	<?php 
 if(isset($_GET['id'])){
     $qry = $conn->query("SELECT * FROM `sale_list` where id = '{$_GET['id']}' ");
     if($qry->num_rows > 0){
@@ -344,3 +345,4 @@ if(isset($_GET['id'])){
 		})
     })
 </script>
+"
