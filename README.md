@@ -1,10 +1,10 @@
 <p align="center">
   <h1 align="center" display="flex">
     TrackXP
+    <h3 align="center">
+      The Ultimate Laundry Management Solution for Small Businesses
+    </h3>
   </h1>
-  <h3>
-    The Ultimate Laundry Management Solution for Small Businesses
-  </h3>
 </p>
 
 <p align="left">
