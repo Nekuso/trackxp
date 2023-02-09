@@ -22,19 +22,19 @@ export const StyledAnalytics = styled.div`
     .right__actions {
       .date__buttons {
         display: flex;
-        border-radius: .7rem;
+        border-radius: 0.7rem;
         overflow: hidden;
         border: none;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        
+
         button {
-          padding: .6rem;
+          padding: 0.6rem;
           background: #f1f1f1;
           border: none;
-          font-size: .6rem;
+          font-size: 0.6rem;
           font-weight: 700;
           cursor: pointer;
-          transition: all .2s ease-in-out;
+          transition: all 0.2s ease-in-out;
           :nth-child(2) {
             border-left: 1px solid gray;
           }
@@ -60,7 +60,6 @@ export const StyledAnalytics = styled.div`
       width: 100%;
       flex-direction: column;
       gap: 1rem;
-      
 
       .widget {
         display: flex;
@@ -69,20 +68,19 @@ export const StyledAnalytics = styled.div`
         gap: 1rem;
         width: 100%;
         height: auto;
-        
-        
+
         .widget__title {
           width: 100%;
           display: flex;
           align-items: center;
-          gap: .5rem;
+          gap: 0.5rem;
           font-size: 1rem;
           h3 {
             color: #1b263b;
           }
           i {
             font-size: 1.5rem;
-            padding: .4rem;
+            padding: 0.4rem;
             background: black;
             color: white;
             border-radius: 25%;
@@ -113,19 +111,19 @@ export const StyledAnalytics = styled.div`
           width: 100%;
           display: flex;
           flex-direction: column;
-          gap: .5rem;
+          gap: 0.5rem;
           justify-content: center;
           align-items: center;
           text-align: center;
           padding: 1.5rem 1rem;
           border: none;
-          border-radius: .6rem;
+          border-radius: 0.6rem;
           border: 1px solid #e0e0e0;
           transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
           cursor: pointer;
           background: #ffffff69;
           backdrop-filter: blur(10px);
-          
+
           :hover {
             box-shadow: black 10px 10px 0px;
             transform: translate(-5px, -5px);
@@ -142,7 +140,7 @@ export const StyledAnalytics = styled.div`
             justify-content: space-between;
             align-items: center;
             background: #f1f1f1;
-            padding: .5rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 2rem;
 
             .rating {
@@ -154,18 +152,17 @@ export const StyledAnalytics = styled.div`
   }
 
   @media screen and (max-width: 767px) {
-    
     .analytics__content {
       .analytic__widgets {
         .widget {
           border: none;
-          border-radius: .6rem;
+          border-radius: 0.6rem;
           border: 1px solid #e0e0e0;
           transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
           cursor: pointer;
           background: #ffffff69;
           backdrop-filter: blur(10px);
-          
+
           :hover {
             box-shadow: black 10px 10px 0px;
             transform: translate(-5px, -5px);
@@ -176,7 +173,6 @@ export const StyledAnalytics = styled.div`
     }
   }
 
-  
   @media screen and (min-width: 768px) {
     margin: 2rem auto;
 
@@ -184,13 +180,13 @@ export const StyledAnalytics = styled.div`
       .analytic__widgets {
         flex-direction: row;
         border: none;
-        border-radius: .6rem;
+        border-radius: 0.6rem;
         border: 1px solid #e0e0e0;
         transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
         cursor: pointer;
         background: #ffffff69;
         backdrop-filter: blur(10px);
-        
+
         :hover {
           box-shadow: black 10px 10px 0px;
           transform: translate(-5px, -5px);
@@ -198,21 +194,21 @@ export const StyledAnalytics = styled.div`
         }
 
         .widget {
-          padding: 1.5rem .8rem;
-          gap: .5rem;
+          padding: 1.5rem 0.8rem;
+          gap: 0.5rem;
 
           .widget__title {
-            font-size: .6rem;
+            font-size: 0.6rem;
             font-weight: 700;
-            gap: .3rem;
+            gap: 0.3rem;
 
             i {
-              font-size: .8rem;
+              font-size: 0.8rem;
             }
           }
 
           .widget__value {
-            font-size: .7rem;
+            font-size: 0.7rem;
           }
         }
       }
@@ -220,9 +216,7 @@ export const StyledAnalytics = styled.div`
   }
 
   @media screen and (min-width: 1024px) {
-
     .analytics__header {
-
       .right__actions {
         .date__buttons {
           display: flex;
@@ -230,7 +224,7 @@ export const StyledAnalytics = styled.div`
           overflow: hidden;
           border: none;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  
+
           button {
             background: #f1f1f1;
             border: none;
@@ -251,13 +245,13 @@ export const StyledAnalytics = styled.div`
       .analytic__widgets {
         flex-direction: row;
         border: none;
-        border-radius: .6rem;
+        border-radius: 0.6rem;
         border: 1px solid #e0e0e0;
         transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
         cursor: pointer;
         background: #ffffff69;
         backdrop-filter: blur(10px);
-        
+
         :hover {
           box-shadow: black 10px 10px 0px;
           transform: translate(-5px, -5px);
@@ -265,16 +259,16 @@ export const StyledAnalytics = styled.div`
         }
 
         .widget {
-          padding: 1.5rem .8rem;
-          gap: .5rem;
+          padding: 1.5rem 0.8rem;
+          gap: 0.5rem;
 
           .widget__title {
-            font-size: .8rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            gap: .3rem;
+            gap: 0.3rem;
 
             i {
-              font-size: .8rem;
+              font-size: 0.8rem;
             }
           }
 
@@ -296,7 +290,7 @@ export const StyledAnalytics = styled.div`
             width: 45%;
             padding: 1rem;
             border: none;
-            border-radius: .6rem;
+            border-radius: 0.6rem;
             border: 1px solid #e0e0e0;
             transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
             cursor: pointer;
@@ -310,22 +304,22 @@ export const StyledAnalytics = styled.div`
             }
 
             h3 {
-              font-size: .8rem;
+              font-size: 0.8rem;
             }
             .reviews__total {
               width: 100%;
-              padding: .5rem 1rem;
+              padding: 0.5rem 1rem;
               border-radius: 2rem;
               background: #f1f1f1;
               .rating {
                 font-size: 1.8rem;
               }
               .sum {
-                font-size: .9rem;
+                font-size: 0.9rem;
               }
             }
             p {
-              font-size: .8rem;
+              font-size: 0.8rem;
             }
           }
         }
