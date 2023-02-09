@@ -1,3 +1,5 @@
+![preview img](/preview2.png)
+
 <p align="center">
   <h1 align="center" display="flex">
     TrackXP
