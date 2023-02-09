@@ -1,14 +1,5 @@
 ![preview img](/preview2.png)
 
-<p align="center">
-  <h1 align="center" display="flex">
-    TrackXP
-    <h3 align="center">
-      The Ultimate Laundry Management Solution for Small Businesses
-    </h3>
-  </h1>
-</p>
-
 <p align="left">
     <img height="auto" width="auto" src="https://forthebadge.com/images/badges/built-with-love.svg"/>
     <img height="auto" width="auto" src="https://forthebadge.com/images/badges/check-it-out.svg"/>
@@ -17,6 +8,10 @@
 - Live Site URL: [https://nekuso.github.io/ichiraku](https://nekuso.github.io/ichiraku)
 
 ![preview img](/preview.png)
+
+<h3 align="center">
+  The Ultimate Laundry Management Solution for Small Businesses
+</h3>
 
 <h5 align="left">Running a small laundry business can be a handful, but with TrackXP, it just got a whole lot easier and a lot more fun! This innovative project provides a comprehensive solution for tracking and managing your laundry operations, making it simple to keep up with the demands of your business.</h5>
 
