@@ -5,7 +5,7 @@
     <img height="auto" width="auto" src="/src/img/check-it-out.svg"/>
 </p>
 
-- Live Site URL: [https://nekuso.github.io/ichiraku](https://nekuso.github.io/ichiraku)
+- Live Site URL: [https://nekuso.github.io/trackxp](https://nekuso.github.io/trackxp)
 
 ![preview img](/preview.png)
 
