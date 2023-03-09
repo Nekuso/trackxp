@@ -105,21 +105,23 @@ const Reports = ({ queryData, setqueryData }) => {
   }, [currentDate, queryData]);
 
   const getCurrentWeek = () => {
-    let date = new Date();
-    let start = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
-    let end = start + 6;
-    date.setDate(start);
-    start = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    let start_month = start.getMonth() + 1;
-    let start_day = start.getDate();
-    let start_year = start.getFullYear();
-    start = start_month + "/" + start_day + "/" + start_year;
-    date.setDate(end);
-    end = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    let end_month = end.getMonth() + 1;
-    let end_day = end.getDate();
-    let end_year = end.getFullYear();
-    end = end_month + "/" + end_day + "/" + end_year;
+    const today = new Date();
+    const startOfWeek = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() - today.getDay() + 1
+    );
+    const endOfWeek = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() - today.getDay() + 7
+    );
+    const start = `${startOfWeek.getFullYear()}-${(startOfWeek.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}-${startOfWeek.getDate().toString().padStart(2, "0")}`;
+    const end = `${endOfWeek.getFullYear()}-${(endOfWeek.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}-${endOfWeek.getDate().toString().padStart(2, "0")}`;
     return { start, end };
   };
   const getCurrentMonth = () => {
@@ -195,7 +197,7 @@ const Reports = ({ queryData, setqueryData }) => {
           <i className="bx bxs-printer" onClick={handlePrint}></i>
         </div>
       </div>
-        
+
       <div className="reports__content">
         <table>
           <thead>

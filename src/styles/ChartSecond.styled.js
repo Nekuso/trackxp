@@ -35,7 +35,7 @@ export const StyledChartSecond = styled.div`
 
     .title {
       font-weight: 700;
-      font-size: .8rem;
+      font-size: 0.8rem;
       color: #00000091;
     }
   }
@@ -43,6 +43,7 @@ export const StyledChartSecond = styled.div`
   @media screen and (min-width: 1024px) {
     padding: 1.1rem;
     border-radius: 1rem;
+    min-height: 80%;
 
     .title {
       font-weight: 700;

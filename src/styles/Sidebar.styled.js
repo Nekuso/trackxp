@@ -9,11 +9,12 @@ export const StyledSidebar = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem 0.5rem;
-    width: auto;
+    // width: auto;
     width: 65px;
     height: 100%;
     justify-content: space-between;
     background: #293241;
+    border-radius: 0rem 0.8rem 0.8rem 0;
 
     .top__side {
       .home__logo {
@@ -36,8 +37,8 @@ export const StyledSidebar = styled.div`
           text-align: center;
 
           mark {
-            background: #5C31D4;
-            background: linear-gradient(to right, #5C31D4 0%, #D43192 100%);
+            background: #5c31d4;
+            background: linear-gradient(to right, #5c31d4 0%, #d43192 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
@@ -70,7 +71,7 @@ export const StyledSidebar = styled.div`
             transition: all 0.5s ease-in-out;
           }
 
-          .link {
+          .title {
             display: none;
             color: white;
             font-size: 0.8rem;
@@ -83,7 +84,7 @@ export const StyledSidebar = styled.div`
             i {
               color: #293241;
             }
-            .link {
+            .title {
               color: #293241;
             }
           }
@@ -112,7 +113,7 @@ export const StyledSidebar = styled.div`
           transition: all 0.4s ease-in-out;
         }
 
-        .link {
+        .title {
           display: none;
           color: white;
           font-size: 0.8rem;
@@ -125,7 +126,7 @@ export const StyledSidebar = styled.div`
           i {
             color: #293241;
           }
-          .link {
+          .title {
             color: #293241;
           }
         }
@@ -134,7 +135,7 @@ export const StyledSidebar = styled.div`
 
     :hover {
       width: 180px;
-      padding: 2rem 1rem;
+      // padding: 2rem 1rem;
       .top__side {
         .home__logo {
           i {
@@ -152,7 +153,7 @@ export const StyledSidebar = styled.div`
             i {
               margin-right: 0.4rem;
             }
-            .link {
+            .title {
               display: block;
             }
           }
@@ -163,7 +164,7 @@ export const StyledSidebar = styled.div`
           margin-right: 0.4rem;
         }
 
-        .link {
+        .title {
           display: inline;
         }
       }
