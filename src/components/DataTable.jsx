@@ -37,7 +37,7 @@ const Datatable = ({ handleDeleteNotification, queryData, setQueryData }) => {
               className="delete__button"
               onClick={() => handleDelete(params.row.id)}
             >
-              Delete
+              Cancel
             </div>
           </div>
         );
@@ -79,6 +79,7 @@ const Datatable = ({ handleDeleteNotification, queryData, setQueryData }) => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           placeholder="INPUT ORDER ID"
+          onclick="this.select()"
         />
       </motion.div>
       <motion.div

@@ -179,36 +179,38 @@ export const StyledAnalytics = styled.div`
     .analytics__content {
       .analytic__widgets {
         flex-direction: row;
-        border: none;
-        border-radius: 0.6rem;
-        border: 1px solid #e0e0e0;
-        transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
-        cursor: pointer;
-        background: #ffffff69;
-        backdrop-filter: blur(10px);
-
-        :hover {
-          box-shadow: black 10px 10px 0px;
-          transform: translate(-5px, -5px);
-          border: 1px solid black;
-        }
+        
 
         .widget {
-          padding: 1.5rem 0.8rem;
+          border: none;
+          border-radius: 0.6rem;
+          border: 1px solid #e0e0e0;
+          transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
+          cursor: pointer;
+          background: #ffffff69;
+          backdrop-filter: blur(10px);
+
+          :hover {
+            box-shadow: black 10px 10px 0px;
+            transform: translate(-5px, -5px);
+            border: 1px solid black;
+          }
+          padding:  0.8rem;
           gap: 0.5rem;
 
           .widget__title {
-            font-size: 0.6rem;
+            font-size: .8vw;
             font-weight: 700;
             gap: 0.3rem;
 
             i {
-              font-size: 0.8rem;
+              padding: 0.3rem;
+              font-size: 0.7rem;
             }
           }
 
           .widget__value {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
           }
         }
       }
@@ -243,20 +245,6 @@ export const StyledAnalytics = styled.div`
 
     .analytics__content {
       .analytic__widgets {
-        flex-direction: row;
-        border: none;
-        border-radius: 0.6rem;
-        border: 1px solid #e0e0e0;
-        transition: all 0.3s cubic-bezier(0.47, 0, 0.37, 1.47);
-        cursor: pointer;
-        background: #ffffff69;
-        backdrop-filter: blur(10px);
-
-        :hover {
-          box-shadow: black 10px 10px 0px;
-          transform: translate(-5px, -5px);
-          border: 1px solid black;
-        }
 
         .widget {
           padding: 1.5rem 0.8rem;
@@ -273,7 +261,7 @@ export const StyledAnalytics = styled.div`
           }
 
           .widget__value {
-            font-size: 1rem;
+            font-size: .7rem;
           }
         }
       }

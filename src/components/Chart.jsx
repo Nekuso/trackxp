@@ -11,57 +11,6 @@ import {
 } from "recharts";
 
 const Chart = ({ queryData }) => {
-  // const [data, setData] = useState([]);
-
-  // // For this week useEffect
-  // useEffect(() => {
-  //   const days = [
-  //     { name: "Monday", Total: 0 },
-  //     { name: "Tuesday", Total: 0 },
-  //     { name: "Wednesday", Total: 0 },
-  //     { name: "Thursday", Total: 0 },
-  //     { name: "Friday", Total: 0 },
-  //     { name: "Saturday", Total: 0 },
-  //     { name: "Sunday", Total: 0 },
-  //   ];
-  //   const currentWeek = getCurrentWeek();
-  //   // filter the orders that only include the current week starting on Monday and ending on Sunday
-  //   const filteredData = queryData.filter((item) => {
-  //     let date = new Date(item.dateCreated);
-  //     return (
-  //       date >= new Date(currentWeek.start) && date <= new Date(currentWeek.end)
-  //     );
-  //   });
-  //   // Iterate through each order
-  //   filteredData.forEach((item) => {
-  //     // Get the date of the order
-  //     let date = new Date(item.dateCreated);
-  //     // Get the day of the week (0 = Sunday, 1 = Monday, etc.)
-  //     let day = date.getUTCDay();
-  //     // Add the revenue of the order to the appropriate day's total
-  //     days[day].Total += item.total;
-  //   });
-  //   setData(days);
-  // }, [queryData]);
-
-  // const getCurrentWeek = () => {
-  //   let date = new Date();
-  //   let start = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
-  //   let end = start + 6;
-  //   date.setDate(start);
-  //   start = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  //   let start_month = start.getMonth() + 1;
-  //   let start_day = start.getDate();
-  //   let start_year = start.getFullYear();
-  //   start = start_month + "/" + start_day + "/" + start_year;
-  //   date.setDate(end);
-  //   end = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  //   let end_month = end.getMonth() + 1;
-  //   let end_day = end.getDate();
-  //   let end_year = end.getFullYear();
-  //   end = end_month + "/" + end_day + "/" + end_year;
-  //   return { start, end };
-  // };
 
   const [data, setData] = useState([]);
 
@@ -141,7 +90,7 @@ const Chart = ({ queryData }) => {
           </defs>
           <XAxis dataKey="name" stroke="gray" />
           <YAxis stroke="gray" />
-          <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
+          {/* <CartesianGrid strokeDasharray="3 3" className="chartGrid" /> */}
           <Tooltip />
           <Area
             type="monotone"

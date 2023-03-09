@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledDataTable = styled.div`
   height: 100%;
   width: 100%;
-  
+
   .search__container {
     display: flex;
     width: 100%;
@@ -13,7 +13,7 @@ export const StyledDataTable = styled.div`
     .search__input {
       width: 100%;
       border: none;
-      border-radius: .2rem;
+      border-radius: 0.5rem;
       padding: 0.7rem 1rem;
       border: 1px solid #ccc;
       background: #ffffff69;
@@ -73,6 +73,19 @@ export const StyledDataTable = styled.div`
 
   @media screen and (min-width: 768px) {
     height: auto;
+
+    .search__container {
+      .search__input {
+        width: 30%;
+        border: none;
+        border-radius: 0.2rem;
+        padding: 0.7rem 1rem;
+        border: 1px solid #ccc;
+        background: #ffffff69;
+        backdrop-filter: blur(10px);
+      }
+    }
+
     .dataTable {
       div {
         font-size: 0.6rem;

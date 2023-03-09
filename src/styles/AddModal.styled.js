@@ -387,7 +387,7 @@ export const StyledAddModal = styled.div`
 
   @media screen and (min-width: 1024px) {
     .add__modal {
-      width: 60%;
+      width: 55%;
       height: auto;
       padding: 1rem;
       .add__modal__header {
@@ -409,7 +409,7 @@ export const StyledAddModal = styled.div`
         overflow-y: hidden;
 
         .add__user__info {
-          width: 35%;
+          width: 40%;
           gap: 0.3rem;
 
           h2 {
@@ -449,7 +449,7 @@ export const StyledAddModal = styled.div`
           }
         }
         .add__user__particulars {
-          width: 64%;
+          width: 58%;
           padding: 1rem;
 
           thead {
