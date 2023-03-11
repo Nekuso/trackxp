@@ -5,13 +5,11 @@ import {
   Area,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
 
 const Chart = ({ queryData }) => {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {

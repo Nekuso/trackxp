@@ -2,63 +2,63 @@ import styled from "styled-components";
 import LightBackground from "../img/LightBackground.png";
 
 export const StyledDashboardPage = styled.div`
-.dashboard__section {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  background:  #fafafa;
-  background-image: url(${LightBackground});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: all 0.2s ease-in-out;
+  .dashboard__section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: #fafafa;
+    background-image: url(${LightBackground});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
 
-  .notification {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100%;
-    // background: red;
-    z-index: 999999;
-    .notification__content {
-      width: auto;
+    .notification {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       display: flex;
-      padding: .5rem;
       justify-content: center;
       align-items: center;
-      background-color: #06a80173;
-      // border: 1px solid #40bd47;
-      // border: 1px solid #e0e0e0;
-      border-radius: 2rem;
-      backdrop-filter: blur(10px);
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-      i {
-        background: #24a803;
-        padding: .2rem;
-        border-radius: 50%;
-        font-size: 1.4rem;
-        margin-right: .5rem;
-        color: white;
+      height: 100px;
+      width: 100%;
+      // background: red;
+      z-index: 999999;
+      .notification__content {
+        width: auto;
+        display: flex;
+        padding: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        background-color: #06a80173;
+        // border: 1px solid #40bd47;
+        // border: 1px solid #e0e0e0;
+        border-radius: 2rem;
+        backdrop-filter: blur(10px);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        i {
+          background: #24a803;
+          padding: 0.2rem;
+          border-radius: 50%;
+          font-size: 1.4rem;
+          margin-right: 0.5rem;
+          color: white;
+        }
+        p {
+          font-size: 0.8rem;
+          color: white;
+        }
       }
-      p {
-        font-size: .8rem;
-        color: white;
+
+      .red {
+        background-color: #ff000073;
+        i {
+          background: #ff0000;
+        }
       }
     }
 
-    .red {
-      background-color: #ff000073;
-      i {
-        background: #ff0000;
-      }
-    }
-  }
-    
     .dashboard__wrapper {
       display: flex;
       flex-direction: column;
@@ -87,7 +87,6 @@ export const StyledDashboardPage = styled.div`
           cursor: pointer;
           display: grid;
           // position: fixed;
-          z-index: 101;
 
           user-select: none;
 
@@ -167,52 +166,95 @@ export const StyledDashboardPage = styled.div`
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          width: 60vw;
+          width: auto;
           height: 100vh;
-          background: black;
-          border-radius: 0 1.8rem 1.8rem 0;
+          background: #293241;
+          border-radius: 0 1.6em 1.6rem 0;
           display: flex;
           position: fixed;
           top: 0;
-          right: 0;
           left: -100%;
           bottom: 0;
           z-index: 50;
           transition: all 0.3s ease-in-out;
-          .hamburger__links {
-            margin: 10vh 1rem 0 1rem;
-            padding: 0.5rem;
-            li {
-              display: flex;
-              align-items: center;
 
+          .close__container {
+            padding: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            .close__btn {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: auto;
+              height: auto;
+              cursor: pointer;
+              background: red;
+              border-radius: 0.6rem;
+              background: #5773db;
               i {
-                margin-right: .5rem;
-                font-size: 1.5rem;
-                color: #5773db;
-              }
-              .link {
-                margin: 1rem 0;
                 font-size: 1rem;
                 color: white;
               }
             }
           }
 
-          .other__container {
+          .side__content {
             display: flex;
             flex-direction: column;
-            padding: 1.5rem;
+            justify-content: space-between;
+            height: 100%;
 
-            .other__link {
+            .hamburger__links {
+              margin: 0 1.5rem;
+
+              li {
+                width: auto;
+                margin: .5rem 0;
+                padding: 0.5rem;
+                transition: all 0.2s ease-in-out;
+                border-radius: 0.5rem;
+                
+                .link {
+                  display: flex;
+                  align-items: center;
+                  font-size: 1rem;
+                  color: white;
+                  width: 100%;
+
+                  i {
+                    margin-right: 0.5rem;
+                    font-size: 1.5rem;
+                    color: #5773db;
+                  }
+                }
+
+                :hover {
+                  background: white;
+
+                  .link {
+                    color: #5773db;
+                  }
+
+                }
+              }
+            }
+
+            .other__container {
               display: flex;
-              margin: 1rem 0;
-              font-size: 1rem;
-              color: white;
-              i {
-                margin-right: .5rem;
-                font-size: 1.5rem;
-                color: #5773db;
+              flex-direction: column;
+              margin: 1.5rem 2.5rem;
+
+              .other__link {
+                display: flex;
+                font-size: 1rem;
+                color: white;
+                i {
+                  margin-right: 0.5rem;
+                  font-size: 1.5rem;
+                  color: #5773db;
+                }
               }
             }
           }
@@ -261,7 +303,6 @@ export const StyledDashboardPage = styled.div`
       height: 100vh;
       background-repeat: no-repeat;
 
-
       .notification {
         position: absolute;
         top: 0;
@@ -280,7 +321,7 @@ export const StyledDashboardPage = styled.div`
             font-size: 1.4rem;
           }
           p {
-            font-size: .8rem;
+            font-size: 0.8rem;
           }
         }
       }

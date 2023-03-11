@@ -10,6 +10,7 @@ export const StyledHomePage = styled(motion.div)`
   overflow: hidden;
   position: relative;
 
+
   .loader {
     display: flex;
     align-items: center;

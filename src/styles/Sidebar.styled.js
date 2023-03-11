@@ -21,7 +21,7 @@ export const StyledSidebar = styled.div`
         display: flex;
         width: 100%;
         align-items: center;
-        padding: 0.4rem 0.6rem;
+        padding: 0.4rem 0.4rem;
         border-radius: 0.5rem;
         margin: 0 auto 2rem 0;
 
@@ -61,7 +61,7 @@ export const StyledSidebar = styled.div`
           display: flex;
           width: 100%;
           align-items: center;
-          padding: 0.4rem 0.8rem;
+          padding: 0.4rem 0.4rem;
           border-radius: 0.5rem;
           transition: all 0.4s ease-in-out;
 

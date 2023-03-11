@@ -13,7 +13,6 @@ import {
 const ChartSecond = ({ filteredOrders, currentDate }) => {
   const [data, setData] = useState([]);
 
-  console.log(filteredOrders);
   // For this month useEffect
   useEffect(() => {
     if (currentDate === "month") {

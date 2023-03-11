@@ -79,7 +79,6 @@ const Datatable = ({ handleDeleteNotification, queryData, setQueryData }) => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           placeholder="INPUT ORDER ID"
-          onclick="this.select()"
         />
       </motion.div>
       <motion.div

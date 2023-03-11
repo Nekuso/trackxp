@@ -201,8 +201,9 @@ function DashboardPage() {
       const lastMonth = new Date(new Date().setMonth(today.getMonth() - 1));
       const prevMonth = new Date(new Date().setMonth(today.getMonth() - 2));
       const current = new Date();
-      const dateCreated = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;
-
+      const dateCreated = `${
+        current.getMonth() + 1
+      }/${current.getDate()}/${current.getFullYear()}`;
 
       // Initialize conditional query from firestore
       const lastMonthQuery = query(
@@ -345,6 +346,7 @@ function DashboardPage() {
             </div>
           )}
         </AnimatePresence>
+
         <div className="dashboard__wrapper">
           <div className="dashboard__nav">
             <button className={btnActive} onClick={navToggle}>
@@ -355,42 +357,61 @@ function DashboardPage() {
 
             <div className={wrapperActive} onClick={navToggle} />
             <div className={navActive}>
-              <ul className="hamburger__links">
-                <li>
-                  <i className="bx bxs-dashboard"></i>
-                  <Link className="link" onClick={navToggle} to="">
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <i className="bx bxs-receipt"></i>
-                  <Link className="link" onClick={navToggle} to="Orders">
-                    Orders
-                  </Link>
-                </li>
-                <li>
-                  <i className="bx bxs-objects-horizontal-left"></i>
-                  <Link className="link" onClick={navToggle} to="Analytics">
-                    Analytics
-                  </Link>
-                </li>
-                <li>
-                  <i className='bx bxs-report'></i>
-                  <Link className="link" onClick={navToggle} to="Reports">
-                    Reports
-                  </Link>
-                </li>
-              </ul>
+              <div className="close__container">
+                <button className="close__btn" onClick={navToggle}>
+                  <i className="bx bxs-chevron-left"></i>
+                </button>
+              </div>
+              <div className="side__content">
+                <ul className="hamburger__links">
+                  <li>
+                    <Link className="link" onClick={navToggle} to="">
+                      <i className="bx bxs-dashboard"></i>
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link" onClick={navToggle} to="Orders">
+                      <i className="bx bxs-receipt"></i>
+                      Orders
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link" onClick={navToggle} to="Analytics">
+                      <i className="bx bxs-objects-horizontal-left"></i>
+                      Analytics
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link" onClick={navToggle} to="Inventory">
+                      <i className="bx bxs-package"></i>
+                      Inventory
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link" onClick={navToggle} to="Management">
+                      <i className="bx bx-user-circle"></i>
+                      Management
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link" onClick={navToggle} to="Reports">
+                      <i className="bx bxs-report"></i>
+                      Reports
+                    </Link>
+                  </li>
+                </ul>
 
-              <div className="other__container">
-                <Link
-                  className="other__link"
-                  to="/Login"
-                  onClick={() => dispatch({ type: "LOGOUT" })}
-                >
-                  <i className="bx bx-log-out"></i>
-                  Logout
-                </Link>
+                <div className="other__container">
+                  <Link
+                    className="other__link"
+                    to="/Login"
+                    onClick={() => dispatch({ type: "LOGOUT" })}
+                  >
+                    <i className="bx bx-log-out"></i>
+                    Logout
+                  </Link>
+                </div>
               </div>
             </div>
 

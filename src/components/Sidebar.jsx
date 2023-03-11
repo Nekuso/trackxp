@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { StyledSidebar } from "../styles/Sidebar.styled";
+// import { INITIAL_STATE } from "../context/AuthContext";
 
 function Sidebar() {
   const { dispatch } = useContext(AuthContext);
