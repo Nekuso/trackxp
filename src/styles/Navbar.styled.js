@@ -29,8 +29,8 @@ export const StyledNavbar = styled.nav`
       text-align: center;
 
       mark {
-        background: #5C31D4;
-        background: linear-gradient(to right, #5C31D4 0%, #D43192 100%);
+        background: #5c31d4;
+        background: linear-gradient(to right, #5c31d4 0%, #d43192 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -78,19 +78,18 @@ export const StyledNavbar = styled.nav`
         flex-direction: column;
         margin: 3rem;
         text-align: center;
+        .github__link {
+          color: white;
+          i {
+            font-size: 2rem;
+          }
+        }
         .nav__dash__button {
           cursor: pointer;
           font-size: 1rem;
           font-weight: 500;
           padding: 1rem;
           color: #ffff;
-        }
-
-        .github__link {
-          i {
-            font-size: 3.5rem;
-            color: #ffff;
-          }
         }
       }
 
@@ -142,7 +141,7 @@ export const StyledNavbar = styled.nav`
       span {
         display: block;
         position: relative;
-        background: #04294F;
+        background: #04294f;
         width: 33px;
         height: 4px;
         margin-bottom: 5px;
@@ -185,25 +184,30 @@ export const StyledNavbar = styled.nav`
       height: auto;
       position: relative;
 
-      .dash__nav__container{
+      .dash__nav__container {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
+        .github__link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            color: #293241;
+            font-size: 2rem;
+          }
+        }
         .nav__dash__button {
-          padding: 0.6rem 1.3rem;
+          padding: 0.5rem 1.1rem;
           border: none;
           border-radius: 4rem;
           text-align: center;
           background: #293241;
           font-weight: 700;
           color: white;
-          font-size: 1rem;
-        }
-        .github__link {
-          font-size: 2.5rem;
-          color: #293241;
+          font-size: 0.7rem;
         }
       }
 
@@ -219,7 +223,8 @@ export const StyledNavbar = styled.nav`
           color: #000000;
           padding: 0.6rem 1.3rem;
           border-radius: 1rem;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
         }
       }
     }

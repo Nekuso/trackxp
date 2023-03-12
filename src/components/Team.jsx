@@ -15,8 +15,7 @@ import NoteImg from "../img/NoteImg.png";
 import PenImg from "../img/PenImg.png";
 import PlaneImg from "../img/PlaneImg.png";
 import PieImg from "../img/PieImg.png";
-import {motion} from "framer-motion";
-
+import { motion } from "framer-motion";
 
 const Team = () => {
   const teamData = [
@@ -116,19 +115,19 @@ const Team = () => {
       float2: `${CodeImg}`,
     },
   ];
-  
+
   const container = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
-      y:0,
+      y: 0,
       transition: {
         duration: 1,
         type: "spring",
         stiffness: 100,
         when: "beforeChildren",
         staggerChildren: 0.2,
-      }
+      },
     },
     exit: {
       opacity: 0,
@@ -139,47 +138,46 @@ const Team = () => {
         stiffness: 90,
         when: "beforeChildren",
         staggerChildren: 0.3,
-      }
-    }
+      },
+    },
   };
 
   return (
     <StyledTeam>
-      <motion.div className="team__content"
+      <motion.div
+        className="team__content"
         variants={container}
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <div className="team__title">
-          <motion.h1
-            variants={container}
-          >Our Team</motion.h1>
-          <motion.h3
-            variants={container}
-          >
+          <motion.h1 variants={container}>Our Team</motion.h1>
+          <motion.h3 variants={container}>
             A small team of dedicated individuals working together to bring you
             the best possible experience.
           </motion.h3>
         </div>
 
-        <motion.div className="team__members"
-        >
+        <motion.div className="team__members">
           {teamData.map((member, index) => {
             return (
-              <motion.div className="team__member" key={index + 1}
+              <motion.div
+                className="team__member"
+                key={index + 1}
                 variants={container}
               >
-                <motion.div className="team__member__img__container"
+                <motion.div
+                  className="team__member__img__container"
                   whileHover={{ scale: 1.05 }}
-                  onHoverStart={e => {}}
-                  onHoverEnd={e => {}}
+                  onHoverStart={(e) => {}}
+                  onHoverEnd={(e) => {}}
                 >
-                    <img className="float1 float" src={member.float1} alt="" />
-                    <img className="float2 float" src={member.float2} alt="" />
+                  <img className="float1 float" src={member.float1} alt="" />
+                  <img className="float2 float" src={member.float2} alt="" />
                   <div className="team__member__img">
-                    <img src={member.img} alt="" />
+                    <img loading="lazy" src={member.img} alt="" />
                   </div>
                 </motion.div>
                 <div className="team__member__description">

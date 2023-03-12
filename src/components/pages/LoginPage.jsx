@@ -1,4 +1,4 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import { StyledLoginPage } from "../../styles/LoginPage.styled";
 import LoginHero from "../../img/LoginHero.png";
 import Navbar from "../Navbar";
@@ -30,10 +30,8 @@ function Loginpage() {
       })
       .catch((error) => {
         setError(true);
+        setPassword("");
       });
-
-    setEmail("");
-    setPassword("");
   };
 
   return (
@@ -58,6 +56,7 @@ function Loginpage() {
                   name="email"
                   id="email"
                   placeholder="Enter your email"
+                  value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
 
@@ -67,6 +66,7 @@ function Loginpage() {
                   name="password"
                   id="password"
                   placeholder="Enter your password"
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <div className="show__container">
@@ -92,11 +92,14 @@ function Loginpage() {
                   Login
                 </button>
               </form>
-              {error && (
-                <span className="error">
-                  <p>Invalid Credentials!</p>
-                </span>
-              )}
+              {error &&
+                setTimeout(() => {
+                  setError(false);
+                }, 3000) && (
+                  <span className="error">
+                    <p>Invalid Credentials!</p>
+                  </span>
+                )}
               {/* <h3>
                 Don't have an account? <Link to="/Signup">Signup</Link>
               </h3> */}

@@ -127,7 +127,7 @@ export const StyledLoginPage = styled.div`
     .login__section {
       .login__container {
         height: 60vh;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 60% 40%;
         grid-template-areas:
           "image form"
           "image form";
@@ -160,7 +160,7 @@ export const StyledLoginPage = styled.div`
 
               input {
                 font-size: 1.3vw;
-                padding: 0.7rem 1rem;
+                padding: 0.6rem 0.8rem;
               }
 
               .show__container {
@@ -211,7 +211,7 @@ export const StyledLoginPage = styled.div`
 
               input {
                 font-size: 1vw;
-                padding: 1rem;
+                padding: 0.6rem 0.8rem;
               }
               .loginButton {
                 margin: 1rem 0 1rem 0;

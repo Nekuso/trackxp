@@ -309,6 +309,7 @@ function HomePage() {
               </motion.div>
 
               <motion.div
+                loading="lazy"
                 className="hero__img"
                 variants={homeVariants}
                 initial={"hidden3"}

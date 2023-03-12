@@ -13,15 +13,7 @@ const Chart = ({ queryData }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const days = [
-      { name: "Monday", Total: 0 },
-      { name: "Tuesday", Total: 0 },
-      { name: "Wednesday", Total: 0 },
-      { name: "Thursday", Total: 0 },
-      { name: "Friday", Total: 0 },
-      { name: "Saturday", Total: 0 },
-      { name: "Sunday", Total: 0 },
-    ];
+    const days = [      { name: "Monday", Total: 0 },      { name: "Tuesday", Total: 0 },      { name: "Wednesday", Total: 0 },      { name: "Thursday", Total: 0 },      { name: "Friday", Total: 0 },      { name: "Saturday", Total: 0 },      { name: "Sunday", Total: 0 },    ];
     const currentWeek = getCurrentWeek();
     const filteredData = queryData.filter((item) => {
       const date = new Date(item.dateCreated);
@@ -40,16 +32,28 @@ const Chart = ({ queryData }) => {
 
   const getCurrentWeek = () => {
     const today = new Date();
-    const startOfWeek = new Date(
+    let startOfWeek = new Date(
       today.getFullYear(),
       today.getMonth(),
       today.getDate() - today.getDay() + 1
     );
-    const endOfWeek = new Date(
+    let endOfWeek = new Date(
       today.getFullYear(),
       today.getMonth(),
       today.getDate() - today.getDay() + 7
     );
+    if (today.getDay() === 0) {
+      startOfWeek = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() - 6
+      );
+      endOfWeek = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+      );
+    }
     const start = `${startOfWeek.getFullYear()}-${(startOfWeek.getMonth() + 1)
       .toString()
       .padStart(2, "0")}-${startOfWeek.getDate().toString().padStart(2, "0")}`;
@@ -59,21 +63,21 @@ const Chart = ({ queryData }) => {
     return { start, end };
   };
 
-  const getCurrentMonth = () => {
-    let date = new Date();
-    let start = new Date(date.getFullYear(), date.getMonth(), 1);
-    let start_month = start.getMonth() + 1;
-    let start_day = start.getDate();
-    let start_year = start.getFullYear();
-    start = start_month + "/" + start_day + "/" + start_year;
-    let end = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-    let end_month = end.getMonth() + 1;
-    let end_day = end.getDate();
-    let end_year = end.getFullYear();
-    end = end_month + "/" + end_day + "/" + end_year;
+  // const getCurrentMonth = () => {
+  //   let date = new Date();
+  //   let start = new Date(date.getFullYear(), date.getMonth(), 1);
+  //   let start_month = start.getMonth() + 1;
+  //   let start_day = start.getDate();
+  //   let start_year = start.getFullYear();
+  //   start = start_month + "/" + start_day + "/" + start_year;
+  //   let end = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  //   let end_month = end.getMonth() + 1;
+  //   let end_day = end.getDate();
+  //   let end_year = end.getFullYear();
+  //   end = end_month + "/" + end_day + "/" + end_year;
 
-    return { start, end };
-  };
+  //   return { start, end };
+  // };
 
   return (
     <StyledChart>

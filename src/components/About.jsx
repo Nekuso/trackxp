@@ -96,7 +96,7 @@ const About = () => {
         initial="hidden"
         whileInView="visible"
         exit="hidden"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <div className="about__title">
           <span style={{overflow: "hidden"}}>
@@ -117,7 +117,7 @@ const About = () => {
               onHoverEnd={e => {}}
             >
               <div className="img__container">
-                <img src={item.img} alt="about"/>
+                <img loading="lazy" src={item.img} alt="about"/>
               </div>
               <div className="item__content">
                 <h2>{item.title}</h2>
