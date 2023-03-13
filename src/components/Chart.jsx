@@ -63,22 +63,6 @@ const Chart = ({ queryData }) => {
     return { start, end };
   };
 
-  // const getCurrentMonth = () => {
-  //   let date = new Date();
-  //   let start = new Date(date.getFullYear(), date.getMonth(), 1);
-  //   let start_month = start.getMonth() + 1;
-  //   let start_day = start.getDate();
-  //   let start_year = start.getFullYear();
-  //   start = start_month + "/" + start_day + "/" + start_year;
-  //   let end = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  //   let end_month = end.getMonth() + 1;
-  //   let end_day = end.getDate();
-  //   let end_year = end.getFullYear();
-  //   end = end_month + "/" + end_day + "/" + end_year;
-
-  //   return { start, end };
-  // };
-
   return (
     <StyledChart>
       <div className="title">This week (Revenue)</div>

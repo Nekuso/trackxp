@@ -106,22 +106,13 @@ const Reports = ({ queryData, setqueryData }) => {
 
   const getCurrentWeek = () => {
     const today = new Date();
-    const startOfWeek = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDate() - today.getDay() + 1
-    );
-    const endOfWeek = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDate() - today.getDay() + 7
-    );
-    const start = `${startOfWeek.getFullYear()}-${(startOfWeek.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}-${startOfWeek.getDate().toString().padStart(2, "0")}`;
-    const end = `${endOfWeek.getFullYear()}-${(endOfWeek.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}-${endOfWeek.getDate().toString().padStart(2, "0")}`;
+    const startOfWeek = new Date(today);
+    const endOfWeek = new Date(today);
+    const diff = today.getDay() === 0 ? 6 : today.getDay() - 1;
+    startOfWeek.setDate(today.getDate() - diff);
+    endOfWeek.setDate(today.getDate() - diff + 6);
+    const start = startOfWeek.toISOString().substr(0, 10);
+    const end = endOfWeek.toISOString().substr(0, 10);
     return { start, end };
   };
   const getCurrentMonth = () => {
