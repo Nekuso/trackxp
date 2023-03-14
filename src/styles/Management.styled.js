@@ -234,7 +234,7 @@ export const StyledManagement = styled.div`
 
       .user__list {
         .user__list__item {
-          padding: 0.5rem 1rem;
+          padding: 0.8rem 1rem;
 
           .user__content {
             gap: 3%;

@@ -5,6 +5,34 @@ import { motion } from "framer-motion";
 import { StyledAddUser } from "../styles/AddUser.styled";
 
 const AddModal = ({ handleAddModalUser }) => {
+  const [selectedRole, setSelectedRole] = useState(0);
+  const [role, setRole] = useState();
+
+  function handleRole(index) {
+    setSelectedRole(index);
+    setRole(roles[index].role);
+    console.log(role);
+  }
+
+  const roles = [
+    {
+      role: "Administrator",
+      description:
+        "Administrator can access and manage all data and perform all actions.",
+    },
+    ,
+    {
+      role: "Manager",
+      description:
+        "Manager can access and manage all data and perform all actions except for managing users.",
+    },
+    {
+      role: "Staff",
+      description:
+        "Staff can access and manage all data and perform all actions except for managing users and managing staff.",
+    },
+  ];
+
   const modalVariants = {
     hidden: {
       opacity: 0,
@@ -68,49 +96,38 @@ const AddModal = ({ handleAddModalUser }) => {
             <input type="file" id="file" style={{ display: "none" }} />
           </div>
 
-          <div className="input__container">
-            <label htmlFor="name">First Name</label>
-            <input type="text" id="name" />
-          </div>
-          <div className="input__container">
-            <label htmlFor="name">Last Name</label>
-            <input type="text" id="name" />
-          </div>
-          <div className="input__container">
-            <label htmlFor="name">Email</label>
-            <input type="text" id="name" />
-          </div>
-          <div className="input__container">
-            <label htmlFor="name">Password</label>
-            <input type="password" id="name" />
-          </div>
-          <div className="input__container">
-            <input type="radio" />
-            <div className="input__desc">
-              <h2>Administrator</h2>
-              <p>
-                Administrator can access and manage all data and perform all
-                actions.
-              </p>
+          <div className="info__container">
+            <div className="input__container fname">
+              <label htmlFor="name">First Name</label>
+              <input type="text" id="name" />
+            </div>
+            <div className="input__container lname">
+              <label htmlFor="name">Last Name</label>
+              <input type="text" id="name" />
+            </div>
+            <div className="input__container email">
+              <label htmlFor="name">Email</label>
+              <input type="text" id="name" />
+            </div>
+            <div className="input__container password">
+              <label htmlFor="name">Password</label>
+              <input type="password" id="name" />
             </div>
           </div>
-          <div className="input__container">
-            <input type="radio" />
-            <div className="input__desc">
-              <h2>Manager</h2>
-              <p>
-                Manager can access and manage all data and perform all actions.
-              </p>
-            </div>
-          </div>
-          <div className="input__container">
-            <input type="radio" />
-            <div className="input__desc">
-              <h2>Staff</h2>
-              <p>
-                Staff can access and manage all data and perform all actions.
-              </p>
-            </div>
+
+          <div className="roles__container">
+            {roles.map((role, index) => (
+              <div
+                className={`input__container ${
+                  selectedRole === index ? "active" : ""
+                }`}
+                onClick={() => handleRole(index)}
+                key={index}
+              >
+                <h2>{role.role}</h2>
+                <p>{role.description}</p>
+              </div>
+            ))}
           </div>
         </form>
       </motion.div>

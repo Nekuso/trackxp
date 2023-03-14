@@ -30,11 +30,12 @@ export const StyledAddUser = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 90%;
+    min-height: 90%;
     background: #fafafa;
     border-radius: 1rem;
     padding: 1rem;
     z-index: 111;
+    background: #f6f2f1;
 
     .add__modal__header {
       display: flex;
@@ -64,6 +65,7 @@ export const StyledAddUser = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      flex-wrap: wrap;
       width: 100%;
       height: 100%;
 
@@ -72,11 +74,11 @@ export const StyledAddUser = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 30%;
+        width: 100%;
         gap: 1rem;
 
         img {
-          width: 100%;
+          width: 30%;
           border-radius: 50%;
         }
 
@@ -85,6 +87,100 @@ export const StyledAddUser = styled.div`
             font-size: 2rem;
             cursor: pointer;
           }
+        }
+      }
+
+      .info__container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        flex-wrap: wrap;
+        .input__container {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+
+          input {
+            width: 100%;
+            border-radius: 0.5rem;
+            border: 1px solid #ccc;
+            padding: 0.5rem 0.8rem;
+            outline: none;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+        }
+
+        .fname {
+          width: 48%;
+        }
+
+        .lname {
+          width: 48%;
+        }
+
+        .email {
+          width: 100%;
+        }
+        .password {
+          width: 100%;
+        }
+      }
+    }
+
+    .roles__container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: .8rem;
+      margin-top: 1rem;
+      padding: .7rem;
+      background: white;
+      border-radius: 1rem;
+
+      .input__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 1rem;
+        border-radius: 1rem;
+        transition: all 0.3s ease-in-out;
+
+        h2 {
+          font-size: 0.7rem;
+        }
+
+        p {
+          font-size: 0.6rem;
+        }
+
+        :hover {
+          cursor: pointer;
+          background: black;
+
+          h2 {
+            color: white;
+          }
+
+          p {
+            color: white;
+          }
+        }
+      }
+
+      .active {
+        background: black;
+
+        h2 {
+          color: white;
+        }
+
+        p {
+          color: white;
         }
       }
     }
