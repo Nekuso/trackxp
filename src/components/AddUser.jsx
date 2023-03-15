@@ -18,7 +18,7 @@ const AddModal = ({ handleAddModalUser }) => {
     {
       role: "Administrator",
       description:
-        "Administrator can access and manage all data and perform all actions.",
+        "Administrator can access and manage all data and perform all actions. ",
     },
     ,
     {
