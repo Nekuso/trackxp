@@ -36,13 +36,13 @@ export const StyledAddUser = styled.div`
     padding: 1rem;
     z-index: 111;
     background: #f6f2f1;
+    gap: 0.5rem;
 
     .add__modal__header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 0.5rem 0;
 
       .title {
         background: black;
@@ -68,64 +68,95 @@ export const StyledAddUser = styled.div`
       flex-wrap: wrap;
       width: 100%;
       height: 100%;
+      row-gap: 0.8rem;
 
-      .img__input {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      .res__container {
         width: 100%;
-        gap: 1rem;
-
-        img {
-          width: 30%;
-          border-radius: 50%;
-        }
-
-        label {
-          i {
-            font-size: 2rem;
-            cursor: pointer;
-          }
-        }
-      }
-
-      .info__container {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-
-        flex-wrap: wrap;
-        .input__container {
+        .img__input {
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          gap: 1rem;
 
-          input {
-            width: 100%;
-            border-radius: 0.5rem;
-            border: 1px solid #ccc;
-            padding: 0.5rem 0.8rem;
-            outline: none;
-            font-size: 1rem;
-            font-weight: 600;
+          .img__container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            img {
+              width: 100%;
+            }
+  
+            label {
+              opacity: 0;
+              position: absolute;
+              transition: all 0.3s ease-in-out;
+              i {
+                font-size: 2rem;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+              }
+            }
+
+            :hover {
+              background: #ccc;
+
+              label {
+                opacity: 1;
+                i {
+                  color: white;
+                }
+              }
+            }
+
+            }
           }
+
         }
 
-        .fname {
-          width: 48%;
-        }
-
-        .lname {
-          width: 48%;
-        }
-
-        .email {
+        .info__container {
+          display: flex;
           width: 100%;
-        }
-        .password {
-          width: 100%;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+
+          .input__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            input {
+              width: 100%;
+              border-radius: 0.5rem;
+              border: 1px solid #ccc;
+              padding: 0.5rem 0.8rem;
+              outline: none;
+              font-size: 1rem;
+              font-weight: 600;
+            }
+          }
+
+          .fname {
+            width: 48%;
+          }
+
+          .lname {
+            width: 48%;
+          }
+
+          .email {
+            width: 100%;
+          }
+          .password {
+            width: 100%;
+          }
         }
       }
     }
@@ -134,9 +165,8 @@ export const StyledAddUser = styled.div`
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: .8rem;
-      margin-top: 1rem;
-      padding: .7rem;
+      gap: 0.8rem;
+      padding: 0.7rem;
       background: white;
       border-radius: 1rem;
 
@@ -181,6 +211,166 @@ export const StyledAddUser = styled.div`
 
         p {
           color: white;
+        }
+      }
+    }
+
+    .action__container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      .btn {
+        padding: 0.8rem 1rem;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .cancel {
+        flex: 1 1;
+        background: #ccc;
+        color: black;
+        :hover {
+          background: #aaa;
+        }
+      }
+
+      .create {
+        flex: 1 1;
+        // background: #2ecc71;
+        background: #27ae60;
+        color: white;
+        :hover {
+          background: #27ae60;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .add__modal {
+      width: 45%;
+      min-height: 50%;
+
+      .add__modal__header {
+        .title {
+          font-size: 0.8rem;
+        }
+      }
+
+      .add__modal__body {
+        .res__container {
+          .img__input {
+            gap: 0.5rem;
+            margin-bottom: .5rem;
+            .img__container {
+              width: 30%;
+              label {
+                i {
+                  font-size: 1.5rem;
+                }
+              }
+            }
+          }
+
+          .info__container {
+            row-gap: 0.2rem;
+            .input__container {
+              label {
+                font-size: 0.8rem;
+              }
+              input {
+                font-size: 0.7rem;
+                padding: 0.5rem 0.5rem;
+              }
+            }
+          }
+        }
+
+        .roles__container {
+          gap: 0.2rem;
+          .input__container {
+            padding: 0.7rem;
+            h2 {
+              font-size: 0.8rem;
+            }
+            p {
+              font-size: 0.6rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .add__modal {
+      width: 35%;
+      min-height: 50%;
+
+      .add__modal__header {
+        .title {
+          font-size: 1rem;
+        }
+      }
+
+      .add__modal__body {
+        gap: 0.5rem;
+
+        .res__container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .img__input {
+            width: 65%;
+            gap: 0.5rem;
+            margin: 0;
+
+            .img__container {
+              width: 65%;
+
+              label {
+                i {
+                  font-size: 2rem;
+                }
+              }
+            }
+          }
+
+          .info__container {
+            row-gap: 0.2rem;
+            .input__container {
+              label {
+                font-size: 0.7rem;
+              }
+              input {
+                font-size: 0.6rem;
+                padding: 0.6rem;
+              }
+            }
+          }
+        }
+
+        .roles__container {
+          gap: 0.2rem;
+          .input__container {
+            padding: 0.7rem;
+            border-radius: 0.5rem;
+            h2 {
+              font-size: 0.7rem;
+            }
+            p {
+              font-size: 0.6rem;
+            }
+          }
         }
       }
     }

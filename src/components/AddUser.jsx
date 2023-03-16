@@ -6,12 +6,24 @@ import { StyledAddUser } from "../styles/AddUser.styled";
 
 const AddModal = ({ handleAddModalUser }) => {
   const [selectedRole, setSelectedRole] = useState(0);
-  const [role, setRole] = useState();
+
+  const [img, setImg] = useState("https://picsum.photos/200");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("Administrator");
 
   function handleRole(index) {
     setSelectedRole(index);
     setRole(roles[index].role);
-    console.log(role);
+  }
+
+  function roleSubmit(e) {
+    e.preventDefault();
+
+    handleAddModalUser();
+    console.log(firstName, lastName, email, password, role);
   }
 
   const roles = [
@@ -87,31 +99,55 @@ const AddModal = ({ handleAddModalUser }) => {
           <h1 className="title">New User</h1>
           <i onClick={() => handleAddModalUser()} className="bx bx-x"></i>
         </div>
-        <form onSubmit={""} className="add__modal__body">
-          <div className="img__input">
-            <img src="https://picsum.photos/200" alt="user" />
-            <label htmlFor="file">
-              <i class="bx bx-upload"></i>
-            </label>
-            <input type="file" id="file" style={{ display: "none" }} />
-          </div>
+        <form onSubmit={roleSubmit} className="add__modal__body">
+          <div className="res__container">
+            <div className="img__input">
+              <div className="img__container">
+                <img src={img} alt="user" />
+                <label htmlFor="file">
+                  <i class="bx bx-upload"></i>
+                </label>
+              </div>
+              <input type="file" id="file" style={{ display: "none" }} />
+            </div>
 
-          <div className="info__container">
-            <div className="input__container fname">
-              <label htmlFor="name">First Name</label>
-              <input type="text" id="name" />
-            </div>
-            <div className="input__container lname">
-              <label htmlFor="name">Last Name</label>
-              <input type="text" id="name" />
-            </div>
-            <div className="input__container email">
-              <label htmlFor="name">Email</label>
-              <input type="text" id="name" />
-            </div>
-            <div className="input__container password">
-              <label htmlFor="name">Password</label>
-              <input type="password" id="name" />
+            <div className="info__container">
+              <div className="input__container fname">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+              <div className="input__container lname">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
+              <div className="input__container email">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="text"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="input__container password">
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
             </div>
           </div>
 
@@ -122,12 +158,18 @@ const AddModal = ({ handleAddModalUser }) => {
                   selectedRole === index ? "active" : ""
                 }`}
                 onClick={() => handleRole(index)}
-                key={index}
+                key={index + 1}
               >
                 <h2>{role.role}</h2>
                 <p>{role.description}</p>
               </div>
             ))}
+          </div>
+          <div className="action__container">
+            <button className="btn cancel" onClick={handleAddModalUser}>
+              Cancel
+            </button>
+            <button className="btn create">Create</button>
           </div>
         </form>
       </motion.div>
