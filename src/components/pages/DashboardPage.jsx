@@ -27,6 +27,7 @@ function DashboardPage() {
 
   const [queryData, setQueryData] = useState([]);
   const [queryTarget, setQueryTarget] = useState([]);
+  const [queryUsers, setQueryUsers] = useState([]);
   const [amount, setAmount] = useState(0);
   const [diff, setDiff] = useState(0);
   const [earnings, setEarnings] = useState(0);
@@ -187,10 +188,24 @@ function DashboardPage() {
         console.log(error);
       }
     );
+    const unsub3 = onSnapshot(
+      collection(db, "users"),
+      (snapShot) => {
+        let item = [];
+        snapShot.docs.forEach((doc) => {
+          item.push({ id: doc.id, ...doc.data() });
+        });
+        setQueryUsers(item);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
     return () => {
       unsub();
       unsub2();
+      unsub3();
     };
   }, []);
 
@@ -441,6 +456,8 @@ function DashboardPage() {
               todaysEarnings={todaysEarnings}
               queryData={queryData}
               setQueryData={setQueryData}
+              queryUsers={queryUsers}
+              setQueryUsers={setQueryUsers}
             />
           </div>
         </div>

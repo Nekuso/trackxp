@@ -30,8 +30,8 @@ export const StyledManagement = styled.div`
       border-radius: 0.5rem;
       gap: 0.5rem;
       height: auto;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
       h2 {
         font-size: 1.5rem;
@@ -50,7 +50,7 @@ export const StyledManagement = styled.div`
         border-radius: 0.5rem;
         background: black;
         color: white;
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
@@ -64,21 +64,22 @@ export const StyledManagement = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
       min-height: 200px;
       background: white;
       overflow: hidden;
       border-radius: 0.5rem;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-      
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
       .user__list__item {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        gap: .5rem;
-        padding: .6rem .7rem;
+        gap: 0.5rem;
+        padding: 0.6rem 0.7rem;
         border: 1px solid #e0e0e0;
 
         .user__content {
@@ -86,33 +87,37 @@ export const StyledManagement = styled.div`
           align-items: center;
           justify-content: flex-start;
           gap: 5%;
-          .user__img {
+
+          .img__container {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             width: 20%;
-  
-            img {
-              width: 100%;
-              height:: auto;
-              object-fit: cover;
-              border-radius: 50%;
+            .user__img {
+              width: 2rem;
+              height: 2rem;
+              img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
             }
           }
-  
+
           .user__info {
             display: flex;
             flex-direction: column;
             width: auto;
-  
+
             h2 {
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              font-size: .8rem;
+              font-size: 0.8rem;
               font-weight: 600;
             }
-  
+
             p {
               color: #757575;
               font-size: 0.6rem;
@@ -127,7 +132,7 @@ export const StyledManagement = styled.div`
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          gap: .5rem;
+          gap: 0.5rem;
 
           select {
             padding: 0.3rem;
@@ -137,7 +142,7 @@ export const StyledManagement = styled.div`
             font-weight: 600;
           }
 
-          i{
+          i {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -186,13 +191,16 @@ export const StyledManagement = styled.div`
       }
 
       .user__list {
-
         .user__list__item {
           padding: 0.7rem 0.8rem;
 
           .user__content {
-            .user__img {
-              width: 15%;
+            .img__container {
+              width: 40%;
+              .user__img {
+                width: 3rem;
+                height: 3rem;
+              }
             }
           }
 
@@ -223,7 +231,7 @@ export const StyledManagement = styled.div`
         }
 
         p {
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
 
         .add__user__btn {
@@ -244,10 +252,10 @@ export const StyledManagement = styled.div`
 
             .user__info {
               h2 {
-                font-size: .9rem;
+                font-size: 1rem;
               }
               p {
-                font-size: 0.6rem;
+                font-size: 0.7rem;
               }
             }
           }

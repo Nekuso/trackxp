@@ -31,6 +31,8 @@ function Main({
   todaysEarnings,
   queryData,
   setQueryData,
+  queryUsers,
+  setQueryUsers,
 }) {
   return (
     <StyledMain className="main__container">
@@ -92,7 +94,7 @@ function Main({
         <Route
           path="Management"
           element={
-            <Management queryData={queryData} setQueryData={setQueryData} />
+            <Management queryData={queryData} setQueryData={setQueryData} queryUsers={queryUsers} setQueryUsers={setQueryUsers} />
           }
         />
         <Route

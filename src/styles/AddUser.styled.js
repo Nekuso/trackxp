@@ -89,6 +89,8 @@ export const StyledAddUser = styled.div`
             overflow: hidden;
             position: relative;
             cursor: pointer;
+            width: 120px;
+            height: 120px;
             img {
               width: 100%;
             }
@@ -248,7 +250,12 @@ export const StyledAddUser = styled.div`
         background: #27ae60;
         color: white;
         :hover {
-          background: #27ae60;
+          background: #1e8449;
+        }
+
+        &:disabled {
+          background: #ccc;
+          cursor: not-allowed;
         }
       }
     }
@@ -272,6 +279,8 @@ export const StyledAddUser = styled.div`
             margin-bottom: .5rem;
             .img__container {
               width: 30%;
+              width: 120px;
+              height: 120px;
               label {
                 i {
                   font-size: 1.5rem;
@@ -335,7 +344,12 @@ export const StyledAddUser = styled.div`
             margin: 0;
 
             .img__container {
-              width: 65%;
+              width: 120px;
+              height: 120px;
+              img {
+                width: 100%;
+                object-fit: cover;
+              }
 
               label {
                 i {

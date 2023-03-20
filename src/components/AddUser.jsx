@@ -1,29 +1,96 @@
 import React, { useEffect, useState } from "react";
-import { serverTimestamp, doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { serverTimestamp, doc, setDoc } from "firebase/firestore";
+import { auth, db, storage } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { motion } from "framer-motion";
 import { StyledAddUser } from "../styles/AddUser.styled";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const AddModal = ({ handleAddModalUser }) => {
   const [selectedRole, setSelectedRole] = useState(0);
 
-  const [img, setImg] = useState("https://picsum.photos/200");
+  const [file, setFile] = useState("");
+  const [img, setImg] = useState([null]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Administrator");
 
+  const [per, setPer] = useState([null]);
+
   function handleRole(index) {
     setSelectedRole(index);
     setRole(roles[index].role);
   }
 
-  function roleSubmit(e) {
+  useEffect(() => {
+    const uploadImage = () => {
+      const name = new Date().getTime() + file.name;
+      console.log(name);
+      const storageRef = ref(storage, "files/" + file.name);
+
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          setPer(progress);
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+            default:
+              break;
+          }
+        },
+        (error) => {
+          switch (error.code) {
+            case "storage/unauthorized":
+              break;
+            case "storage/canceled":
+              break;
+            case "storage/unknown":
+              break;
+          }
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log("File available at", downloadURL);
+            setImg(downloadURL);
+          });
+        }
+      );
+    };
+    file && uploadImage();
+  }, [file]);
+
+  async function roleSubmit(e) {
     e.preventDefault();
 
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(doc(db, "users", res.user.uid), {
+        file: file.name,
+        img: img,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        role: role,
+        createdAt: serverTimestamp(),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
     handleAddModalUser();
-    console.log(firstName, lastName, email, password, role);
   }
 
   const roles = [
@@ -103,12 +170,24 @@ const AddModal = ({ handleAddModalUser }) => {
           <div className="res__container">
             <div className="img__input">
               <div className="img__container">
-                <img src={img} alt="user" />
+                <img
+                  src={
+                    file
+                      ? URL.createObjectURL(file)
+                      : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
+                  }
+                  alt="user"
+                />
                 <label htmlFor="file">
-                  <i class="bx bx-upload"></i>
+                  <i className="bx bx-upload"></i>
                 </label>
               </div>
-              <input type="file" id="file" style={{ display: "none" }} />
+              <input
+                type="file"
+                id="file"
+                style={{ display: "none" }}
+                onChange={(e) => setFile(e.target.files[0])}
+              />
             </div>
 
             <div className="info__container">
@@ -119,6 +198,7 @@ const AddModal = ({ handleAddModalUser }) => {
                   id="firstName"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
+                  required
                 />
               </div>
               <div className="input__container lname">
@@ -128,6 +208,7 @@ const AddModal = ({ handleAddModalUser }) => {
                   id="lastName"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
+                  required
                 />
               </div>
               <div className="input__container email">
@@ -137,6 +218,7 @@ const AddModal = ({ handleAddModalUser }) => {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="input__container password">
@@ -146,6 +228,8 @@ const AddModal = ({ handleAddModalUser }) => {
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  minlength="8"
+                  required
                 />
               </div>
             </div>
@@ -169,7 +253,9 @@ const AddModal = ({ handleAddModalUser }) => {
             <button className="btn cancel" onClick={handleAddModalUser}>
               Cancel
             </button>
-            <button className="btn create">Create</button>
+            <button disabled={per !== null && per < 100} className="btn create">
+              Create
+            </button>
           </div>
         </form>
       </motion.div>

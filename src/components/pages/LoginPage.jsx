@@ -4,8 +4,9 @@ import LoginHero from "../../img/LoginHero.png";
 import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { AuthContext } from "../../context/AuthContext";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 function Loginpage() {
   const [error, setError] = useState(false);
@@ -18,20 +19,41 @@ function Loginpage() {
 
   const { dispatch } = useContext(AuthContext);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        dispatch({ type: "LOGIN", payload: user });
-        navigate("/home");
-      })
-      .catch((error) => {
-        setError(true);
-        setPassword("");
-      });
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed inz
+    //     const user = userCredential.user;
+    //     dispatch({ type: "LOGIN", payload: user });
+    //     navigate("/home");
+    //     console.log(user)
+    //   })
+    //   .catch((error) => {
+    //     setError(true);
+    //     setPassword("");
+    //   });
+
+    const q = query(
+      collection(db, "users"),
+      where("email", "==", email),
+      where("password", "==", password)
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+    });
+
+    if (querySnapshot.size > 0) {
+      dispatch({ type: "LOGIN", payload: querySnapshot.docs[0].data() });
+      navigate("/home");
+    }
+    else {
+      setError(true);
+      setPassword("");
+    }
+
   };
 
   return (

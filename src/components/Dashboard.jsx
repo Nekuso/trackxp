@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import { StyledDashboard } from "../styles/Dashboard.styled";
-// import {
-//   collection,
-//   query,
-//   where,
-//   getDocs,
-//   doc,
-//   getDoc,
-//   onSnapshot,
-// } from "firebase/firestore";
 import Widget from "./Widget";
 import Featured from "./Featured";
 import Chart from "./Chart";
 import AddModal from "./AddModal";
-// import { db } from "../firebase";
-// import { useEffect } from "react";
 import SetTargetModal from "./SetTargetModal";
 import { AnimatePresence, motion } from "framer-motion";
+import { INITIAL_STATE } from "../context/AuthContext"; 
 
 function Dashbooard({ 
   handleAddNotification, 
@@ -107,6 +97,8 @@ function Dashbooard({
       },
     },
   };
+
+  console.log(INITIAL_STATE)
 
   return (
     <StyledDashboard>
