@@ -1,108 +1,79 @@
 import React, { useEffect, useState } from "react";
-import { serverTimestamp, doc, setDoc } from "firebase/firestore";
-import { auth, db, storage } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { serverTimestamp, doc, setDoc, getDoc } from "firebase/firestore";
+import { db, storage } from "../firebase";
 import { motion } from "framer-motion";
 import { StyledAddUser } from "../styles/AddUser.styled";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 
-const AddModal = ({ handleAddModalUser }) => {
-  const [selectedRole, setSelectedRole] = useState(0);
+const UpdateUser = ({ handleUpdateModalUser, currentDataEdit }) => {
+  const [selectedRole, setSelectedRole] = useState(
+    currentDataEdit.role === "Administrator"
+      ? 0
+      : currentDataEdit.role === "Manager"
+      ? 1
+      : 2
+  );
 
-  const [file, setFile] = useState("");
-  const [img, setImg] = useState(null);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Administrator");
-
-  const [per, setPer] = useState([null]);
+  const [file, setFile] = useState(null);
+  const [img, setImg] = useState(currentDataEdit.img || "");
+  const [firstName, setFirstName] = useState(currentDataEdit.firstName);
+  const [lastName, setLastName] = useState(currentDataEdit.lastName);
+  const [email, setEmail] = useState(currentDataEdit.email);
+  const [password, setPassword] = useState(currentDataEdit.password);
+  const [role, setRole] = useState(currentDataEdit.role);
 
   function handleRole(index) {
     setSelectedRole(index);
     setRole(roles[index].role);
   }
 
-  async function roleSubmit(e) {
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+    setFile(file);
+    setImg(URL.createObjectURL(file));
+  };
+
+  async function updateUser(e) {
     e.preventDefault();
 
-    try {
-      let imgUrl = null;
-      if (file) {
-        const name = new Date().getTime() + file.name;
-        console.log(name);
-        const storageRef = ref(storage, "files/" + file.name);
-        const uploadTask = uploadBytesResumable(storageRef, file);
+    if (file) {
+      const name = new Date().getTime() + file.name;
+      const storageRef = ref(storage, "files/" + name);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is " + progress + "% done");
-            setPer(progress);
-            switch (snapshot.state) {
-              case "paused":
-                console.log("Upload is paused");
-                break;
-              case "running":
-                console.log("Upload is running");
-                break;
-              default:
-                break;
-            }
-          },
-          (error) => {
-            switch (error.code) {
-              case "storage/unauthorized":
-                break;
-              case "storage/canceled":
-                break;
-              case "storage/unknown":
-                break;
-            }
-          },
-          async () => {
-            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-            console.log("File available at", downloadURL);
-            setImg(downloadURL);
-            imgUrl = downloadURL;
-
-            const user = {
-              firstName,
-              lastName,
-              email,
-              password,
-              role,
-              img: imgUrl,
-              createdAt: serverTimestamp(),
-            };
-
-            const docRef = doc(db, "users", email);
-            await setDoc(docRef, user);
-            console.log("Document written with ID: ", docRef.id);
-          }
-        );
-      } else {
-        const user = {
-          firstName,
-          lastName,
-          email,
-          password,
-          role,
-          createdAt: serverTimestamp(),
-        };
-
-        const docRef = doc(db, "users", email);
-        await setDoc(docRef, user);
-        console.log("Document written with ID: ", docRef.id);
+      try {
+        await uploadTask;
+        const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref);
+        setImg(downloadUrl);
+      } catch (error) {
+        console.log(error);
       }
+    }
+
+    const user = {
+      firstName,
+      lastName,
+      email,
+      password,
+      role,
+      img,
+      createdAt: serverTimestamp(),
+    };
+
+    try {
+      const docRef = doc(db, "users", email);
+      await setDoc(docRef, user);
+      console.log("Document written with ID: ", docRef.id);
     } catch (err) {
       console.log(err);
     }
 
-    handleAddModalUser();
+    handleUpdateModalUser();
   }
 
   const roles = [
@@ -111,7 +82,6 @@ const AddModal = ({ handleAddModalUser }) => {
       description:
         "Administrator can access and manage all data and perform all actions. ",
     },
-    ,
     {
       role: "Manager",
       description:
@@ -161,7 +131,7 @@ const AddModal = ({ handleAddModalUser }) => {
     <StyledAddUser>
       <motion.div
         className="closer"
-        onClick={() => handleAddModalUser()}
+        onClick={() => handleUpdateModalUser()}
         variants={modalVariants}
         initial="hidden"
         animate="visible"
@@ -175,17 +145,17 @@ const AddModal = ({ handleAddModalUser }) => {
         exit="hidden2"
       >
         <div className="add__modal__header">
-          <h1 className="title">New User</h1>
-          <i onClick={() => handleAddModalUser()} className="bx bx-x"></i>
+          <h1 className="title">Update User</h1>
+          <i onClick={() => handleUpdateModalUser()} className="bx bx-x"></i>
         </div>
-        <form onSubmit={roleSubmit} className="add__modal__body">
+        <form onSubmit={updateUser} className="add__modal__body">
           <div className="res__container">
             <div className="img__input">
               <div className="img__container">
                 <img
                   src={
-                    file
-                      ? URL.createObjectURL(file)
+                    img
+                      ? img
                       : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
                   }
                   alt="user"
@@ -198,7 +168,7 @@ const AddModal = ({ handleAddModalUser }) => {
                 type="file"
                 id="file"
                 style={{ display: "none" }}
-                onChange={(e) => setFile(e.target.files[0])}
+                onChange={handleFile}
               />
             </div>
 
@@ -262,10 +232,10 @@ const AddModal = ({ handleAddModalUser }) => {
             ))}
           </div>
           <div className="action__container">
-            <button className="btn cancel" onClick={handleAddModalUser}>
+            <button className="btn cancel" onClick={handleUpdateModalUser}>
               Cancel
             </button>
-            <button className="btn create">Create</button>
+            <button className="btn create">Update</button>
           </div>
         </form>
       </motion.div>
@@ -273,4 +243,4 @@ const AddModal = ({ handleAddModalUser }) => {
   );
 };
 
-export default AddModal;
+export default UpdateUser;

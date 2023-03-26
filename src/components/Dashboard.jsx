@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyledDashboard } from "../styles/Dashboard.styled";
 import Widget from "./Widget";
 import Featured from "./Featured";
@@ -6,10 +6,10 @@ import Chart from "./Chart";
 import AddModal from "./AddModal";
 import SetTargetModal from "./SetTargetModal";
 import { AnimatePresence, motion } from "framer-motion";
-import { INITIAL_STATE } from "../context/AuthContext"; 
+import { INITIAL_STATE } from "../context/AuthContext";
 
-function Dashbooard({ 
-  handleAddNotification, 
+function Dashbooard({
+  handleAddNotification,
   handleTargetNotification,
   data,
   diff,
@@ -18,11 +18,15 @@ function Dashbooard({
   amount,
   target,
   todaysEarnings,
-  queryData
+  queryData,
 }) {
-
   const [isAddModal, setIsAddModal] = useState(false);
   const [isSetTargetModal, setIsSetTargetModal] = useState(false);
+  const [name, setName] = useState(INITIAL_STATE.currentUser.firstName);
+
+  useEffect(() => {
+    setName(INITIAL_STATE.currentUser.firstName);
+  }, [INITIAL_STATE]);
 
   const handleAddModal = () => {
     setIsAddModal(!isAddModal);
@@ -98,7 +102,7 @@ function Dashbooard({
     },
   };
 
-  console.log(INITIAL_STATE)
+  // console.log(INITIAL_STATE.currentUser.firstName)
 
   return (
     <StyledDashboard>
@@ -124,7 +128,7 @@ function Dashbooard({
         animate="visible1"
         exit="exit1"
       >
-        <h1 className="page__title">Dashboard</h1>
+        <h1 className="page__title">Welcome Back {name && name}!</h1>
         <button onClick={handleAddModal} className="new__button">
           New Order
         </button>

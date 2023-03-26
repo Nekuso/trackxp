@@ -15,6 +15,7 @@ import Float7 from "../img/Float7.png";
 import Reports from "./Reports";
 import Management from "./Management";
 import Inventory from "./Inventory";
+import { INITIAL_STATE } from "../context/AuthContext";
 
 function Main({
   handleAddNotification,
@@ -43,6 +44,7 @@ function Main({
       <img className="set5 float" src={Float3} alt="" />
       <img className="set6 float" src={Float6} alt="" />
       <img className="set7 float" src={Float7} alt="" />
+
       <Routes>
         <Route
           path=""
@@ -94,7 +96,12 @@ function Main({
         <Route
           path="Management"
           element={
-            <Management queryData={queryData} setQueryData={setQueryData} queryUsers={queryUsers} setQueryUsers={setQueryUsers} />
+            <Management
+              queryData={queryData}
+              setQueryData={setQueryData}
+              queryUsers={queryUsers}
+              setQueryUsers={setQueryUsers}
+            />
           }
         />
         <Route

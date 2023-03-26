@@ -11,6 +11,7 @@ import {
 } from 'firebase/firestore'
 
 const ordersCollectionRef = collection(db, "orders");
+const usersCollectionRef = collection(db, "users");
 
 class OrderDataService {
     addOrders = (newOrder) => {
@@ -34,6 +35,15 @@ class OrderDataService {
     getOrder = (id) => {
         const orderDoc = doc(db, "orders", id);
         return getDoc(orderDoc);
+    }
+
+    addUsers = (newUser) => {
+        return addDoc(usersCollectionRef, newUser);
+    }
+
+    updateUser = (id, updatedUser) => {
+        const userDoc = doc(db, "users", id);
+        return updateDoc(userDoc, updatedUser);
     }
 }
 

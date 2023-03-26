@@ -4,14 +4,24 @@ import { AnimatePresence } from "framer-motion";
 import AddUser from "./AddUser";
 import { auth, db } from "../firebase";
 import { deleteObject, getStorage, ref } from "firebase/storage";
-import { deleteDoc, doc } from "firebase/firestore";
+import { deleteDoc, doc, setDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import UpdateUser from "./UpdateUser";
 
 const Management = ({ queryUsers }) => {
   const [isAddUser, setIsAddUser] = useState(false);
+  const [isUpdateUser, setIsUpdateUser] = useState(false);
   const [role, setRole] = useState("Administrator");
+  const [currentDataEdit, setCurrentDataEdit] = useState([null]);
 
   const [users, setUsers] = useState([]);
+
+  const updateRole = async (role, email, user) => {
+    await setDoc(doc(db, "users", email), {
+      ...user,
+      role,
+    });
+  };
 
   useEffect(() => {
     setUsers(queryUsers);
@@ -19,6 +29,10 @@ const Management = ({ queryUsers }) => {
 
   const handleAddModalUser = () => {
     setIsAddUser(!isAddUser);
+  };
+  const handleUpdateModalUser = (user) => {
+    setIsUpdateUser(!isUpdateUser);
+    setCurrentDataEdit(user);
   };
 
   const handleDelete = async (id, imageUrl) => {
@@ -49,6 +63,12 @@ const Management = ({ queryUsers }) => {
       </div>
       <AnimatePresence>
         {isAddUser ? <AddUser handleAddModalUser={handleAddModalUser} /> : null}
+        {isUpdateUser ? (
+          <UpdateUser
+            handleUpdateModalUser={handleUpdateModalUser}
+            currentDataEdit={currentDataEdit}
+          />
+        ) : null}
       </AnimatePresence>
       <div className="management__content">
         <div className="add__container">
@@ -66,7 +86,10 @@ const Management = ({ queryUsers }) => {
         <ul className="user__list">
           {users.map((user, index) => (
             <li className="user__list__item" key={index + 1}>
-              <div className="user__content">
+              <div
+                className="user__content"
+                onClick={() => handleUpdateModalUser(user)}
+              >
                 <div className="img__container">
                   <div className="user__img">
                     <img src={user.img} alt="user" loading="lazy" />
@@ -82,7 +105,9 @@ const Management = ({ queryUsers }) => {
                   name=""
                   id=""
                   value={user.role}
-                  onChange={(event) => setRole(event.target.value)}
+                  onChange={(event) =>
+                    updateRole(event.target.value, user.email, user)
+                  }
                 >
                   <option value="administrator">Administrator</option>
                   <option value="Manager">Manager</option>
@@ -90,7 +115,7 @@ const Management = ({ queryUsers }) => {
                 </select>
                 <i
                   className="bx bxs-trash-alt"
-                  onClick={() => handleDelete(user.id, user.file)}
+                  onClick={() => handleDelete(user.id, user, user.file)}
                 ></i>
               </div>
             </li>

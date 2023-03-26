@@ -81,6 +81,31 @@ export const StyledManagement = styled.div`
         gap: 0.5rem;
         padding: 0.6rem 0.7rem;
         border: 1px solid #e0e0e0;
+        transition: all 0.3s ease-in-out;
+
+        :hover {
+          background: black;
+
+          .user__content {
+            cursor: pointer;
+            .user__info {
+              h2,p {
+                color: white;
+              }
+            }
+          }
+
+          .user__actions {
+            select {
+              color: white;
+              background: black;
+              border: 1px solid white;
+            }
+            i {
+              color: white;
+            }
+          }
+        }
 
         .user__content {
           display: flex;
