@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { StyledMain } from "../styles/Main.styled";
 import Dashboard from "./Dashboard";
 import Orders from "./Orders";
@@ -16,6 +16,7 @@ import Reports from "./Reports";
 import Management from "./Management";
 import Inventory from "./Inventory";
 import { INITIAL_STATE } from "../context/AuthContext";
+import ProtectedRoute from "../context/ProtectedRoute";
 
 function Main({
   handleAddNotification,
@@ -35,6 +36,16 @@ function Main({
   queryUsers,
   setQueryUsers,
 }) {
+
+  const [currentUser, setCurrentUser] = React.useState(
+    INITIAL_STATE.currentUser.role
+  );
+
+  useEffect(() => {
+    setCurrentUser(INITIAL_STATE.currentUser.role);
+    console.log(currentUser);
+  }, [INITIAL_STATE]);
+
   return (
     <StyledMain className="main__container">
       <img className="set1 float" src={Float5} alt="" />
@@ -90,7 +101,9 @@ function Main({
         <Route
           path="Analytics"
           element={
-            <Analytics queryData={queryData} setQueryData={setQueryData} />
+            // <ProtectedRoute currentUser={currentUser} role={"Staff"}>
+              <Analytics queryData={queryData} setQueryData={setQueryData} />
+            // </ProtectedRoute>
           }
         />
         <Route
