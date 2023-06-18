@@ -76,7 +76,8 @@ const Management = ({ queryUsers }) => {
           <p>
             Add users to your and assign them to different roles with different
             permissions. You are in control of who can access what data and what
-            actions they can perform.
+            actions they can perform. Make sure you don't delete the manager in 
+            order to not lose the master access.
           </p>
           <button onClick={handleAddModalUser} className="add__user__btn">
             Add User
@@ -109,7 +110,6 @@ const Management = ({ queryUsers }) => {
                     updateRole(event.target.value, user.email, user)
                   }
                 >
-                  <option value="administrator">Administrator</option>
                   <option value="Manager">Manager</option>
                   <option value="Staff">Staff</option>
                 </select>

@@ -1,11 +1,13 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ user, role, children }) => {
-  if (user !== role) {
-    return <Navigate to="/Home" replace />;
+const ProtectedRoute = ({ children, allowedRoles, currentUser }) => {
+  const user = currentUser || JSON.parse(localStorage.getItem("user"));
+  if (!user || !user.role) {
+    return "";
   }
-  return children;
+
+  return allowedRoles.includes(user.role) ? children : <Navigate to="/home" />;
 };
 
 export default ProtectedRoute;

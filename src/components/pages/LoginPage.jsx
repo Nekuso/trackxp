@@ -22,19 +22,6 @@ function Loginpage() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     // Signed inz
-    //     const user = userCredential.user;
-    //     dispatch({ type: "LOGIN", payload: user });
-    //     navigate("/home");
-    //     console.log(user)
-    //   })
-    //   .catch((error) => {
-    //     setError(true);
-    //     setPassword("");
-    //   });
-
     const q = query(
       collection(db, "users"),
       where("email", "==", email),
@@ -48,12 +35,10 @@ function Loginpage() {
     if (querySnapshot.size > 0) {
       dispatch({ type: "LOGIN", payload: querySnapshot.docs[0].data() });
       navigate("/home");
-    }
-    else {
+    } else {
       setError(true);
       setPassword("");
     }
-
   };
 
   return (

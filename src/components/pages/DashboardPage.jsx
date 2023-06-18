@@ -17,6 +17,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useEffect } from "react";
+import { INITIAL_STATE } from "../../context/AuthContext";
 
 function DashboardPage() {
   const [navActive, setNavActive] = useState("hamburger__content");
@@ -39,6 +40,13 @@ function DashboardPage() {
   const [todaysEarningsData, setTodaysEarningsData] = useState([]);
   const [target, setTarget] = useState(5000);
   let data;
+  const [currentLocal, setCurrentLocal] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
+  const [currentUser, setCurrentUser] = useState(currentLocal);
+  const [currentId, setCurrentId] = useState(
+    currentLocal ? currentLocal.id : null
+  );
 
   const navToggle = () => {
     navActive === "hamburger__content"
@@ -54,12 +62,6 @@ function DashboardPage() {
       : setBtnActive("nav__hamburger");
 
     btnHam === false ? setBtnHam(true) : setBtnHam(false);
-  };
-
-  const darkToggle = () => {
-    darkActive === "bx bx-moon"
-      ? setDarkActive("bx bx-sun")
-      : setDarkActive("bx bx-moon");
   };
   const { dispatch } = useContext(AuthContext);
 
@@ -196,6 +198,17 @@ function DashboardPage() {
           item.push({ id: doc.id, ...doc.data() });
         });
         setQueryUsers(item);
+
+        if (currentId) {
+          const user = item.find((user) => user.id === currentId);
+          if (user) {
+            setCurrentUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
+          } else {
+            setCurrentUser(null);
+            localStorage.removeItem("user");
+          }
+        }
       },
       (error) => {
         console.log(error);
@@ -207,7 +220,7 @@ function DashboardPage() {
       unsub2();
       unsub3();
     };
-  }, []);
+  }, [INITIAL_STATE, currentUser, currentId]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -404,12 +417,6 @@ function DashboardPage() {
                     </Link>
                   </li>
                   <li>
-                    <Link className="link" onClick={navToggle} to="Management">
-                      <i className="bx bx-user-circle"></i>
-                      Management
-                    </Link>
-                  </li>
-                  <li>
                     <Link className="link" onClick={navToggle} to="Reports">
                       <i className="bx bxs-report"></i>
                       Reports
@@ -435,12 +442,12 @@ function DashboardPage() {
                 Track<mark>XP</mark>
               </h2>
             </Link>
-            <button onClick={darkToggle}>
+            <button>
               <i className={darkActive}></i>
             </button>
           </div>
           <div className="dashboard__main">
-            <Sidebar />
+            <Sidebar currentUser={currentUser} />
             <Main
               handleAddNotification={handleAddNotification}
               handleTargetNotification={handleTargetNotification}
@@ -458,6 +465,7 @@ function DashboardPage() {
               setQueryData={setQueryData}
               queryUsers={queryUsers}
               setQueryUsers={setQueryUsers}
+              currentUser={currentUser}
             />
           </div>
         </div>

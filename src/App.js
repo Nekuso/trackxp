@@ -19,16 +19,15 @@ function App() {
     return currentUser ? children : <Navigate to="/Login" />;
   };
 
-  return ( 
-    // https://stackoverflow.com/questions/71984401/react-router-not-working-with-github-pages
+  return (
     <>
       <GlobalStyle />
       <div className="content">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
             <Route path="/">
-              <Route index element={<HomePage />}/>
-              <Route path=":orderId" element={<View/>}/>
+              <Route index element={<HomePage />} />
+              <Route path=":orderId" element={<View />} />
               <Route path="Login" element={<LoginPage />} />
               <Route path="Signup" element={<SignupPage />} />
               <Route
@@ -41,7 +40,7 @@ function App() {
               />
             </Route>
           </Routes>
-      </AnimatePresence>
+        </AnimatePresence>
       </div>
     </>
   );

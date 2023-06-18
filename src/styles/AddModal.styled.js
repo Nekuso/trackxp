@@ -387,7 +387,7 @@ export const StyledAddModal = styled.div`
 
   @media screen and (min-width: 1024px) {
     .add__modal {
-      width: 55%;
+      width: 45%;
       height: auto;
       padding: 1rem;
       .add__modal__header {

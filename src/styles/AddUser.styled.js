@@ -225,6 +225,7 @@ export const StyledAddUser = styled.div`
       gap: 1rem;
 
       .btn {
+        text-align: center;
         padding: 0.8rem 1rem;
         border-radius: 1rem;
         font-size: 0.8rem;
@@ -321,7 +322,7 @@ export const StyledAddUser = styled.div`
 
   @media screen and (min-width: 1024px) {
     .add__modal {
-      width: 35%;
+      width: 30%;
       min-height: 50%;
 
       .add__modal__header {

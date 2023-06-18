@@ -263,18 +263,6 @@ const Reports = ({ queryData, setqueryData }) => {
             </td>
           </tr>
         </table>
-
-        {/* <div className="report__totals">
-          <h3>
-            Total Orders: <span>{filteredOrders.length}</span>
-          </h3>
-          <h3>
-            Total Pendings: <span>{totalPendings}</span>
-          </h3>
-          <h3>
-            Total Revenue: <span>P <CountUp duration={2} end={filteredOrders.reduce((acc, order) => acc + order.total, 0) } decimals={2} separator="," /></span>
-          </h3>
-        </div> */}
       </div>
     </StyledReports>
   );

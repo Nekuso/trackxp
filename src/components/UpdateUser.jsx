@@ -78,11 +78,6 @@ const UpdateUser = ({ handleUpdateModalUser, currentDataEdit }) => {
 
   const roles = [
     {
-      role: "Administrator",
-      description:
-        "Administrator can access and manage all data and perform all actions. ",
-    },
-    {
       role: "Manager",
       description:
         "Manager can access and manage all data and perform all actions except for managing users.",
@@ -232,9 +227,12 @@ const UpdateUser = ({ handleUpdateModalUser, currentDataEdit }) => {
             ))}
           </div>
           <div className="action__container">
-            <button className="btn cancel" onClick={handleUpdateModalUser}>
+            <div
+              className="btn cancel"
+              onClick={() => handleUpdateModalUser()}
+            >
               Cancel
-            </button>
+            </div>
             <button className="btn create">Update</button>
           </div>
         </form>

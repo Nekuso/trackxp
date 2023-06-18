@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Routes, Route, Navigate, Redirect } from "react-router-dom";
 import { StyledMain } from "../styles/Main.styled";
 import Dashboard from "./Dashboard";
 import Orders from "./Orders";
@@ -15,7 +15,6 @@ import Float7 from "../img/Float7.png";
 import Reports from "./Reports";
 import Management from "./Management";
 import Inventory from "./Inventory";
-import { INITIAL_STATE } from "../context/AuthContext";
 import ProtectedRoute from "../context/ProtectedRoute";
 
 function Main({
@@ -35,16 +34,16 @@ function Main({
   setQueryData,
   queryUsers,
   setQueryUsers,
+  currentUser,
 }) {
-
-  const [currentUser, setCurrentUser] = React.useState(
-    INITIAL_STATE.currentUser.role
-  );
-
-  useEffect(() => {
-    setCurrentUser(INITIAL_STATE.currentUser.role);
-    console.log(currentUser);
-  }, [INITIAL_STATE]);
+  const allowedUserRoles = {
+    dashboard: ["Manager", "Staff"],
+    orders: ["Manager", "Staff"],
+    analytics: ["Manager"],
+    inventory: ["Manager"],
+    management: ["Manager"],
+    reports: ["Manager"],
+  };
 
   return (
     <StyledMain className="main__container">
@@ -72,6 +71,7 @@ function Main({
               todaysEarnings={todaysEarnings}
               queryData={queryData}
               setQueryData={setQueryData}
+              currentUser={currentUser}
             />
           }
         />
@@ -101,32 +101,50 @@ function Main({
         <Route
           path="Analytics"
           element={
-            // <ProtectedRoute currentUser={currentUser} role={"Staff"}>
+            <ProtectedRoute
+              currentUser={currentUser}
+              allowedRoles={allowedUserRoles.analytics}
+            >
               <Analytics queryData={queryData} setQueryData={setQueryData} />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="Management"
           element={
-            <Management
-              queryData={queryData}
-              setQueryData={setQueryData}
-              queryUsers={queryUsers}
-              setQueryUsers={setQueryUsers}
-            />
+            <ProtectedRoute
+              currentUser={currentUser}
+              allowedRoles={allowedUserRoles.management}
+            >
+              <Management
+                queryData={queryData}
+                setQueryData={setQueryData}
+                queryUsers={queryUsers}
+                setQueryUsers={setQueryUsers}
+              />
+            </ProtectedRoute>
           }
         />
-        <Route
+        {/* <Route
           path="Inventory"
           element={
-            <Inventory queryData={queryData} setQueryData={setQueryData} />
+            <ProtectedRoute
+              currentUser={currentUser}
+              allowedRoles={allowedUserRoles.inventory}
+            >
+              <Inventory queryData={queryData} setQueryData={setQueryData} />
+            </ProtectedRoute>
           }
-        />
+        /> */}
         <Route
           path="Reports"
           element={
-            <Reports queryData={queryData} setQueryData={setQueryData} />
+            <ProtectedRoute
+              currentUser={currentUser}
+              allowedRoles={allowedUserRoles.reports}
+            >
+              <Reports queryData={queryData} setQueryData={setQueryData} />
+            </ProtectedRoute>
           }
         />
       </Routes>

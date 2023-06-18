@@ -6,7 +6,6 @@ import Chart from "./Chart";
 import AddModal from "./AddModal";
 import SetTargetModal from "./SetTargetModal";
 import { AnimatePresence, motion } from "framer-motion";
-import { INITIAL_STATE } from "../context/AuthContext";
 
 function Dashbooard({
   handleAddNotification,
@@ -19,14 +18,10 @@ function Dashbooard({
   target,
   todaysEarnings,
   queryData,
+  currentUser,
 }) {
   const [isAddModal, setIsAddModal] = useState(false);
   const [isSetTargetModal, setIsSetTargetModal] = useState(false);
-  const [name, setName] = useState(INITIAL_STATE.currentUser.firstName);
-
-  useEffect(() => {
-    setName(INITIAL_STATE.currentUser.firstName);
-  }, [INITIAL_STATE]);
 
   const handleAddModal = () => {
     setIsAddModal(!isAddModal);
@@ -102,7 +97,13 @@ function Dashbooard({
     },
   };
 
-  // console.log(INITIAL_STATE.currentUser.firstName)
+  const [user, setUser] = useState(currentUser ? currentUser : "");
+
+  useEffect(() => {
+    if (currentUser) {
+      setUser(currentUser);
+    }
+  }, [currentUser]);
 
   return (
     <StyledDashboard>
@@ -128,7 +129,9 @@ function Dashbooard({
         animate="visible1"
         exit="exit1"
       >
-        <h1 className="page__title">Welcome Back {name && name}!</h1>
+        <h1 className="page__title">
+          Welcome Back {user ? user.firstName : ""}!
+        </h1>
         <button onClick={handleAddModal} className="new__button">
           New Order
         </button>
