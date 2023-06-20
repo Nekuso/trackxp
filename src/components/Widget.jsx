@@ -104,7 +104,6 @@ const Widget = ({ type, data, earnings, earningsDiff, diff, amount }) => {
           <Link to={`${data.link}`} className="widget__link">
             {data.linkDescription}
           </Link>
-          {/* <div className="icon" style={{background: `${data.backgroundColor}`}}><i className={data.icon}></i></div> */}
         </div>
       </StyledWidget>
     </Tooltip>

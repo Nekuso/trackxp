@@ -203,7 +203,7 @@ function DashboardPage() {
           const user = item.find((user) => user.id === currentId);
           if (user) {
             setCurrentUser(user);
-            localStorage.setItem("user", JSON.stringify(user));
+            // localStorage.setItem("user", JSON.stringify(user));
           } else {
             setCurrentUser(null);
             localStorage.removeItem("user");
