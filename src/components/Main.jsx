@@ -35,9 +35,11 @@ function Main({
   queryUsers,
   setQueryUsers,
   currentUser,
+  handleAddModal,
+  isAddModal
 }) {
   const allowedUserRoles = {
-    dashboard: ["Manager", "Staff"],
+    dashboard: ["Manager"],
     orders: ["Manager", "Staff"],
     analytics: ["Manager"],
     inventory: ["Manager"],
@@ -57,22 +59,27 @@ function Main({
 
       <Routes>
         <Route
-          path=""
+          path="/"
           element={
-            <Dashboard
-              handleAddNotification={handleAddNotification}
-              handleTargetNotification={handleTargetNotification}
-              data={data}
-              diff={diff}
-              earnings={earnings}
-              earningsDiff={earningsDiff}
-              amount={amount}
-              target={target}
-              todaysEarnings={todaysEarnings}
-              queryData={queryData}
-              setQueryData={setQueryData}
+            <ProtectedRoute
               currentUser={currentUser}
-            />
+              allowedRoles={allowedUserRoles.dashboard}
+            >
+              <Dashboard
+                handleAddNotification={handleAddNotification}
+                handleTargetNotification={handleTargetNotification}
+                data={data}
+                diff={diff}
+                earnings={earnings}
+                earningsDiff={earningsDiff}
+                amount={amount}
+                target={target}
+                todaysEarnings={todaysEarnings}
+                queryData={queryData}
+                setQueryData={setQueryData}
+                currentUser={currentUser}
+              />
+            </ProtectedRoute>
           }
         />
         <Route path="Orders">
@@ -85,6 +92,8 @@ function Main({
                 handleDeleteNotification={handleDeleteNotification}
                 queryData={queryData}
                 setQueryData={setQueryData}
+                handleAddModal={handleAddModal}
+                isAddModal={isAddModal}
               />
             }
           />

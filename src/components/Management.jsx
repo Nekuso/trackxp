@@ -59,7 +59,7 @@ const Management = ({ queryUsers }) => {
   return (
     <StyledManagement>
       <div className="management__header">
-        <h1>Management</h1>
+        <h1>Users</h1>
       </div>
       <AnimatePresence>
         {isAddUser ? <AddUser handleAddModalUser={handleAddModalUser} /> : null}
@@ -72,11 +72,10 @@ const Management = ({ queryUsers }) => {
       </AnimatePresence>
       <div className="management__content">
         <div className="add__container">
-          <h2>Users</h2>
           <p>
             Add users to your and assign them to different roles with different
             permissions. You are in control of who can access what data and what
-            actions they can perform. Make sure you don't delete the manager in 
+            actions they can perform. Make sure you don't delete the manager in
             order to not lose the master access.
           </p>
           <button onClick={handleAddModalUser} className="add__user__btn">

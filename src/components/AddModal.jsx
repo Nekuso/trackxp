@@ -110,7 +110,9 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
     commentValue: "",
   });
   const current = new Date();
-  const dateCreated = `${current.getMonth() + 1}/${current.getDate()}/${current.getFullYear()}`;
+  const dateCreated = `${
+    current.getMonth() + 1
+  }/${current.getDate()}/${current.getFullYear()}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -180,8 +182,11 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
         return (particular.itemTotal = 0);
       }
     });
-    const computedTotal = (particularsData.reduce((acc, curr) => acc + curr.itemTotal, 0));
-    setTotal (parseFloat(computedTotal.toFixed(2)));
+    const computedTotal = particularsData.reduce(
+      (acc, curr) => acc + curr.itemTotal,
+      0
+    );
+    setTotal(parseFloat(computedTotal.toFixed(2)));
   }, [particularsData]);
 
   const modalVariants = {
@@ -235,7 +240,7 @@ const AddModal = ({ handleAddModal, handleAddNotification }) => {
         exit="hidden2"
       >
         <div className="add__modal__header">
-          <h1 className="title">New Order</h1>
+          <h1 className="title">New Service</h1>
           <i onClick={() => handleAddModal()} className="bx bx-x"></i>
         </div>
         <form onSubmit={handleAdd} className="add__modal__body">

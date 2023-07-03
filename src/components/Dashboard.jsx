@@ -132,9 +132,6 @@ function Dashbooard({
         <h1 className="page__title">
           Welcome Back {user ? user.firstName : ""}!
         </h1>
-        <button onClick={handleAddModal} className="new__button">
-          New Order
-        </button>
       </motion.div>
       <motion.div
         className="widgets"

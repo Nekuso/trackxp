@@ -10,12 +10,9 @@ const Orders = ({
   handleDeleteNotification,
   queryData,
   setQueryData,
+  handleAddModal,
+  isAddModal
 }) => {
-  const [isAddModal, setIsAddModal] = useState(false);
-
-  const handleAddModal = () => {
-    setIsAddModal(!isAddModal);
-  };
 
   const viewVariants = {
     initialHidden: {
@@ -54,12 +51,9 @@ const Orders = ({
           ) : null}
         </AnimatePresence>
         <div className="text__header">
-          <h1 className="title">All orders</h1>
+          <h1 className="title">All Customers</h1>
           <p className="date">{Date()}</p>
         </div>
-        <button onClick={handleAddModal} className="new__button">
-          New Order
-        </button>
       </motion.div>
       <DataTable
         handleDeleteNotification={handleDeleteNotification}

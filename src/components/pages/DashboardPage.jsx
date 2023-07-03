@@ -218,9 +218,9 @@ function DashboardPage() {
     return () => {
       unsub();
       unsub2();
-      unsub3();
+      // unsub3();
     };
-  }, [INITIAL_STATE, currentUser, currentId]);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -298,6 +298,12 @@ function DashboardPage() {
     // Call functions
     fetchData();
   }, [amount, target, queryData, queryTarget]);
+
+  const [isAddModal, setIsAddModal] = useState(false);
+
+  const handleAddModal = () => {
+    setIsAddModal(!isAddModal);
+  };
 
   return (
     <StyledDashboardPage>
@@ -404,16 +410,22 @@ function DashboardPage() {
                       Orders
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link className="link" onClick={navToggle} to="Analytics">
                       <i className="bx bxs-objects-horizontal-left"></i>
                       Analytics
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link className="link" onClick={navToggle} to="Inventory">
                       <i className="bx bxs-package"></i>
                       Inventory
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link" onClick={navToggle} to="Management">
+                      <i className="bx bxs-package"></i>
+                      Users
                     </Link>
                   </li>
                   <li>
@@ -447,8 +459,13 @@ function DashboardPage() {
             </button>
           </div>
           <div className="dashboard__main">
-            <Sidebar currentUser={currentUser} />
+            <Sidebar
+              currentUser={currentUser}
+              handleAddModal={handleAddModal}
+            />
             <Main
+              isAddModal={isAddModal}
+              handleAddModal={handleAddModal}
               handleAddNotification={handleAddNotification}
               handleTargetNotification={handleTargetNotification}
               handleUpdateNotifcation={handleUpdateNotifcation}

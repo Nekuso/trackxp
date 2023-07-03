@@ -89,13 +89,16 @@ export const StyledReports = styled.div`
       border: 1px solid black;
       border-collapse: collapse;
       text-align: center;
+
       th {
         border: 1px solid black;
         padding: 0.5rem;
+        background: #84974f;
+        color: white;
       }
       td {
         border: 1px solid black;
-        padding: 0.5rem;
+        padding: 0.3rem;
       }
     }
     .report__totals {
@@ -106,38 +109,47 @@ export const StyledReports = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    .reports__header {
-      h1 {
-        font-size: 2rem;
-      }
-      .right__actions {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        .date__buttons {
+    .reports__content {
+      padding: 1rem;
+      background: white;
+      // border: 1px solid black;
+      border-radius: 0.5rem;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      .reports__header {
+        h1 {
+          font-size: 2rem;
+        }
+        .right__actions {
           display: flex;
-          border-radius: 0.7rem;
-          overflow: hidden;
-          border: none;
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  
-          button {
-            background: #f1f1f1;
+          align-items: center;
+          gap: 0.5rem;
+          .date__buttons {
+            display: flex;
+            border-radius: 0.7rem;
+            overflow: hidden;
             border: none;
-            padding: 0.8rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            :nth-child(2) {
-              border-left: 1px solid gray;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+            button {
+              background: #f1f1f1;
+              border: none;
+              padding: 0.8rem;
+              font-size: 0.9rem;
+              font-weight: 700;
+              cursor: pointer;
+              transition: all 0.2s ease-in-out;
+              :nth-child(2) {
+                border-left: 1px solid gray;
+              }
             }
           }
         }
       }
-    }
-    .reports__content {
-      table {
+      .reports__content {
+        table {
+        }
       }
     }
   }
@@ -150,6 +162,7 @@ export const StyledReports = styled.div`
       }
       .second__report {
         display: block;
+        font-size: 1.9rem;
       }
       .date {
         display: block;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { StyledSidebar } from "../styles/Sidebar.styled";
 
-function Sidebar({ currentUser }) {
+function Sidebar({ currentUser, handleAddModal }) {
   const { dispatch } = useContext(AuthContext);
 
   const [user, setUser] = useState(currentUser ? currentUser : "");
@@ -16,13 +16,13 @@ function Sidebar({ currentUser }) {
   }, [currentUser]);
 
   const allowedRoles = {
-    dashboard: ["Manager", "Staff"],
+    dashboard: ["Manager"],
     orders: ["Manager", "Staff"],
     analytics: [, "Manager"],
     inventory: ["Manager"],
     management: ["Manager"],
     reports: ["Manager"],
-  }; // add the roles that are allowed to see the link
+  };
 
   return (
     <StyledSidebar className="sidebar__container">
@@ -44,8 +44,14 @@ function Sidebar({ currentUser }) {
           {allowedRoles["orders"].includes(currentUser.role) && (
             <Link className="li list" to="Orders">
               <i className="bx bxs-receipt"></i>
-              <div className="link title">Orders</div>
+              <div className="link title">Customers</div>
             </Link>
+          )}
+          {allowedRoles["orders"].includes(currentUser.role) && (
+            <div onClick={handleAddModal} className="li list">
+              <i className="bx bx-plus-circle"></i>
+              <div className="link title">Service</div>
+            </div>
           )}
           {allowedRoles["analytics"].includes(currentUser.role) && (
             <Link className="li list" to="Analytics">
@@ -53,16 +59,10 @@ function Sidebar({ currentUser }) {
               <div className="link title">Analytics</div>
             </Link>
           )}
-          {/* {allowedRoles["inventory"].includes(currentUser.role) && (
-            <Link className="li list" to="Inventory">
-              <i className="bx bxs-package"></i>
-              <div className="link title">Inventory</div>
-            </Link>
-          )} */}
           {allowedRoles["management"].includes(currentUser.role) && (
             <Link className="li list" to="Management">
               <i className="bx bx-user-circle"></i>
-              <div className="link title">Management</div>
+              <div className="link title">User Accounts</div>
             </Link>
           )}
           {allowedRoles["reports"].includes(currentUser.role) && (

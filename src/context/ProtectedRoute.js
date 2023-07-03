@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children, allowedRoles, currentUser }) => {
     return "";
   }
 
-  return allowedRoles.includes(user.role) ? children : <Navigate to="/home" />;
+  return allowedRoles.includes(user.role) ? children : <Navigate to="/Home/Orders" />;
 };
 
 export default ProtectedRoute;
